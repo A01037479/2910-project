@@ -126,6 +126,24 @@ footer>div {
 
 
 
+.dropdown-item:hover {
+  background-color: #5bad58;
+}
+
+.nav-link:hover {
+  background-color: #5bad58;
+}
+
+nav {
+  background-color: green;
+}
+
+.dropdown-menu {
+  width: 100%;
+  text-align: center;
+}
+
+
 /*********************************************/
 @media screen and (min-width: 1024px) {
   .mainview {
