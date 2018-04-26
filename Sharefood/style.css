@@ -66,6 +66,37 @@ h3 img {
   font-family: 'Gaegu';
 }
 
+#textChange{
+  width: 100%;
+  padding-left: 60px;
+  
+}
+
+.wrap{
+  float: left;
+  margin: 0px;
+  padding-top: 5%;
+  color: #ffffff;
+  font-size: 7vw;
+  font-weight: bold;
+  font-family: 'Gaegu';
+  text-shadow: 2px 2px 4px #000000;
+  
+}
+
+#postfix{
+  position: relative;
+  float: left;
+  margin: 0px;
+  padding-top: 5%;
+  color: #ffffff;
+  font-size: 7vw;
+  font-weight: bold;
+  font-family: 'Gaegu';
+  text-shadow: 2px 2px 4px #000000;
+  padding-left: 16px;
+}
+
 .row div {
   padding: 5px;
 }
@@ -123,6 +154,8 @@ footer>div {
  #plusButton{
     display: none;
   }
+
+
 
 /*********************************************/
 @media screen and (min-width: 1024px) {
