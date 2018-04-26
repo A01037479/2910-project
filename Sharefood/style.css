@@ -1,31 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto|Gaegu');
+
 body {
-  background-image: url(back.jpg);
-  background-size: cover;
+  font-family: 'Roboto';
+  background: #edefed;
 }
 
 .jumbotron {
-  background-image: url("banner.jpg");
-  background-size: cover;
   height: 200px;
   margin: 0;
 }
-
-h1, h4, p {
-  color: #fff;
+header {
+  background-color: white;
   text-align: center;
 }
-
-h1 {
-  padding-top: 30px;
+#logo {
+  width: 180px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #d0edd5;
+  text-decoration: none;
+}
+nav {
+  text-align: center;
+  background-color: #048c36;
+  height: 32px;
+  margin: 0;
+}
+nav a {
+  padding: 2em;
+  font-size: 1.2em;
+}
+h1, h4, p {
+  color: #048c36;
+  text-align: center;
+}
+h3 {
+  background-color: white;
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 1em 0 1em 0.2em;
+}
+h3 img {
+  margin-right: 0.5em;
 }
 
-h4 {
-  padding: 5%;
+.mainview {
+  text-align: center;
+  margin: 0px 0px 3em 0px;
+  height: 400px;
+  background-image: url("mainfood.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.mainview p {
+  margin: 0px;
+  padding-top: 5%;
+  color: #ffffff;
+  font-size: 8vw;
+  font-weight: bold;
+  font-family: 'Gaegu';
 }
 
 .row div {
   padding: 5px;
-  border: 1px solid green;
 }
 
 .freebie {
@@ -38,46 +80,33 @@ h4 {
   opacity: 0.5;
 }
 
-foot img {
-  width: 25%;
-}
-
 footer>div {
   float: right;
   padding: 10px;
 }
 
 .foot {
-  height: 150px;
-  background-size: 100%;
+  margin-top: 2em;
+  padding-top: 1em;
+  height: 70px;
+  background-color: #cccecc;
 }
-
-.nav {
-  background-color: darkolivegreen;
-  height: 50px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-link {
-  color: #fff;
+.foot img {
+  margin-right: 1em;
 }
 
 .row .item {
   width: 80%;
-  background-color: #fff;
-}
-
-.logo img {
-  float: right;
-  max-height: 200px;
-
+  background-color: #edefed;
 }
 
 .desc {
-  background-color: darkslategrey;
-  color: #fff;
+  background-color: white;
+  color: black;
+  padding: 1em;
+  margin-bottom: 2em;
 }
+
 
 .pop-out {
   display: none;
@@ -89,4 +118,24 @@ footer>div {
 .pop-in {
   border: 1px solid #99dd88;
   padding: 5px;
+}
+
+/*********************************************/
+@media screen and (min-width: 1024px) {
+  .mainview {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mainview {
+    height: 300px;
+  }
+  .mainview {
+    padding-top: 2em;
+  }
+  nav a {
+    padding: 0.5em;
+    font-size: 1.1em;
+  }
 }
