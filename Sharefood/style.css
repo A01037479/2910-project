@@ -120,14 +120,14 @@ footer>div {
   padding: 5px;
 }
 
+ #plusButton{
+    display: none;
+  }
 
 /*********************************************/
 @media screen and (min-width: 1024px) {
   .mainview {
     height: 500px;
-  }
-  #plusButton{
-    display: none;
   }
 }
 
@@ -141,9 +141,6 @@ footer>div {
   nav a {
     padding: 0.5em;
     font-size: 1.1em;
-  }
-    #plusButton{
-    display: none;
   }
 }
 
