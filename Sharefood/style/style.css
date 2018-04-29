@@ -129,6 +129,49 @@ footer p {
   padding: 1em 0.5em;
 }
 
+/*** terms of use styling ***/
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Expand';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Collapse';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em;
+  color: black;
+  font-size: .5em;
+  line-height: 2;
+}
+
+#p123 {
+  padding: 0%;
+  background: white;
+  color: black;
+  max-width: 280px;
+  margin-bottom: 0;
+}
+
 /*********************************************/
 @media screen and (min-width: 1024px) {
   .banner {
