@@ -28,7 +28,10 @@ require_once('view/top.php');
            </fieldset>
     </div>
 
-  <p><input type="submit" name="submit" value="Upload" class="button"></p>
+    <p style="margin-bottom: 0px;">I have read and agree to the Terms of Use.</p>
+    <input type="checkbox" name="checkbox" value="check">
+    <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms first.');return false}"></p>
+
 </form>
 
 
