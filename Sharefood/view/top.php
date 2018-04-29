@@ -7,17 +7,29 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
-    <!-- Google Maps API -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXNmgrTKjtbZz3d6CN0008e6FcJbZ8MU&callback=initMap">
-    </script>
   </head>
   <body>
     <header>
       <a href="index.php"><img src="img/logo.png" id="logo"></a>
       <nav>
+        <div class="textmenu">
+          <span class="menu"><a href="post.php">SHARE</a></span>
+          <span class="menu"><a href="">FOOD FACTS</a></span>
+          <span class="menu"><a href="">HOW TO</a></span>
+          <span class="menu"><a href="">ABOUT</a></span>
+        </div>
+
+        <div class="dropdown">
+          <button onclick="popMenu()" class="dropbtn"></button>
+          <div class="dropdown-content" id="myDropdown">
+            <a href="post.php">SHARE</a>
+            <a href="">FOOD FACTS</a>
+            <a href="">HOW TO</a>
+            <a href="">ABOUT</a>
+          </div>
+        </div>
 
       </nav>
-      <br>
 
-     </header>
+    </header>
+    <article>

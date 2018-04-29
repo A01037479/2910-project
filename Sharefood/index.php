@@ -5,9 +5,13 @@ require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
  ?>
 
- <a href="post.php"><div class="button">POST</div></a>
+<div class="banner">
+  <p>SHARE FOOD, REDUCE WASTE</p>
+</div>
+
 
 <?php
+  //retriving list
 
   $sql = "SELECT * FROM list ORDER BY id DESC";
   $result = mysqli_query($conn, $sql);
@@ -27,13 +31,17 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
       // listing each poast
       echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
-      echo "<img src=\"{$escaped['image']}\">
+      echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
       <p>{$escaped['status']}<br>{$created}</p>
-      </div></a><br>";
+      </div></a>";
     };
 
   }
+?>
+<button id="plusButton"><a href="post.php"><img src="img/plus.png" alt="post"></a>
+</button>
 
+
+<?php
 require_once('view/footer.php');
-
  ?>
