@@ -69,21 +69,13 @@ article {
   font-family: 'Gaegu';
 }
 
-.posting {
-  margin: 0 auto;
-}
-.posting, .posting tbody td {
-  border: 1px solid gray;
-  border-collapse: collapse;
-  padding: 0.5em;
-}
 .list_item {
   max-width; 90%;
   text-align: left;
   display: inline-block;
   background-color: white;
   margin: 2em 0.5em;
-  padding: 0.5em;
+  padding: 1em;
 }
 .uploadedImg {
   width: 100%;
@@ -99,9 +91,12 @@ article {
   margin: 0.2em;
   text-align: left;
 }
-#form_group {
-  text-align: left;
-  display: inline-block;
+form input, form textarea {
+  width: 95%;
+}
+input {
+  height: 25px;
+  margin: 0.3em 0;
 }
 #photoupload {
   width: 30px;
@@ -125,12 +120,13 @@ article {
   color: gray;
   font-size: 0.8em;
 }
-form input, form textarea {
-  width: 95%;
-}
-
 #plusButton{
   display: none;
+}
+footer p {
+  margin: 0;
+  background-color: #c7ccc8;
+  padding: 1em 0.5em;
 }
 
 /*********************************************/
