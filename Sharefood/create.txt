@@ -1,0 +1,48 @@
+create table location (
+id int(11) not null auto_increment,
+latitude varchar(100) not null,
+longitude varchar(100) not null,
+primary key(id)
+);
+
+create table list (
+id int(11) not null auto_increment,
+password varchar(20) not null,
+email varchar(30) not null,
+title varchar(30) not null,
+status varchar(20) not null,
+image varchar(100) not null,
+description varchar(1000) not null,
+created datetime not null,
+primary key(id)
+);
+
+create table course (
+id int(11) not null auto_increment,
+term int(11) not null,
+code varchar(11) not null,
+name varchar(30) not null,
+primary key(id)
+);
+
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMP1536', 'Introduction to Web Development');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMP1510', 'Programming Methods');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMP1113', 'Applied Mathematics');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMP1111', 'Essential Skills for Computing');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMP1100', 'CST Program Fundamentals');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'COMM1116', 'Business Communications 1');
+INSERT INTO course
+(term, code, name) VALUES
+(1, 'BUSA2720', 'Business in a Networked Economy');

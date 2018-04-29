@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto');
+
+body {
+  font-family: 'Roboto';
+  margin: 0em;
+  padding: 0 1em;
+  background-color: #e5e6e8;
+  text-align: center;
+}
+header {
+  text-align: center;
+}
+#logo {
+  width: 120px;
+  margin-right: 0.3em;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: #048c36;
+  text-decoration: none;
+}
+.posting {
+  margin: 0 auto;
+}
+.posting, .posting tbody td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 0.5em;
+}
+.list_item {
+  width: 300px;
+  max-width; 90%;
+  text-align: left;
+  display: inline-block;
+  background-color: white;
+  margin: 1em auto;
+  padding: 0.5em;
+}
+.list_item img {
+  width: 100%;
+}
+.list_title {
+  font-size: 20pt;
+  font-weight: bold;
+  margin: 0.2em;
+  text-align: left;
+}
+#form_group {
+  text-align: left;
+  display: inline-block;
+}
+#photoupload {
+  width: 30px;
+}
+.button {
+  font-size: 1.1em;
+  margin: 0 auto;
+  background-color: green;
+  border: none;
+  padding: 0.5em;
+  width: 300px;
+  height: 35px;
+  box-sizing: border-box;
+  color: white;
+}
+.button:hover {
+  cursor:pointer;
+  background-color: orange;
+}
+.desc {
+  color: gray;
+  font-size: 0.8em;
+}
+form input, form textarea {
+  width: 95%;
+}
