@@ -25,7 +25,9 @@ require_once('view/top.php');
 
       <label for="post-1" class="read-more-trigger"></label>
     </div>
-    <p><input type="submit" name="submit" value="Upload" class="button"></p>
+    <p>I have read and understand the Terms of Use</p>
+    <input type="checkbox" name="checkbox" value="check">
+    <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms first.');return false}"></p>
   </form>
 
 </div>
