@@ -42,7 +42,8 @@ nav {
   display: none;
 }
 nav .menu {
-  padding: 1em;
+  padding: 2em;
+  font-size: 1.1em;
 }
 #logo {
   width: 120px;
@@ -100,6 +101,7 @@ input {
 }
 #photoupload {
   width: 30px;
+  display: block;
 }
 .button {
   font-size: 1.1em;
@@ -122,6 +124,7 @@ input {
 }
 #plusButton{
   display: none;
+  outline: none;
 }
 footer p {
   margin: 0;
@@ -131,10 +134,17 @@ footer p {
 
 /*** terms of use styling ***/
 .fieldsetContainer {
-    height: 0;
-    overflow: hidden;
-    transition: height 400ms linear;
-    max-width: 300px;
+  padding: 0 0.5em;
+  height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 400ms linear;
+  max-width: 300px;
+  font-size: 0.9em;
+  color: #646666;
+}
+.toggleDiv p {
+  margin: 1em 0;
 }
 
 #toggle {
@@ -142,7 +152,7 @@ footer p {
 }
 
 #toggle:checked ~ .fieldsetContainer {
-    height: 200px;
+    height: 150px;
 }
 
 label .arrow-dn { display: inline-block; }
@@ -166,7 +176,7 @@ label .arrow-up { display: none; }
   }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
   #logo {
     width: 80px;
   }
