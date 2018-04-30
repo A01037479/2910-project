@@ -101,6 +101,14 @@ article {
   margin: 0.2em;
   text-align: left;
 }
+.edit {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+.edit a:hover {
+  color: green;
+}
 form input, form textarea {
   width: 95%;
 }

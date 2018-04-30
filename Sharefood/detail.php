@@ -20,9 +20,9 @@ $escaped = array(
 
 $created = substr($row['created'], 0, 10);
 
-echo "<div class='detail_item'><p class='list_title'>{$escaped['title']}</p>";
+echo "<div class='detail_item'><p class='edit'><a href=''>edit</a> | <a href=''>delete</a></p><p class='list_title'>{$escaped['title']}</p>";
 echo "<img src=\"{$escaped['image']}\" class='detailImg'>
-<p>{$escaped['status']}<br><p>{$created}</p>
+<p><b>Status:</b> {$escaped['status']}<br></p><p><b>Posted: </b>{$created}</p>
 <p><b>Description</b><br>{$escaped['description']}</p>
 <br>";
 ?>
