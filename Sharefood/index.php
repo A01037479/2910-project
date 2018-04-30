@@ -6,7 +6,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
  ?>
 
 <div class="banner">
-  <p>SHARE FOOD, REDUCE WASTE</p>
+  <p id="textAni"></p>
 </div>
 
 
@@ -41,7 +41,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <button id="plusButton"><a href="post.php"><img src="img/plus.png" alt="post"></a>
 </button>
 
-
+<script src="js/typewriter.js"></script>
 <?php
 require_once('view/footer.php');
  ?>
