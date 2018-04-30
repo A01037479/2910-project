@@ -31,12 +31,12 @@ header {
   text-align: center;
 }
 nav {
-  height: 30px;
+  height: 40px;
   background-color: #048c36;
   overflow: hidden;
 }
 .textmenu {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 .dropdown {
   display: none;
@@ -50,7 +50,7 @@ nav .menu {
   margin-right: 0.3em;
 }
 article {
-  margin: 130px 0 0 0;
+  margin: 140px 0 0 0;
   padding: 0;
 }
 .banner {
@@ -71,11 +71,12 @@ article {
 }
 
 .list_item {
-  max-width; 90%;
+  width: 500px;
+  max-width: 80%;
   text-align: left;
   display: inline-block;
   background-color: white;
-  margin: 2em 0.5em;
+  margin: 1.5em 0.5em;
   padding: 1em;
 }
 .uploadedImg {
@@ -127,7 +128,7 @@ input {
   outline: none;
 }
 footer p {
-  margin: 0;
+  margin: 1em 0 0 0;
   background-color: #c7ccc8;
   padding: 1em 0.5em;
 }
@@ -181,7 +182,7 @@ label .arrow-up { display: none; }
     width: 80px;
   }
   article {
-    margin-top: 100px;
+    margin-top: 110px;
   }
   .banner {
     height: 200px;
@@ -200,12 +201,12 @@ label .arrow-up { display: none; }
   }
   .dropbtn {
     margin: 0 0 0 10px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     background-image: url("../img/dropdown.png");
     background-color: transparent;
-    background-size: 30px 30px;
+    background-size: 40px 40px;
     background-repeat: no-repeat;
     border: none;
   }
@@ -233,21 +234,21 @@ label .arrow-up { display: none; }
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
 
-    #plusButton{
-      display: block;
-      float: right;
-      position: fixed;
-      bottom: 10px;
-      right: 0px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background-color: transparent;
-    }
+  #plusButton{
+    display: block;
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
 
-    #plusButton img{
-      z-index: 99;
-      width: 60px;
-      height: 60px;
-    }
+  #plusButton img{
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+  }
 }
