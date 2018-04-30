@@ -2,7 +2,7 @@
 require_once('view/top.php');
  ?>
 
-<div class = "list_item">
+<div class = "detail_item">
   <p class="list_title">Share your food</p>
   <form action="create_process.php?" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
     <p><input type="password" name="password" placeholder="Password"><br><span class = "desc">* Required to edit/delete the post later</span></p>
@@ -24,8 +24,8 @@ require_once('view/top.php');
          <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
-      <p>I have read and agree to the Terms of Use.</p>
-      <input type="checkbox" name="checkbox" value="check">
+      <p><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</p>
+
       <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms first.');return false}"></p>
     </div>
 

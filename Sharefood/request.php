@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_array($result);
 
-echo "<div class='list_item'><p class='list_title'>{$row['title']}</p>";
+echo "<div class='detail_item'><p class='list_title'>{$row['title']}</p>";
 echo "<img src=\"{$row['image']}\" class='detailImg'><br>";
 ?>
 
