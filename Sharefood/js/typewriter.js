@@ -12,6 +12,7 @@ function typeWriter() {
   } else if (i == txt.length) {
     i++;
     setTimeout(typeWriter, 3000);
+    
   } else if (i > txt.length) {
     document.getElementById("textAni").innerHTML = "";
     i = 0;
