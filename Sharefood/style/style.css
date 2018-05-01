@@ -25,31 +25,33 @@ nav a:hover {
 header {
   position: fixed;
   top: 0;
+  z-index: 99;
   width: 100%;
   background-color: #e5e6e8;
   margin: 0px;
   text-align: center;
 }
 nav {
-  height: 30px;
+  height: 40px;
   background-color: #048c36;
   overflow: hidden;
 }
 .textmenu {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 .dropdown {
   display: none;
 }
 nav .menu {
-  padding: 1em;
+  padding: 2em;
+  font-size: 1.1em;
 }
 #logo {
   width: 120px;
   margin-right: 0.3em;
 }
 article {
-  margin: 130px 0 0 0;
+  margin: 140px 0 0 0;
   padding: 0;
 }
 .banner {
@@ -64,22 +66,35 @@ article {
   margin: 0px;
   padding-top: 5%;
   color: white;
-  font-size: 7.5vw;
+  font-size: 7.2vw;
   font-weight: bold;
   font-family: 'Gaegu';
 }
 
 .list_item {
-  max-width; 90%;
+  max-width: 80%;
   text-align: left;
   display: inline-block;
   background-color: white;
-  margin: 2em 0.5em;
+  margin: 1.5em 0.5em;
   padding: 1em;
 }
 .uploadedImg {
   width: 100%;
   height: 250px;
+}
+.uploadedImg:hover {
+  -webkit-filter: brightness(120%); /* Safari 6.0 - 9.0 */
+  filter: brightness(120%);
+}
+.detail_item{
+  width: 500px;
+  max-width: 80%;
+  text-align: left;
+  display: inline-block;
+  background-color: white;
+  margin: 2em 0.5em;
+  padding: 1em;
 }
 .detailImg{
   width: 100%;
@@ -91,6 +106,14 @@ article {
   margin: 0.2em;
   text-align: left;
 }
+.edit {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+.edit a:hover {
+  color: green;
+}
 form input, form textarea {
   width: 95%;
 }
@@ -100,6 +123,7 @@ input {
 }
 #photoupload {
   width: 30px;
+  display: block;
 }
 .button {
   font-size: 1.1em;
@@ -122,59 +146,53 @@ input {
 }
 #plusButton{
   display: none;
+  outline: none;
 }
 footer p {
-  margin: 0;
+  margin: 1em 0 0 0;
   background-color: #c7ccc8;
   padding: 1em 0.5em;
+  font-size: 10pt;
 }
 
 /*** terms of use styling ***/
-.read-more-state {
-  display: none;
+.fieldsetContainer {
+  padding: 0 0.5em;
+  height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 400ms linear;
+  max-width: 80%;
+  margin: 0 auto;
+  color: #646666;
+}
+.toggleDiv p {
+  margin-bottom: 1em;
 }
 
-.read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  transition: .25s ease;
+#toggle {
+    display: none;
 }
 
-.read-more-state:checked ~ .read-more-wrap .read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: 999em;
+#toggle:checked ~ .fieldsetContainer {
+    height: 130px;
 }
 
-.read-more-state ~ .read-more-trigger:before {
-  content: 'Expand';
-}
+label .arrow-dn { display: inline-block; }
+label .arrow-up { display: none; }
 
-.read-more-state:checked ~ .read-more-trigger:before {
-  content: 'Collapse';
-}
+#toggle:checked ~ label .arrow-dn { display: none; }
+#toggle:checked ~ label .arrow-up { display: inline-block; }
 
-.read-more-trigger {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.2em;
-  color: black;
-  font-size: .5em;
-  line-height: 2;
-}
-
-#p123 {
-  padding: 0%;
-  background: white;
-  color: black;
-  max-width: 280px;
-  margin-bottom: 0;
+#check_term {
+  width: 18px;
+  margin-right: 0.5em;
 }
 #pwdInvalid{
   font-size: 80%;
   color: red;
 }
+
 
 /*********************************************/
 @media screen and (min-width: 1024px) {
@@ -190,12 +208,12 @@ footer p {
   }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
   #logo {
     width: 80px;
   }
   article {
-    margin-top: 100px;
+    margin-top: 110px;
   }
   .banner {
     height: 200px;
@@ -213,13 +231,13 @@ footer p {
     float: left;
   }
   .dropbtn {
-    margin: 0 0 0 10px;
-    width: 30px;
-    height: 30px;
+    margin: 0 0 0 15px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     background-image: url("../img/dropdown.png");
     background-color: transparent;
-    background-size: 30px 30px;
+    background-size: 40px 40px;
     background-repeat: no-repeat;
     border: none;
   }
@@ -235,6 +253,7 @@ footer p {
 
   /* Links inside the dropdown */
   .dropdown-content a {
+    border-bottom: 1px solid #d4d7db;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -247,21 +266,27 @@ footer p {
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
 
-    #plusButton{
-      display: block;
-      float: right;
-      position: fixed;
-      bottom: 10px;
-      right: 0px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background-color: transparent;
-    }
+  #plusButton{
+    display: block;
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
 
-    #plusButton img{
-      z-index: 99;
-      width: 60px;
-      height: 60px;
-    }
+  #plusButton img{
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  #toggle:checked ~ .fieldsetContainer {
+      height: 190px;
+  }
 }

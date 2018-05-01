@@ -2,7 +2,7 @@
 require_once('view/top.php');
  ?>
 
-<div class="list_item">
+<div class = "detail_item">
   <p class="list_title">Share your food</p>
   <form action="create_process.php?" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
     <span id="pwdInvalid"></span>
@@ -12,27 +12,32 @@ require_once('view/top.php');
     <p><input type="text" name="title" placeholder="Title"></p>
     <p><img src="img/photo.png" alt="photo" id="photoupload"> <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" value="image"></p>
     <p><textarea name="description" rows="4" cols="20" placeholder="Description"></textarea></p>
-    <div>
-      <input type="checkbox" class="read-more-state" id="post-1" />
 
-      <p id="p123" class="read-more-wrap" style="font-family:Trebuchet MS"> Terms of Use
-        <span class="read-more-target" > <br>
-             By uploading to this site, you, the user agree
-             that the food item is not expired, nor has it been opened. This site was made
-             under the pretense that a faithful and caring community (BCIT) exists.
-             Please contact lee@seul.ca for any administrative issues.
-        </span>
-      </p>
+    <div class="toggleDiv">
+      <input type="checkbox" id="toggle"/>
+      <label for="toggle">
+          <span class='expand'>
+              Terms of Use
+              <span class="changeArrow arrow-up"><img src="img/arrow-up.png" alt="up"></span>
+              <span class="changeArrow arrow-dn"><img src="img/arrow-down.png" alt="down"></span>
+          </span>
+      </label>
+      <div class="fieldsetContainer">
+         <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
+         This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
+      </div>
+      <p><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</p>
 
-
-      <label for="post-1" class="read-more-trigger"></label>
+      <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms first.');return false}"></p>
     </div>
     <p>I have read and understand the Terms of Use</p>
     <input type="checkbox" name="checkbox" value="check">
     <p><input type="submit" name="submit" value="Upload" class="button" onclick="check_input()"></p>
+
   </form>
 
 </div>
+
 <br>
 
 <?php
