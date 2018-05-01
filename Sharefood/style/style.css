@@ -106,14 +106,7 @@ article {
   margin: 0.2em;
   text-align: left;
 }
-.edit {
-  text-align: right;
-  margin: 0;
-  padding: 0;
-}
-.edit a:hover {
-  color: green;
-}
+
 form input, form textarea {
   width: 95%;
 }
@@ -141,8 +134,8 @@ input {
   background-color: orange;
 }
 .desc {
-  color: gray;
-  font-size: 0.8em;
+  color: #048c36;
+  font-size: 10pt;
 }
 #plusButton{
   display: none;
@@ -187,6 +180,38 @@ label .arrow-up { display: none; }
 #check_term {
   width: 18px;
   margin-right: 0.5em;
+}
+
+/* toggle CSS for edit, delete function in post page */
+.align-right {
+  text-align: right;
+  margin-right: 0.5em;
+}
+#check_result {
+  color: red;
+}
+.fakelink {
+  cursor: pointer;
+}
+.fakelink:hover {
+  color: #048c36;
+}
+.checkContainer {
+  background-color: #eff0f2;
+  padding: 0 0.5em;
+  height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 400ms linear;
+  margin-bottom: 1em;
+}
+
+#toggle-check {
+    display: none;
+}
+
+#toggle-check:checked ~ .checkContainer {
+    height: 165px;
 }
 
 
