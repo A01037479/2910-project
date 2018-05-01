@@ -1,6 +1,10 @@
 <?php
 require_once('view/top.php');
 
+if(count($_POST) == 0) {
+  header("Location: index.php");
+} 
+
 // Upload and Resize the photo
 $post_photo = basename($_FILES['image']['name']);
 $post_tmp = $_FILES['image']['tmp_name'];
