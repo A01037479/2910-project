@@ -1,15 +1,11 @@
 <?php
 require_once('view/top.php');
 
-
-
 // Upload and Resize the photo
 $post_photo = basename($_FILES['image']['name']);
 $post_tmp = $_FILES['image']['tmp_name'];
 $dir = "uploads/";
-$len = strlen($post_photo);
-$path = $dir . date('y-m-d-a-h-i-s') . ($len > 20 ? substr($post_photo, $len-10) : $post_photo); //path to be uploaded
-//if file name is over 20, make it short
+$path = $dir . rand() . date('y-m-d-a-h-i-s') . $post_photo;
 
 $ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); //getting image extension
 if($ext == 'jpg' || $ext == 'jpeg'){
@@ -34,6 +30,7 @@ imagecopyresampled($tmp_min, $src, 0,0,0,0, $newwidth, $newheight, $width, $heig
 // store compressed image
 imagejpeg($tmp_min, $path, 80);
 
+<<<<<<< HEAD
 echo "<div class = \"list_item\">";
 echo "<p>Please confirm the following information entered is correct!</p>";
 echo "<br><br><br>";
@@ -42,26 +39,32 @@ echo "<p>Item posted: " . $_POST["title"] . "</p>";
 echo "<img src=\"$path\" alt=\"photo\" id=\"photoconfirm\">";
 echo "<p>Campus location: ". $_POST["location"] . "</p>";
 echo "<p>Description: " . $_POST["description"] . "</p>";
+=======
+echo "<div class = 'list_item'>";
+echo "<p class='list_title'>Please confirm</p><br>";
+echo "<p><b>Email</b> " . $_POST["email"] . "</p>";
+echo "<p><b>Title</b> " . $_POST["title"] . "</p>";
+echo "<img src=\"$path\" alt=\"photo\"  class='detailImg'>";
+echo "<p><b>Pick-up location</b> ". $_POST["location"] . "</p>";
+echo "<p><b>Description</b> " . $_POST["description"] . "</p>";
+>>>>>>> d5df4af4978d651012ed2ccad7265e215ebaf290
 
 ?>
-
 <script>
+// go back to the previous page
 function goBack() {
     window.history.back();
 }
 </script>
 
+<form action="create_process.php" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data" id="confirmForm">
 
-<form action="create_process.php?>" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
-
-  <p><input type="hidden" name="password" value="<?= $_POST['password'] ?>" ><br><span class = "desc"></span></p>
-  <p><input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br><span class = "desc"></span></p>
-  <p><input type="hidden" name="title" value="<?= $_POST['title'] ?>"></p>
-  <p><input type="hidden" name="description" value="<?= $_POST["description"] ?>"></p>
-  <p><input type="hidden" name="image" value="<?= $path ?>"> </p>
-  <p><input type="hidden" name="location" value="<?= $_POST['location'] ?>" > </p>
-  <a onclick="goBack()" style="color:blue;cursor:pointer" >edit</a>
-  <p><input type="submit" name="submit" value="Confirm" class="button"></p>
-  
+  <input type="hidden" name="password" value="<?= $_POST['password'] ?>" ><br>
+  <input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br>
+  <input type="hidden" name="title" value="<?= $_POST['title'] ?>">
+  <input type="hidden" name="description" value="<?= $_POST["description"] ?>">
+  <input type="hidden" name="image" value="<?= $path ?>">
+  <input type="hidden" name="location" value="<?= $_POST['location'] ?>" >
 </form>
-
+  <button onclick="goBack()" class="confirm">edit</button>
+  <button type="submit" form="confirmForm" value="confirm" class="confirm">confirm</button>
