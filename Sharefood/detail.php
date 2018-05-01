@@ -15,7 +15,8 @@ $escaped = array(
   'title' => htmlspecialchars($row['title']),
   'image' => htmlspecialchars($row['image']),
   'status' => htmlspecialchars($row['status']),
-  'description' => htmlspecialchars($row['description'])
+  'description' => htmlspecialchars($row['description']),
+  'location'=> htmlspecialchars($row['location'])
 );
 
 ?>
@@ -47,7 +48,7 @@ echo "<p class='list_title'>{$escaped['title']}</p>";
 echo "<img src=\"{$escaped['image']}\" class='detailImg'>
 <p><b>Status:</b> {$escaped['status']}<br></p><p><b>Posted: </b>{$created}</p>
 <p><b>Description</b><br>{$escaped['description']}</p>
-<br>";
+<p><b>Pick-up Location: </b>{$escaped['location']}</p><br>";
 ?>
 <form action="request.php?id=<?=$filtered_id?>" method="post">
   <p><input type="submit" name="request" value="Request" class="button"></p>

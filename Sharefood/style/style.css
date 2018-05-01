@@ -182,10 +182,15 @@ label .arrow-up { display: none; }
   width: 18px;
   margin-right: 0.5em;
 }
-#pwdInvalid{
-  font-size: 80%;
-  color: red;
+
+#location{
+
 }
+
+#location input{
+  
+}
+
 
 /***** Search bar styling *****/
 #search-containter {
