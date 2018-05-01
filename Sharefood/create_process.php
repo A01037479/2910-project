@@ -39,13 +39,14 @@ $filtered = array(
   'email' => mysqli_real_escape_string($conn, $_POST['email']),
   'title' => mysqli_real_escape_string($conn, $_POST['title']),
   'description' => mysqli_real_escape_string($conn, $_POST['description']),
+  'location' => $_POST['location']
 );
 
 // Insert data into table
 
 $sql = "
     INSERT INTO list
-    (password, email, title, status, image, description, created)
+    (password, email, title, status, image, description, created, location)
     VALUES(
       '{$filtered['password']}',
       '{$filtered['email']}',
@@ -53,9 +54,11 @@ $sql = "
       'Available',
       '{$path}',
       '{$filtered['description']}',
-      NOW()
+      NOW(),
+      '{$filtered['location']}'
       )
       ";
+
 $result = mysqli_query($conn, $sql);
 if($result === false){
   echo "Sorry! there's a problem in the server<br>";

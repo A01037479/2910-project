@@ -69,7 +69,7 @@ article {
   font-size: 7.2vw;
   font-weight: bold;
   font-family: 'Gaegu';
-  height: 100px;
+  height: 12vw;
 }
 
 .list_item {
@@ -182,10 +182,15 @@ label .arrow-up { display: none; }
   width: 18px;
   margin-right: 0.5em;
 }
-#pwdInvalid{
-  font-size: 80%;
-  color: red;
+
+#location{
+
 }
+
+#location input{
+  
+}
+
 
 /***** Search bar styling *****/
 #search-containter {
@@ -279,9 +284,6 @@ label .arrow-up { display: none; }
     height: 300px;
     padding-top: 2em;
   }
-  .banner p {
-    height: 80px;
-  }
 }
 
 @media screen and (max-width: 600px){
@@ -294,9 +296,6 @@ label .arrow-up { display: none; }
   .banner {
     height: 200px;
     padding-top: 2em;
-  }
-  .banner p {
-    height: 50px;
   }
   nav a:hover {
     color: black;
