@@ -13,7 +13,10 @@ function inArray(needle,haystack)
     return false;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 215faf4a3f6a7132be85b55ac99328ec209bd13c
 function pwd_validation(){
   var theForm = document.posting;
   var pass1 = theForm.pass
@@ -36,6 +39,10 @@ function pwd_validation(){
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 215faf4a3f6a7132be85b55ac99328ec209bd13c
 function check_input(){
   // input validation
   var theForm = document.posting;

@@ -30,14 +30,13 @@ imagecopyresampled($tmp_min, $src, 0,0,0,0, $newwidth, $newheight, $width, $heig
 // store compressed image
 imagejpeg($tmp_min, $path, 80);
 
-echo "<div class = \"list_item\">";
-echo "<p>Please confirm the following information entered is correct!</p>";
-echo "<br><br><br>";
-echo "<p>Your email: " . $_POST["email"] . "</p>";
-echo "<p>Item posted: " . $_POST["title"] . "</p>";
+echo "<div class = 'list_item'>";
+echo "<p class='list_title'>Please confirm</p><br>";
+echo "<p><b>Email</b> " . $_POST["email"] . "</p>";
+echo "<p><b>Title</b> " . $_POST["title"] . "</p>";
 echo "<img src=\"$path\" alt=\"photo\"  class='detailImg'>";
-echo "<p>Campus location: ". $_POST["location"] . "</p>";
-echo "<p>Description: " . $_POST["description"] . "</p>";
+echo "<p><b>Pick-up location</b> ". $_POST["location"] . "</p>";
+echo "<p><b>Description</b> " . $_POST["description"] . "</p>";
 
 ?>
 <script>
@@ -56,5 +55,5 @@ function goBack() {
   <input type="hidden" name="image" value="<?= $path ?>">
   <input type="hidden" name="location" value="<?= $_POST['location'] ?>" >
 </form>
-  <button onclick="goBack()">edit</button>
-  <button type="submit" form="confirmForm" value="confirm">confirm</button>
+  <button onclick="goBack()" class="confirm">edit</button>
+  <button type="submit" form="confirmForm" value="confirm" class="confirm">confirm</button>

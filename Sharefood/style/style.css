@@ -261,7 +261,7 @@ label .arrow-up { display: none; }
   transition: height 400ms linear;
   margin-bottom: 1em;
 }
-.checkContainer button {
+.checkContainer button, .confirm {
   background-color: black;
   border: none;
   color: white;
@@ -269,7 +269,7 @@ label .arrow-up { display: none; }
   width: 60px;
   margin: 0.2em;
 }
-.checkContainer button:hover {
+.checkContainer button:hover, .confirm:hover {
   cursor: pointer;
   background-color: gray;
 }
