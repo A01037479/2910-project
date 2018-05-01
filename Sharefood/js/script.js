@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var BAD_WORDS_ARRAY = ["fuck", "shit", "poop", "fucking", "pee", "boobies", "ass", "gucci", "boobs", "boobz"];
 
 function inArray(needle,haystack)
@@ -13,9 +13,6 @@ function inArray(needle,haystack)
     return false;
 }
 
-
-
-=======
 function pwd_validation(){
   var theForm = document.posting;
   var pass1 = theForm.pass
@@ -38,7 +35,7 @@ function pwd_validation(){
   }
 }
 
->>>>>>> 324ff3d4efa1664f1a8b43fc5267d3f5abde4da9
+
 function check_input(){
   // input validation
   var theForm = document.posting;
