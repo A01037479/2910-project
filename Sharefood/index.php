@@ -7,13 +7,23 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
 <div class="banner">
   <p id="textAni"></p>
+  <form id="search-container" action="index.php" method="GET" name="searching">
+    <i class="fas fa-search"></i>
+    <input id="searchbox" type="text" name="search" placeholder="Search..." >
+    <button id="searchbtn" type="submit" name="submit">Search</button>
+  </form>
 </div>
-
 
 <?php
   //retriving list
 
-  $sql = "SELECT * FROM list ORDER BY id DESC";
+  if(count($_GET) == 0) {
+    $sql = "SELECT * FROM list ORDER BY id DESC";
+  } else {
+    $q = $_GET['search'];
+    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC";
+  }
+    
   $result = mysqli_query($conn, $sql);
   if ($result != null){
 
