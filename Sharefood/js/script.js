@@ -1,7 +1,7 @@
 function pwd_validation(){
   var theForm = document.posting;
   var pass1 = theForm.pass
-    if (theForm.password.value == theForm.password2.value && theForm.password2.value != null){
+    if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
     theForm.password.style.backgroundColor='#ddffdd';
     theForm.password2.style.backgroundColor='#ddffdd';
     var message = document.getElementById('pwdInvalid');
@@ -19,7 +19,6 @@ function pwd_validation(){
     return false;
   }
 }
-
 
 function check_input(){
   // input validation
