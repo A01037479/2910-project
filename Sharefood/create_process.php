@@ -39,7 +39,7 @@ $filtered = array(
   'email' => mysqli_real_escape_string($conn, $_POST['email']),
   'title' => mysqli_real_escape_string($conn, $_POST['title']),
   'description' => mysqli_real_escape_string($conn, $_POST['description']),
-  'location' => $_POST['location']
+  'location' =>  mysqli_real_escape_string($conn, $_POST['location'])
 );
 
 // Insert data into table

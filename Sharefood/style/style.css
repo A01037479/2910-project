@@ -119,6 +119,14 @@ input {
   width: 30px;
   display: block;
 }
+#location {
+  margin: 2em 0;
+}
+#location input {
+  height: 15px;
+  width: 15px;
+  margin: 0.5em;
+}
 .button {
   font-size: 1.1em;
   margin: 0 auto;
@@ -182,15 +190,6 @@ label .arrow-up { display: none; }
   width: 18px;
   margin-right: 0.5em;
 }
-
-#location{
-
-}
-
-#location input{
-  
-}
-
 
 /***** Search bar styling *****/
 #search-containter {
@@ -261,6 +260,18 @@ label .arrow-up { display: none; }
   overflow: hidden;
   transition: height 400ms linear;
   margin-bottom: 1em;
+}
+.checkContainer button {
+  background-color: black;
+  border: none;
+  color: white;
+  height: 25px;
+  width: 60px;
+  margin: 0.2em;
+}
+.checkContainer button:hover {
+  cursor: pointer;
+  background-color: gray;
 }
 
 #toggle-check {
