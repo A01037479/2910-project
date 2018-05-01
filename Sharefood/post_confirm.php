@@ -39,7 +39,7 @@ echo "<p>Please confirm the following information entered is correct!</p>";
 echo "<br><br><br>";
 echo "<p>Your email: " . $_POST["email"] . "</p>";   
 echo "<p>Item posted: " . $_POST["title"] . "</p>";
-echo "<img src=\"$path\" alt=\"photo\" id=\"photoupload\">";
+echo "<img src=\"$path\" alt=\"photo\" id=\"photoconfirm\">";
 echo "<p>Campus location: ". $_POST["location"] . "</p>";
 echo "<p>Description: " . $_POST["description"] . "</p>";
 
