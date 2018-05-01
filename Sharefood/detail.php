@@ -26,11 +26,12 @@ $escaped = array(
   <div class="align-right">
     <input type="checkbox" id="toggle-check"/>
     <label for="toggle-check">
-      <span class="fakelink">edit</span> | <span class="fakelink">delete</span>
+      <span class="fakelink">edit</span>
+       | <span class="fakelink">delete</span>
     </label>
     <div class="checkContainer">
      <p>Enter your password</p>
-     <form action="edit.php" id="editForm" method="POST">
+     <form action="edit.php" id="editForm" method="POST" onkeypress="return event.keyCode != 13;">
        <input type="hidden" name="id" value="<?=$_GET['id']?>">
        <input type="password" name="password" id="password"><br>
      </form>

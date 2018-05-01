@@ -119,6 +119,9 @@ input {
   width: 30px;
   display: block;
 }
+#photoconfirm {
+  width: 30%;
+}
 .button {
   font-size: 1.1em;
   margin: 0 auto;
@@ -261,7 +264,6 @@ label .arrow-up { display: none; }
 #toggle-check:checked ~ .checkContainer {
     height: 165px;
 }
-
 
 /*********************************************/
 @media screen and (min-width: 1024px) {

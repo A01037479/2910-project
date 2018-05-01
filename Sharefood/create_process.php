@@ -4,34 +4,6 @@ require_once('lib/connect.php');
 require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
-// Upload and Resize the photo
-$post_photo = basename($_FILES['image']['name']);
-$post_tmp = $_FILES['image']['tmp_name'];
-$dir = "uploads/";
-$len = strlen($post_photo);
-$path = $dir . date('y-m-d-a-h-i-s') . ($len > 20 ? substr($post_photo, $len-10) : $post_photo); //path to be uploaded
-//if file name is over 20, make it short
-
-$ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); //getting image extension
-if($ext == 'jpg' || $ext == 'jpeg'){
-  $src = imagecreatefromjpeg($post_tmp);
-} else if($ext == 'png'){
-  $src = imagecreatefrompng($post_tmp);
-} else if($ext == 'gif'){
-  $src = imagecreatefromgif($post_tmp);
-}
-
-list($width, $height) = getimagesize($post_tmp); // fetching original image width and height
-$newwidth = 350;
-$newheight = $height / $width * $newwidth;  // calculating proportionate height
-$tmp_min = imagecreatetruecolor($newwidth, $newheight); // creating frame for compress image
-
-// make background color white
-$white = imagecolorallocate($tmp_min, 255, 255, 255);
-imagefill($tmp_min, 0, 0, $white);
-
-imagecopyresampled($tmp_min, $src, 0,0,0,0, $newwidth, $newheight, $width, $height);  //compressing image
-
 // extracting only strings to prevent injection attack
 
 $filtered = array(
@@ -39,7 +11,8 @@ $filtered = array(
   'email' => mysqli_real_escape_string($conn, $_POST['email']),
   'title' => mysqli_real_escape_string($conn, $_POST['title']),
   'description' => mysqli_real_escape_string($conn, $_POST['description']),
-  'location' => mysqli_real_escape_string($conn, $_POST['location'])
+  'location' => $_POST['location'],
+  'image' => mysqli_real_escape_string($conn,$_POST['image']),
 );
 
 // Insert data into table
@@ -52,7 +25,7 @@ $sql = "
       '{$filtered['email']}',
       '{$filtered['title']}',
       'Available',
-      '{$path}',
+      '{$filtered['image']}',
       '{$filtered['description']}',
       NOW(),
       '{$filtered['location']}'
