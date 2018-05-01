@@ -5,7 +5,9 @@ require_once('view/top.php');
 <div class = "detail_item">
   <p class="list_title">Share your food</p>
   <form action="create_process.php?" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
-    <p><input type="password" name="password" placeholder="Password"><br><span class = "desc">* Required to edit/delete the post later</span></p>
+    <span id="pwdInvalid"></span>
+    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;"><br><span class = "desc">* Required to edit/delete the post later</span></p>
+    <p><input type="password" name="password2" placeholder="Re-enter password" onkeyup="pwd_validation(); return false;"><span class="desc">*Confirming password</span></p>
     <p><input type="email" name="email" placeholder="Email address"><br><span class = "desc">* Used to receive a request from other users</span></p>
     <p><input type="text" name="title" placeholder="Title"></p>
     <p><img src="img/photo.png" alt="photo" id="photoupload"> <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" value="image"></p>
@@ -26,7 +28,7 @@ require_once('view/top.php');
       </div>
       <p><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</p>
 
-      <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms first.');return false}"></p>
+      <p><input type="submit" name="submit" value="Upload" class="button" onclick="check_input();return false}"></p>
     </div>
 
   </form>
