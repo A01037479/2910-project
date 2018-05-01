@@ -4,7 +4,7 @@ require_once('view/top.php');
 
 <div class = "detail_item">
   <p class="list_title">Share your food</p>
-  <form action="create_process.php?" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+  <form action="post_confirm.php?" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
     <span id="pwdInvalid"></span>
     <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;"><br><span class = "desc">* Required to edit/delete the post later</span></p>
     <p><input type="password" name="password2" placeholder="Re-enter password" onkeyup="pwd_validation(); return false;"><span class="desc">*Confirming password</span></p>

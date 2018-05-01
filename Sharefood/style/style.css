@@ -119,6 +119,9 @@ input {
   width: 30px;
   display: block;
 }
+#photoconfirm {
+  width: 30%;
+}
 .button {
   font-size: 1.1em;
   margin: 0 auto;
@@ -183,13 +186,7 @@ label .arrow-up { display: none; }
   margin-right: 0.5em;
 }
 
-#location{
 
-}
-
-#location input{
-  
-}
 
 
 /***** Search bar styling *****/
