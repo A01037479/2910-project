@@ -54,7 +54,7 @@ function goBack() {
 </script>
 
 
-<form action="create_process.php?>" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+<form action="create_process.php?>" name ="posting" onsubmit="success()" method="post" enctype="multipart/form-data">
 
   <p><input type="hidden" name="password" value="<?= $_POST['password'] ?>" ><br><span class = "desc"></span></p>
   <p><input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br><span class = "desc"></span></p>
@@ -63,7 +63,7 @@ function goBack() {
   <p><input type="hidden" name="image" value="<?= $path ?>"> </p>
   <p><input type="hidden" name="location" value="<?= $_POST['location'] ?>" > </p>
   <a onclick="goBack()" style="color:blue;cursor:pointer" >edit</a>
-  <p><input type="submit" name="submit" value="Confirm" class="button"></p>
+  <p><input type="submit" name="submit" value="Confirm" id = "confirmpost" class="button"></p>
   
 </form>
 

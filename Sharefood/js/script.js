@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var BAD_WORDS_ARRAY = ["fuck", "shit", "poop", "fucking", "pee", "boobies", "ass", "gucci", "boobs", "boobz"];
 
 function inArray(needle,haystack)
@@ -15,30 +14,6 @@ function inArray(needle,haystack)
 
 
 
-=======
-function pwd_validation(){
-  var theForm = document.posting;
-  var pass1 = theForm.pass
-    if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ddffdd';
-    theForm.password2.style.backgroundColor='#ddffdd';
-    var message = document.getElementById('pwdInvalid');
-    message.innerHTML = "Passwords match."
-    message.style.color = "green";
-    return true;
-  } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ffdddd';
-    theForm.password2.style.backgroundColor='#ffdddd';
-    var message = document.getElementById('pwdInvalid');
-    message.innerHTML = "Passwords do not match."
-    message.style.color = "red";
-    return false;
-  } else {
-    return false;
-  }
-}
-
->>>>>>> 324ff3d4efa1664f1a8b43fc5267d3f5abde4da9
 function check_input(){
   // input validation
   var theForm = document.posting;
