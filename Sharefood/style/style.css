@@ -171,6 +171,10 @@ footer p {
   max-width: 280px;
   margin-bottom: 0;
 }
+#pwdInvalid{
+  font-size: 80%;
+  color: red;
+}
 
 /*********************************************/
 @media screen and (min-width: 1024px) {
