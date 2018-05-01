@@ -69,6 +69,7 @@ article {
   font-size: 7.2vw;
   font-weight: bold;
   font-family: 'Gaegu';
+  height: 12vw;
 }
 
 .list_item {
@@ -106,14 +107,7 @@ article {
   margin: 0.2em;
   text-align: left;
 }
-.edit {
-  text-align: right;
-  margin: 0;
-  padding: 0;
-}
-.edit a:hover {
-  color: green;
-}
+
 form input, form textarea {
   width: 95%;
 }
@@ -124,6 +118,9 @@ input {
 #photoupload {
   width: 30px;
   display: block;
+}
+#photoconfirm {
+  width: 30%;
 }
 .button {
   font-size: 1.1em;
@@ -141,8 +138,8 @@ input {
   background-color: orange;
 }
 .desc {
-  color: gray;
-  font-size: 0.8em;
+  color: #048c36;
+  font-size: 10pt;
 }
 #plusButton{
   display: none;
@@ -187,6 +184,88 @@ label .arrow-up { display: none; }
 #check_term {
   width: 18px;
   margin-right: 0.5em;
+}
+
+
+
+
+/***** Search bar styling *****/
+#search-containter {
+  position: absolute;
+}
+
+#searchbox {
+  border: 2px solid #595d63;
+  border-radius: 10px 0px 0px 10px;
+  width: 35%;
+  background-image: url('/img/search_button.png');
+  padding-left: 20px;
+  margin: 0;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+}
+
+#searchbtn {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0px 10px 10px 0px;
+  padding: 6.5px;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  left: -5px;
+  box-shadow: 0 6px 20px 0 rgba(0,0,0,0.5);
+}
+
+#searchbtn:hover {
+  background-color: #ccc;
+  color: #000;
+  font-weight: bold;
+}
+
+#search-container input[type="text"]:focus {
+  outline: none;
+}
+
+#search-container .fas {
+  position: absolute;
+  padding: 8px 5px;
+}
+
+/* toggle CSS for edit, delete function in post page */
+.align-right {
+  text-align: right;
+  margin-right: 0.5em;
+}
+#check_result {
+  color: red;
+}
+.fakelink {
+  cursor: pointer;
+}
+.fakelink:hover {
+  color: #048c36;
+}
+.checkContainer {
+  background-color: #eff0f2;
+  padding: 0 0.5em;
+  height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 400ms linear;
+  margin-bottom: 1em;
+}
+
+#toggle-check {
+    display: none;
+}
+
+#toggle-check:checked ~ .checkContainer {
+    height: 165px;
 }
 
 

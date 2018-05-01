@@ -4,6 +4,7 @@
     require_once('config/config.php');
     $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
+<<<<<<< HEAD
     // Upload and Resize the photo
     $post_photo = basename($_FILES['image']['name']);
     $post_tmp = $_FILES['image']['tmp_name'];
@@ -40,13 +41,47 @@
       'title' => mysqli_real_escape_string($conn, $_POST['title']),
       'description' => mysqli_real_escape_string($conn, $_POST['description']),
     );
+=======
+// extracting only strings to prevent injection attack
+
+$filtered = array(
+  'password' => mysqli_real_escape_string($conn, $_POST['password']),
+  'email' => mysqli_real_escape_string($conn, $_POST['email']),
+  'title' => mysqli_real_escape_string($conn, $_POST['title']),
+  'description' => mysqli_real_escape_string($conn, $_POST['description']),
+  'location' => $_POST['location'],
+  'image' => mysqli_real_escape_string($conn,$_POST['image']),
+);
+>>>>>>> 324ff3d4efa1664f1a8b43fc5267d3f5abde4da9
 
 
+<<<<<<< HEAD
     //connect to swear.php
     // require("swear.php");
     //
     // $filtered['title']=str_replace($find, $replace, $filtered['title']);
     // $filtered['description']=str_replace($find, $replace, $filtered['description']);
+=======
+$sql = "
+    INSERT INTO list
+    (password, email, title, status, image, description, created, location)
+    VALUES(
+      '{$filtered['password']}',
+      '{$filtered['email']}',
+      '{$filtered['title']}',
+      'Available',
+      '{$filtered['image']}',
+      '{$filtered['description']}',
+      NOW(),
+      '{$filtered['location']}'
+      )
+      ";
+
+$result = mysqli_query($conn, $sql);
+if($result === false){
+  echo "Sorry! there's a problem in the server<br>";
+  echo "<a href='post.php'>Go back</a><br>";
+>>>>>>> 324ff3d4efa1664f1a8b43fc5267d3f5abde4da9
 
 
 
