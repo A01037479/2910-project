@@ -1,6 +1,31 @@
+var BAD_WORDS_ARRAY = ["fuck", "shit", "poop", "fucking", "pee", "boobies", "ass", "gucci", "boobs", "boobz"];
+
+function inArray(needle,haystack)
+{
+    var count=haystack.length;
+    for(var i=0;i<count;i++)
+    {
+        if(haystack[i]===needle){
+          return true;
+        }
+    }
+    return false;
+}
+
+
+
 function check_input(){
   // input validation
   var theForm = document.posting;
+
+  if (inArray(theForm.title.value,BAD_WORDS_ARRAY) || inArray(theForm.description.value,BAD_WORDS_ARRAY)) {
+    alert("DON'T SWEAR!!!");
+    return false;
+  }
+
+
+
+
   if(theForm.password.value == ""
   || theForm.email.value == ""
   || theForm.title.value == ""
@@ -19,7 +44,6 @@ function check_input(){
       return true;
     }
   }
-
 }
 
 /* Dropdown Menu */
