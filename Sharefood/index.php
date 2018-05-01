@@ -5,6 +5,7 @@ require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
  ?>
 
+
 <div class="banner">
   <p id="textAni"></p>
   <form id="search-container" action="index.php" method="GET" name="searching">

@@ -183,15 +183,6 @@ label .arrow-up { display: none; }
   margin-right: 0.5em;
 }
 
-#location{
-
-}
-
-#location input{
-  
-}
-
-
 /***** Search bar styling *****/
 #search-containter {
   position: absolute;
