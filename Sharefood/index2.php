@@ -54,7 +54,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <!--<button id="loadButton">load more</button>-->
 <button id="plusButton"><a href="post.php"><img src="img/plus.png" alt="post"></a></button>
 
-<script src="js/loadmore2.js"></script>
+<script src="js/loadmore.js"></script>
 
 <!--
 <script>
