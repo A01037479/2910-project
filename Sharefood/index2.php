@@ -21,7 +21,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $q = $_GET['search'];
     $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC";
   }
-    
+
   $result = mysqli_query($conn, $sql);
   if ($result != null){
     $i = 0;
