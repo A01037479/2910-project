@@ -123,7 +123,7 @@ input {
 #location {
   margin: 2em 0;
 }
-#location input {
+input[type=radio] {
   height: 15px;
   width: 15px;
   margin: 0.5em;
