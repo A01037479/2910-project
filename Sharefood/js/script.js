@@ -13,6 +13,28 @@ function inArray(needle,haystack)
 }
 
 
+function pwd_validation(){
+  var theForm = document.posting;
+  var pass1 = theForm.pass
+    if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
+    theForm.password.style.backgroundColor='#ddffdd';
+    theForm.password2.style.backgroundColor='#ddffdd';
+    var message = document.getElementById('pwdInvalid');
+    message.innerHTML = "Passwords match."
+    message.style.color = "green";
+    return true;
+  } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
+    theForm.password.style.backgroundColor='#ffdddd';
+    theForm.password2.style.backgroundColor='#ffdddd';
+    var message = document.getElementById('pwdInvalid');
+    message.innerHTML = "Passwords do not match."
+    message.style.color = "red";
+    return false;
+  } else {
+    return false;
+  }
+}
+
 
 function check_input(){
   // input validation
@@ -22,9 +44,6 @@ function check_input(){
     alert("DON'T SWEAR!!!");
     return false;
   }
-
-
-
 
   if(theForm.password.value == ""
   || theForm.email.value == ""
@@ -46,28 +65,6 @@ function check_input(){
       return false;
     } else {
       return true;
-    }
-  }
-}
-
-/* Dropdown Menu */
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function popMenu() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
     }
   }
 }
