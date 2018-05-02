@@ -42,6 +42,10 @@ require_once('view/top.php');
 
 <br>
 
+<script src="js/script.js"></script>
+
 <?php
 require_once('view/footer.php');
  ?>
+
+ 

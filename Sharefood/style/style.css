@@ -81,7 +81,8 @@ article {
   padding: 1em;
 }
 .uploadedImg {
-  width: 100%;
+  width: 350px;
+  max-width: 100%;
   height: 250px;
 }
 .uploadedImg:hover {
