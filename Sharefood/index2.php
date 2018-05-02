@@ -7,7 +7,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
 <div class="banner">
   <p id="textAni"></p>
-  <form id="search-container" action="index.php" method="GET" name="searching">
+  <form id="search-container" action="index2.php" method="GET" name="searching">
     <i class="fas fa-search"></i>
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
@@ -86,7 +86,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
     $("#loadButton").click(function(event){
       $.ajax({
-        url: "load_process.php",
+        url: "load_process2.php",
         type: "POST",
         data: {id: lastId, q: search},
         success: function(data){
