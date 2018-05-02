@@ -7,8 +7,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
 <div class="banner">
   <p id="textAni"></p>
-  <form id="search-container" action="index2.php" method="GET" name="searching">
-    <i class="fas fa-search"></i>
+  <form id="search-container" action="index.php" method="GET" name="searching">
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
   </form>
