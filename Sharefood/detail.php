@@ -4,6 +4,10 @@ require_once('lib/connect.php');
 require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
+if(count($_GET) == 0) {
+  header("Location: index.php");
+}
+
 $filtered_id = mysqli_real_escape_string($conn, $_GET['id']); // prevent sql input by user
 $sql = "SELECT * FROM list WHERE id = {$filtered_id}";
 $result = mysqli_query($conn, $sql);
@@ -15,7 +19,8 @@ $escaped = array(
   'title' => htmlspecialchars($row['title']),
   'image' => htmlspecialchars($row['image']),
   'status' => htmlspecialchars($row['status']),
-  'description' => htmlspecialchars($row['description'])
+  'description' => htmlspecialchars($row['description']),
+  'location'=> htmlspecialchars($row['location'])
 );
 
 ?>
@@ -25,11 +30,12 @@ $escaped = array(
   <div class="align-right">
     <input type="checkbox" id="toggle-check"/>
     <label for="toggle-check">
-      <span class="fakelink">edit</span> | <span class="fakelink">delete</span>
+      <span class="fakelink">edit</span>
+       | <span class="fakelink">delete</span>
     </label>
     <div class="checkContainer">
      <p>Enter your password</p>
-     <form action="edit.php" id="editForm" method="POST">
+     <form action="edit.php" id="editForm" method="POST" onkeypress="return event.keyCode != 13;">
        <input type="hidden" name="id" value="<?=$_GET['id']?>">
        <input type="password" name="password" id="password"><br>
      </form>
@@ -45,7 +51,8 @@ $created = substr($row['created'], 0, 10);
 echo "<p class='list_title'>{$escaped['title']}</p>";
 echo "<img src=\"{$escaped['image']}\" class='detailImg'>
 <p><b>Status:</b> {$escaped['status']}<br></p><p><b>Posted: </b>{$created}</p>
-<p><b>Description</b><br>{$escaped['description']}</p>
+<p><b>Pick-up Location: </b>{$escaped['location']}</p>
+<p><b>Description</b><br>{$escaped['description']}</p><br>
 <br>";
 ?>
 <form action="request.php?id=<?=$filtered_id?>" method="post">
