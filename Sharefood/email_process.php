@@ -42,9 +42,12 @@ $mail->Subject = 'A new request from Share Food'; // The subject of the message.
 $mail->Body = "Sent from: $escaped_from \n\n" . $escaped_msg; // Set a plain text body.
 
 if ($mail->send()) {
-    echo "Your message was sent successfully!";
+    echo "<script>alert ('Message has been sent successfully');
+    window.location.replace('index.php');</script>";
 } else {
-    echo "Mailer Error: " . $mail->ErrorInfo;
+    echo "Sorry, there's problem in the mail server.<br>
+    <a href='email_process.php?id={$filtered_id}'>Go back</a>";
+
 }
 
  ?>

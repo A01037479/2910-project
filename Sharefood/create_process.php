@@ -4,8 +4,6 @@
     require_once('config/config.php');
     $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
-  
-   
 // extracting only strings to prevent injection attack
 
 $filtered = array(
@@ -13,8 +11,6 @@ $filtered = array(
   'email' => mysqli_real_escape_string($conn, $_POST['email']),
   'title' => mysqli_real_escape_string($conn, $_POST['title']),
   'description' => mysqli_real_escape_string($conn, $_POST['description']),
-  'location' => $_POST['location'],
-  'image' => mysqli_real_escape_string($conn,$_POST['image']),
 );
 
 
@@ -26,14 +22,14 @@ $sql = "
       '{$filtered['email']}',
       '{$filtered['title']}',
       'Available',
-      '{$filtered['image']}',
+      '{$_POST['image']}',
       '{$filtered['description']}',
       NOW(),
-      '{$filtered['location']}'
+      '{$_POST['location']}'
       )
       ";
 
-    
+
     $result = mysqli_query($conn, $sql);
     if($result === false){
       echo "Sorry! there's a problem in the server<br>";
