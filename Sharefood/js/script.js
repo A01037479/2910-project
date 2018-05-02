@@ -48,13 +48,13 @@ function check_input(){
 
 
 
-  if(theForm.password.value == ""
-  || theForm.email.value == ""
-  || theForm.title.value == ""
-  || theForm.image.value == ""
-  || theForm.description.value == ""
-  || pwd_validation() == false){
-    alert("Please fill in all input values");
+  if(theForm.image.value == "") {
+    alert("Please submit an image of the food.");
+    return false;
+  }
+
+  if (pwd_validation() == false){
+    alert("The passwords are incorrect.");
     return false;
   } else if (!theForm.checkbox.checked){
       alert('You must agree to the terms first.');
