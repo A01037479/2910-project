@@ -9,9 +9,9 @@ if(count($_POST) == 0) {
 $post_photo = basename($_FILES['image']['name']);
 $post_tmp = $_FILES['image']['tmp_name'];
 $dir = "uploads/";
-$path = $dir . rand() . date('y-m-d-a-h-i-s') . $post_photo;
 
-$ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); //getting image extension
+//getting image extension & makes an image file
+$ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); 
 if($ext == 'jpg' || $ext == 'jpeg'){
   $src = imagecreatefromjpeg($post_tmp);
 } else if($ext == 'png'){
@@ -19,6 +19,8 @@ if($ext == 'jpg' || $ext == 'jpeg'){
 } else if($ext == 'gif'){
   $src = imagecreatefromgif($post_tmp);
 }
+
+$path = $dir . rand() . date('y-m-d-a-h-i-s') . "." . $ext;
 
 list($width, $height) = getimagesize($post_tmp); // fetching original image width and height
 $newwidth = 350;
