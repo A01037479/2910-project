@@ -22,7 +22,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list LIMIT 1";
   } else {
     $q = $_GET['search'];
-  $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
+    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
   
@@ -104,9 +104,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
         
       });
     });
-
-    
-
 </script>
 
 <script src="js/typewriter.js"></script>

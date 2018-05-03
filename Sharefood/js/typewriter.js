@@ -1,7 +1,12 @@
 /* Typewriter animation */
 var i = 0;
+<<<<<<< HEAD
 var txt = 'SHARE FOOD, REDUCE WORK';
 var speed = 50;
+=======
+var txt = 'SHARE FOOD, REDUCE WASTE';
+var speed = 200;
+>>>>>>> ec58aefb378c818414a9af03ab5f0db36e459bc6
 
 function typeWriter() {
 
