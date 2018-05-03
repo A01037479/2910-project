@@ -6,7 +6,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
  ?>
 
 <div class="banner">
-  <p id="textAni">Share Food, Reduce Waste</p>
+  <p id="textAni1"></p>
+  <p id="textAni2"></p>
   <form id="search-container" action="index.php" method="GET" name="searching">
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
@@ -106,7 +107,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     });
 </script>
 
-<!-- <script src="js/typewriter.js"></script> -->
+<script src="js/typewriter.js"></script>
 <?php
 require_once('view/footer.php');
  ?>
