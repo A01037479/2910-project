@@ -28,5 +28,3 @@
     </div>
     </header>
     <article>
-
-      
