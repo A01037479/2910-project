@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto|Gaegu');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto|Gaegu|Do+Hyeon');
 
 body {
   font-family: 'Roboto';
@@ -58,18 +58,19 @@ article {
   
 }
 .banner p {
-  text-shadow: 1px 1px grey;
+  text-shadow: 1px 1px green;
   margin: 0px;
   padding-top: 5%;
-  color:black;
-  font-size: 6vw;
-  font-family: 'Roboto';
+  color:white;
+  font-size: 7vw;
+  font-family: 'Do Hyeon';
   height: 15vw;
 }
 
 #gotop:hover {
   opacity:100;
   background-color: #555;
+  color: white;
 }
 #gotop{
   opacity: 0.8;
@@ -214,41 +215,40 @@ label .arrow-up { display: none; }
 }
 
 #searchbox {
+  font-size: 2.2vw;
   box-sizing: border-box;
   position: relative;
-  border: 2px solid #595d63;
-  border-radius: 20px 0px 0px 20px;
+  border: 1px solid #595d63;
+  border-radius: 40px 0px 0px 40px;
   width: 35%;
   height: 5vw;
   margin:4px 0 4px 0;
   padding: 1px 0 1px 10px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
 }
 
 #searchbtn {
+  font-size: 2.2vw;
   box-sizing: border-box;
-  border: 2px solid #595d63;
+  border: 1px solid #595d63;
   height: 5vw;
   position: relative;
   margin:4px 0 4px 0;
   cursor: pointer;
-  background-color: #595d68;
+  background-color: green;
   color: #fff;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 40px 40px 0px;
   padding: 1px 10px 1px 6px;
   text-align: center;
   text-decoration: none;
   transition-duration: 0.4s;
-  font-weight: bold;
   left:-6px;
-  box-shadow: 0 6px 20px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.5);
 }
 
 #searchbtn:hover {
-  background-color: #ccc;
-  color: #000;
-  font-weight: bold;
+  background-color: #c0e088;
+  color: green;
 }
 
 #search-container input[type="text"]:focus {

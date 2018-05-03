@@ -1,6 +1,6 @@
 /* Typewriter animation */
 var i = 0;
-var txt = 'SHARE FOOD, REDUCE WASTE';
+var txt = 'Share Food, Reduce Waste';
 var speed = 200;
 
 function typeWriter() {
