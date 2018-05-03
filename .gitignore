@@ -1,5 +1,3 @@
 .DS_Store
-uploads/
-config/
-/Sharefood/uploads/
-/Sharefood/config/
+Sharefood/uploads/*
+Sharefood/config/*

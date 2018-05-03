@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $sql);
         // listing each post
         echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
         echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-        <p>{$escaped['status']}<br>{$created}</p>
+        <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
         </div></a>";
         echo "<script>newid = {$row['id']};</script>";
     }

@@ -1,5 +1,4 @@
 <?php
-    require_once('view/top.php');
     require_once('lib/connect.php');
     require_once('config/config.php');
     $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
@@ -36,7 +35,6 @@ $sql = "
       echo "<a href='post.php'>Go back</a><br>";
 
     } else {
-      imagejpeg($tmp_min, $path, 80); // store compressed image
       header("Location: index.php");
 
     }
