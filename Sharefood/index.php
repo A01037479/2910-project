@@ -1,23 +1,18 @@
-
 <?php
 require_once('view/top.php');
 require_once('lib/connect.php');
 require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
  ?>
+
 <div class="banner">
   <p id="textAni"></p>
-    
-    <form id="search-container" action="index.php" method="GET" name="searching">
-      <input id="searchbox" type="text" name="search" placeholder="Search..." >
-      <button id="searchbtn" type="submit">Search</button>
-    </form>
-  </div>
-  
+  <form id="search-container" action="index.php" method="GET" name="searching">
+    <input id="searchbox" type="text" name="search" placeholder="Search..." >
+    <button id="searchbtn" type="submit">Search</button>
+  </form>
 </div>
 
-
-<div id ="baseContainer">
 <?php
   //retriving list
   $count = 3;
@@ -27,7 +22,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list LIMIT 1";
   } else {
     $q = $_GET['search'];
-  $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
+    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
   
@@ -55,7 +50,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     // listing each poast
     echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
     echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-    <p class=\"description\">{$escaped['status']}<br>{$created}</p>
+    <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
     </div></a>";
     $lastid = $row['id'];
     }
@@ -64,28 +59,12 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   }
 
 ?>
-</div>
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
 
-<button id="plusButton"><a href="post.php"><img src="img/plus1.png" alt="post"></a>
+<button id="plusButton"><img src="img/plus1.png" alt="post">
 </button>
-<script>
-var i=0;
-  $("#loadButton").click(function(event){
-    i++;
-    console.log("clicked");
-    $.ajax({
-      url: "load_process.php",
-      dataType: "json",
-      //type: "POST",
-      //data: {input: "go"},
-      success: function(data){
-          console.log(data[i]);
-          $("#loaded").append(data[i]);
-          
-        
 
 <script>
 
@@ -125,9 +104,6 @@ var i=0;
         
       });
     });
-
-    
-
 </script>
 
 <script src="js/typewriter.js"></script>
