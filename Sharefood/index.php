@@ -6,7 +6,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
  ?>
 
 <div class="banner">
-  <p id="textAni"></p>
+  <p id="textAni1"></p>
+  <p id="textAni2"></p>
   <form id="search-container" action="index.php" method="GET" name="searching">
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>

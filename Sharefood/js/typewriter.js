@@ -1,28 +1,22 @@
 /* Typewriter animation */
-var i = 0;
-<<<<<<< HEAD
-var txt = 'SHARE FOOD, REDUCE WORK';
-var speed = 50;
-=======
-var txt = 'SHARE FOOD, REDUCE WASTE';
-var speed = 200;
->>>>>>> ec58aefb378c818414a9af03ab5f0db36e459bc6
+$txt1 = "SHARE FOOD";
+$txt2 = "REDUCE WASTE";
 
-function typeWriter() {
-
-  if (i < txt.length) {
-    document.getElementById("textAni").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  } else if (i == txt.length) {
-    i++;
-    setTimeout(typeWriter, 3000);
-
-  } else if (i > txt.length) {
-    document.getElementById("textAni").innerHTML = "";
-    i = 0;
-    setTimeout(typeWriter, speed);
-  }
+function textAnimation1() {
+  $("#textAni1").html($txt1);
+  $("#textAni2").html($txt2);
+  $("#textAni1").css({"opacity":"0", "left":"20%"});
+  $("#textAni2").css({"opacity":"0", "left":"20%"});
+  $("#textAni1").animate({opacity:'1',left:'-20%'},2000);
+  $("#textAni2").animate({opacity:'1',left:'-16%'},4000);
+  setTimeout(textAnimation2,5000);
 }
 
-$(document).ready(typeWriter());
+function textAnimation2() {
+  $("#textAni1").animate({opacity:'0'},1000);
+  $("#textAni2").animate({opacity:'0'},1000);
+  setTimeout(textAnimation1,1000);
+}
+
+
+$(document).ready(textAnimation1());

@@ -53,18 +53,18 @@ article {
 }
 .banner {
   margin-bottom: 1em;
-  text-align: center;
   height: 400px;
   
 }
 .banner p {
   text-shadow: 1px 1px grey;
   margin: 0px;
-  padding-top: 5%;
+  padding : 0;
   color:black;
   font-size: 6vw;
   font-family: 'Roboto';
-  height: 15vw;
+  height: 10vw;
+  position: relative;
 }
 
 #gotop:hover {
