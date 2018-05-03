@@ -55,7 +55,7 @@ article {
   
 }
 .banner p {
-  text-shadow: 1px 1px green;
+  text-shadow: 1px 1px white;
   margin: 0px;
   padding : 0;
   color:black;
@@ -218,7 +218,7 @@ label .arrow-up { display: none; }
 }
 
 #searchbox {
-  font-size: 2.2vw;
+  font-size: 2vw;
   box-sizing: border-box;
   position: relative;
   border: 1px solid #595d63;
@@ -227,11 +227,11 @@ label .arrow-up { display: none; }
   height: 5vw;
   margin:4px 0 4px 0;
   padding: 1px 0 1px 10px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
 }
 
 #searchbtn {
-  font-size: 2.2vw;
+  font-size: 2vw;
   box-sizing: border-box;
   border: 1px solid #595d63;
   height: 5vw;
@@ -246,7 +246,7 @@ label .arrow-up { display: none; }
   text-decoration: none;
   transition-duration: 0.4s;
   left:-6px;
-  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
 }
 
 #searchbtn:hover {
@@ -356,6 +356,9 @@ label .arrow-up { display: none; }
     height: 300px;
     padding-top: 2em;
   }
+  #searchbox, #searchbtn {
+    font-size: 11pt;
+  }
 }
 
 @media screen and (max-width: 600px){
@@ -402,9 +405,6 @@ label .arrow-up { display: none; }
     width: 60px;
     height: 60px;
   }
-}
-
-@media screen and (max-width: 600px){
   .topMenu.responsive{
     position: relative;
   }
@@ -423,6 +423,9 @@ label .arrow-up { display: none; }
 
   nav{
     height: 100%;
+  }
+  #searchbox, #searchbtn {
+    font-size: 11pt;
   }
 }
 
