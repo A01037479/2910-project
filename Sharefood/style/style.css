@@ -32,8 +32,7 @@ header {
 }
 nav {
   width: 100%;
-  padding-top: 10px;
-  height: 50px;
+  height: 72px;
   background-color: transparent;
   overflow: hidden;
 }
@@ -215,7 +214,7 @@ label .arrow-up { display: none; }
 
 /***** Search bar styling *****/
 #searchcontainer {
-  margin-top: 10vw;
+  margin-top: 8vw;
 }
 
 #searchbox {
@@ -255,8 +254,15 @@ label .arrow-up { display: none; }
   color: green;
 }
 
-#search-container input[type="text"]:focus {
+#searchcontainer input[type="text"]:focus {
   outline: none;
+}
+
+#nomatch{
+  color:rgb(4, 87, 4);
+  font-size: 3vw;
+  text-shadow: 2px 2px rgb(184, 184, 184);
+
 }
 
 .description {
@@ -324,20 +330,21 @@ label .arrow-up { display: none; }
 .topMenu{
   overflow: hidden;
   background-color:transparent;
+
 }
 
 .topMenu a {
   float: right;
   display: block;
-  color: black;
+  color:white;
   text-align: center;
-  padding: 17px 22px;
+  padding: 17px 17px;
   text-decoration: none;
   font-size: 15px;
 }
 
 .topMenu a:hover{
-  background-color: #ddd;
+  background-color:rgba(221,221,221,0.5);
   color: black;
 }
 
@@ -371,6 +378,7 @@ label .arrow-up { display: none; }
   }
   #logo {
     width: 80px;
+    z-index: 1;
   }
   article {
     margin-top: 110px;
@@ -378,6 +386,7 @@ label .arrow-up { display: none; }
   .banner {
     height: 200px;
     padding-top: 2em;
+    transition: margin-top 0.5s;
   }  
 
   .topMenu a{
@@ -385,6 +394,9 @@ label .arrow-up { display: none; }
   }
 
   .topMenu a.icon{
+    margin-top: 5px;
+    margin-right: 10px;
+    color: black;
     float: right;
     display: block;
   }
@@ -406,11 +418,15 @@ label .arrow-up { display: none; }
     width: 60px;
     height: 60px;
   }
+
   .topMenu.responsive{
+    transition: 0.5s;
     position: relative;
+    background-color: rgba(0,0,0,0.4);
   }
 
   .topMenu.responsive .icon{
+    color: white;
     position: absolute;
     right: 0;
     top:0;
@@ -421,11 +437,17 @@ label .arrow-up { display: none; }
     display: block;
     text-align: center;
   }
+  
+  nav{
+    transition-property: height;
+    transition-duration: 0.5s;
+  }
 
   #searchbox, #searchbtn {
     font-size: 11pt;
   }
 }
+
 
 
 @media screen and (max-width: 400px){

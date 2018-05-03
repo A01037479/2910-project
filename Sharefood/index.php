@@ -5,7 +5,7 @@ require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
  ?>
 
-<div class="banner">
+<div class="banner" id="banner">
   <p id="textAni1"></p>
   <p id="textAni2"></p>
   <div id="searchcontainer">
@@ -109,14 +109,13 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
       });
     });
 
+    //no matching result
     if (!$('#content').is(':parent')){
-      $("#content").html("Oops, there is no food item related to your search!");
-      alert("Oops, there is no food item related to your search! \n\nYou will be redirected to home page.");
-      location.href = "index.php"
+      $("#content").html("<p id=\"nomatch\">Oops, there is no food item related to your search!<p>");
     }
 </script>
 
-<script src="js/typewriter.js"></script>
+<script src="js/typewriter.js?v=1"></script>
 <?php
 require_once('view/footer.php');
  ?>
