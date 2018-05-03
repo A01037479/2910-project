@@ -214,7 +214,7 @@ label .arrow-up { display: none; }
 
 /***** Search bar styling *****/
 #searchcontainer {
-  margin-top: 10vw;
+  margin-top: 8vw;
 }
 
 #searchbox {
@@ -254,8 +254,15 @@ label .arrow-up { display: none; }
   color: green;
 }
 
-#search-container input[type="text"]:focus {
+#searchcontainer input[type="text"]:focus {
   outline: none;
+}
+
+#nomatch{
+  color:rgb(4, 87, 4);
+  font-size: 3vw;
+  text-shadow: 2px 2px rgb(184, 184, 184);
+
 }
 
 .description {

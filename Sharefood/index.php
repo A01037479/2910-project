@@ -109,10 +109,9 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
       });
     });
 
+    //no matching result
     if (!$('#content').is(':parent')){
-      $("#content").html("Oops, there is no food item related to your search!");
-      alert("Oops, there is no food item related to your search! \n\nYou will be redirected to home page.");
-      location.href = "index.php"
+      $("#content").html("<p id=\"nomatch\">Oops, there is no food item related to your search!<p>");
     }
 </script>
 
