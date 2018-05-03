@@ -8,10 +8,12 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <div class="banner">
   <p id="textAni1"></p>
   <p id="textAni2"></p>
-  <form id="search-container" action="index.php" method="GET" name="searching">
+  <div id="searchcontainer">
+  <form action="index.php" method="GET" name="searching">
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
   </form>
+</div>
 </div>
 
 <?php
@@ -27,6 +29,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
   
+  echo "<div id=\"content\">";
+
   // returns the last item's id
   $result_last = mysqli_query($conn, $sql_last);
   $last_array = mysqli_fetch_array($result_last);
@@ -53,12 +57,11 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
     <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
     </div></a>";
+    
     $lastid = $row['id'];
     }
-
-
   }
-
+  echo "</div>";
 ?>
 <br>
 <div id="loaded"></div>
@@ -105,6 +108,12 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
         
       });
     });
+
+    if (!$('#content').is(':parent')){
+      $("#content").html("Oops, there is no food item related to your search!");
+      alert("Oops, there is no food item related to your search! \n\nYou will be redirected to home page.");
+      location.href = "index.php"
+    }
 </script>
 
 <script src="js/typewriter.js"></script>
