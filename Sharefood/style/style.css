@@ -58,6 +58,7 @@ article {
   background-size: cover;
 }
 .banner p {
+  opacity: 0;
   text-align: left;
   text-shadow: 1px 1px white;
   margin: 0;
@@ -67,6 +68,13 @@ article {
   font-family: 'Do Hyeon';
   height: 10vw;
   position: relative;
+}
+
+#textAni1 {
+  left:10%;
+}
+#textAni2 {
+  left:40%;
 }
 
 #gotop:hover {
