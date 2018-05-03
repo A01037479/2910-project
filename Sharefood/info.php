@@ -1,94 +1,78 @@
-<?php
-require_once('view/top.php');
- ?>
 
 
-
-
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="style/info.css">
+    <script src="js/exp.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/info.css">
+
   </head>
   <body>
-    <div class="container">
-    <ol class="step-list">
-        <li class="step-list__item">
-            <div class="step-list__item__inner">
-                <div class="content">
-                    <div class="body">
-                        <h2>60% of the Third World Have Poor Drinking Water</h2>
-                        <p>Are you going to let this continue?</p>
-                    </div>
+    <section class="strips">
+  <article class="strips__strip">
+    <div class="strip__content">
+      <h1 class="strip__title" data-name="Lorem">Awesome</h1>
+      <div class="strip__inner-text">
+        <h2>Ettrics</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+        <p>
+          <a href="https://twitter.com/ettrics" target="_blank"><i class="fa fa-twitter"></i></a>
+        </p>
+      </div>
 
-                    <div class="icon">
-                        <img src="" alt="one pic" />
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="step-list__item">
-            <div class="step-list__item__inner">
-                <div class="content">
-                    <div class="body">
-                        <h2>Because you shouldn't</h2>
-                        <p>(please don't)</p>
-                    </div>
-
-                    <div class="icon">
-                        <img src="" alt="other svg" />
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="step-list__item">
-            <div class="step-list__item__inner">
-                <div class="content">
-                    <div class="body">
-                        <h2>Think of the kids</h2>
-                        <p>(the fat ones too)</p>
-                    </div>
-
-                    <div class="icon">
-                        <img src="" alt="another svg" />
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="step-list__item">
-            <div class="step-list__item__inner">
-                <div class="content">
-                    <div class="body">
-                        <h2>Think of the ice-cream</h2>
-                        <p>(mango ice-cream!)</p>
-                    </div>
-
-                    <div class="icon">
-                        <img src="" alt="another svg" />
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="step-list__item">
-            <div class="step-list__item__inner">
-                <div class="content">
-                    <div class="body">
-                        <h2>Oh oh oh </h2>
-                        <p>Ha ha ha</p>
-                    </div>
-
-                    <div class="icon">
-                        <img src="" alt="another svg" />
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ol>
-</div>
+    </div>
+  </article>
+  <article class="strips__strip">
+    <div class="strip__content">
+      <h1 class="strip__title" data-name="Ipsum">Words</h1>
+      <div class="strip__inner-text">
+        <h2>Ettrics</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+        <p>
+          <a href="https://twitter.com/ettrics" target="_blank"><i class="fa fa-twitter"></i></a>
+        </p>
+      </div>
+    </div>
+  </article>
+  <article class="strips__strip">
+    <div class="strip__content">
+      <h1 class="strip__title" data-name="Dolor">Go</h1>
+      <div class="strip__inner-text">
+        <h2>Ettrics</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+        <p>
+          <a href="https://twitter.com/ettrics" target="_blank"><i class="fa fa-twitter"></i></a>
+        </p>
+      </div>
+    </div>
+  </article>
+  <article class="strips__strip">
+    <div class="strip__content">
+      <h1 class="strip__title" data-name="Sit">Inside</h1>
+      <div class="strip__inner-text">
+        <h2>Ettrics</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+        <p>
+          <a href="https://twitter.com/ettrics" target="_blank"><i class="fa fa-twitter"></i></a>
+        </p>
+      </div>
+    </div>
+  </article>
+  <article class="strips__strip">
+    <div class="strip__content">
+      <h1 class="strip__title" data-name="Amet">Here</h1>
+      <div class="strip__inner-text">
+        <h2>Ettrics</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+        <p>
+          <a href="https://twitter.com/ettrics" target="_blank"><i class="fa fa-twitter"></i></a>
+        </p>
+      </div>
+    </div>
+  </article>
+  <i class="fa fa-close strip__close"></i>
+</section>
   </body>
 </html>
-
-<?php
-require_once('view/footer.php');
- ?>
