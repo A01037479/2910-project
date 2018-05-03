@@ -19,8 +19,8 @@
         <div class="textmenu">
           <span class="menu"><a href="post.php">SHARE</a></span>
           <span class="menu"><a href="">FOOD FACTS</a></span>
-          <span class="menu"><a href="">HOW TO</a></span>
-          <span class="menu"><a href="">ABOUT</a></span>
+          <span class="menu"><a href="about.php">ABOUT</a></span>
+          <span class="menu"><a href="contact.php">CONTACT US</a></span>
         </div>
 
         <div class="dropdown">
@@ -28,8 +28,8 @@
           <div class="dropdown-content" id="myDropdown">
             <a href="post.php">SHARE</a>
             <a href="">FOOD FACTS</a>
-            <a href="">HOW TO</a>
-            <a href="">ABOUT</a>
+            <a href="about.php">ABOUT</a>
+            <a href="contact.php">CONTACT US</a>
           </div>
         </div>
 
