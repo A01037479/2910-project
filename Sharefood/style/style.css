@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0.9;
+  overflow-x: hidden;
 }
 
 a {
@@ -55,11 +56,12 @@ article {
   
 }
 .banner p {
+  text-align: left;
   text-shadow: 1px 1px white;
   margin: 0px;
   padding : 0;
-  color:black;
-  font-size: 6vw;
+  color: #093018;
+  font-size: 7.5vw;
   font-family: 'Do Hyeon';
   height: 10vw;
   position: relative;
@@ -225,7 +227,7 @@ label .arrow-up { display: none; }
   border-radius: 40px 0px 0px 40px;
   width: 35%;
   height: 5vw;
-  margin:4px 0 4px 0;
+  margin: 1em 0 4px 0;
   padding: 1px 0 1px 10px;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
 }
@@ -236,7 +238,7 @@ label .arrow-up { display: none; }
   border: 1px solid #595d63;
   height: 5vw;
   position: relative;
-  margin:4px 0 4px 0;
+  margin: 1em 0 4px 0;
   cursor: pointer;
   background-color: green;
   color: #fff;
