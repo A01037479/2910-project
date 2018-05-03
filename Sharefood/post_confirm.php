@@ -9,9 +9,9 @@ if(count($_POST) == 0) {
 $post_photo = basename($_FILES['image']['name']);
 $post_tmp = $_FILES['image']['tmp_name'];
 $dir = "uploads/";
+$path = $dir . rand() . date('y-m-d-a-h-i-s') . $post_photo;
 
-//getting image extension & makes an image file
-$ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); 
+$ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); //getting image extension
 if($ext == 'jpg' || $ext == 'jpeg'){
   $src = imagecreatefromjpeg($post_tmp);
 } else if($ext == 'png'){
@@ -19,8 +19,6 @@ if($ext == 'jpg' || $ext == 'jpeg'){
 } else if($ext == 'gif'){
   $src = imagecreatefromgif($post_tmp);
 }
-
-$path = $dir . rand() . date('y-m-d-a-h-i-s') . "." . $ext;
 
 list($width, $height) = getimagesize($post_tmp); // fetching original image width and height
 $newwidth = 350;
@@ -45,12 +43,6 @@ echo "<p><b>Pick-up location</b> ". $_POST["location"] . "</p>";
 echo "<p><b>Description</b> " . $_POST["description"] . "</p>";
 
 ?>
-<script>
-// go back to the previous page
-function goBack() {
-    window.history.back();
-}
-</script>
 
 <form action="create_process.php" name ="posting" onsubmit="success()" method="post" enctype="multipart/form-data" id="confirmForm">
 
@@ -62,10 +54,20 @@ function goBack() {
   <input type="hidden" name="location" value="<?= $_POST['location'] ?>" >
 </form>
   <button onclick="goBack()" class="confirm">edit</button>
-  <button type="submit" form="confirmForm" value="confirm" id="postconfirm" class="confirm">confirm</button>
+  <button onclick="confirm()" class="confirm" id="confirmBtn">confirm</button>
+
 <script>
-  function success(){
-    alert ("Successfully posted");
-  };
+// go back to the previous page
+function goBack() {
+    window.history.back();
+}
+
+function confirm() {
+  $("#confirmForm").submit();
+}
+
 </script>
 
+<?php
+require_once('view/footer.php');
+ ?>

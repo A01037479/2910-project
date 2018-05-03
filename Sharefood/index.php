@@ -7,13 +7,17 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
  ?>
 <div class="banner">
   <p id="textAni"></p>
-    <span id="bannerlogo"><img src="img/logo.png" id="logo"></span>
+    
     <form id="search-container" action="index.php" method="GET" name="searching">
-   
       <input id="searchbox" type="text" name="search" placeholder="Search..." >
       <button id="searchbtn" type="submit">Search</button>
     </form>
   </div>
+  
+</div>
+
+
+<div id ="baseContainer">
 <?php
   //retriving list
   $count = 3;
@@ -60,6 +64,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   }
 
 ?>
+</div>
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
@@ -83,6 +88,12 @@ var i=0;
         
 
 <script>
+
+  $("#plusButton").click(function(event){
+    location.href = "post.php";
+  });
+
+  /* loading more feature */
   var lastId = <?=$lastid?>;
   var result = <?=$last?>;
 
