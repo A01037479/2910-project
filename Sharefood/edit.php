@@ -78,7 +78,7 @@ if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
 
 <br>
 
- <script src="js/script.js"></script>
+ <script src="js/script.js?v=1"></script>
 
 <?php
 require_once('view/footer.php');
