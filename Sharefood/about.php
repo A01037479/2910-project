@@ -17,8 +17,10 @@ require_once('view/top.php');
     </p> 
     
     <h2 class="about-h2">- Mission -</h2>
-    <p class="about-desc">Our mission is to seek sustainable solutions 
-    to the food waste problem and connect communities together.  We aim to expand
+    <p class="about-mission-quote"><i>"To inspire a community to be more conscious about food waste
+    through food sharing"</i></p>
+    <p class="about-desc">We want to seek sustainable solutions 
+    for the food waste problem and connect communities together.  We aim to expand
     the sharing economy by offering people a platform to share their excess food and ingredients
     with others in their community.  By doing so, less food will end up in landfills and and more 
     food will end up in our bellies.</p>

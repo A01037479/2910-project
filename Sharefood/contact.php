@@ -4,7 +4,7 @@ require_once('view/top.php');
 
 <link rel="stylesheet" href="style/about_contact.css">
 
-<div class="contact-container" style="width:75%;padding-left:15vw;margin:0 auto;text-align:left">
+<div class="contact-container" style="padding-left:15vw;margin:0 auto;text-align:left;padding-bottom:2vw;">
 <form action="" method="">
     <h2 style="padding-top:2vw;">Get in Touch</h2>
     <p>Send us your questions and we will get back to you</p>

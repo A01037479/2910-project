@@ -27,3 +27,7 @@
     font-size: 0;
 }
 /* CSS for contact.php */
+
+.contact-container {
+    background-color: #fff;
+}
