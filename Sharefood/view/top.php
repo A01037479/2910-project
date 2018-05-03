@@ -16,7 +16,7 @@
     <header>
     <div id="topContainer">
       <a href="index.php"><img src="img/logo.png" id="logo"></a>
-      <nav>
+      <nav id="nav">
         <div class = "topMenu" id="menu">
           <a href="contact.php">CONTACT US</a>
           <a href="about.php">ABOUT</a>
