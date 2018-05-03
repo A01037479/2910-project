@@ -44,7 +44,7 @@ echo "<p><b>Description</b> " . $_POST["description"] . "</p>";
 
 ?>
 
-<form action="create_process.php" name ="posting" onsubmit="success()" method="post" enctype="multipart/form-data" id="confirmForm">
+<form action="create_process.php" name ="posting" method="post" id="confirmForm">
 
   <input type="hidden" name="password" value="<?= $_POST['password'] ?>" ><br>
   <input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br>

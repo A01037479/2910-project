@@ -63,7 +63,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
 
-<button id="plusButton"><img src="img/plus.png" alt="post">
+<button id="plusButton"><img src="img/plus1.png" alt="post">
 </button>
 
 <script>
