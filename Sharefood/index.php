@@ -5,12 +5,15 @@ require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
  ?>
 
-<div class="banner">
-  <p id="textAni">Share Food, Reduce Waste</p>
-  <form id="search-container" action="index.php" method="GET" name="searching">
+<div class="banner" id="banner">
+  <p id="textAni1"></p>
+  <p id="textAni2"></p>
+  <div id="searchcontainer">
+  <form action="index.php" method="GET" name="searching">
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
   </form>
+  </div>
 </div>
 
 <?php
@@ -25,14 +28,16 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
-  
+
+  echo "<div id=\"content\" class='list_item'>";
+
   // returns the last item's id
   $result_last = mysqli_query($conn, $sql_last);
   $last_array = mysqli_fetch_array($result_last);
   $last = is_null($last_array[0]) ? 0 : $last_array[0];
 
   $result = mysqli_query($conn, $sql);
-  
+
   $lastid = 0;
   if ($result != null){
 
@@ -52,12 +57,11 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
     <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
     </div></a>";
+
     $lastid = $row['id'];
     }
-
-
   }
-
+  echo "</div>";
 ?>
 <br>
 <div id="loaded"></div>
@@ -101,12 +105,17 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
             $("#loadButton").css("display", "none");
           }
         }
-        
+
       });
     });
+
+    //no matching result
+    if (!$('#content').is(':parent')){
+      $("#content").html("<p>Oops, there is no food item related to your search!<p>");
+    }
 </script>
 
-<!-- <script src="js/typewriter.js"></script> -->
+<script src="js/typewriter.js?v=1"></script>
 <?php
 require_once('view/footer.php');
  ?>
