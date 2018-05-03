@@ -37,8 +37,13 @@ if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
 
 <div class = "detail_item">
   <p class="list_title"><?=$escaped['title']?></p>
-  <img src="<?=$escaped['image']?>"><br>
   <form action="edit_process.php" name ="posting" onsubmit="return check_input()" method="post">
+    <!-- status option -->
+    <p>
+      <label><input type="radio" name="status" value="Available" checked>Available</label><br>
+      <label><input type="radio" name="status" value="Taken">Taken</label>
+    </p>
+    <img src="<?=$escaped['image']?>" class='detailImg'><br>
     <input type="hidden" name="id" value="<?=$_POST['id']?>">
     <p id="pwdInvalid"></p>
     <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;"><br><span class = "desc">* Required to edit/delete the post later</span></p>
@@ -78,6 +83,10 @@ if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
 
 <br>
 
+ <script src="js/script.js"></script>
+
 <?php
 require_once('view/footer.php');
  ?>
+
+
