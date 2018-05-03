@@ -95,7 +95,7 @@ article {
   max-width: 80%;
   text-align: left;
   display: inline-block;
-  background-color: white;
+  background-color:white;
   margin: 1.5em 0.5em;
   padding: 1em;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
@@ -175,7 +175,7 @@ input[type=radio] {
 }
 footer p {
   margin: 1em 0 0 0;
-  background-color: #c7ccc8;
+  background-color: #c7ccc8b4;
   padding: 1em 0.5em;
   font-size: 10pt;
 }
@@ -260,6 +260,13 @@ label .arrow-up { display: none; }
   outline: none;
 }
 
+#nomatch{
+  color:rgb(4, 87, 4);
+  font-size: 3vw;
+  text-shadow: 2px 2px 5px rgb(184, 184, 184);
+
+}
+
 .description {
   background-color: rgb(166, 235, 235);
 }
@@ -325,6 +332,8 @@ label .arrow-up { display: none; }
 .topMenu{
   overflow: hidden;
   background-color:transparent;
+  background:linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
+  
 }
 
 .topMenu a {
@@ -338,7 +347,7 @@ label .arrow-up { display: none; }
 }
 
 .topMenu a:hover{
-  background-color:rgba(221,221,221,0.5);
+  text-decoration-line: underline;
   color: black;
 }
 
@@ -361,6 +370,7 @@ label .arrow-up { display: none; }
   #searchbox, #searchbtn {
     font-size: 11pt;
   }
+ 
 }
 
 @media screen and (max-width: 600px){
