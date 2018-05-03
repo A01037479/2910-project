@@ -1,6 +1,18 @@
 /* Dropdown Menu */
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
+
+function menu_function(){
+  var temp = document.getElementById("menu");
+    if (temp.className === "topMenu"){
+      temp.className += " responsive";
+    } else {
+      temp.className = "topMenu";
+    }
+}
+
+
+/*
 function popMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -19,3 +31,4 @@ window.onclick = function(event) {
     }
   }
 }
+*/

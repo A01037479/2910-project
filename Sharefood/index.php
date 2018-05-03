@@ -14,6 +14,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   </form>
 </div>
 
+
+<div id ="baseContainer">
 <?php
   //retriving list
   $count = 3;
@@ -60,6 +62,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   }
 
 ?>
+</div>
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
