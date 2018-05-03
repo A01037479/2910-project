@@ -20,31 +20,10 @@
         <div class = "topMenu" id="menu">
           <a href="post.php">SHARE</a>
           <a href="">FOOD FACTS</a>
-          <a href="">HOW TO</a>
-          <a href="">ABOUT</a>
+          <a href="contact.php">CONTACT US</a>
+          <a href="about.php">ABOUT</a>
           <a href="javascript:void(0);" onclick="menu_function()" class="icon" style="font-size:25px">&#9776</a>
         </div>
-
-
-
-<!--
-        <div class="textmenu">
-          <span class="menu"><a href="post.php">SHARE</a></span>
-          <span class="menu"><a href="">FOOD FACTS</a></span>
-          <span class="menu"><a href="about.php">ABOUT</a></span>
-          <span class="menu"><a href="contact.php">CONTACT US</a></span>
-        </div>
-
-        <div class="dropdown">
-          <button id ="myBtn" onclick="popMenu()" class="dropbtn"></button>
-          <div class="dropdown-content" id="myDropdown">
-            <a href="post.php">SHARE</a>
-            <a href="">FOOD FACTS</a>
-            <a href="about.php">ABOUT</a>
-            <a href="contact.php">CONTACT US</a>
-          </div>
-        </div>
--->
       </nav>
     </div>
     </header>
