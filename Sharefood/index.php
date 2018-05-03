@@ -67,10 +67,16 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
 
-<button id="plusButton"><a href="post.php"><img src="img/plus.png" alt="post"></a>
+<button id="plusButton"><img src="img/plus.png" alt="post">
 </button>
 
 <script>
+
+  $("#plusButton").click(function(event){
+    location.href = "post.php";
+  });
+
+  /* loading more feature */
   var lastId = <?=$lastid?>;
   var result = <?=$last?>;
 

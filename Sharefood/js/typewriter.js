@@ -1,7 +1,7 @@
 /* Typewriter animation */
 var i = 0;
-var txt = 'SHARE FOOD, REDUCE WASTE';
-var speed = 200;
+var txt = 'Nasrin Yavari';
+var speed = 50;
 
 function typeWriter() {
 
@@ -12,7 +12,7 @@ function typeWriter() {
   } else if (i == txt.length) {
     i++;
     setTimeout(typeWriter, 3000);
-    
+
   } else if (i > txt.length) {
     document.getElementById("textAni").innerHTML = "";
     i = 0;

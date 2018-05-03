@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/dropdown.js"></script>
-    <script src="js/script.js"></script>
+    
   </head>
   <body>
     <header>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="dropdown">
-          <button onclick="popMenu()" class="dropbtn"></button>
+          <button id ="myBtn" onclick="popMenu()" class="dropbtn"></button>
           <div class="dropdown-content" id="myDropdown">
             <a href="post.php">SHARE</a>
             <a href="">FOOD FACTS</a>
