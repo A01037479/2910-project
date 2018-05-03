@@ -258,12 +258,6 @@ label .arrow-up { display: none; }
   outline: none;
 }
 
-#nomatch{
-  color:rgb(4, 87, 4);
-  font-size: 3vw;
-  text-shadow: 2px 2px rgb(184, 184, 184);
-
-}
 
 .description {
   background-color: rgb(166, 235, 235);

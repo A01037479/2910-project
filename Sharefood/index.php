@@ -29,7 +29,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
 
-  echo "<div id=\"content\">";
+  echo "<div id=\"content\" class='list_item'>";
 
   // returns the last item's id
   $result_last = mysqli_query($conn, $sql_last);
@@ -111,7 +111,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
     //no matching result
     if (!$('#content').is(':parent')){
-      $("#content").html("<p id=\"nomatch\">Oops, there is no food item related to your search!<p>");
+      $("#content").html("<p>Oops, there is no food item related to your search!<p>");
     }
 </script>
 
