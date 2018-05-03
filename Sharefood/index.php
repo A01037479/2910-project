@@ -8,14 +8,11 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <div class="banner">
   <p id="textAni"></p>
   <form id="search-container" action="index.php" method="GET" name="searching">
-    <i class="fas fa-search"></i>
     <input id="searchbox" type="text" name="search" placeholder="Search..." >
     <button id="searchbtn" type="submit">Search</button>
   </form>
 </div>
 
-
-<div id ="baseContainer">
 <?php
   //retriving list
   $count = 3;
@@ -25,7 +22,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list LIMIT 1";
   } else {
     $q = $_GET['search'];
-  $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
+    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
   
@@ -53,7 +50,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     // listing each poast
     echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
     echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-    <p>{$escaped['status']}<br>{$created}</p>
+    <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
     </div></a>";
     $lastid = $row['id'];
     }
@@ -62,7 +59,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   }
 
 ?>
-</div>
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
@@ -108,9 +104,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
         
       });
     });
-
-    
-
 </script>
 
 <script src="js/typewriter.js"></script>

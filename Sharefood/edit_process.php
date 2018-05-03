@@ -9,19 +9,19 @@ $filtered = array(
   'password' => mysqli_real_escape_string($conn, $_POST['password']),
   'email' => mysqli_real_escape_string($conn, $_POST['email']),
   'title' => mysqli_real_escape_string($conn, $_POST['title']),
-  'description' => mysqli_real_escape_string($conn, $_POST['description']),
-  'location' => mysqli_real_escape_string($conn, $_POST['location'])
+  'description' => mysqli_real_escape_string($conn, $_POST['description'])
 );
 
 // Edit data into table
 
 $sql = "
     UPDATE list SET
+      status = '{$_POST['status']}',
       password = '{$filtered['password']}',
       email = '{$filtered['email']}',
       title = '{$filtered['title']}',
       description = '{$filtered['description']}',
-      location = '{$filtered['location']}'
+      location = '{$_POST['location']}'
     WHERE id = {$_POST['id']}
       ";
 
