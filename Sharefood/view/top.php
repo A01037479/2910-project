@@ -18,10 +18,10 @@
       <a href="index.php"><img src="img/logo.png" id="logo"></a>
       <nav>
         <div class = "topMenu" id="menu">
-          <a href="post.php">SHARE</a>
-          <a href="">FOOD FACTS</a>
           <a href="contact.php">CONTACT US</a>
           <a href="about.php">ABOUT</a>
+          <a href="">FOOD FACTS</a>
+          <a href="post.php">SHARE</a>
           <a href="javascript:void(0);" onclick="menu_function()" class="icon" style="font-size:25px">&#9776</a>
         </div>
       </nav>
