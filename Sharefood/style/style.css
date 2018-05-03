@@ -355,7 +355,6 @@ label .arrow-up { display: none; }
 }
 
 .topMenu a:hover{
-  text-decoration-line: underline;
   color: black;
 }
 
