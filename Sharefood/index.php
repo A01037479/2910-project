@@ -13,8 +13,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   </form>
 </div>
 
-
-<div id ="baseContainer">
 <?php
   //retriving list
   $count = 3;
@@ -52,7 +50,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     // listing each poast
     echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
     echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-    <p>Status:&nbsp; {$escaped['status']}<br>Posted:&nbsp; {$created}</p>
+    <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
     </div></a>";
     $lastid = $row['id'];
     }
@@ -61,7 +59,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   }
 
 ?>
-</div>
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
