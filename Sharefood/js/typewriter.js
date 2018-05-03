@@ -7,8 +7,8 @@ function textAnimation1() {
   $("#textAni2").html($txt2);
   $("#textAni1").css({"opacity":"0", "left":"10%"});
   $("#textAni2").css({"opacity":"0", "left":"40%"});
-  $("#textAni1").animate({opacity:'1',left:'28%'},2000);
-  $("#textAni2").animate({opacity:'1', left:"22%"},3000);
+  $("#textAni1").animate({opacity:'1',left:'29%'},2000);
+  $("#textAni2").animate({opacity:'1', left:"23%"},3000);
   setTimeout(textAnimation2,5000);
 }
 
