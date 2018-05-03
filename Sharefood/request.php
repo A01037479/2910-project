@@ -4,6 +4,10 @@ require_once('lib/connect.php');
 require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
+if(count($_GET) == 0) {
+  header("Location: index.php");
+}
+
 $filtered_id = mysqli_real_escape_string($conn, $_GET['id']); // prevent sql input by user
 $sql = "SELECT * FROM list WHERE id = {$filtered_id}";
 $result = mysqli_query($conn, $sql);
