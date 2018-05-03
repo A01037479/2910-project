@@ -213,8 +213,8 @@ label .arrow-up { display: none; }
 }
 
 /***** Search bar styling *****/
-#search-containter {
-  position: absolute;
+#searchcontainer {
+  margin-top: 10vw;
 }
 
 #searchbox {
@@ -421,9 +421,6 @@ label .arrow-up { display: none; }
     text-align: center;
   }
 
-  nav{
-    height: 100%;
-  }
   #searchbox, #searchbtn {
     font-size: 11pt;
   }
