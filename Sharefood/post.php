@@ -18,6 +18,9 @@ require_once('view/top.php');
       <label><input type="radio" name="location" value="Downtown Campus">Downtown Campus</label><br>
     </div>
 
+    <p><img src="img/photo.png" alt="photo" id="photoupload"> <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" value="image"></p>
+
+
     <div class="toggleDiv">
       <input type="checkbox" id="toggle"/>
       <label for="toggle">
