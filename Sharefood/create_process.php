@@ -2,6 +2,7 @@
 
 if(empty($_POST['title'])) {
   header("Location: index.php");
+  exit;
 } else {
 
   require_once('lib/connect.php');
