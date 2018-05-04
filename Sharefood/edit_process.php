@@ -3,6 +3,10 @@ require_once('lib/connect.php');
 require_once('config/config.php');
 $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
+if(count($_POST) == 0) {
+  header("Location: index.php");
+} 
+
 // extracting only strings to prevent injection attack
 $filtered = array(
   'password' => mysqli_real_escape_string($conn, $_POST['password']),

@@ -1,42 +1,49 @@
 <?php
-    require_once('lib/connect.php');
-    require_once('config/config.php');
-    $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
-// extracting only strings to prevent injection attack
+if(empty($_POST['title'])) {
+  header("Location: index.php");
+} else {
 
-$filtered = array(
-  'password' => mysqli_real_escape_string($conn, $_POST['password']),
-  'email' => mysqli_real_escape_string($conn, $_POST['email']),
-  'title' => mysqli_real_escape_string($conn, $_POST['title']),
-  'description' => mysqli_real_escape_string($conn, $_POST['description']),
-);
+  require_once('lib/connect.php');
+  require_once('config/config.php');
+  $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
+  // extracting only strings to prevent injection attack
 
-$sql = "
-    INSERT INTO list
-    (password, email, title, status, image, description, created, location)
-    VALUES(
-      '{$filtered['password']}',
-      '{$filtered['email']}',
-      '{$filtered['title']}',
-      'Available',
-      '{$_POST['image']}',
-      '{$filtered['description']}',
-      NOW(),
-      '{$_POST['location']}'
-      )
-      ";
+  $filtered = array(
+    'password' => mysqli_real_escape_string($conn, $_POST['password']),
+    'email' => mysqli_real_escape_string($conn, $_POST['email']),
+    'title' => mysqli_real_escape_string($conn, $_POST['title']),
+    'description' => mysqli_real_escape_string($conn, $_POST['description']),
+  );
 
 
-    $result = mysqli_query($conn, $sql);
-    if($result === false){
-      echo "Sorry! there's a problem in the server<br>";
-      echo "<a href='post.php'>Go back</a><br>";
+  $sql = "
+      INSERT INTO list
+      (password, email, title, status, image, description, created, location)
+      VALUES(
+        '{$filtered['password']}',
+        '{$filtered['email']}',
+        '{$filtered['title']}',
+        'Available',
+        '{$_POST['image']}',
+        '{$filtered['description']}',
+        NOW(),
+        '{$_POST['location']}'
+        )
+        ";
 
-    } else {
-      header("Location: index.php");
 
-    }
+      $result = mysqli_query($conn, $sql);
+      if($result === false){
+        echo "Sorry! there's a problem in the server<br>";
+        echo "<a href='post.php'>Go back</a><br>";
+
+      } else {
+        header("Location: index.php");
+
+      }
+
+  } 
 
  ?>
