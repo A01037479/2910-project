@@ -6,7 +6,10 @@ body {
   font-family: 'Roboto';
   margin: 0em;
   padding: 0em;
-  background-color: #eaecef;
+  background-image: url('../img/background.jpg');
+  background-size: 100% auto;
+  background-color: rgb(229,229,229);
+  background-repeat: no-repeat;
   text-align: center;
   opacity: 0.9;
   overflow-x: hidden;
@@ -46,18 +49,17 @@ nav {
   left:0px;
 }
 article {
-  margin: 80px 0 0 0;
+  margin: 100px 0 0 0;
   padding: 0;
   transition: margin-top 0.5s;
 }
 .banner {
-  padding-top: 100px;
+  padding-top: 50px;
   margin-bottom: 1em;
   height: 400px;
-  background-image: url("../img/banner.jpg");
-  background-size: cover;
 }
 .banner p {
+  opacity: 0;
   text-align: left;
   text-shadow: 1px 1px white;
   margin: 0;
@@ -67,6 +69,13 @@ article {
   font-family: 'Do Hyeon';
   height: 10vw;
   position: relative;
+}
+
+#textAni1 {
+  left:10%;
+}
+#textAni2 {
+  left:40%;
 }
 
 #gotop:hover {
@@ -347,8 +356,7 @@ label .arrow-up { display: none; }
 }
 
 .topMenu a:hover{
-  text-decoration-line: underline;
-  color: black;
+  color: green;
 }
 
 .topMenu .icon {
@@ -363,17 +371,23 @@ label .arrow-up { display: none; }
 }
 
 @media screen and (max-width: 800px) {
+  body {
+    background-image: url('../img/background_min.jpg');
+    background-size: 120% auto;
+  }
   .banner {
     height: 300px;
-    padding-top: 80px;
+    padding-top: 30px;
   }
   #searchbox, #searchbtn {
     font-size: 11pt;
-  }
- 
+  } 
 }
 
 @media screen and (max-width: 600px){
+  body {
+    background-size: 140% auto;
+  }
   #searchbox{
     height: 24px;
   }
@@ -417,6 +431,14 @@ label .arrow-up { display: none; }
     z-index: 10;
     width: 60px;
     height: 60px;
+  }
+
+  .topMenu a{
+    color: white;
+  }
+
+  .topMenu a:hover{
+    color: black;
   }
 
   .topMenu.responsive{
