@@ -54,7 +54,7 @@ article {
   transition: margin-top 0.5s;
 }
 .banner {
-  padding-top: 100px;
+  padding-top: 50px;
   margin-bottom: 1em;
   height: 400px;
 }
@@ -371,17 +371,23 @@ label .arrow-up { display: none; }
 }
 
 @media screen and (max-width: 800px) {
+  body {
+    background-image: url('../img/background_min.jpg');
+    background-size: 120% auto;
+  }
   .banner {
     height: 300px;
-    padding-top: 80px;
+    padding-top: 30px;
   }
   #searchbox, #searchbtn {
     font-size: 11pt;
-  }
- 
+  } 
 }
 
 @media screen and (max-width: 600px){
+  body {
+    background-size: 140% auto;
+  }
   #searchbox{
     height: 24px;
   }
