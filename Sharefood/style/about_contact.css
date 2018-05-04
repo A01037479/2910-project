@@ -2,7 +2,7 @@
 .about-us {
     text-align:center;
     background-color: white;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 .about-h2 {
@@ -11,7 +11,7 @@
 .about-banner h1 {
     background: linear-gradient(to right,#1d976c, #93f9b9);
     padding: 3vw;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     box-sizing: border-box;
 }
