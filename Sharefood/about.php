@@ -10,15 +10,15 @@ require_once('view/top.php');
 
 <div class="about-us">
     <h2 class="about-h2">- Who We Are -</h2>
-    <p class="about-desc">We are a team of five term 1 students enrolled in BCIT's 
+    <p class="about-desc">We are a team of five, term 1 students enrolled in BCIT's 
     Computer Systems Technology program.  We were inspired by Metro Vancouver to help make a 
     difference in the battle to reduce food waste in our community by educating, raising awareness 
     and creating a behavioural change.
     </p> 
     
     <h2 class="about-h2">- Mission -</h2>
-    <p class="about-mission-quote"><i>"To inspire a community to be more conscious about food waste
-    through food sharing"</i></p>
+    <p class="about-mission-quote"><i>"To inspire communities to be more conscious about food waste
+    by connecting them through food sharing"</i></p>
     <p class="about-desc">We want to seek sustainable solutions 
     for the food waste problem and connect communities together.  We aim to expand
     the sharing economy by offering people a platform to share their excess food and ingredients
@@ -27,7 +27,7 @@ require_once('view/top.php');
 
    
     <div class="video-player">
-    <video width="400" height="300" controls>
+    <video width="450" height="300" controls>
         <source src="img/ShareFood_team15.mp4" type="video/mp4">
         Your browser doesn't support the video tag
     </video>
