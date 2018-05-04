@@ -2,6 +2,8 @@
 .about-us {
     text-align:center;
     background-color: white;
+    width: 80%;
+    margin: 0 auto;
 }
 .about-h2 {
     padding-top:2vw;
@@ -9,9 +11,12 @@
 .about-banner h1 {
     background: linear-gradient(to right,#1d976c, #93f9b9);
     padding: 3vw;
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 .about-desc {
-    width:70%;
+    width:80%;
     text-align:left;
     display:inline-block;
 }
@@ -19,11 +24,15 @@
     display: inline-block;
     margin: 0;
     padding: 0; 
+    width: 400px;
+    height: 300px;
+    max-width: 90%;
 }
 .video-player {
     opacity: 100;
     max-width: 100%;
     max-height: 100%;
     font-size: 0;
+    padding-bottom: 50px;
 }
 /* CSS for contact.php */

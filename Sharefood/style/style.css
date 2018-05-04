@@ -6,7 +6,10 @@ body {
   font-family: 'Roboto';
   margin: 0em;
   padding: 0em;
-  background-color: #eaecef;
+  background-image: url('../img/background.jpg');
+  background-size: 100% auto;
+  background-color: rgb(229,229,229);
+  background-repeat: no-repeat;
   text-align: center;
   opacity: 0.9;
   overflow-x: hidden;
@@ -46,7 +49,7 @@ nav {
   left:0px;
 }
 article {
-  margin: 72px 0 0 0;
+  margin: 100px 0 0 0;
   padding: 0;
   transition: margin-top 0.5s;
 }
@@ -54,8 +57,6 @@ article {
   padding-top: 100px;
   margin-bottom: 1em;
   height: 400px;
-  background-image: url("../img/banner.jpg");
-  background-size: cover;
 }
 .banner p {
   opacity: 0;
@@ -340,14 +341,14 @@ label .arrow-up { display: none; }
 .topMenu{
   overflow: hidden;
   background-color:transparent;
-  background:linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
+  /*background:linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));*/
   
 }
 
 .topMenu a {
   float: right;
   display: block;
-  color:white;
+  color:black;
   text-align: center;
   padding: 17px 17px;
   text-decoration: none;
@@ -355,7 +356,7 @@ label .arrow-up { display: none; }
 }
 
 .topMenu a:hover{
-  color: black;
+  color: green;
 }
 
 .topMenu .icon {
@@ -424,6 +425,14 @@ label .arrow-up { display: none; }
     z-index: 10;
     width: 60px;
     height: 60px;
+  }
+
+  .topMenu a{
+    color: white;
+  }
+
+  .topMenu a:hover{
+    color: black;
   }
 
   .topMenu.responsive{

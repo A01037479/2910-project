@@ -4,6 +4,7 @@ require_once('view/top.php');
 
 <link rel="stylesheet" href="style/about_contact.css">
 
+<br>
 <div class="about-banner">
     <h1><i>"Well, the fridge broke, so I had to eat everything"</i></h1>
 </div>
@@ -25,13 +26,14 @@ require_once('view/top.php');
 
    
     <div class="video-player">
-    <video width="400" height="300" controls>
+    <video controls>
         <source src="img/ShareFood_team15.mp4" type="video/mp4">
         Your browser doesn't support the video tag
     </video>
 </div>
 
 </div>
+<br>
 
 
 
