@@ -1,36 +1,39 @@
 <?php
-require_once('view/top.php');
-require_once('lib/connect.php');
-require_once('config/config.php');
-$conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
 // it only works when user comes to this page with normal process
 if(!isset($_POST['id'])) {
   header("Location: index.php");
-}
-
-
-$sql = "SELECT * FROM list WHERE id = {$_POST['id']}";
-$result = mysqli_query($conn, $sql);
-
-$row = mysqli_fetch_array($result);
-
-//prevent cross scripting attack
-$escaped = array(
-  'title' => htmlspecialchars($row['title']),
-  'email' => htmlspecialchars($row['email']),
-  'image' => htmlspecialchars($row['image']),
-  'status' => htmlspecialchars($row['status']),
-  'description' => htmlspecialchars($row['description']),
-);
-
-// used for radio button check status
-if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
-  $checked_Burnaby = "checked";
-  $checked_Downtown = "";
+  exit;
 } else {
-  $checked_Burnaby = "";
-  $checked_Downtown = "checked";
+
+  require_once('view/top.php');
+  require_once('lib/connect.php');
+  require_once('config/config.php');
+  $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
+
+  $sql = "SELECT * FROM list WHERE id = {$_POST['id']}";
+  $result = mysqli_query($conn, $sql);
+
+  $row = mysqli_fetch_array($result);
+
+  //prevent cross scripting attack
+  $escaped = array(
+    'title' => htmlspecialchars($row['title']),
+    'email' => htmlspecialchars($row['email']),
+    'image' => htmlspecialchars($row['image']),
+    'status' => htmlspecialchars($row['status']),
+    'description' => htmlspecialchars($row['description']),
+  );
+
+  // used for radio button check status
+  if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
+    $checked_Burnaby = "checked";
+    $checked_Downtown = "";
+  } else {
+    $checked_Burnaby = "";
+    $checked_Downtown = "checked";
+  }
+
 }
 
 ?>
@@ -72,7 +75,7 @@ if(strcasecmp($row['location'], "Burnaby Campus") == 0 ) {
       </div>
       <p><label><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</label></p>
 
-      <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+      <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
     </div>
 
   </form>

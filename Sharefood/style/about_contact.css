@@ -23,7 +23,44 @@
 .video-player {
     opacity: 100;
     max-width: 100%;
-    max-height: 100%;
     font-size: 0;
 }
 /* CSS for contact.php */
+
+.contact-container {
+    background-color: #fff;
+    margin:0 auto;
+    padding:2%;
+    width: 500px;
+    max-width: 80%;
+    text-align: left;
+}
+#contact-fname, #contact-lname {
+    width: 250px;
+    max-width: 47%;
+}
+#contact-areacode, #contact-prefix, #contact-line {
+    width: 55px;
+}
+#contact-email {
+    width: 240px;
+    max-width: 95%;
+}
+#contact-message {
+    width: 500px;
+    max-width: 95%;
+}
+#contact-send-btn {
+    width: 60px;
+    font-size: 1.1em;
+    background-color: green;
+    border: none;
+    padding: 0.5em;
+    height: 35px;
+    box-sizing: border-box;
+    color: white;
+}
+#contact-send-btn:hover {
+    cursor:pointer;
+    background-color: orange;
+}
