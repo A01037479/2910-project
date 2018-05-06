@@ -11,3 +11,9 @@ function menu_function(){
     }
 }
 
+function close_menu(){
+  var temp = document.getElementById("menu");
+  temp.className = "topMenu";
+  document.getElementById("nav").style.height = "80px";
+  document.getElementById("article").style.marginTop = "80px";
+}
