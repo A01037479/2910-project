@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
         <title>Breakout</title>
     </head>
     <body>
-        <canvas id="myCanvas" width="680" height="400" style="border:1px solid black"></canvas>
+        <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
 
         <script>
             var canvas = document.getElementById("myCanvas");
@@ -25,11 +26,11 @@
             var rightPress = false;
             var leftPress = false;
             
-            var brickRowCount = 4;
-            var brickColumnCount = 7;
-            var brickWidth = 75;
-            var brickHeight = 15;
-            var brickPadding = 15; //space between bricks
+            var brickRowCount = 6;
+            var brickColumnCount = 10;
+            var brickWidth = 25;
+            var brickHeight = 20;
+            var brickPadding = 0; //space between bricks
             var brickOffsetTop = 30;
             var brickOffsetLeft = 30;
 
@@ -55,6 +56,9 @@
             
             // draw bricks in each matrix element
             function drawBricks() {
+                var img = new Image();
+                img.src = "strawberry.png";
+
                 for(var c=0; c<brickColumnCount; c++) {
                     for(var r=0; r<brickRowCount; r++) {
                         if(bricks[c][r].status == 1) { // if status attribute is 1 = draw, if 0 = don't draw
@@ -63,9 +67,12 @@
                             bricks[c][r].x = brickX;
                             bricks[c][r].y = brickY;
                             context.beginPath();
-                            context.rect(brickX, brickY, brickWidth, brickHeight);
-                            context.fillStyle = "#0095DD";
-                            context.fill();
+                            //context.rect(brickX, brickY, brickWidth, brickHeight);
+                            context.fillStyle = context.createPattern(img, 'repeat');
+                            context.fillRect(brickX, brickY, brickWidth, brickHeight);
+                            //context.fill
+                            //context.fillStyle = "#0095DD";
+                            //context.fill();
                             context.closePath();
                         }
                     }
@@ -103,6 +110,7 @@
             document.addEventListener("keydown", keyDownHandler, false);
             document.addEventListener("keyup", keyUpHandler, false);
             document.addEventListener("mousemove", mouseMoveHandler, false);
+            document.addEventListener("touchmove", touchMoveHandler);
 
             function keyDownHandler(e) {
                 if(e.keyCode == 39) {
@@ -128,6 +136,10 @@
                 if(relativeX > (paddleWidth/2) && relativeX+(paddleWidth/2) < canvas.width) { 
                     paddleX = relativeX - paddleWidth/2;  //movement relative to middle of paddle
                 }
+            }
+
+            function touchMoveHandler(e) {
+                paddleX = e.touches[0].screenX - paddleWidth/2;
             }
             
             // detecting if ball is colliding with brick and setting status to 0 if true
