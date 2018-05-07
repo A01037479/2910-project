@@ -347,6 +347,12 @@ label .arrow-up { display: none; }
   background:-o-linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+  .topMenu{
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+}
+
 .topMenu a {
   float: right;
   display: block;
