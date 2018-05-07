@@ -27,4 +27,4 @@
       </nav>
     </div>
     </header>
-    <article id="article">
+    <article id="article" onclick = "close_menu()">
