@@ -1,10 +1,7 @@
 <?php
 require_once('view/top.php');
 ?>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
+
     <!-- <link rel="stylesheet" href="style/a4.css"> -->
     <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <title>Share Food</title>
-    <script src="phaser.js"></script>
-</head>
-<body>
+<?php
+require_once('view/top.php');
+?>
 
-    <script>
+<script src="js/phaser.js"></script>
+
+
+<br>
+<script>
     
 var game = new Phaser.Game(300, 400, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
@@ -337,6 +335,4 @@ function restart () {
 }
 
     </script>
-
-</body>
-</html>
+  

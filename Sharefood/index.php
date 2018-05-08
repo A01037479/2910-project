@@ -65,9 +65,13 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <!-- game section -->
 <br>
 <div id="gamesection"  class="list_item">
-  <p>There's no result found. <br>Do you want to play a simple game instead?</p>
-  <p><button id="gameButton" class="button">Play Game</button></p>
-  <br><div id="gameframe"></div><br>
+  <p><b>There's no result found. </b><br>Do you want to play a game instead?</p>
+  <br>
+    <a href="game_breakout.php"><p class="list_title">Break out</p>
+    <img src="img/breakout.png" class="gameimg"></a><br>
+    <a href="game_apple.php"><p class="list_title">Eat Apple Fast</p>
+    <img src="img/apple.png" class="gameimg"></a>
+  <br>
 </div>
 
 <!-- load more data -->
@@ -117,22 +121,24 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
       });
     });
 
-    /** game section */
-    (function(){
-      if(lastId !== 0){
-            $("#gamesection").css("display", "none");
-          }
-    })();
+      /** game section */
+  (function(){
+    if(lastId !== 0){
+        $("#gamesection").css("display", "none");
+    }
+  })();
 
-    $("#gameButton").click(function(event){
-      $.ajax({
-        url: "game/breakout/ball.php",
-        success: function(data){
-          $("#gameframe").html(data);
-        }
+  $("#gameButton").click(function(event){
+    $.ajax({
+      url: "game/breakout/ball.php",
+      success: function(data){
+        $("#gameframe").html(data);
+      }
 
-      });
     });
+  });
+
+
 
 </script>
 

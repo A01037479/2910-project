@@ -40,7 +40,7 @@ nav {
   overflow: hidden;
 }
 
-#logo {
+.logo {
   margin-top: 10px;
   margin-left: 15px;
   width: 80px;
@@ -140,7 +140,7 @@ article {
   text-align: left;
 }
 form input, form textarea {
-  width: 95%;
+  width: 98%;
 }
 input {
   height: 25px;
@@ -182,13 +182,10 @@ input[type=radio] {
   display: none;
   outline: none;
 }
-#gamesection {
-  margin-bottom: 100px;
-}
-#gameframe {
+.gameimg {
   width: 300px;
-  height: 300px;
-  background-color: black;
+  max-width: 90%;
+  margin-bottom: 1em;
 }
 footer p {
   margin: 1em 0 0 0;
@@ -302,6 +299,24 @@ label .arrow-up { display: none; }
   background-color: #eff0f2;
 }
 
+/* game canvas */
+canvas {
+  margin: 2em auto;
+  max-width: 100%;
+}
+#restart {
+  background-color: green;
+  border: none;
+  color: white;
+  height: 25px;
+  width: 80px;
+  margin: 0.2em;
+}
+#restart:hover {
+  cursor: pointer;
+}
+
+
 /* toggle CSS for edit, delete function in post page */
 .align-right {
   text-align: right;
@@ -410,7 +425,7 @@ label .arrow-up { display: none; }
   #searchbtn{
     height:24px;
   }
-  #logo {
+  .logo {
     width: 80px;
     z-index: 1;
   }
