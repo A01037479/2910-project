@@ -29,8 +29,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
 
-  echo "<div id=\"content\">";
-
   // returns the last item's id
   $result_last = mysqli_query($conn, $sql_last);
   $last_array = mysqli_fetch_array($result_last);
@@ -61,8 +59,17 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $lastid = $row['id'];
     }
   }
-  echo "</div>";
+
 ?>
+
+<!-- game section -->
+<br>
+<div id="gamesection"  class="list_item">
+  <p>There's no result found. <br>Do you want to play a simple game instead?</p>
+  <p><button id="gameButton" class="button">Play Game</button></p>
+  <br><div id="gameframe"></div><br>
+</div>
+
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
@@ -109,10 +116,25 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
       });
     });
 
-    //no matching result
-    if (!$('#content').is(':parent')){
-      $("#content").html("<p class='list_item'>Oops, there is no food item related to your search!<p>");
-    }
+    /** game section */
+    (function(){
+      if(lastId !== 0){
+            $("#gamesection").css("display", "none");
+          }
+    })();
+
+
+
+    $("#gameButton").click(function(event){
+      $.ajax({
+        url: "game/ball.php",
+        success: function(data){
+          $("#gameframe").html(data);
+        }
+
+      });
+    });
+
 </script>
 
 <script src="js/typewriter.js?v=1"></script>
