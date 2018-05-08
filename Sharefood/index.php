@@ -70,6 +70,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   <br><div id="gameframe"></div><br>
 </div>
 
+<!-- load more data -->
 <br>
 <div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
@@ -123,11 +124,9 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
           }
     })();
 
-
-
     $("#gameButton").click(function(event){
       $.ajax({
-        url: "game/ball.php",
+        url: "game/breakout/ball.php",
         success: function(data){
           $("#gameframe").html(data);
         }
