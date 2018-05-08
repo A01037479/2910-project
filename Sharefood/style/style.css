@@ -350,7 +350,15 @@ label .arrow-up { display: none; }
   overflow: hidden;
   background-color:transparent;
   background:linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
-  
+  background:-webkit-linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
+  background:-moz-linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
+  background:-o-linear-gradient(rgba(128, 128, 128),rgba(0, 0, 0, 0.014));
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+  .topMenu{
+    background-color: rgba(128, 128, 128, 0.5);
+  }
 }
 
 .topMenu a {
