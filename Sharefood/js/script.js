@@ -1,17 +1,15 @@
 function pwd_validation(){
   var theForm = document.posting;
-  var pass1 = theForm.pass
+  var message = document.getElementById('pwdInvalid');
   if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
   theForm.password.style.backgroundColor='#ddffdd';
   theForm.password2.style.backgroundColor='#ddffdd';
-  var message = document.getElementById('pwdInvalid');
   message.innerHTML = "Passwords match."
   message.style.color = "green";
   return true;
   } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
     theForm.password.style.backgroundColor='#ffdddd';
     theForm.password2.style.backgroundColor='#ffdddd';
-    var message = document.getElementById('pwdInvalid');
     message.innerHTML = "Passwords do not match."
     message.style.color = "red";
     return false;
