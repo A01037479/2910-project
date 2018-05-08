@@ -14,8 +14,8 @@
             //ball attributes
             var x = canvas.width/2; //set start ball x-axis to middle
             var y = canvas.height-30; //set start ball y-axis 30px above bottom edge
-            var dx = 4; //movement along x per frame
-            var dy = -4; //movement along y per frame
+            var dx = 2; //movement along x per frame
+            var dy = -1; //movement along y per frame
             var ballRadius = 8;
             var color = randomColor();
             var velocity = Math.sqrt(Math.pow(dy - y) + Math.pow(dx - x));
@@ -181,7 +181,7 @@
                     color = randomColor();
                 } 
                 else if(y + dy > canvas.height-paddleHeight) {  //bounce off paddle
-                    if(x >= paddleX && x <= paddleX + paddleWidth) { // while within paddle width
+                    if(x >= paddleX - ballRadius && x <= paddleX + paddleWidth + ballRadius) { // while within paddle width
                         dy = -1.04 * dy;
                         if(x < paddleX + paddleWidth/3 || x > paddleX + 2*paddleWidth/3) {
                             dx = -1.03 * dx;
