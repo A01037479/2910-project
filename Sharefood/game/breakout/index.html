@@ -14,10 +14,11 @@
             //ball attributes
             var x = canvas.width/2; //set start ball x-axis to middle
             var y = canvas.height-30; //set start ball y-axis 30px above bottom edge
-            var dx = 2; //movement along x per frame
-            var dy = -2; //movement along y per frame
+            var dx = 4; //movement along x per frame
+            var dy = -4; //movement along y per frame
             var ballRadius = 8;
             var color = randomColor();
+            var velocity = Math.sqrt(Math.pow(dy - y) + Math.pow(dx - x));
             
             var paddleWidth = 100;
             var paddleHeight = 10;
@@ -27,10 +28,10 @@
             var leftPress = false;
             
             var brickRowCount = 6;
-            var brickColumnCount = 10;
+            var brickColumnCount = 9;
             var brickWidth = 25;
             var brickHeight = 20;
-            var brickPadding = 0; //space between bricks
+            var brickPadding = 5; //space between bricks
             var brickOffsetTop = 30;
             var brickOffsetLeft = 30;
 
@@ -39,7 +40,7 @@
             // draw canvas background
             function background() {
                 context.beginPath();
-                context.rect(0, 0, 680, 400);
+                context.rect(0, 0, canvas.width, canvas.height);
                 context.fillStyle = "#000000";
                 context.fill();
                 context.closePath();
@@ -67,12 +68,7 @@
                             bricks[c][r].x = brickX;
                             bricks[c][r].y = brickY;
                             context.beginPath();
-                            //context.rect(brickX, brickY, brickWidth, brickHeight);
-                            context.fillStyle = context.createPattern(img, 'repeat');
-                            context.fillRect(brickX, brickY, brickWidth, brickHeight);
-                            //context.fill
-                            //context.fillStyle = "#0095DD";
-                            //context.fill();
+                            context.drawImage(img, brickX, brickY, brickWidth, brickHeight);
                             context.closePath();
                         }
                     }
@@ -93,7 +89,7 @@
             function drawBall() {
                 context.beginPath();
                 context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
-                context.fillStyle = color; //stores color, red
+                context.fillStyle = color; //stores color
                 context.fill(); //paints circle
                 context.closePath();
             }
@@ -149,7 +145,7 @@
                         let b = bricks[c][r];
                         if(b.status == 1) {
                             if(x > b.x - ballRadius && x < b.x + brickWidth + ballRadius && 
-                                y > b.y - ballRadius && y < b.y + brickHeight + ballRadius) {
+                                y > b.y - ballRadius && y < b.y + brickHeight + ballRadius ) {
                                     dy = -dy;
                                     color = randomColor();
                                     b.status = 0;
@@ -184,11 +180,11 @@
                     dy = -dy;
                     color = randomColor();
                 } 
-                else if(y + dy > canvas.height-paddleHeight - ballRadius) {  //bounce off paddle
-                    if(x > paddleX && x < paddleX + paddleWidth) { // while within paddle width
-                        dy = -dy;
-                        if(rightPress || leftPress) {
-                            dx = -dx;
+                else if(y + dy > canvas.height-paddleHeight) {  //bounce off paddle
+                    if(x >= paddleX && x <= paddleX + paddleWidth) { // while within paddle width
+                        dy = -1.04 * dy;
+                        if(x < paddleX + paddleWidth/3 || x > paddleX + 2*paddleWidth/3) {
+                            dx = -1.03 * dx;
                         }
                     } 
                     else {

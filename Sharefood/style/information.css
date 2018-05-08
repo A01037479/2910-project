@@ -1,4 +1,7 @@
-*, *:before, *:after {
+<style media="screen">
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -170,14 +173,14 @@ body {
     content: "";
     position: absolute;
     height: 42px;
-    width: calc( 33.3333% - 42px );
+    width: calc(33.3333% - 42px);
   }
   .step-list__item:nth-child(odd) > .step-list__item__inner {
     text-align: right;
   }
   .step-list__item:nth-child(odd) > .step-list__item__inner:before, .step-list__item:nth-child(odd) > .step-list__item__inner:after {
     border-left-width: 1px;
-    left: calc( 33.3333% - 21px );
+    left: calc(33.3333% - 21px);
   }
   .step-list__item:nth-child(odd) > .step-list__item__inner:before {
     border-top-width: 1px;
@@ -192,14 +195,15 @@ body {
   .step-list__item:nth-child(odd):before {
     left: 0;
     margin-left: 33.3333%;
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
   .step-list__item:nth-child(odd) .icon {
     margin-left: 72px;
   }
   .step-list__item:nth-child(even) > .step-list__item__inner:before, .step-list__item:nth-child(even) > .step-list__item__inner:after {
     border-right-width: 1px;
-    right: calc( 33.3333% - 21px );
+    right: calc(33.3333% - 21px);
   }
   .step-list__item:nth-child(even) > .step-list__item__inner:before {
     border-top-width: 1px;
@@ -214,7 +218,8 @@ body {
   .step-list__item:nth-child(even):before {
     right: 0;
     margin-right: 33.3333%;
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
   .step-list__item:nth-child(even) .icon {
     margin-right: 72px;
@@ -223,3 +228,5 @@ body {
     order: 1;
   }
 }
+
+</style>

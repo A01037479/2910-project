@@ -397,7 +397,7 @@ label .arrow-up { display: none; }
   }
   #searchbox, #searchbtn {
     font-size: 11pt;
-  } 
+  }
 }
 
 @media screen and (max-width: 600px){
@@ -417,7 +417,7 @@ label .arrow-up { display: none; }
   .banner {
     height: 200px;
     padding-top: 50px;
-  }  
+  }
 
   .topMenu a{
     display: none;
@@ -475,7 +475,7 @@ label .arrow-up { display: none; }
     display: block;
     text-align: center;
   }
-  
+
   nav{
     transition-property: height;
     transition-duration: 0.5s;
