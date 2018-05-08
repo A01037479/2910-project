@@ -1,8 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <title>Share Food</title>
+    <link rel="icon" href="img/logo.png">
+    <!--  reference link to font awesome  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+  </head>
+  <body>
 
 <canvas id="myCanvas" width="300" height="300" style="border:1px solid black"></canvas>
+<br><button id="restart">Restart</button>
 
 <script>
 
+$(document).ready(function(){
+
+  gameStart();
+
+    $("#restart").click(function(event){
+        gameStart();
+
+    });
+
+  function gameStart() {
 
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
@@ -14,17 +37,17 @@
     var ballRadius = 8;
     var color = randomColor();
     
-    var paddleWidth = 100;
+    var paddleWidth = 80;
     var paddleHeight = 10;
     var paddleX = (canvas.width-paddleWidth)/2; //starting point on x-axis
     
     var rightPress = false;
     var leftPress = false;
     
-    var brickRowCount = 7;
+    var brickRowCount = 8;
     var brickColumnCount = 8;
     var brickWidth = 34;
-    var brickHeight = 15;
+    var brickHeight = 12;
     var brickPadding = 0; //space between bricks
     var brickOffsetTop = 44;
     var brickOffsetLeft = 16;
@@ -204,5 +227,8 @@
     }
     draw();
 
+  }
+
+});
 
 </script>
