@@ -21,7 +21,7 @@ function pwd_validation(){
 }
 
 /* profanity filter */
-var swearWordsList = new Array("fuck","shit","eric");
+var swearWordsList = new Array("fuck","shit","eric", "boobies");
 var swearAlertList = new Array;
 
 var swearCount = 0;
@@ -47,16 +47,19 @@ function validate_text() {
     return false;
 
   } else {
-    alert("Words were acceptable.")
     return true;
   }
 }
 
 function check_input(){
+
+  var test = validate_text();
   // input validation
   var theForm = document.posting;
 
-  if(theForm.password.value == ""
+  if (test == false) {
+    return false;
+  } else if(theForm.password.value == ""
   || theForm.email.value == ""
   || theForm.title.value == ""
   || theForm.image.value == ""
