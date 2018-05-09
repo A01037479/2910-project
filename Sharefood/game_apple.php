@@ -8,7 +8,7 @@ require_once('view/top.php');
 <br>
 <script>
     
-    var game = new Phaser.Game(300, 400, Phaser.AUTO, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
+    var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
 
 
     function preload() {
@@ -20,7 +20,8 @@ require_once('view/top.php');
         game.load.spritesheet('nom', 'img/explode.png', 128, 128);
         game.load.image('background', 'img/applegamebackground.png');
         game.load.image('death','img/death.png');
-        // game.load.image('background', 'img/tree.jpg');
+
+       
 
     }
 
@@ -31,7 +32,7 @@ require_once('view/top.php');
     var cursors;
     // var fireButton;
     var nomnomnom;
-    // var background;
+    var background;
     var score = 0;
     var scoreString = '';
     var scoreText;
@@ -40,13 +41,45 @@ require_once('view/top.php');
     var firingTimer = 0;
     var stateText;
     var livingEnemies = [];
+    var keyF;
 
+    function gofull() {
+
+        if (game.scale.isFullScreen)
+        {
+            game.scale.stopFullScreen();
+        }
+        else
+        {
+            game.scale.startFullScreen(false);
+        }
+
+    }
+
+    //double tap to full screen
+    function onTap(pointer, doubleTap) {
+
+        if (doubleTap){
+            gofull();
+        }
+    }
+            
     function create() {
+
+        game.physics.setBoundsToWorld();
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
+        //full screen
+        keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
+        keyF.onDown.add(gofull, this);
+        game.input.onTap.add(onTap, this);
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        
+
         // add background
         background = game.add.tileSprite(0, 0, 300, 400, 'background');
+        background.fixedToCamera = true;
 
         //  Fork
         forks = game.add.group();
@@ -72,6 +105,7 @@ require_once('view/top.php');
         player = game.add.sprite(150, 350, 'boy');
         player.anchor.setTo(0.5, 0.5);
         game.physics.enable(player, Phaser.Physics.ARCADE);
+
 
         // Make boy dragable
         player.inputEnabled = true;
@@ -124,10 +158,10 @@ require_once('view/top.php');
 
         for (var y = 0; y < 5; y++)
         {
-            for (var x = 0; x < 5; x++)
+            for (var x = 0; x < 6; x++)
             {
                 var apple = apples.create(x * 40, y * 30, 'apple');
-                // apple.anchor.setTo(0.5, 0.5);
+                apple.anchor.setTo(0.5, 0.5);
                 // apple.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
                 // apple.play('fly');
                 // apple.body.moves = false;
@@ -179,6 +213,16 @@ require_once('view/top.php');
                 player.body.velocity.y = -250;
             }
 
+            //set limits
+            if (!game.camera.atLimit.x)
+            {
+                background.tilePosition.x -= ((player.body.velocity.x) * game.time.physicsElapsed);
+            }
+
+            if (!game.camera.atLimit.y)
+            {
+                background.tilePosition.y -= ((player.body.velocity.y) * game.time.physicsElapsed);
+            }
 
             //  Firing
             firefork();
