@@ -75,7 +75,7 @@ if(!isset($_POST['id'])) {
       </div>
       <p><label><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</label></p>
 
-      <p><input type="submit" name="submit" value="Upload" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+      <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
     </div>
 
   </form>

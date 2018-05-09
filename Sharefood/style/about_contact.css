@@ -1,66 +1,38 @@
 /* CSS for about.php */
 .about-us {
+    margin: 1em auto;
     text-align:center;
     background-color: white;
+    width: 600px;
+    max-width: 90%;
+    padding: 1em 0;
 }
 .about-h2 {
     padding-top:2vw;
 }
 .about-banner h1 {
-    background: linear-gradient(to right,#1d976c, #93f9b9);
     padding: 3vw;
+    color: green;
+}
+#vanlogo {
+    width: 200px;
+}
+.about-mission {
+    color: green;
 }
 .about-desc {
-    width:70%;
+    width:80%;
     text-align:left;
     display:inline-block;
 }
 .video-player > video {
     display: inline-block;
+    width: 350px;
+    max-width: 100%;
     margin: 0;
     padding: 0;
 }
 .video-player {
     opacity: 100;
-    max-width: 100%;
     font-size: 0;
-}
-/* CSS for contact.php */
-
-.contact-container {
-    background-color: #fff;
-    margin:0 auto;
-    padding:2%;
-    width: 500px;
-    max-width: 80%;
-    text-align: left;
-}
-#contact-fname, #contact-lname {
-    width: 250px;
-    max-width: 47%;
-}
-#contact-areacode, #contact-prefix, #contact-line {
-    width: 55px;
-}
-#contact-email {
-    width: 240px;
-    max-width: 95%;
-}
-#contact-message {
-    width: 500px;
-    max-width: 95%;
-}
-#contact-send-btn {
-    width: 60px;
-    font-size: 1.1em;
-    background-color: green;
-    border: none;
-    padding: 0.5em;
-    height: 35px;
-    box-sizing: border-box;
-    color: white;
-}
-#contact-send-btn:hover {
-    cursor:pointer;
-    background-color: orange;
 }

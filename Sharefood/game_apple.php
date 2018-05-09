@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <title>Share Food</title>
-    <script src="../../js/phaser.js"></script>
-</head>
-<body>
+<?php
+require_once('view/top.php');
+?>
 
-    <script>
+<script src="js/phaser.js"></script>
+
+
+<br>
+<script>
     
     var game = new Phaser.Game(300, 400, Phaser.AUTO, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
 
 
     function preload() {
 
-        game.load.image('fork', '../../img/fork.png');
-        game.load.image('rottenapple', '../../img/badapple1.png');
-        game.load.image('apple', '../../img/goodapple.png');
-        game.load.image('boy', '../../img/boy.png');
-        game.load.spritesheet('nom', '../../img/explode.png', 128, 128);
-        game.load.image('background', '../../img/applegamebackground.png');
-        game.load.image('death','../../img/death.png');
+        game.load.image('fork', 'img/fork.png');
+        game.load.image('rottenapple', 'img/badapple1.png');
+        game.load.image('apple', 'img/goodapple.png');
+        game.load.image('boy', 'img/boy.png');
+        game.load.spritesheet('nom', 'img/explode.png', 128, 128);
+        game.load.image('background', 'img/applegamebackground.png');
+        game.load.image('death','img/death.png');
         // game.load.image('background', 'img/tree.jpg');
 
     }
@@ -340,6 +338,4 @@
     }
 
     </script>
-
-</body>
-</html>
+  
