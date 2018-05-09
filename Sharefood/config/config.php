@@ -2,7 +2,7 @@
 $config = array(
   "host" => "localhost",
   "dbuser" => "root",
-  "dbpw" => "",
+  "dbpw" => "121212",
   "dbname" => "sharefood"
 );
 
