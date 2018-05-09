@@ -14,11 +14,11 @@ require_once('view/top.php');
     function preload() {
 
         game.load.image('fork', 'img/fork.png');
-        game.load.image('rottenapple', 'img/badapple.png');
+        game.load.image('rottenapple', 'img/badapple1.png');
         game.load.image('apple', 'img/goodapple.png');
         game.load.image('boy', 'img/boy.png');
         game.load.spritesheet('nom', 'img/explode.png', 128, 128);
-        game.load.image('background', 'img/starfield.png');
+        game.load.image('background', 'img/applegamebackground.png');
         game.load.image('death','img/death.png');
         // game.load.image('background', 'img/tree.jpg');
 
