@@ -35,7 +35,6 @@ if(count($_GET) == 0) {
     <input type="checkbox" id="toggle-check"/>
     <label for="toggle-check">
       <span class="fakelink">edit</span>
-       | <span class="fakelink">delete</span>
     </label>
     <div class="checkContainer">
      <p>Enter your password</p>

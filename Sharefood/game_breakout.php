@@ -3,7 +3,7 @@ require_once('view/top.php');
 ?>
 
 <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
-<br><button id="restart">Start</button>
+<br><button id="gamebtn">Restart</button>
 
 <script>
 
@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     gameStart();
 
-    $("#restart").click(function(event){
+    $("#gamebtn").click(function(event){
         gameStart();
 
     });
