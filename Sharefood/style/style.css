@@ -140,7 +140,8 @@ article {
   text-align: left;
 }
 form input, form textarea {
-  width: 95%;
+  width: 100%;
+  box-sizing: border-box;
 }
 input {
   height: 25px;
