@@ -1,0 +1,49 @@
+#gameContainer{
+    position: relative;
+    left: calc(50% - 160px); /*160px = width / 2 */ 
+    width: 322px;
+    height: 402px;
+    margin-right: 0;
+}
+
+#scoreDiv{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 322px;
+    height: 402px;
+    display: none;
+}
+
+#gameMenu{
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 322px;
+    height: 402px;
+    visibility: visible;
+    /*display: none;*/
+}
+
+#myCanvas{
+    left: calc(50% - 160px);
+    position: absolute;
+}
+
+#scoreDiv input{
+    width: 150px;
+    background-color: transparent;
+    border-color: white;
+    color:white;
+    margin-top: 240px;
+    z-index: 1;
+}
+
+.gamebtn{
+    border-color: transparent;
+    background-color: transparent;
+    color: yellow;
+    cursor: pointer;
+}

@@ -2,21 +2,57 @@
 require_once('view/top.php');
 ?>
 
-<canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
-<br><button id="gamebtn">Restart</button>
+<link rel="stylesheet" href="style/leaderboard.css">
+
+<div id="gameContainer">
+        <div id="scoreDiv">
+            <form name="form">
+                <input type="text" name="username" placeholder="Player name">
+                <button id="submitScore">Submit</button>
+                <button id="menubtn">Menu</button> 
+                <button class="playGame">Play</button>
+            </form>
+        </div>
+        <div id="gameMenu">
+            <p>Welcome to Breakout!</p>
+            <button class="playGame">Play</button>
+            <button id="leaderboard">Leaderboard</button>
+        </div>
+        <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
+    </div>
 
 <script>
 
 $(document).ready(function(){
 
-    gameStart();
+    var score;
+    var menu = document.getElementById("gameMenu");
+    var divScore = document.getElementById("scoreDiv");
 
-    $("#gamebtn").click(function(event){
+
+    $(".playGame").click(function(event){
+        $('#scoreDiv').hide();
         gameStart();
-
     });
 
+    $("#menubtn").click(function(event){
+        displayMenu();
+    });
+
+    $("#submitScore").click(function(event){
+        sendInfo();
+    })
+
+function displayMenu(){
+    menu.style.visibility = "initial";
+    divScore.style.visibility = "hidden";
+}
+
 function gameStart() {
+    
+    menu.style.visibility = "hidden";
+
+    score = 0;
 
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
@@ -43,8 +79,6 @@ function gameStart() {
     var brickPadding = 5; //space between bricks
     var brickOffsetTop = 30;
     var brickOffsetLeft = 30;
-
-    var score = 0;
 
     // draw canvas background
     function background() {
@@ -161,6 +195,7 @@ function gameStart() {
                             score += 5;
                             if(score/5 == brickRowCount * brickColumnCount) {
                                 context.fillText("YOU WIN! YOUR SOCRE IS " + score, 50, 200);
+                                $('#scoreDiv').show();
                                 throw new Error("This is not an error. Game over!");
                             }
                     }
@@ -197,6 +232,7 @@ function gameStart() {
             } 
             else {
                 context.fillText("GAME OVER! YOUR SCORE IS: " + score, 50, 200);
+                $('#scoreDiv').show();
                 throw new Error("This is not an error. Game over!");
             }
         }
@@ -216,8 +252,27 @@ function gameStart() {
         requestAnimationFrame(draw);
     }
     draw();
+    
 } //end of startgame function
 
+    function sendInfo(){
+        var username = document.form.username.value;
+        if (username.trim() != 0){
+            
+            $.ajax({
+                url: "game_process.php",
+                type: "POST",
+                data: {tableName: 'breakout', username: username, score: score},
+                success: function(data){
+                    alert("Inserted");
+                    displayMenu();
+                }
+            });
+        
+        } else {
+            alert("No username entered.");
+        }    
+    }
 });
 
 </script>
