@@ -174,8 +174,8 @@ require_once('view/top.php');
                             imgBall.src = "img/chew.png";
                             drawBall();
                             score += 5;
-                            dx = 1.003 * dx;
-                            dy = 1.003 * dy;
+                            dx = 1.002 * dx;
+                            dy = 1.002 * dy;
                             if(score/5 == brickRowCount * brickColumnCount) {
                                 context.fillText("YOU WIN! YOUR SCORE IS " + score, 50, 200);
                                 throw new Error("This is not an error. Game over!");
@@ -232,9 +232,9 @@ require_once('view/top.php');
             else if(y + (2*ballRadius) > canvas.height-paddleHeight) {  //bounce off paddle
                 imgBall.src = "img/bite.png";
                 if(x >= paddleX - (2*ballRadius) && x <= paddleX + paddleWidth + (2*ballRadius)) { // while within paddle width
-                    dy = -1.03 * dy;
-                    if(x <= paddleX + (paddleWidth/5) || x >= paddleX + (4*paddleWidth/5)) {
-                        dx = -1.055 * dx;
+                    dy = -1.02 * dy;
+                    if(x <= paddleX + (paddleWidth/4) || x >= paddleX + (3*paddleWidth/4)) {
+                        dx = -1.025 * dx;
                     }
                 } 
                 else {
