@@ -47,7 +47,10 @@ require_once('view/top.php');
     var rottenAppleSpeed = 120;
     var forkFreq = 600;
     var stage = 2;
+    var start;
+    var leaderboard;
 
+    var playing = false;
 
     function gofull() {
 
@@ -70,11 +73,29 @@ require_once('view/top.php');
         }
     }
             
+    // call to start game
+    function startGame() {
+        start.destroy();
+        leaderboard.destroy();
+        // restart();
+        playing = true;
+    }    
+
+    //display leader board
+    function leaderBoard() {
+        start.destroy();
+        leaderboard.destroy();
+        apples.destroy();
+        <?php   ?>
+    }
+
     function create() {
 
         game.world.setBounds(0, 0, 300, 400);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
+        
+        
         
         //full screen
         keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
@@ -158,6 +179,13 @@ require_once('view/top.php');
         //  keyboard control
         cursors = game.input.keyboard.createCursorKeys();
         // fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        //start button
+        start = game.add.button(150, 200, 'fork', startGame, this, 1, 1, 2);
+        start.anchor.set(0.5);
+
+        //learderboard button
+        leaderboard = game.add.button(150, 300, 'fork', leaderBoard, this, 1, 1, 2);
         
     }
 
@@ -199,7 +227,7 @@ require_once('view/top.php');
     }   
 
     function update() {
-
+    if(playing){
         if (player.alive)
         {
             player.body.velocity.setTo(0, 0);
@@ -233,7 +261,7 @@ require_once('view/top.php');
             game.physics.arcade.overlap(forks, apples, collisionHandler, null, this);
             game.physics.arcade.overlap(rottenapples, player, enemyHitsPlayer, null, this);
         }
-
+    }
     }
 
     function render() {
@@ -268,14 +296,18 @@ require_once('view/top.php');
             score += 1000;
             scoreText.text = scoreString + score;
 
+            game.time.events.add(Phaser.Timer.SECOND*2,showText,this);
             
-            stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
-            stateText.visible = true;
-
-            //the "got to next stage" handler
-            game.input.onTap.addOnce(nextStage,this);
+            
+            
         }
 
+    }
+    function showText(){
+        stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
+        stateText.visible = true;
+        //the "got to next stage" handler
+        game.input.onTap.addOnce(nextStage,this);
     }
     function changeIcon(){
         player.loadTexture('boy',0);
@@ -365,6 +397,10 @@ require_once('view/top.php');
     }
 
     function restart () {
+        score = 0;
+        scoreText.destroy();
+        scoreText = game.add.text(10, 10, scoreString + score, { font: '10px Arial', fill: 'white' });
+        forkFreq = 600;
         forkTime = game.time.now + forkFreq;
         rottenAppleSpeed = 120;
         rottenAppleFreq = 2000;
@@ -399,11 +435,11 @@ require_once('view/top.php');
         //start firing
         switch(stage){
             case 2: forkFreq = 450;break;
-            case 3: forkFreq = 350;break;
+            case 3: forkFreq = 340;break;
             case 4: forkFreq = 250;break;
-            case 5: forkFreq = 150;break;
-            case 6: forkFreq = 80;break;
-            default: forkFreq = 50;
+            case 5: forkFreq = 140;break;
+            case 6: forkFreq = 120;break;
+            default: forkFreq = 100;
         }
         forkTime = game.time.now + forkFreq;
         
