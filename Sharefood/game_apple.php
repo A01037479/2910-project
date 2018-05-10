@@ -8,7 +8,7 @@ require_once('view/top.php');
 <br>
 <script>
     
-    var game = new Phaser.Game(300, 400, Phaser.AUTO, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
+    var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
 
 
     function preload() {
@@ -20,7 +20,8 @@ require_once('view/top.php');
         game.load.spritesheet('nom', 'img/explode.png', 128, 128);
         game.load.image('background', 'img/applegamebackground.png');
         game.load.image('death','img/death.png');
-        // game.load.image('background', 'img/tree.jpg');
+
+       
 
     }
 
@@ -29,9 +30,8 @@ require_once('view/top.php');
     var forks;
     var forkTime = 0;
     var cursors;
-    // var fireButton;
     var nomnomnom;
-    // var background;
+    var background;
     var score = 0;
     var scoreString = '';
     var scoreText;
@@ -40,13 +40,52 @@ require_once('view/top.php');
     var firingTimer = 0;
     var stateText;
     var livingEnemies = [];
+    var keyF;
+    var appleSpeedX = 4000;
+    var appleSpeedY = 8000;
+    var rottenAppleFreq = 2000;
+    var rottenAppleSpeed = 120;
+    var forkFreq = 600;
+    var stage = 2;
 
+
+    function gofull() {
+
+        if (game.scale.isFullScreen)
+        {
+            game.scale.stopFullScreen();
+        }
+        else
+        {
+            game.scale.startFullScreen(false);
+        }
+
+    }
+
+    //double tap to full screen
+    function onTap(pointer, doubleTap) {
+
+        if (doubleTap){
+            gofull();
+        }
+    }
+            
     function create() {
+
+        game.world.setBounds(0, 0, 300, 400);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
+        //full screen
+        keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
+        keyF.onDown.add(gofull, this);
+        game.input.onTap.add(onTap, this);
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        
+
         // add background
         background = game.add.tileSprite(0, 0, 300, 400, 'background');
+        background.fixedToCamera = true;
 
         //  Fork
         forks = game.add.group();
@@ -72,7 +111,9 @@ require_once('view/top.php');
         player = game.add.sprite(150, 350, 'boy');
         player.anchor.setTo(0.5, 0.5);
         game.physics.enable(player, Phaser.Physics.ARCADE);
-
+        player.smoothed = false;
+        player.body.collideWorldBounds = true;
+        
         // Make boy dragable
         player.inputEnabled = true;
         player.input.enableDrag();
@@ -124,10 +165,10 @@ require_once('view/top.php');
 
         for (var y = 0; y < 5; y++)
         {
-            for (var x = 0; x < 5; x++)
+            for (var x = 0; x < 6; x++)
             {
                 var apple = apples.create(x * 40, y * 30, 'apple');
-                // apple.anchor.setTo(0.5, 0.5);
+                apple.anchor.setTo(0.5, 0.5);
                 // apple.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
                 // apple.play('fly');
                 // apple.body.moves = false;
@@ -138,7 +179,8 @@ require_once('view/top.php');
         apples.y = 50;
 
         //  Moving apples
-        var tween = game.add.tween(apples).to( { x: 0 }, 2000, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        var tween = game.add.tween(apples).to( { x: 0 }, appleSpeedX, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        var tween = game.add.tween(apples).to( { y: 0 }, appleSpeedY, Phaser.Easing.Linear.None, true, 0, 2000, true);
         tween.onLoop.add(descend, this);
     }
 
@@ -178,7 +220,6 @@ require_once('view/top.php');
             {
                 player.body.velocity.y = -250;
             }
-
 
             //  Firing
             firefork();
@@ -221,15 +262,18 @@ require_once('view/top.php');
 
         if (apples.countLiving() == 0)
         {
+            //stop forks, apples   
+            forkFreq = 99999999;
+            rottenapples.callAll('kill');
             score += 1000;
             scoreText.text = scoreString + score;
 
-            rottenapples.callAll('kill',this);
-            stateText.text = "    You Won!! \n Click to restart";
+            
+            stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
             stateText.visible = true;
 
-            //the "click to restart" handler
-            game.input.onTap.addOnce(restart,this);
+            //the "got to next stage" handler
+            game.input.onTap.addOnce(nextStage,this);
         }
 
     }
@@ -257,7 +301,7 @@ require_once('view/top.php');
             player.kill();
             rottenapples.callAll('kill');
 
-            stateText.text=" GAME OVER \n Click to restart";
+            stateText.text=" GAME OVER \n Final score: " + score + "\n Click to restart";
             stateText.visible = true;
 
             //the "click to restart" handler
@@ -289,8 +333,8 @@ require_once('view/top.php');
             // And fire the fork
             rottenapple.reset(shooter.body.x, shooter.body.y);
 
-            game.physics.arcade.moveToObject(rottenapple,player,120);
-            firingTimer = game.time.now + 2000;
+            game.physics.arcade.moveToObject(rottenapple,player,rottenAppleSpeed);
+            firingTimer = game.time.now + rottenAppleFreq;
         }
 
     }
@@ -307,7 +351,7 @@ require_once('view/top.php');
                 //  And fire it
                 fork.reset(player.x, player.y + 8);
                 fork.body.velocity.y = -200;
-                forkTime = game.time.now + 800;
+                forkTime = game.time.now + forkFreq;
             }
         }
 
@@ -321,20 +365,75 @@ require_once('view/top.php');
     }
 
     function restart () {
-
-        //  A new level starts
-        
+        forkTime = game.time.now + forkFreq;
+        rottenAppleSpeed = 120;
+        rottenAppleFreq = 2000;
+        appleSpeedX = 4000;
+        appleSpeedY = 8000;
         //resets the life count
         lives.callAll('revive');
-        //  And brings the apples back from the dead :)
+        //  And brings the apples back
         apples.removeAll();
         createApples();
-
         //revives the player
         player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
         //hides the text
         stateText.visible = false;
 
+    }
+
+    function nextStage () {
+        //reposition boy
+        player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
+        //add one live back
+        live = lives.getFirstDead();
+        if (live)
+        {
+            live.revive();
+        }
+        apples.removeAll();
+        //start firing
+        switch(stage){
+            case 2: forkFreq = 450;break;
+            case 3: forkFreq = 350;break;
+            case 4: forkFreq = 250;break;
+            case 5: forkFreq = 150;break;
+            case 6: forkFreq = 80;break;
+            default: forkFreq = 50;
+        }
+        forkTime = game.time.now + forkFreq;
+        
+        //add apple speedY
+        if (appleSpeedY > 8000/1.3/1.3/1.3/1.3){
+            appleSpeedY /= 1.3;
+        } else {
+            appleSpeedY = 8000/1.3/1.3/1.3/1.3;
+        }
+        //add apple speedX
+        if (appleSpeedX > 4000/1.3/1.3/1.3/1.3){
+            appleSpeedX /= 1.3;
+        } else {
+            appleSpeedX = 4000/1.3/1.3/1.3/1.3;
+        }
+        createApples();
+        //faster rotten apples
+        if (rottenAppleSpeed < 120*1.2*1.2*1.2){
+            rottenAppleSpeed *= 1.2;
+        } else {
+            rottenAppleSpeed = 120*1.2*1.2*1.2;
+        }
+        //add rotten apples
+        if (rottenAppleFreq > 2000/1.4/1.4/1.4/1.4/1.4){
+            rottenAppleFreq /= 1.4;
+        } else {
+            rottenAppleFreq = 2000/1.4/1.4/1.4/1.4/1.4;
+        }
+        stateText.visible = false;
+        stage++;
     }
 
     </script>
