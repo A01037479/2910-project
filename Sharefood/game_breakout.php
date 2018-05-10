@@ -4,6 +4,16 @@ require_once('view/top.php');
 
 <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
 <br><button id="gamebtn">Restart</button>
+<style>
+    /* Lock screen from scrolling */
+   .lock-screen {
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        position: fixed;
+    }
+</style>
+<body class="lock-screen">
 
 <script>
     $(document).ready(function(){
@@ -251,3 +261,5 @@ require_once('view/top.php');
         }            
     });
 </script>
+
+</body>
