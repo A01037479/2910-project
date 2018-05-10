@@ -30,7 +30,6 @@ require_once('view/top.php');
     var forks;
     var forkTime = 0;
     var cursors;
-    // var fireButton;
     var nomnomnom;
     var background;
     var score = 0;
@@ -43,7 +42,7 @@ require_once('view/top.php');
     var livingEnemies = [];
     var keyF;
     var appleSpeed = 2000;
-    var rottenAppleSpeed = 2000;
+    var rottenAppleFreq = 2000;
     var stage = 2;
 
     function gofull() {
@@ -258,11 +257,12 @@ require_once('view/top.php');
 
         if (apples.countLiving() == 0)
         {
+            forkTime = 99999999;
             rottenapples.callAll('kill');
             score += 1000;
             scoreText.text = scoreString + score;
 
-            rottenapples.callAll('kill',this);
+            
             stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
             stateText.visible = true;
 
@@ -328,7 +328,7 @@ require_once('view/top.php');
             rottenapple.reset(shooter.body.x, shooter.body.y);
 
             game.physics.arcade.moveToObject(rottenapple,player,120);
-            firingTimer = game.time.now + rottenAppleSpeed;
+            firingTimer = game.time.now + rottenAppleFreq;
         }
 
     }
@@ -345,7 +345,7 @@ require_once('view/top.php');
                 //  And fire it
                 fork.reset(player.x, player.y + 8);
                 fork.body.velocity.y = -200;
-                forkTime = game.time.now + 100;
+                forkTime = game.time.now + 500;
             }
         }
 
@@ -359,18 +359,13 @@ require_once('view/top.php');
     }
 
     function restart () {
-        
-        
-        rottenAppleSpeed = 2000;
+        rottenAppleFreq = 2000;
         appleSpeed = 2000;
-        //  A new level starts
-        
         //resets the life count
         lives.callAll('revive');
         //  And brings the apples back
         apples.removeAll();
         createApples();
-
         //revives the player
         player.revive();
         player.position.x = 150;
@@ -382,24 +377,32 @@ require_once('view/top.php');
 
     function nextStage () {
         stage++;
+        //reposition boy
         player.revive();
         player.position.x = 150;
         player.position.y = 350;
-        lives.callAll('revive');
+        //add one live back
+        live = lives.getFirstDead();
+        if (live)
+        {
+            live.revive();
+        }
         apples.removeAll();
+        //start firing
+        forkTime = game.time.now + 500;
+        //add add speed
         if (appleSpeed > 250){
             appleSpeed /= 2;
         } else {
             appleSpeed = 250;
         }
         createApples();
-        rottenAppleSpeed
-        if (rottenAppleSpeed > 125){
-            rottenAppleSpeed /= 2;
+        //add rotten apples
+        if (rottenAppleFreq > 2000/1.4/1.4/1.4/1.4/1.4){
+            rottenAppleFreq /= 1.4;
         } else {
-            rottenAppleSpeed = 125;
+            rottenAppleFreq = 2000/1.4/1.4/1.4/1.4/1.4;
         }
-        
         stateText.visible = false;
     }
 
