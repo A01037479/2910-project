@@ -102,7 +102,7 @@
             // draw the ball
             function drawBall() {
                 context.beginPath();
-                context.drawImage(imgBall, x, y, ballRadius*4, ballRadius*4);
+                context.drawImage(imgBall, x, y, ballRadius*2.5, ballRadius*2.5);
                 // context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
                 // context.fillStyle = color; //stores color
                 // context.fill(); //paints circle
@@ -237,7 +237,7 @@
                         throw new Error("This is not an error. Game over!");
                     }
                 }
-                if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) { // ball bounces of left right walls
+                if(x + dx > canvas.width-ballRadius || x + dx < ballRadius - 15) { // ball bounces of left right walls
                     dx = -dx;
                     color = randomColor();
                 }

@@ -227,9 +227,9 @@ require_once('view/top.php');
             collision();
             if(y + dy < ballRadius) { //ball collision with top screen, change direction and color
                 dy = -dy;
-                color = randomColor();
+                // color = randomColor();
             } 
-            else if(y + ballRadius > canvas.height-paddleHeight) {  //bounce off paddle
+            else if(y + (2*ballRadius) > canvas.height-paddleHeight) {  //bounce off paddle
                 imgBall.src = "img/bite.png";
                 if(x >= paddleX - (2*ballRadius) && x <= paddleX + paddleWidth + (2*ballRadius)) { // while within paddle width
                     dy = -1.03 * dy;
@@ -242,9 +242,10 @@ require_once('view/top.php');
                     throw new Error("This is not an error. Game over!");
                 }
             }
-            if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) { // ball bounces of left right walls
+            // ball bounces off right || left walls respectively
+            if(x + dx > canvas.width - ballRadius - 15 || x + dx < ballRadius - 15) { 
                 dx = -dx;
-                color = randomColor();
+                // color = randomColor();
             }
             if(rightPress && paddleX < canvas.width-paddleWidth) { //contains paddle within right boundary
                 paddleX += 10;
