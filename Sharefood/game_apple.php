@@ -42,6 +42,9 @@ require_once('view/top.php');
     var stateText;
     var livingEnemies = [];
     var keyF;
+    var appleSpeed = 2000;
+    var rottenAppleSpeed = 2000;
+    var stage = 2;
 
     function gofull() {
 
@@ -66,7 +69,7 @@ require_once('view/top.php');
             
     function create() {
 
-        game.physics.setBoundsToWorld();
+        game.world.setBounds(0, 0, 300, 400);
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
@@ -105,8 +108,9 @@ require_once('view/top.php');
         player = game.add.sprite(150, 350, 'boy');
         player.anchor.setTo(0.5, 0.5);
         game.physics.enable(player, Phaser.Physics.ARCADE);
-
-
+        player.smoothed = false;
+        player.body.collideWorldBounds = true;
+        
         // Make boy dragable
         player.inputEnabled = true;
         player.input.enableDrag();
@@ -172,7 +176,7 @@ require_once('view/top.php');
         apples.y = 50;
 
         //  Moving apples
-        var tween = game.add.tween(apples).to( { x: 0 }, 2000, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        var tween = game.add.tween(apples).to( { x: 0 }, appleSpeed, Phaser.Easing.Linear.None, true, 0, 2000, true);
         tween.onLoop.add(descend, this);
     }
 
@@ -211,17 +215,6 @@ require_once('view/top.php');
             else if (cursors.up.isDown)
             {
                 player.body.velocity.y = -250;
-            }
-
-            //set limits
-            if (!game.camera.atLimit.x)
-            {
-                background.tilePosition.x -= ((player.body.velocity.x) * game.time.physicsElapsed);
-            }
-
-            if (!game.camera.atLimit.y)
-            {
-                background.tilePosition.y -= ((player.body.velocity.y) * game.time.physicsElapsed);
             }
 
             //  Firing
@@ -265,15 +258,16 @@ require_once('view/top.php');
 
         if (apples.countLiving() == 0)
         {
+            rottenapples.callAll('kill');
             score += 1000;
             scoreText.text = scoreString + score;
 
             rottenapples.callAll('kill',this);
-            stateText.text = "    You Won!! \n Click to restart";
+            stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
             stateText.visible = true;
 
-            //the "click to restart" handler
-            game.input.onTap.addOnce(restart,this);
+            //the "got to next stage" handler
+            game.input.onTap.addOnce(nextStage,this);
         }
 
     }
@@ -301,7 +295,7 @@ require_once('view/top.php');
             player.kill();
             rottenapples.callAll('kill');
 
-            stateText.text=" GAME OVER \n Click to restart";
+            stateText.text=" GAME OVER \n Final score: " + score + "\n Click to restart";
             stateText.visible = true;
 
             //the "click to restart" handler
@@ -334,7 +328,7 @@ require_once('view/top.php');
             rottenapple.reset(shooter.body.x, shooter.body.y);
 
             game.physics.arcade.moveToObject(rottenapple,player,120);
-            firingTimer = game.time.now + 2000;
+            firingTimer = game.time.now + rottenAppleSpeed;
         }
 
     }
@@ -351,7 +345,7 @@ require_once('view/top.php');
                 //  And fire it
                 fork.reset(player.x, player.y + 8);
                 fork.body.velocity.y = -200;
-                forkTime = game.time.now + 800;
+                forkTime = game.time.now + 100;
             }
         }
 
@@ -365,20 +359,48 @@ require_once('view/top.php');
     }
 
     function restart () {
-
+        
+        
+        rottenAppleSpeed = 2000;
+        appleSpeed = 2000;
         //  A new level starts
         
         //resets the life count
         lives.callAll('revive');
-        //  And brings the apples back from the dead :)
+        //  And brings the apples back
         apples.removeAll();
         createApples();
 
         //revives the player
         player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
         //hides the text
         stateText.visible = false;
 
+    }
+
+    function nextStage () {
+        stage++;
+        player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
+        lives.callAll('revive');
+        apples.removeAll();
+        if (appleSpeed > 250){
+            appleSpeed /= 2;
+        } else {
+            appleSpeed = 250;
+        }
+        createApples();
+        rottenAppleSpeed
+        if (rottenAppleSpeed > 125){
+            rottenAppleSpeed /= 2;
+        } else {
+            rottenAppleSpeed = 125;
+        }
+        
+        stateText.visible = false;
     }
 
     </script>
