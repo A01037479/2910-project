@@ -27,10 +27,12 @@
             //ball attributes
             var x = canvas.width/2; //set start ball x-axis to middle
             var y = canvas.height-30; //set start ball y-axis 30px above bottom edge
-            var dx = 4; //movement along x per frame
-            var dy = -4; //movement along y per frame
+            var dx = 3; //movement along x per frame
+            var dy = -3; //movement along y per frame
             var ballRadius = 8;
             var color = randomColor();
+            var imgBall = new Image();
+            imgBall.src = "img/bite.png";
             
             var paddleWidth = 100;
             var paddleHeight = 10;
@@ -39,7 +41,7 @@
             var rightPress = false;
             var leftPress = false;
             
-            var brickRowCount = 6;
+            var brickRowCount = 7;
             var brickColumnCount = 9;
             var brickWidth = 25;
             var brickHeight = 20;
@@ -100,9 +102,10 @@
             // draw the ball
             function drawBall() {
                 context.beginPath();
-                context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
-                context.fillStyle = color; //stores color
-                context.fill(); //paints circle
+                context.drawImage(imgBall, x, y, ballRadius*2.5, ballRadius*2.5);
+                // context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
+                // context.fillStyle = color; //stores color
+                // context.fill(); //paints circle
                 context.closePath();
             }
 
@@ -160,9 +163,11 @@
                             let centerY = b.y + brickHeight/2; 
                             let dist = Math.sqrt(Math.pow(centerX - x, 2) + Math.pow(centerY - y, 2));
                             //collision detection
-                            if(dist < (brickWidth/2 + ballRadius) && dist < (brickHeight/2) + ballRadius) {
+                            if(dist < (brickWidth/2) + ballRadius && dist < (brickHeight/2) + ballRadius) {
                                 b.status = 0;
-                                color = randomColor();
+                                // color = randomColor();
+                                imgBall.src = "img/chew.png";
+                                drawBall();
                                 score += 5;
                                 dx = 1.003 * dx;
                                 dy = 1.003 * dy;
@@ -219,11 +224,12 @@
                     dy = -dy;
                     color = randomColor();
                 } 
-                else if(y + dy > canvas.height-paddleHeight) {  //bounce off paddle
-                    if(x >= paddleX - ballRadius && x <= paddleX + paddleWidth + ballRadius) { // while within paddle width
-                        dy = -1.02 * dy;
-                        if(x < paddleX + (paddleWidth/3) || x > paddleX + (2*paddleWidth/3)) {
-                            dx = -1.04 * dx;
+                else if(y + ballRadius > canvas.height-paddleHeight) {  //bounce off paddle
+                    imgBall.src = "img/bite.png";
+                    if(x >= paddleX - (2*ballRadius) && x <= paddleX + paddleWidth + (2*ballRadius)) { // while within paddle width
+                        dy = -1.03 * dy;
+                        if(x <= paddleX + (paddleWidth/5) || x >= paddleX + (4*paddleWidth/5)) {
+                            dx = -1.055 * dx;
                         }
                     } 
                     else {
@@ -236,10 +242,10 @@
                     color = randomColor();
                 }
                 if(rightPress && paddleX < canvas.width-paddleWidth) { //contains paddle within right boundary
-                    paddleX += 5;
+                    paddleX += 10;
                 } 
                 else if (leftPress && paddleX > 0) {  //contains paddle within left boundary
-                    paddleX -= 5;
+                    paddleX -= 10;
                 }
                 // movement of ball per frame refresh
                 x += dx;
