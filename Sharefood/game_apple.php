@@ -65,7 +65,6 @@ require_once('view/top.php');
     var exitleaderboard;
     var confirm;
     var userInput;
-    var gofullbutton;
 
     function gofull() {
 
@@ -89,6 +88,8 @@ require_once('view/top.php');
             
     // call to start game
     function startGame() {
+        player.position.x = 150;
+        player.position.y = 350;
         start.visible = false;
         start2.visible = false;
         leaderboard.visible = false;
@@ -151,9 +152,12 @@ require_once('view/top.php');
     }
 
     function reviveBoyApple(){
-        player.visible = true;
+        player.position.x = 150;
+        player.position.y = 350;
+        player.revive();
         createApples();
         rottenapples.kill();
+        forks.kill();
     }
 
 
@@ -294,9 +298,6 @@ require_once('view/top.php');
             placeHolder: 'Enter you name...'
         });
         userInput.visible = false;
-
-        //go full screen button
-        gofullbutton = game.add.button(130, 10, 'boy', gofull, this, 1, 1, 2);
     }
 
     function createApples () {
@@ -307,9 +308,6 @@ require_once('view/top.php');
             {
                 var apple = apples.create(x * 40, y * 30, 'apple');
                 apple.anchor.setTo(0.5, 0.5);
-                // apple.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-                // apple.play('fly');
-                // apple.body.moves = false;
             }
             
         }
@@ -320,8 +318,6 @@ require_once('view/top.php');
         //  Moving apples
         var tween = game.add.tween(apples).to( { x: 0 }, appleSpeedX, Phaser.Easing.Linear.None, true, 0, 2000, true);
         var tween = game.add.tween(apples).to( { y: 0 }, appleSpeedY, Phaser.Easing.Linear.None, true, 0, 2000, true);
-        // var tween = game.add.tween(apples).to({ y: 600 }, 6000, Phaser.Easing.Quadratic.InOut, true, 0, 1000, true);
-        // var tween = game.add.tween(apple).to({angle:'+360'}, 4000, Phaser.Easing.Cubic.In, true, 2000, -1);
         tween.onLoop.add(descend, this);
     }
 
@@ -512,6 +508,8 @@ require_once('view/top.php');
     }
 
     function restart () {
+        player.position.x = 150;
+        player.position.y = 350;
         playing = true;
         submit.visible = false;
         restart.visible = false;
@@ -521,6 +519,7 @@ require_once('view/top.php');
         scoreText.visible = true;
         livesDisplay.visible = true;
         lives.visible = true;
+        forks.revive();
         rottenapples.revive();
         stage = 2;
         score = 0;
