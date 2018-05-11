@@ -17,6 +17,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 </div>
 
 <?php
+
   //retriving list
   $count = 3;
 
@@ -24,7 +25,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   $sql = "SELECT * FROM list ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list LIMIT 1";
   } else {
-    $q = $_GET['search'];
+    $q = mysqli_real_escape_string($conn, $_GET['search']); // prevent sql input by user
     $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
     $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
   }
