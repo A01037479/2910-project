@@ -3,15 +3,13 @@ require_once('view/top.php');
 ?>
 
 <script src="js/phaser.js"></script>
-<script src="js/CanvasInput.js"></script>
-
-
-<canvas id="userInput" width="200" height="50"></canvas>
+<script src="js/node_modules/@orange-games/phaser-input/build/phaser-input.js"></script>
 
 <br>
 <script>
     
     var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
+
 
     function preload() {
 
@@ -66,20 +64,8 @@ require_once('view/top.php');
     var playing = false;
     var exitleaderboard;
     var confirm;
-    var userInput = new CanvasInput({canvas: document.getElementById('userInput'),
-        fontSize: 10,
-        fontFamily: 'Arial',
-        fontColor: '#212121',
-        fontWeight: 'bold',
-        width: 100,
-        height: 10,
-        padding: 8,
-        borderWidth: 1,
-        borderColor: '#000',
-        borderRadius: 3,
-        boxShadow: '1px 1px 0px #fff',
-        innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
-        placeHolder: 'Enter Your Name here...'});
+    var userInput;
+
 
     function gofull() {
 
@@ -107,7 +93,10 @@ require_once('view/top.php');
         start2.visible = false;
         leaderboard.visible = false;
         exitleaderboard.visible = false;
-        $("#userInput").css("visibility","hidden");
+        userInput.visible = false;
+        scoreText.visible = true;
+        livesDisplay.visible = true;
+        lives.visible = true;
         playing = true;
 
     }    
@@ -134,9 +123,9 @@ require_once('view/top.php');
         start2.visible = true;
         leaderboard.visible = true;
         apples.visible = true;
-        scoreText.visible = true;
-        livesDisplay.visible = true;
-        lives.visible = true;
+        // scoreText.visible = true;
+        // livesDisplay.visible = true;
+        // lives.visible = true;
     }
 
     // User input
@@ -145,15 +134,26 @@ require_once('view/top.php');
         stateText.visible = false;
         submit.visible = false;
         confirm.visible = true;
-        $("#userInput").css("visibility","visible");
+        userInput.visible = true;
     }
     // confirm submit
     function confirm() {
         confirm.visible = false;
         start2.visible = true;
         leaderboard.visible = true;
-        $("#userInput").css("visibility","hidden");
+        userInput.visible = false;
+        scoreText.visible = false;
+        livesDisplay.visible = false;
+        lives.visible = false;
+        userInput.setText("");
+        game.time.events.add(Phaser.Timer.SECOND*3,reviveBoyApple,this);
         ////////////////
+    }
+
+    function reviveBoyApple(){
+        player.visible = true;
+        createApples();
+        rottenapples.kill();
     }
 
 
@@ -216,14 +216,17 @@ require_once('view/top.php');
         apples.physicsBodyType = Phaser.Physics.ARCADE;
 
         createApples();
+        
 
         //  Score
         scoreString = 'Score : ';
         scoreText = game.add.text(10, 10, scoreString + score, { font: '10px Arial', fill: 'white' });
-
+        scoreText.visible = false;
         //  Lives
         lives = game.add.group();
         livesDisplay = game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '10px Arial', fill: 'white' });
+        livesDisplay.visible = false;
+        lives.visible = false;
 
         //  Text
         stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '25px Arial', fill: 'white' });
@@ -275,7 +278,22 @@ require_once('view/top.php');
         confirm = game.add.button(80, 280, 'confirm', confirm, this, 1, 1, 2);
         confirm.visible = false;
         
-    
+        //enable plugin
+        game.add.plugin(PhaserInput.Plugin);
+
+        //text field
+        userInput = game.add.inputField(90, 240, {
+            font: '11px Arial',
+            fill: '#212121',
+            fontWeight: 'bold',
+            width: 100,
+            padding: 7,
+            borderWidth: 1,
+            borderColor: '#000',
+            borderRadius: 6,
+            placeHolder: 'Enter you name...'
+        });
+        userInput.visible = false;
     }
 
     function createApples () {
@@ -385,7 +403,7 @@ require_once('view/top.php');
             //stop forks, apples   
             forkFreq = 99999999;
             rottenapples.callAll('kill');
-            score += 1000;
+            score += 500 * stage;
             scoreText.text = scoreString + score;
 
             game.time.events.add(Phaser.Timer.SECOND*2,showText,this);
@@ -431,6 +449,7 @@ require_once('view/top.php');
             stateText.visible = true;
             restart.visible = true;
             submit.visible = true;
+            apples.removeAll();
             
     }
     function rottenDrops () {
@@ -496,6 +515,11 @@ require_once('view/top.php');
         start.visible = false;
         start2.visible = false;
         leaderboard.visible = false;
+        scoreText.visible = true;
+        livesDisplay.visible = true;
+        lives.visible = true;
+        rottenapples.revive();
+        stage = 2;
         score = 0;
         scoreText.destroy();
         scoreText = game.add.text(10, 10, scoreString + score, { font: '10px Arial', fill: 'white' });
