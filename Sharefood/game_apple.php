@@ -65,7 +65,7 @@ require_once('view/top.php');
     var exitleaderboard;
     var confirm;
     var userInput;
-
+    var gofullbutton;
 
     function gofull() {
 
@@ -294,6 +294,9 @@ require_once('view/top.php');
             placeHolder: 'Enter you name...'
         });
         userInput.visible = false;
+
+        //go full screen button
+        gofullbutton = game.add.button(130, 10, 'boy', gofull, this, 1, 1, 2);
     }
 
     function createApples () {
