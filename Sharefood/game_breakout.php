@@ -6,14 +6,13 @@ require_once('view/top.php');
 <br><button id="gamebtn">Restart</button>
 <style>
     /* Lock screen from scrolling */
-   .lock-screen {
+   html {
         height: 100%;
         overflow: hidden;
         width: 100%;
         position: fixed;
     }
 </style>
-<body class="lock-screen">
 
 <script>
     $(document).ready(function(){
@@ -263,4 +262,3 @@ require_once('view/top.php');
     });
 </script>
 
-</body>

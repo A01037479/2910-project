@@ -10,8 +10,18 @@ require_once('view/top.php');
     <p><input type="password" name="password2" placeholder="Re-enter password" onkeyup="pwd_validation(); return false;"><br><span class="desc">* Confirming password</span></p>
     <p><input type="email" name="email" placeholder="Email address"><br><span class = "desc">* Used to receive a request from other users<br>* It will not be disclosed to other users</span></p>
     <p><input type="text" name="title" placeholder="Title"></p>
-    <p><img src="img/photo.png" alt="photo" id="photoupload">
-    <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" value="image"></p>
+    <!-- photo upload -->
+    <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image"><br>
+    <input type='hidden' id="imgpath" name="path">
+    <div id="uploadbox">
+      <div id="tempdiv">
+        Upload your photo<br>
+        <img src="img/photo.png">
+      </div>
+      <img src="" id="img">
+    </div>
+    <progress></progress>
+
     <p><textarea name="description" rows="4" cols="20" placeholder="Description"></textarea><br><span class = "desc">* e.g. Quantity, best before date, pick-up times</span></p>
     <div id="location">
       Pick-up Location<br>
@@ -34,7 +44,7 @@ require_once('view/top.php');
       </div>
       <p><label><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</label></p>
 
-      <p><input type="submit" name="submit" value="Upload" class="button" onclick="check_input();return false}"></p>
+      <p><input type="submit" name="submit" value="Upload" class="button"></p>
     </div>
 
   </form>
@@ -44,6 +54,8 @@ require_once('view/top.php');
 <br>
 
 <script src="js/script.js?v=1"></script>
+
+<script src="js/fileupload.js"></script>
 
 <?php
 require_once('view/footer.php');
