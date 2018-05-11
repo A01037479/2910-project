@@ -3,13 +3,15 @@ require_once('view/top.php');
 ?>
 
 <script src="js/phaser.js"></script>
+<script src="js/CanvasInput.js"></script>
 
+
+<canvas id="userInput" width="200" height="50"></canvas>
 
 <br>
 <script>
     
-    var game = new Phaser.Game(300, 400, Phaser.AUTO, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
-
+    var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
 
     function preload() {
 
@@ -20,7 +22,14 @@ require_once('view/top.php');
         game.load.spritesheet('nom', 'img/explode.png', 128, 128);
         game.load.image('background', 'img/applegamebackground.png');
         game.load.image('death','img/death.png');
-        // game.load.image('background', 'img/tree.jpg');
+        game.load.image('start','img/start.png');
+        game.load.image('leaderboard','img/leaderboardButton.png');
+        game.load.image('exitLB','img/exitLB.png');
+        game.load.image('restart','img/restart.png');
+        game.load.image('submit','img/submit.png');
+        game.load.image('confirm','img/confirm.png');
+
+       
 
     }
 
@@ -29,24 +38,143 @@ require_once('view/top.php');
     var forks;
     var forkTime = 0;
     var cursors;
-    // var fireButton;
     var nomnomnom;
-    // var background;
+    var background;
     var score = 0;
     var scoreString = '';
     var scoreText;
     var lives;
+    var livesDisplay;
     var rottenapple;
     var firingTimer = 0;
     var stateText;
     var livingEnemies = [];
+    var keyF;
+    var appleSpeedX = 4000;
+    var appleSpeedY = 8000;
+    var rottenAppleFreq = 2000;
+    var rottenAppleSpeed = 120;
+    var rottentween;
+    var forkFreq = 600;
+    var stage = 2;
+    var start;
+    var start2;
+    var leaderboard;
+    var leaderboard2;
+    var submit;
+    var restart;
+    var playing = false;
+    var exitleaderboard;
+    var confirm;
+    var userInput = new CanvasInput({canvas: document.getElementById('userInput'),
+        fontSize: 10,
+        fontFamily: 'Arial',
+        fontColor: '#212121',
+        fontWeight: 'bold',
+        width: 100,
+        height: 10,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 3,
+        boxShadow: '1px 1px 0px #fff',
+        innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+        placeHolder: 'Enter Your Name here...'});
+
+    function gofull() {
+
+        if (game.scale.isFullScreen)
+        {
+            game.scale.stopFullScreen();
+        }
+        else
+        {
+            game.scale.startFullScreen(false);
+        }
+
+    }
+
+    //double tap to full screen
+    function onTap(pointer, doubleTap) {
+        if (doubleTap){
+            gofull();
+        }
+    }
+            
+    // call to start game
+    function startGame() {
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
+        exitleaderboard.visible = false;
+        $("#userInput").css("visibility","hidden");
+        playing = true;
+
+    }    
+
+    //display leader board
+    function leaderBoard() {
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
+        apples.visible = false;
+        scoreText.visible = false;
+        livesDisplay.visible = false;
+        lives.visible = false;
+        exitleaderboard.visible = true;
+        ////leaderboard data////
+        <?php   ?>
+    }
+    
+
+    //exit leader board
+    function exitLB() {
+        exitleaderboard.visible = false;
+        start.visible = true;
+        start2.visible = true;
+        leaderboard.visible = true;
+        apples.visible = true;
+        scoreText.visible = true;
+        livesDisplay.visible = true;
+        lives.visible = true;
+    }
+
+    // User input
+    function submit() {
+        restart.visible = false;
+        stateText.visible = false;
+        submit.visible = false;
+        confirm.visible = true;
+        $("#userInput").css("visibility","visible");
+    }
+    // confirm submit
+    function confirm() {
+        confirm.visible = false;
+        start2.visible = true;
+        leaderboard.visible = true;
+        $("#userInput").css("visibility","hidden");
+        ////////////////
+    }
+
 
     function create() {
 
+        game.world.setBounds(0, 0, 300, 400);
+
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
+        
+        
+        //full screen
+        keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
+        keyF.onDown.add(gofull, this);
+        game.input.onTap.add(onTap, this);
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        
+
         // add background
         background = game.add.tileSprite(0, 0, 300, 400, 'background');
+        background.fixedToCamera = true;
 
         //  Fork
         forks = game.add.group();
@@ -72,7 +200,9 @@ require_once('view/top.php');
         player = game.add.sprite(150, 350, 'boy');
         player.anchor.setTo(0.5, 0.5);
         game.physics.enable(player, Phaser.Physics.ARCADE);
-
+        player.smoothed = false;
+        player.body.collideWorldBounds = true;
+        
         // Make boy dragable
         player.inputEnabled = true;
         player.input.enableDrag();
@@ -93,7 +223,7 @@ require_once('view/top.php');
 
         //  Lives
         lives = game.add.group();
-        game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '10px Arial', fill: 'white' });
+        livesDisplay = game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '10px Arial', fill: 'white' });
 
         //  Text
         stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '25px Arial', fill: 'white' });
@@ -116,29 +246,61 @@ require_once('view/top.php');
 
         //  keyboard control
         cursors = game.input.keyboard.createCursorKeys();
-        // fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        //start button
+        start = game.add.button(150, 220, 'start', startGame, this, 1, 1, 2);
+        start.anchor.set(0.5);
+
+        //start2 button
+        start2 = game.add.button(150, 220, 'start', restart, this, 1, 1, 2);
+        start2.anchor.set(0.5);
+        start2.visible = false;
+
+        //learderboard button
+        leaderboard = game.add.button(70, 240, 'leaderboard', leaderBoard, this, 1, 1, 2);
+
+        //restart button
+        restart = game.add.button(80, 240, 'restart', restart, this, 1, 1, 2);
+        restart.visible = false;
+
+        //exit leaderboard button
+        exitleaderboard = game.add.button(110, 250, 'exitLB', exitLB, this, 1, 1, 2);
+        exitleaderboard.visible = false;
+
+        //submit button 
+        submit = game.add.button(80, 280, 'submit', submit, this, 1, 1, 2);
+        submit.visible = false;
+
+        //confirm button
+        confirm = game.add.button(80, 280, 'confirm', confirm, this, 1, 1, 2);
+        confirm.visible = false;
         
+    
     }
 
     function createApples () {
 
         for (var y = 0; y < 5; y++)
         {
-            for (var x = 0; x < 5; x++)
+            for (var x = 0; x < 6; x++)
             {
                 var apple = apples.create(x * 40, y * 30, 'apple');
-                // apple.anchor.setTo(0.5, 0.5);
+                apple.anchor.setTo(0.5, 0.5);
                 // apple.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
                 // apple.play('fly');
                 // apple.body.moves = false;
             }
+            
         }
 
         apples.x = 100;
         apples.y = 50;
 
         //  Moving apples
-        var tween = game.add.tween(apples).to( { x: 0 }, 2000, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        var tween = game.add.tween(apples).to( { x: 0 }, appleSpeedX, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        var tween = game.add.tween(apples).to( { y: 0 }, appleSpeedY, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        // var tween = game.add.tween(apples).to({ y: 600 }, 6000, Phaser.Easing.Quadratic.InOut, true, 0, 1000, true);
+        // var tween = game.add.tween(apple).to({angle:'+360'}, 4000, Phaser.Easing.Cubic.In, true, 2000, -1);
         tween.onLoop.add(descend, this);
     }
 
@@ -157,7 +319,7 @@ require_once('view/top.php');
     }   
 
     function update() {
-
+    if(playing){
         if (player.alive)
         {
             player.body.velocity.setTo(0, 0);
@@ -179,7 +341,6 @@ require_once('view/top.php');
                 player.body.velocity.y = -250;
             }
 
-
             //  Firing
             firefork();
 
@@ -192,7 +353,7 @@ require_once('view/top.php');
             game.physics.arcade.overlap(forks, apples, collisionHandler, null, this);
             game.physics.arcade.overlap(rottenapples, player, enemyHitsPlayer, null, this);
         }
-
+    }
     }
 
     function render() {
@@ -221,17 +382,21 @@ require_once('view/top.php');
 
         if (apples.countLiving() == 0)
         {
+            //stop forks, apples   
+            forkFreq = 99999999;
+            rottenapples.callAll('kill');
             score += 1000;
             scoreText.text = scoreString + score;
 
-            rottenapples.callAll('kill',this);
-            stateText.text = "    You Won!! \n Click to restart";
-            stateText.visible = true;
-
-            //the "click to restart" handler
-            game.input.onTap.addOnce(restart,this);
+            game.time.events.add(Phaser.Timer.SECOND*2,showText,this);
         }
 
+    }
+    function showText(){
+        stateText.text = "       Stage cleared!! \n Your current score: " + score + "\n     Click to go stage " + stage;
+        stateText.visible = true;
+        //the "got to next stage" handler
+        game.input.onTap.addOnce(nextStage,this);
     }
     function changeIcon(){
         player.loadTexture('boy',0);
@@ -256,16 +421,18 @@ require_once('view/top.php');
         {
             player.kill();
             rottenapples.callAll('kill');
-
-            stateText.text=" GAME OVER \n Click to restart";
-            stateText.visible = true;
-
-            //the "click to restart" handler
-            game.input.onTap.addOnce(restart,this);
+            game.time.events.add(Phaser.Timer.SECOND*2,showResult,this);
         }
-
+    
     }
 
+    function showResult(){
+            stateText.text="  GAME OVER \n Final score: " + score;
+            stateText.visible = true;
+            restart.visible = true;
+            submit.visible = true;
+            
+    }
     function rottenDrops () {
 
         rottenapple = rottenapples.getFirstExists(false);
@@ -289,8 +456,10 @@ require_once('view/top.php');
             // And fire the fork
             rottenapple.reset(shooter.body.x, shooter.body.y);
 
-            game.physics.arcade.moveToObject(rottenapple,player,120);
-            firingTimer = game.time.now + 2000;
+            game.physics.arcade.moveToObject(rottenapple,player,rottenAppleSpeed);
+            firingTimer = game.time.now + rottenAppleFreq;
+            rottentween = game.add.tween(rottenapple).to({angle:'+360'}, 2000, Phaser.Easing.Cubic.In, true, 2000, -1);
+            
         }
 
     }
@@ -307,7 +476,7 @@ require_once('view/top.php');
                 //  And fire it
                 fork.reset(player.x, player.y + 8);
                 fork.body.velocity.y = -200;
-                forkTime = game.time.now + 800;
+                forkTime = game.time.now + forkFreq;
             }
         }
 
@@ -321,20 +490,85 @@ require_once('view/top.php');
     }
 
     function restart () {
-
-        //  A new level starts
-        
+        playing = true;
+        submit.visible = false;
+        restart.visible = false;
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
+        score = 0;
+        scoreText.destroy();
+        scoreText = game.add.text(10, 10, scoreString + score, { font: '10px Arial', fill: 'white' });
+        forkFreq = 600;
+        forkTime = game.time.now + forkFreq;
+        rottenAppleSpeed = 120;
+        rottenAppleFreq = 2000;
+        appleSpeedX = 4000;
+        appleSpeedY = 8000;
         //resets the life count
         lives.callAll('revive');
-        //  And brings the apples back from the dead :)
+        //  And brings the apples back
         apples.removeAll();
         createApples();
-
         //revives the player
         player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
         //hides the text
         stateText.visible = false;
 
+    }
+
+    function nextStage () {
+        //reposition boy
+        player.revive();
+        player.position.x = 150;
+        player.position.y = 350;
+        //add one live back
+        live = lives.getFirstDead();
+        if (live)
+        {
+            live.revive();
+        }
+        apples.removeAll();
+        //start firing
+        switch(stage){
+            case 2: forkFreq = 450;break;
+            case 3: forkFreq = 340;break;
+            case 4: forkFreq = 250;break;
+            case 5: forkFreq = 140;break;
+            case 6: forkFreq = 120;break;
+            default: forkFreq = 100;
+        }
+        forkTime = game.time.now + forkFreq;
+        
+        //add apple speedY
+        if (appleSpeedY > 8000/1.3/1.3/1.3/1.3){
+            appleSpeedY /= 1.3;
+        } else {
+            appleSpeedY = 8000/1.3/1.3/1.3/1.3;
+        }
+        //add apple speedX
+        if (appleSpeedX > 4000/1.3/1.3/1.3/1.3){
+            appleSpeedX /= 1.3;
+        } else {
+            appleSpeedX = 4000/1.3/1.3/1.3/1.3;
+        }
+        createApples();
+        //faster rotten apples
+        if (rottenAppleSpeed < 120*1.2*1.2*1.2){
+            rottenAppleSpeed *= 1.2;
+        } else {
+            rottenAppleSpeed = 120*1.2*1.2*1.2;
+        }
+        //add rotten apples
+        if (rottenAppleFreq > 2000/1.4/1.4/1.4/1.4/1.4){
+            rottenAppleFreq /= 1.4;
+        } else {
+            rottenAppleFreq = 2000/1.4/1.4/1.4/1.4/1.4;
+        }
+        stateText.visible = false;
+        stage++;
     }
 
     </script>
