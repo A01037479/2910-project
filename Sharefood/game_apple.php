@@ -3,13 +3,15 @@ require_once('view/top.php');
 ?>
 
 <script src="js/phaser.js"></script>
+<script src="js/CanvasInput.js"></script>
 
+
+<canvas id="userInput" width="200" height="50"></canvas>
 
 <br>
 <script>
     
     var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
-
 
     function preload() {
 
@@ -20,6 +22,12 @@ require_once('view/top.php');
         game.load.spritesheet('nom', 'img/explode.png', 128, 128);
         game.load.image('background', 'img/applegamebackground.png');
         game.load.image('death','img/death.png');
+        game.load.image('start','img/start.png');
+        game.load.image('leaderboard','img/leaderboardButton.png');
+        game.load.image('exitLB','img/exitLB.png');
+        game.load.image('restart','img/restart.png');
+        game.load.image('submit','img/submit.png');
+        game.load.image('confirm','img/confirm.png');
 
        
 
@@ -36,6 +44,7 @@ require_once('view/top.php');
     var scoreString = '';
     var scoreText;
     var lives;
+    var livesDisplay;
     var rottenapple;
     var firingTimer = 0;
     var stateText;
@@ -45,12 +54,32 @@ require_once('view/top.php');
     var appleSpeedY = 8000;
     var rottenAppleFreq = 2000;
     var rottenAppleSpeed = 120;
+    var rottentween;
     var forkFreq = 600;
     var stage = 2;
     var start;
+    var start2;
     var leaderboard;
-
+    var leaderboard2;
+    var submit;
+    var restart;
     var playing = false;
+    var exitleaderboard;
+    var confirm;
+    var userInput = new CanvasInput({canvas: document.getElementById('userInput'),
+        fontSize: 10,
+        fontFamily: 'Arial',
+        fontColor: '#212121',
+        fontWeight: 'bold',
+        width: 100,
+        height: 10,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 3,
+        boxShadow: '1px 1px 0px #fff',
+        innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+        placeHolder: 'Enter Your Name here...'});
 
     function gofull() {
 
@@ -67,7 +96,6 @@ require_once('view/top.php');
 
     //double tap to full screen
     function onTap(pointer, doubleTap) {
-
         if (doubleTap){
             gofull();
         }
@@ -75,19 +103,59 @@ require_once('view/top.php');
             
     // call to start game
     function startGame() {
-        start.destroy();
-        leaderboard.destroy();
-        // restart();
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
+        exitleaderboard.visible = false;
+        $("#userInput").css("visibility","hidden");
         playing = true;
+
     }    
 
     //display leader board
     function leaderBoard() {
-        start.destroy();
-        leaderboard.destroy();
-        apples.destroy();
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
+        apples.visible = false;
+        scoreText.visible = false;
+        livesDisplay.visible = false;
+        lives.visible = false;
+        exitleaderboard.visible = true;
+        ////leaderboard data////
         <?php   ?>
     }
+    
+
+    //exit leader board
+    function exitLB() {
+        exitleaderboard.visible = false;
+        start.visible = true;
+        start2.visible = true;
+        leaderboard.visible = true;
+        apples.visible = true;
+        scoreText.visible = true;
+        livesDisplay.visible = true;
+        lives.visible = true;
+    }
+
+    // User input
+    function submit() {
+        restart.visible = false;
+        stateText.visible = false;
+        submit.visible = false;
+        confirm.visible = true;
+        $("#userInput").css("visibility","visible");
+    }
+    // confirm submit
+    function confirm() {
+        confirm.visible = false;
+        start2.visible = true;
+        leaderboard.visible = true;
+        $("#userInput").css("visibility","hidden");
+        ////////////////
+    }
+
 
     function create() {
 
@@ -155,7 +223,7 @@ require_once('view/top.php');
 
         //  Lives
         lives = game.add.group();
-        game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '10px Arial', fill: 'white' });
+        livesDisplay = game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '10px Arial', fill: 'white' });
 
         //  Text
         stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '25px Arial', fill: 'white' });
@@ -178,15 +246,36 @@ require_once('view/top.php');
 
         //  keyboard control
         cursors = game.input.keyboard.createCursorKeys();
-        // fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         //start button
-        start = game.add.button(150, 200, 'fork', startGame, this, 1, 1, 2);
+        start = game.add.button(150, 220, 'start', startGame, this, 1, 1, 2);
         start.anchor.set(0.5);
 
+        //start2 button
+        start2 = game.add.button(150, 220, 'start', restart, this, 1, 1, 2);
+        start2.anchor.set(0.5);
+        start2.visible = false;
+
         //learderboard button
-        leaderboard = game.add.button(150, 300, 'fork', leaderBoard, this, 1, 1, 2);
+        leaderboard = game.add.button(70, 240, 'leaderboard', leaderBoard, this, 1, 1, 2);
+
+        //restart button
+        restart = game.add.button(80, 240, 'restart', restart, this, 1, 1, 2);
+        restart.visible = false;
+
+        //exit leaderboard button
+        exitleaderboard = game.add.button(110, 250, 'exitLB', exitLB, this, 1, 1, 2);
+        exitleaderboard.visible = false;
+
+        //submit button 
+        submit = game.add.button(80, 280, 'submit', submit, this, 1, 1, 2);
+        submit.visible = false;
+
+        //confirm button
+        confirm = game.add.button(80, 280, 'confirm', confirm, this, 1, 1, 2);
+        confirm.visible = false;
         
+    
     }
 
     function createApples () {
@@ -201,6 +290,7 @@ require_once('view/top.php');
                 // apple.play('fly');
                 // apple.body.moves = false;
             }
+            
         }
 
         apples.x = 100;
@@ -209,6 +299,8 @@ require_once('view/top.php');
         //  Moving apples
         var tween = game.add.tween(apples).to( { x: 0 }, appleSpeedX, Phaser.Easing.Linear.None, true, 0, 2000, true);
         var tween = game.add.tween(apples).to( { y: 0 }, appleSpeedY, Phaser.Easing.Linear.None, true, 0, 2000, true);
+        // var tween = game.add.tween(apples).to({ y: 600 }, 6000, Phaser.Easing.Quadratic.InOut, true, 0, 1000, true);
+        // var tween = game.add.tween(apple).to({angle:'+360'}, 4000, Phaser.Easing.Cubic.In, true, 2000, -1);
         tween.onLoop.add(descend, this);
     }
 
@@ -297,9 +389,6 @@ require_once('view/top.php');
             scoreText.text = scoreString + score;
 
             game.time.events.add(Phaser.Timer.SECOND*2,showText,this);
-            
-            
-            
         }
 
     }
@@ -332,16 +421,18 @@ require_once('view/top.php');
         {
             player.kill();
             rottenapples.callAll('kill');
-
-            stateText.text=" GAME OVER \n Final score: " + score + "\n Click to restart";
-            stateText.visible = true;
-
-            //the "click to restart" handler
-            game.input.onTap.addOnce(restart,this);
+            game.time.events.add(Phaser.Timer.SECOND*2,showResult,this);
         }
-
+    
     }
 
+    function showResult(){
+            stateText.text="  GAME OVER \n Final score: " + score;
+            stateText.visible = true;
+            restart.visible = true;
+            submit.visible = true;
+            
+    }
     function rottenDrops () {
 
         rottenapple = rottenapples.getFirstExists(false);
@@ -367,6 +458,8 @@ require_once('view/top.php');
 
             game.physics.arcade.moveToObject(rottenapple,player,rottenAppleSpeed);
             firingTimer = game.time.now + rottenAppleFreq;
+            rottentween = game.add.tween(rottenapple).to({angle:'+360'}, 2000, Phaser.Easing.Cubic.In, true, 2000, -1);
+            
         }
 
     }
@@ -397,6 +490,12 @@ require_once('view/top.php');
     }
 
     function restart () {
+        playing = true;
+        submit.visible = false;
+        restart.visible = false;
+        start.visible = false;
+        start2.visible = false;
+        leaderboard.visible = false;
         score = 0;
         scoreText.destroy();
         scoreText = game.add.text(10, 10, scoreString + score, { font: '10px Arial', fill: 'white' });

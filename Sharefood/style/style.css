@@ -207,6 +207,14 @@ input[type=radio] {
 
 canvas {
  margin:0 auto;
+ position:relative;
+}
+
+#userInput{
+  visibility: hidden;
+  position:relative;
+  float: inherit;
+  z-index: 1;
 }
 
 footer p {
@@ -408,6 +416,13 @@ label .arrow-up { display: none; }
     height: 70px;
     width: 100px;
   }
+
+  #userInput {
+    visibility:visible;
+    top:30vw;
+    left:4vw;
+    z-index: 1;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -418,6 +433,12 @@ label .arrow-up { display: none; }
   .banner {
     height: 250px;
     padding-top: 30px;
+  }
+  #userInput {
+    visibility:visible;
+    top:39vw;
+    left:6vw;
+    z-index: 1;
   }
 }
 
@@ -502,6 +523,26 @@ label .arrow-up { display: none; }
     transition-duration: 0.5s;
   }
 
+  #userInput {
+    top:51vw;
+    left:8vw;
+    z-index: 1;
+  }
+}
+@media screen and (max-width: 480px){
+  #userInput {
+    top:50vw;
+    left:8vw;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 440px){
+  #userInput {
+    top:60vw;
+    left:8vw;
+    z-index: 1;
+  }
 }
 
 
@@ -509,5 +550,10 @@ label .arrow-up { display: none; }
 @media screen and (max-width: 400px){
   #toggle:checked ~ .fieldsetContainer {
       height: 190px;
+  }
+  #userInput {
+    top:77vw;
+    left:10vw;
+    z-index: 1;
   }
 }
