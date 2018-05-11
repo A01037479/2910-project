@@ -20,10 +20,9 @@
     background-color: black;
     position: absolute;
     top: 0;
-    z-index: 1;
     width: 322px;
     height: 402px;
-    visibility: visible;
+    z-index: 1;
     /*display: none;*/
 }
 
@@ -46,4 +45,25 @@
     background-color: transparent;
     color: yellow;
     cursor: pointer;
+}
+
+.lock-screen {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+}    
+
+#tableContainer{
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    width: 322px;
+    height: 402px;
+    display: none;
+}
+
+#table{
+    color: white;
 }
