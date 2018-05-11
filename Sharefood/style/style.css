@@ -315,6 +315,7 @@ label .arrow-up { display: none; }
   background-color: green;
   color: #fff;
   border-radius: 0px 40px 40px 0px;
+  outline: none;
 }
 
 
@@ -345,6 +346,7 @@ label .arrow-up { display: none; }
   width: 200px;
   height: 30px;
   margin: 1em;
+  outline: none;
 }
 
 #loadButton:hover {
@@ -500,14 +502,6 @@ label .arrow-up { display: none; }
     z-index: 10;
     width: 60px;
     height: 60px;
-  }
-
-  .topMenu a{
-    color: white;
-  }
-
-  .topMenu a:hover{
-    color: #dcf7e4;
   }
 
   .topMenu.responsive{
