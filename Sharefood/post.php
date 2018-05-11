@@ -20,6 +20,7 @@ require_once('view/top.php');
       </div>
       <img src="" id="img">
     </div>
+    <progress></progress>
 
     <p><textarea name="description" rows="4" cols="20" placeholder="Description"></textarea><br><span class = "desc">* e.g. Quantity, best before date, pick-up times</span></p>
     <div id="location">
