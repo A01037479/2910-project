@@ -106,7 +106,7 @@ require_once('view/top.php');
         // draw the ball
         function drawBall() {
             context.beginPath();
-            context.drawImage(imgBall, x, y, ballRadius*4, ballRadius*4);
+            context.drawImage(imgBall, x, y, ballRadius*3, ballRadius*3);
             // context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
             // context.fillStyle = color; //stores color
             // context.fill(); //paints circle
@@ -242,7 +242,7 @@ require_once('view/top.php');
                 }
             }
             // ball bounces off right || left walls respectively
-            if(x + dx > canvas.width - ballRadius - 15 || x + dx < ballRadius - 15) { 
+            if(x + dx > canvas.width - ballRadius - 10 || x + dx < ballRadius - 15) { 
                 dx = -dx;
                 // color = randomColor();
             }

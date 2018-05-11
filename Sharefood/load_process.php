@@ -10,7 +10,7 @@ if(count($_POST) == 0) {
   $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["dbname"]);
 
   $id = $_POST['id'];
-  $q = $_POST['q'];
+  $q = mysqli_real_escape_string($conn, $_POST['q']); // prevent sql input by user
   $count = 3;
 
   echo "<script>var newid = {$_POST['id']};</script>"; //by default
