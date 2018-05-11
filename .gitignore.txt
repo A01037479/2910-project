@@ -1,2 +1,0 @@
-Sharefood/uploads/*
-Sharefood/config/*
