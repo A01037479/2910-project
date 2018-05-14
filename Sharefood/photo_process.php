@@ -4,7 +4,6 @@
   // Upload and Resize the photo
   $post_photo = basename($_FILES['file']['name']);
   $post_tmp = $_FILES['file']['tmp_name'];
-  $exif = exif_read_data($post_tmp);
   $dir = "uploads/";
   $ext = strtolower(pathinfo($post_photo, PATHINFO_EXTENSION)); //getting image extension
   $path = $dir . rand() . date('y-m-d-a-h-i-s') . "." . $ext;
@@ -20,25 +19,31 @@
  list($width, $height) = getimagesize($post_tmp); // fetching original image width and height
 
 //rotate if it's taken vertically
-if (!empty($exif['Orientation'])) {
-  switch ($exif['Orientation']) {
-      case 3:
-        $src = imagerotate($src, 180, 0);
-      break;
-      case 6:
-        $src = imagerotate($src, -90, 0);
-        $tempheight = $height;
-        $height = $width;
-        $width = $tempheight;
-      break;
-      case 8:
-        $src = imagerotate($src, 90, 0);
-        $tempheight = $height;
-        $height = $width;
-        $width = $tempheight;
-      break;
-  } 
-}
+if($ext == 'jpg' || $ext == 'jpeg') {
+  $exif = exif_read_data($post_tmp);
+
+  if (!empty($exif['Orientation'])) {
+    switch ($exif['Orientation']) {
+        case 3:
+          $src = imagerotate($src, 180, 0);
+        break;
+        case 6:
+          $src = imagerotate($src, -90, 0);
+          $tempheight = $height;
+          $height = $width;
+          $width = $tempheight;
+        break;
+        case 8:
+          $src = imagerotate($src, 90, 0);
+          $tempheight = $height;
+          $height = $width;
+          $width = $tempheight;
+        break;
+    } 
+
+  }
+
+} 
 
   $newwidth = 350;
   $newheight = $height / $width * $newwidth;  // calculating proportionate height
