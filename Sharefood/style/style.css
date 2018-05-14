@@ -41,8 +41,13 @@ nav {
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.3);
 }
 #nav-share-btn {
-  color: #048c36;
-  font-weight: bold;
+  background-color: #048c36;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 17px;
+  position: relative;
+  top: 7px;
+  left: -10px;
 }
 
 #logo {
@@ -69,7 +74,7 @@ article {
   text-shadow: 1px 1px white;
   margin: 0;
   padding : 0;
-  color: #093018;
+  color: #11522a;
   font-size: 7.5vw;
   font-family: 'Do Hyeon';
   height: 10vw;
@@ -83,6 +88,8 @@ article {
   left:40%;
 }
 #subheader {
+  color: #11522a;
+  font-size: 1.5em;
   margin: 0 auto;
   text-align: center;
   width: 50%;
@@ -428,7 +435,7 @@ label .arrow-up { display: none; }
 }
 
 /*********************************************/
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .banner {
     height: calc(100vh - 140px);
   }
@@ -456,10 +463,8 @@ label .arrow-up { display: none; }
     /* height: 250px; */
     padding-top: 0px;
   }
-  #subheader > h2 {
-    font-size: 1.25em;
-  }
   #subheader {
+    font-size: 1.25em;
     width: 65%;
   }
 }
@@ -483,11 +488,8 @@ label .arrow-up { display: none; }
     /* height: 200px; */
     padding-top: 0px;
   }
-  #subheader > h2 {
-    font-size: 1em;
-  }
   #subheader {
-    width: 90%;
+    font-size: 1em;
   }
   .topMenu a{
     display: none;
@@ -530,6 +532,10 @@ label .arrow-up { display: none; }
     float: none;
     display: block;
     text-align: center;
+  }
+  #nav-share-btn {
+    top: 0;
+    left: 0;
   }
 
   nav{
