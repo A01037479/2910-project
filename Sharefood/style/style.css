@@ -111,6 +111,36 @@ article {
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
   border: 2px solid white;
 }
+
+/* post: upload photo section */
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   width: 220px;
+
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+#image {
+  display: none;
+}
+#uploadbox {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  border: 1px dashed #1FB264;
+  cursor: pointer;
+  text-align: center;
+}
+#uploadbox:hover {
+  border: 4px dashed #1FB264;
+  background-color: #cff7d0;
+}
+
 .uploadedImg {
   width: 350px;
   max-width: 100%;
@@ -268,6 +298,7 @@ label .arrow-up { display: none; }
   background-color: green;
   color: #fff;
   border-radius: 0px 40px 40px 0px;
+  outline: none;
 }
 
 
@@ -298,6 +329,7 @@ label .arrow-up { display: none; }
   width: 200px;
   height: 30px;
   margin: 1em;
+  outline: none;
 }
 
 #loadButton:hover {
@@ -392,6 +424,7 @@ label .arrow-up { display: none; }
     height: 70px;
     width: 100px;
   }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -454,14 +487,6 @@ label .arrow-up { display: none; }
     height: 60px;
   }
 
-  .topMenu a{
-    color: white;
-  }
-
-  .topMenu a:hover{
-    color: #dcf7e4;
-  }
-
   .topMenu.responsive{
     transition: 0.5s;
     position: relative;
@@ -486,8 +511,12 @@ label .arrow-up { display: none; }
     transition-duration: 0.5s;
   }
 
+  #userInput {
+    top:51vw;
+    left:8vw;
+    z-index: 1;
+  }
 }
-
 
 
 @media screen and (max-width: 400px){

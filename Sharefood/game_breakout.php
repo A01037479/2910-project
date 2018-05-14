@@ -5,18 +5,18 @@ require_once('view/top.php');
 <link rel="stylesheet" href="style/leaderboard.css">
 
 <div id="gameContainer">
+    <div id="gameMenu">
+        <p>Welcome to Breakout!</p>
+        <button class="playGame">Play</button>
+        <button id="leaderboard">Leaderboard</button>
+    </div>
     <div id="scoreDiv">
         <form name="form">
             <input type="text" name="username" placeholder="Player name">
             <button id="submitScore">Submit</button>
             <button class="menubtn">Menu</button> 
-            <button id="playAgain">Play Again</button>
+            <button class="playGame">Play Again</button>
         </form>
-    </div>
-    <div id="gameMenu">
-        <p>Welcome to Breakout!</p>
-        <button id="playGame">Play</button>
-        <button id="leaderboard">Leaderboard</button>
     </div>
     <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
     
@@ -31,22 +31,19 @@ require_once('view/top.php');
 
 <script>
     $(document).ready(function(){
-        $("#gameMenu").show();
+        
         var score;
 
-        $("#playGame").click(function(event){        
+        $(".playGame").click(function(event){        
             $("#gameMenu").hide();
+            $("#scoreDiv").hide();
             gameStart();
-        });
-
-        $("#playAgain").click(function(event){        
-            gameStart();
-            $("#gameMenu").hide();
         });
 
         $(".menubtn").click(function(event){
             $("#gameMenu").show();
             $("#scoreDiv").hide();
+            $("#tableContainer").hide();
         });
 
         $("#submitScore").click(function(event){
@@ -56,6 +53,7 @@ require_once('view/top.php');
         $("#leaderboard").click(function(event){
             $("#gameMenu").hide();
             $("#tableContainer").show();
+            getTable();
         });
 
     function gameStart() {
@@ -304,21 +302,25 @@ require_once('view/top.php');
                 type: "POST",
                 data: {tableName: 'breakout', username: username, score: score},
                 success: function(data){
-                    $sql = "SELECT"
-                    var listData = "<table><tr><th>Username</th><th>Score</th><th><Date</th></tr>";
-                    for (var key in ['breakout']){
-                        var row = data['breakout'][key];
-                        listData += "<tr><td>" + row['username'] + "</td>"
-                                 + "<td>" + row['score'] + "</td></tr>";
-                    }
-                    listData += "</table>";
-                    
-                    $("#table").append(listData);
-                }
+                },
             });
         } else {
             alert("No username entered.");
         }    
+    }
+
+    function getTable(){
+        $.ajax({
+            url: "game_process.php",
+            dataType: "html",
+            type: "GET",
+            data: {tableName: 'breakout', output: 'html'},
+            success: function(data){
+
+                $("#table").replaceWith(data); //Instead of using append()
+            },
+        });
+
     }
 
 });

@@ -23,7 +23,7 @@
           <a href="about.php">ABOUT</a>
           <a href="info.php">FOOD FACTS</a>
           <a href="post.php">SHARE</a>
-          <a href="javascript:void(0);" onclick="menu_function()" class="icon" style="font-size:25px">&#9776</a>
+          <a href="javascript:void(0);" onclick="menu_function()" class="icon" style="font-size:25px">&#9776;</a>
         </div>
       </nav>
     </div>

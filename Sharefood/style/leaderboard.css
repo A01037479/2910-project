@@ -67,3 +67,17 @@
 #table{
     color: white;
 }
+
+#leaderTable{
+    border-collapse: collapse;
+    width: 270px;
+    margin-top: 20px;
+    border: 1px solid white;
+    text-align: center;
+    margin-left: 25px;
+}
+
+td, th{
+    padding: 5px;
+    border: 1px solid white;
+}
