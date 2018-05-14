@@ -59,7 +59,6 @@ require_once('view/top.php');
     var start;
     var start2;
     var leaderboard;
-    var leaderboard2;
     var submit;
     var restart;
     var playing = false;
@@ -67,6 +66,9 @@ require_once('view/top.php');
     var confirm;
     var userInput = "";
     var recordTitle;
+    var names;
+    var dates;
+    var scores;
 
     function gofull() {
 
@@ -100,13 +102,14 @@ require_once('view/top.php');
         scoreText.visible = true;
         livesDisplay.visible = true;
         lives.visible = true;
+        recordTitle.visible = false;
         playing = true;
 
     }    
 
     //display leader board
     function leaderBoard() {
-        //console.log('click');
+        recordTitle.visible = true;
         start.visible = false;
         start2.visible = false;
         leaderboard.visible = false;
@@ -116,41 +119,34 @@ require_once('view/top.php');
         lives.visible = false;
         exitleaderboard.visible = true;
         ////leaderboard data////
-        
         $.ajax({
             url: "game_process.php",
-            // dataType: "json",
             type: "GET",
             data: {tableName: 'eatapplefast',temp: "name" ,output: 'html'},
             success: function(data){
-                console.log(data);
                 records1 = data;
-                game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
+                names = game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
                 
             },
         });
 
                $.ajax({
             url: "game_process.php",
-            // dataType: "json",
             type: "GET",
             data: {tableName: 'eatapplefast',temp: "score",output: 'html'},
             success: function(data){
-                console.log(data);
                 records2 = data;
-                game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
+                scores = game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
                 
             },
         });
         $.ajax({
             url: "game_process.php",
-            // dataType: "json",
             type: "GET",
             data: {tableName: 'eatapplefast',temp: "date",output: 'html'},
             success: function(data){
-                console.log(data);
                 records3 = data;
-                game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
+                dates = game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
             },
         });
 
@@ -164,9 +160,10 @@ require_once('view/top.php');
         start2.visible = true;
         leaderboard.visible = true;
         apples.visible = true;
-        // scoreText.visible = true;
-        // livesDisplay.visible = true;
-        // lives.visible = true;
+        recordTitle.visible = false;
+        names.visible = false;
+        scores.visible = false;
+        dates.visible = false;
     }
 
     // User input
@@ -176,6 +173,7 @@ require_once('view/top.php');
         submit.visible = false;
         confirm.visible = true;
         userInput.visible = true;
+        recordTitle.visible = false;
     }
     // confirm submit
     function confirm() {
@@ -186,12 +184,11 @@ require_once('view/top.php');
         scoreText.visible = false;
         livesDisplay.visible = false;
         lives.visible = false;
-        //userInput.setText("");
+        recordTitle.visible = false;
+        
         game.time.events.add(Phaser.Timer.SECOND*3,reviveBoyApple,this);
-        ////////////////
 
         var username = userInput.value;
-        alert(username);
 
         if (username.trim() != 0){       
             $.ajax({
@@ -199,7 +196,6 @@ require_once('view/top.php');
                 type: "POST",
                 data: {tableName: 'eatapplefast', username: username, score: score},
                 success: function(data){
-                   // console.log(data);
                 },
             });
         }
@@ -214,6 +210,7 @@ require_once('view/top.php');
         createApples();
         rottenapples.kill();
         forks.kill();
+        userInput.setText("");
     }
 
 
@@ -303,14 +300,7 @@ require_once('view/top.php');
         // record title
         recordTitle = game.add.text(150, 70,'User    Score    Date', { font: '20px Arial', fill: 'white' });
         recordTitle.anchor.setTo(0.5, 0.5);
-
-        // records
-        //data = game.add.text(150, 100, records, { font: '25px Arial', fill: 'white' });
-        //data.anchor.setTo(0.5, 0.5);
-
-
-
-        
+        recordTitle.visible = false;
 
         //  Eat
         nomnomnom = game.add.group();
@@ -366,6 +356,7 @@ require_once('view/top.php');
             placeHolder: 'Enter you name...'
         });
         userInput.visible = false;
+        // document.getElementsByName("userInput").setAttribute("pattern", "[A-Za-z]{11}");
     }
 
     function createApples () {
