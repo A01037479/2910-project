@@ -356,7 +356,7 @@ require_once('view/top.php');
             placeHolder: 'Enter you name...'
         });
         userInput.visible = false;
-        document.getElementsByName("userInput").setAttribute("pattern", "[A-Za-z]{11}");
+        // document.getElementsByName("userInput").setAttribute("pattern", "[A-Za-z]{11}");
     }
 
     function createApples () {
