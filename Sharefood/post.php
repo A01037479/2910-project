@@ -18,7 +18,7 @@ require_once('view/top.php');
     </div>
     <progress></progress>
 
-    <p><textarea name="description" rows="4" cols="20" placeholder="A bit about your food (e.g. quantity, best before date)"></textarea></p>
+    <p><textarea name="description" rows="4" cols="20" placeholder="Tell us a bit about your food (e.g. quantity, best before date)"></textarea></p>
     <div id="location">
       Pick-up Location<br>
       <label><input type="radio" name="location" value="Burnaby Campus" checked>Burnaby Campus</label><br>
@@ -26,9 +26,9 @@ require_once('view/top.php');
     </div>
 
     <p id="pwdInvalid"></p>
-    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
-    <br><input type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;"></p>
     <p><input type="email" name="email" placeholder="Email address"></p>
+    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
+    <br><input type="password" name="password2" placeholder="Confirm password" onkeyup="pwd_validation(); return false;"></p>
 
     <div class="toggleDiv">
       <input type="checkbox" id="toggle"/>
