@@ -171,14 +171,16 @@ progress[value]::-webkit-progress-bar {
   margin: 0.2em;
   text-align: left;
 }
-form input, form textarea {
+
+/* this is fucking me up */
+/* form input, form textarea {
   width: 100%;
   box-sizing: border-box;
 }
 input {
   height: 25px;
   margin: 0.3em 0;
-}
+} */
 #photoupload {
   width: 30px;
   display: block;
@@ -429,7 +431,7 @@ label .arrow-up { display: none; }
   #searchbox {
     height: 70px;
   }
-  
+
   #searchbtn {
     height: 70px;
     width: 100px;

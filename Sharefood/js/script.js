@@ -1,20 +1,27 @@
+console.log("hello");
+
+
 function pwd_validation(){
   var theForm = document.posting;
-  var message = document.getElementById('pwdInvalid');
+  console.log("hey");
+  // var message = document.getElementById('pwdInvalid');
   if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
   theForm.password.style.backgroundColor='#ddffdd';
   theForm.password2.style.backgroundColor='#ddffdd';
-  message.innerHTML = "Passwords match."
-  message.style.color = "green";
+  console.log("hi");
+  // message.innerHTML = "Passwords match."
+  // message.style.color = "green";
   return true;
   } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
     theForm.password.style.backgroundColor='#ffdddd';
     theForm.password2.style.backgroundColor='#ffdddd';
-    message.innerHTML = "Passwords do not match."
-    message.style.color = "red";
+    console.log("bye");
+    // message.innerHTML = "Passwords do not match."
+    // message.style.color = "red";
     return false;
   } else {
     return false;
+    console.log("wht up")
   }
 }
 
