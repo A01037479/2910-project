@@ -169,28 +169,33 @@ require_once('view/top.php');
     // User input
     function submit() {
         restart.visible = false;
-        stateText.visible = false;
         submit.visible = false;
         confirm.visible = true;
-        userInput.visible = true;
         recordTitle.visible = false;
+        userInput.visible = true;
+        scoreText.visible = false;
+        livesDisplay.visible = false;
+        lives.visible = false;
     }
     // confirm submit
     function confirm() {
         confirm.visible = false;
-        start2.visible = true;
-        leaderboard.visible = true;
-        userInput.visible = false;
-        scoreText.visible = false;
-        livesDisplay.visible = false;
-        lives.visible = false;
         recordTitle.visible = false;
         
-        game.time.events.add(Phaser.Timer.SECOND*3,reviveBoyApple,this);
 
         var username = userInput.value;
-
-        if (username.trim() != 0){       
+        if (username.trim() == 0 || username.length < 3 || username.length > 10 || !/^[a-zA-Z]/.test(username)){
+            alert("wrong name format\n3 to 10 characters with only letters");
+            userInput.setText("");
+            userInput.visible = true;
+            confirm.visible = true;
+        }
+        else{   
+            start2.visible = true;
+            leaderboard.visible = true;    
+            userInput.visible = false;
+            stateText.visible = false;
+            game.time.events.add(Phaser.Timer.SECOND*3,reviveBoyApple,this);
             $.ajax({
                 url: "game_process.php",
                 type: "POST",
@@ -207,8 +212,6 @@ require_once('view/top.php');
         player.position.x = 150;
         player.position.y = 350;
         player.revive();
-        createApples();
-        rottenapples.kill();
         forks.kill();
         userInput.setText("");
     }
@@ -579,7 +582,6 @@ require_once('view/top.php');
         livesDisplay.visible = true;
         lives.visible = true;
         forks.revive();
-        rottenapples.revive();
         stage = 2;
         score = 0;
         scoreText.destroy();
