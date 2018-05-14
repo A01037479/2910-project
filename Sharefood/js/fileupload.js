@@ -3,8 +3,9 @@ $('#uploadbox').click(function() {
     $("#image").val("");
     $('#image').trigger('click');
 });
-    
+
 $('#image').change(function(e) {
+  console.log('click');
     var file = e.target.files[0];
     var fd = new FormData();
     fd.append('file', file);
@@ -16,7 +17,7 @@ $('#image').change(function(e) {
       cache: false,
       contentType: false,
       processData: false,
-    
+
       xhr: function() {
             var myXhr = $.ajaxSettings.xhr();
             if (myXhr.upload) {
@@ -42,8 +43,8 @@ $('#image').change(function(e) {
           max: 1
         });
       }
-  
+
     });
-  
-    
+
+
 });

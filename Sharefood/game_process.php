@@ -23,7 +23,6 @@ if(isset($_POST['username'], $_POST['score'])){
 if($methodType === 'GET'){
     //$tableName = 'breakout';
     $tableName = $_GET['tableName'];
-    $temp = $_GET['temp'];
     //$sql = "SELECT * FROM 'breakout'";
     //$result = mysqli_query($conn, $sql);
     $result = $conn->query("SELECT * FROM $tableName ORDER BY score DESC LIMIT 10");
@@ -38,6 +37,7 @@ if($methodType === 'GET'){
             }
             echo "</table>";
         } else {
+            $temp = $_GET['temp'];
             while($row = mysqli_fetch_array($result)){
                 // echo $row['username'] . "\t" . $row['score'] . "\t" . $row['created'] . "\n";
                 if ($temp == "name"){
