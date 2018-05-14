@@ -64,7 +64,8 @@ article {
   transition: margin-top 0.5s;
 }
 .banner {
-  padding-top: 0px;
+  box-sizing: border-box;
+  padding-top: 70px;
   margin-bottom: 1em;
   height: 400px;
 }
@@ -292,10 +293,10 @@ label .arrow-up { display: none; }
   box-sizing: border-box;
   border: 1px solid #595d63;
   border-radius: 10px 0px 0px 10px;
-  width: 45%;
+  width: 50%;
   height: 40px;
   margin: 0;
-  padding-left: 1em;
+  padding-left: 0.5em;
 }
 
 #searchbtn {
@@ -444,11 +445,11 @@ label .arrow-up { display: none; }
   .banner {
     height: 350px;
     /* height: 250px; */
-    padding-top: 0px;
+    padding-top: 50px;
   }
   #subheader {
     font-size: 1.25em;
-    width: 65%;
+    width: 80%;
   }
 }
 
@@ -457,7 +458,7 @@ label .arrow-up { display: none; }
     background-size: 140% auto;
   }
   #searchbox{
-    width: 65%;
+    width: 70%;
     height: 35px;
     font-size: 12pt;
   }
@@ -469,7 +470,7 @@ label .arrow-up { display: none; }
   .banner {
     height: 300px;
     /* height: 200px; */
-    padding-top: 0px;
+    padding-top: 40px;
   }
   #subheader {
     font-size: 1em;
