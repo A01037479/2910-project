@@ -139,7 +139,7 @@ Tell us a bit more about your food (e.g. quantity, best before date)
     </div>
     <progress></progress>
 
-    <p><textarea name="description" rows="4" cols="20" placeholder="A bit about your food (e.g. quantity, best before date)"></textarea></p>
+    <p><textarea name="description" rows="4" cols="20" placeholder="Tell us a bit about your food (e.g. quantity, best before date)"></textarea></p>
     <div id="location">
       Pick-up Location<br>
       <label><input type="radio" name="location" value="Burnaby Campus" checked>Burnaby Campus</label><br>

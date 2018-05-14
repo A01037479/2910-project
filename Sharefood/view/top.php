@@ -23,7 +23,7 @@
           <a href="contact.php">CONTACT</a>
           <a href="about.php">ABOUT</a>
           <a href="info.php">FOOD FACTS</a>
-          <a href="post.php">SHARE</a>
+          <a id="nav-share-btn" href="post.php">SHARE</a>
         </div>
       </nav>
     </div>

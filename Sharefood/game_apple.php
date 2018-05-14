@@ -59,13 +59,16 @@ require_once('view/top.php');
     var start;
     var start2;
     var leaderboard;
-    var leaderboard2;
     var submit;
     var restart;
     var playing = false;
     var exitleaderboard;
     var confirm;
-    var userInput;
+    var userInput = "";
+    var recordTitle;
+    var names;
+    var dates;
+    var scores;
 
     function gofull() {
 
@@ -99,12 +102,14 @@ require_once('view/top.php');
         scoreText.visible = true;
         livesDisplay.visible = true;
         lives.visible = true;
+        recordTitle.visible = false;
         playing = true;
 
     }    
 
     //display leader board
     function leaderBoard() {
+        recordTitle.visible = true;
         start.visible = false;
         start2.visible = false;
         leaderboard.visible = false;
@@ -114,7 +119,37 @@ require_once('view/top.php');
         lives.visible = false;
         exitleaderboard.visible = true;
         ////leaderboard data////
-        <?php   ?>
+        $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "name" ,output: 'html'},
+            success: function(data){
+                records1 = data;
+                names = game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
+                
+            },
+        });
+
+               $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "score",output: 'html'},
+            success: function(data){
+                records2 = data;
+                scores = game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
+                
+            },
+        });
+        $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "date",output: 'html'},
+            success: function(data){
+                records3 = data;
+                dates = game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
+            },
+        });
+
     }
     
 
@@ -125,9 +160,10 @@ require_once('view/top.php');
         start2.visible = true;
         leaderboard.visible = true;
         apples.visible = true;
-        // scoreText.visible = true;
-        // livesDisplay.visible = true;
-        // lives.visible = true;
+        recordTitle.visible = false;
+        names.visible = false;
+        scores.visible = false;
+        dates.visible = false;
     }
 
     // User input
@@ -137,6 +173,7 @@ require_once('view/top.php');
         submit.visible = false;
         confirm.visible = true;
         userInput.visible = true;
+        recordTitle.visible = false;
     }
     // confirm submit
     function confirm() {
@@ -147,9 +184,23 @@ require_once('view/top.php');
         scoreText.visible = false;
         livesDisplay.visible = false;
         lives.visible = false;
-        userInput.setText("");
+        recordTitle.visible = false;
+        
         game.time.events.add(Phaser.Timer.SECOND*3,reviveBoyApple,this);
-        ////////////////
+
+        var username = userInput.value;
+
+        if (username.trim() != 0){       
+            $.ajax({
+                url: "game_process.php",
+                type: "POST",
+                data: {tableName: 'eatapplefast', username: username, score: score},
+                success: function(data){
+                },
+            });
+        }
+    
+    
     }
 
     function reviveBoyApple(){
@@ -159,6 +210,7 @@ require_once('view/top.php');
         createApples();
         rottenapples.kill();
         forks.kill();
+        userInput.setText("");
     }
 
 
@@ -237,13 +289,18 @@ require_once('view/top.php');
         stateText = game.add.text(game.world.centerX,game.world.centerY,' ', { font: '25px Arial', fill: 'white' });
         stateText.anchor.setTo(0.5, 0.5);
         stateText.visible = false;
-
         for (var i = 0; i < 3; i++) 
         {
             var boy = lives.create(game.world.width - 60 + (20 * i), 50, 'boy');
             boy.anchor.setTo(0.5, 0.5);
             
         }
+
+
+        // record title
+        recordTitle = game.add.text(150, 70,'User    Score    Date', { font: '20px Arial', fill: 'white' });
+        recordTitle.anchor.setTo(0.5, 0.5);
+        recordTitle.visible = false;
 
         //  Eat
         nomnomnom = game.add.group();
@@ -272,7 +329,7 @@ require_once('view/top.php');
         restart.visible = false;
 
         //exit leaderboard button
-        exitleaderboard = game.add.button(110, 250, 'exitLB', exitLB, this, 1, 1, 2);
+        exitleaderboard = game.add.button(110, 300, 'exitLB', exitLB, this, 1, 1, 2);
         exitleaderboard.visible = false;
 
         //submit button 
@@ -299,6 +356,7 @@ require_once('view/top.php');
             placeHolder: 'Enter you name...'
         });
         userInput.visible = false;
+        // document.getElementsByName("userInput").setAttribute("pattern", "[A-Za-z]{11}");
     }
 
     function createApples () {

@@ -8,9 +8,12 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <div class="banner" id="banner">
   <p id="textAni1">SHARE FOOD</p>
   <p id="textAni2">REDUCE WASTE</p>
+  <div id="subheader">
+    <span>A Food sharing platform for BCIT students</span>
+  </div>
   <div id="searchcontainer">
   <form action="index.php" method="GET" name="searching">
-    <input id="searchbox" type="text" name="search" placeholder="Search..." >
+    <input id="searchbox" type="text" name="search" placeholder="Search for free food..." >
     <button id="searchbtn" type="submit">&nbsp;</button>
   </form>
   </div>

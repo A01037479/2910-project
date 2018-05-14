@@ -2,29 +2,63 @@
 require_once('view/top.php');
 ?>
 
-<canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
-<br><button id="gamebtn">Restart</button>
-<style>
-    /* Lock screen from scrolling */
-   html {
-        height: 100%;
-        overflow: hidden;
-        width: 100%;
-        position: fixed;
-    }
-</style>
+<link rel="stylesheet" href="style/leaderboard.css">
+
+<div id="gameContainer">
+    <div id="gameMenu">
+        <p>Welcome to Breakout!</p>
+        <button class="playGame">Play</button>
+        <button id="leaderboard">Leaderboard</button>
+    </div>
+    <div id="scoreDiv">
+        <form name="form">
+            <input type="text" name="username" placeholder="Player name">
+            <button id="submitScore">Submit</button>
+            <button class="menubtn">Menu</button> 
+            <button class="playGame">Play Again</button>
+        </form>
+    </div>
+    <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
+    
+    <div id="tableContainer">
+        <button class="menubtn">Menu</button>
+        <div id="table">
+        </div>    
+    </div>    
+</div>
+
+<body class="lock-screen">
 
 <script>
     $(document).ready(function(){
+        
+        var score;
 
-    gameStart();
+        $(".playGame").click(function(event){        
+            $("#gameMenu").hide();
+            $("#scoreDiv").hide();
+            gameStart();
+        });
 
-    $("#gamebtn").click(function(event){
-    gameStart();
+        $(".menubtn").click(function(event){
+            $("#gameMenu").show();
+            $("#scoreDiv").hide();
+            $("#tableContainer").hide();
+        });
 
-    });
+        $("#submitScore").click(function(event){
+            sendInfo();
+        });
+
+        $("#leaderboard").click(function(event){
+            $("#gameMenu").hide();
+            $("#tableContainer").show();
+            getTable();
+        });
 
     function gameStart() {
+        //$("#gameMenu").hide();
+        score = 0;
 
         var canvas = document.getElementById("myCanvas");
         var context = canvas.getContext("2d");
@@ -52,8 +86,6 @@ require_once('view/top.php');
         var brickPadding = 5; //space between bricks
         var brickOffsetTop = 30;
         var brickOffsetLeft = 30;
-
-        var score = 0;
 
         // draw canvas background
         function background() {
@@ -106,7 +138,7 @@ require_once('view/top.php');
         // draw the ball
         function drawBall() {
             context.beginPath();
-            context.drawImage(imgBall, x, y, ballRadius*3, ballRadius*3);
+            context.drawImage(imgBall, x, y, ballRadius*4, ballRadius*4);
             // context.arc(x, y, ballRadius, 0, Math.PI*2); // x, y, arc radius, start angle, end angle
             // context.fillStyle = color; //stores color
             // context.fill(); //paints circle
@@ -176,7 +208,8 @@ require_once('view/top.php');
                             dx = 1.002 * dx;
                             dy = 1.002 * dy;
                             if(score/5 == brickRowCount * brickColumnCount) {
-                                context.fillText("YOU WIN! YOUR SCORE IS " + score, 50, 200);
+                                context.fillText("YOU WIN! YOUR SOCRE IS " + score, 50, 200);
+                                $('#scoreDiv').show();
                                 throw new Error("This is not an error. Game over!");
                             }
                             if(y < b.y) { // hit top
@@ -238,11 +271,12 @@ require_once('view/top.php');
                 } 
                 else {
                     context.fillText("GAME OVER! YOUR SCORE IS: " + score, 50, 200);
+                    $('#scoreDiv').show();
                     throw new Error("This is not an error. Game over!");
                 }
             }
             // ball bounces off right || left walls respectively
-            if(x + dx > canvas.width - ballRadius - 10 || x + dx < ballRadius - 15) { 
+            if(x + dx > canvas.width - ballRadius - 15 || x + dx < ballRadius - 15) { 
                 dx = -dx;
                 // color = randomColor();
             }
@@ -258,7 +292,39 @@ require_once('view/top.php');
             requestAnimationFrame(draw);
         }
         draw();
-        }            
-    });
+        }     
+        
+    function sendInfo(){
+        var username = document.form.username.value;
+        if (username.trim() != 0){       
+            $.ajax({
+                url: "game_process.php",
+                type: "POST",
+                data: {tableName: 'breakout', username: username, score: score},
+                success: function(data){
+                },
+            });
+        } else {
+            alert("No username entered.");
+        }    
+    }
+
+    function getTable(){
+        $.ajax({
+            url: "game_process.php",
+            dataType: "html",
+            type: "GET",
+            data: {tableName: 'breakout', output: 'html'},
+            success: function(data){
+
+                $("#table").replaceWith(data); //Instead of using append()
+            },
+        });
+
+    }
+
+});
+
 </script>
 
+</body>
