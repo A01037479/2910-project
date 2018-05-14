@@ -18,12 +18,12 @@
     <div id="topContainer">
       <a href="index.php"><img src="img/logo.png" id="logo"></a>
       <nav id="nav">
+      <a href="javascript:void(0);" onclick="menu_function()" id="icon" style="font-size:25px">&#9776;</a>
         <div class = "topMenu" id="menu">
-          <a href="contact.php">CONTACT US</a>
+          <a href="contact.php">CONTACT</a>
           <a href="about.php">ABOUT</a>
           <a href="info.php">FOOD FACTS</a>
-          <a href="post.php">SHARE</a>
-          <a href="javascript:void(0);" onclick="menu_function()" class="icon" style="font-size:25px">&#9776;</a>
+          <a id="nav-share-btn" href="post.php">SHARE</a>
         </div>
       </nav>
     </div>

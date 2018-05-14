@@ -5,29 +5,30 @@ require_once('view/top.php');
 <div class = "detail_item">
   <p class="list_title">Share your food</p>
   <form action="post_confirm.php" name ="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
-    <p id="pwdInvalid"></p>
-    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;"><br><span class = "desc">* Required to edit/delete the post later</span></p>
-    <p><input type="password" name="password2" placeholder="Re-enter password" onkeyup="pwd_validation(); return false;"><br><span class="desc">* Confirming password</span></p>
-    <p><input type="email" name="email" placeholder="Email address"><br><span class = "desc">* Used to receive a request from other users<br>* It will not be disclosed to other users</span></p>
-    <p><input type="text" name="title" placeholder="Title"></p>
+    <p><input type="text" name="title" placeholder="What would you like to share?"></p>
     <!-- photo upload -->
-    <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image"><br>
+    <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
     <div id="uploadbox">
       <div id="tempdiv">
-        Upload your photo<br>
+        Upload a photo<br>
         <img src="img/photo.png">
       </div>
       <img src="" id="img">
     </div>
     <progress></progress>
 
-    <p><textarea name="description" rows="4" cols="20" placeholder="Description"></textarea><br><span class = "desc">* e.g. Quantity, best before date, pick-up times</span></p>
+    <p><textarea name="description" rows="4" cols="20" placeholder="Tell us a bit about your food (e.g. quantity, best before date)"></textarea></p>
     <div id="location">
       Pick-up Location<br>
       <label><input type="radio" name="location" value="Burnaby Campus" checked>Burnaby Campus</label><br>
       <label><input type="radio" name="location" value="Downtown Campus">Downtown Campus</label><br>
     </div>
+
+    <p id="pwdInvalid"></p>
+    <p><input type="email" name="email" placeholder="Email address"></p>
+    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
+    <br><input type="password" name="password2" placeholder="Confirm password" onkeyup="pwd_validation(); return false;"></p>
 
     <div class="toggleDiv">
       <input type="checkbox" id="toggle"/>
