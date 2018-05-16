@@ -69,6 +69,9 @@ require_once('view/top.php');
     var names;
     var dates;
     var scores;
+    var records1;
+    var records2;
+    var records3;
 
     function gofull() {
 
@@ -118,37 +121,15 @@ require_once('view/top.php');
         livesDisplay.visible = false;
         lives.visible = false;
         exitleaderboard.visible = true;
+        
         ////leaderboard data////
-        $.ajax({
-            url: "game_process.php",
-            type: "GET",
-            data: {tableName: 'eatapplefast',temp: "name" ,output: 'html'},
-            success: function(data){
-                records1 = data;
-                names = game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
-                
-            },
-        });
-
-               $.ajax({
-            url: "game_process.php",
-            type: "GET",
-            data: {tableName: 'eatapplefast',temp: "score",output: 'html'},
-            success: function(data){
-                records2 = data;
-                scores = game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
-                
-            },
-        });
-        $.ajax({
-            url: "game_process.php",
-            type: "GET",
-            data: {tableName: 'eatapplefast',temp: "date",output: 'html'},
-            success: function(data){
-                records3 = data;
-                dates = game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
-            },
-        });
+        
+        names = game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
+        scores = game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
+        dates = game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
+        names.visible = true;
+        scores.visible = true;
+        dates.visible = true;
 
     }
     
@@ -223,7 +204,32 @@ require_once('view/top.php');
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
-        
+        // ajax getting leaderboard data
+        $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "name" ,output: 'html'},
+            success: function(data){
+                records1 = data;
+            },
+        });
+
+               $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "score",output: 'html'},
+            success: function(data){
+                records2 = data;
+            },
+        });
+        $.ajax({
+            url: "game_process.php",
+            type: "GET",
+            data: {tableName: 'eatapplefast',temp: "date",output: 'html'},
+            success: function(data){
+                records3 = data;
+            },
+        });
         
         //full screen
         keyF = game.input.keyboard.addKey(Phaser.Keyboard.F);
@@ -310,6 +316,10 @@ require_once('view/top.php');
         nomnomnom.createMultiple(30, 'nom');
         nomnomnom.forEach(setApple, this);
         
+        //leaderboard stats
+        names = game.add.text(60, 80, records1, { font: '12px Arial', fill: 'white' });
+        scores = game.add.text(140, 80, records2, { font: '12px Arial', fill: 'white' });
+        dates = game.add.text(190, 80, records3, { font: '12px Arial', fill: 'white' });
         
 
         //  keyboard control
