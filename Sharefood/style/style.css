@@ -550,6 +550,6 @@ label .arrow-up { display: none; }
 
 @media screen and (max-width: 400px){
   #toggle:checked ~ .fieldsetContainer {
-      height: 130px;
+      height: 170px;
   }
 }
