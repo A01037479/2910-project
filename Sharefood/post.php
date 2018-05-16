@@ -12,10 +12,6 @@ body {
   text-align: left !important;
 }
 
-p {
-  text-align: left !important;
-}
-
 </style>
 
 <link rel="stylesheet" href="./style/share-input.css">
