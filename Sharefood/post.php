@@ -64,7 +64,7 @@ Tell us a bit more about your food (e.g. quantity, best before date)
 
        <hr><br>
 
-             <input type="checkbox" name="location" value="burnaby"/>&nbsp;burnaby <input type="checkbox" name="location" value="vancouver"/> vancouver
+             <input type="checkbox" name="location" value="burnaby" id="hellomom"/><label for="hellomom">&nbsp;burnaby</label><input type="checkbox" name="location" value="vancouver" id="hellodad"/><label for="hellodad">&nbsp;vancouver</label>
 
        <br><br><hr><br>
 
