@@ -261,7 +261,7 @@ footer p {
   box-sizing: border-box;
   overflow: hidden;
   transition: height 400ms linear;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   color: #646666;
 }
@@ -549,6 +549,6 @@ label .arrow-up { display: none; }
 
 @media screen and (max-width: 400px){
   #toggle:checked ~ .fieldsetContainer {
-      height: 190px;
+      height: 130px;
   }
 }
