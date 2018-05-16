@@ -3,7 +3,7 @@ html {
   overflow-x: hidden;
 }
 body {
-  font-family: 'Roboto';
+  font-family: 'Helvetica';
   margin: 0em;
   padding: 0em;
   background-image: url('../img/background_min.jpg');
@@ -189,15 +189,16 @@ progress[value]::-webkit-progress-bar {
   text-align: left;
 }
 
-/* this is fucking me up */
-/* form input, form textarea {
+/* this shouldn't be necessary if we don't share style sheets */
+form > p > input, form > p > textarea {
   width: 100%;
   box-sizing: border-box;
 }
-input {
+form > p > input {
   height: 25px;
   margin: 0.3em 0;
-} */
+}
+
 #photoupload {
   width: 30px;
   display: block;
