@@ -264,6 +264,7 @@ footer p {
   max-width: 90%;
   margin: 0 auto;
   color: #646666;
+  text-align: justify;
 }
 .toggleDiv p {
   margin-bottom: 1em;
