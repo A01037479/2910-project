@@ -9,7 +9,7 @@ require_once('view/top.php');
     <p class="list_title">Get in Touch</p>
     <p>Send us your questions and we will get back to you!</p>
 
-    <p><input class="textarea" type="text" name="name" id="contact-name" placeholder="Name" required="required"></p>
+    <p><input type="text" name="name" id="contact-name" placeholder="Name" required="required"></p>
     <p><input type="email" name="email" placeholder="Email"
     required="required"></p>
     <p><input type="text" name="subject" placeholder="Subject"></p>
