@@ -6,13 +6,13 @@ require_once('view/top.php');
 
 <div id="gameContainer">
     <div id="gameMenu">
-        <p>Welcome to Breakout!</p>
+        <p id="menuTitle">Welcome <br>to <br>Breakout!</p>
         <button class="playGame">Play</button>
         <button id="leaderboard">Leaderboard</button>
     </div>
     <div id="scoreDiv">
         <form name="form">
-            <input type="text" name="username" placeholder="Player name">
+            <input type="text" name="username" placeholder="Enter Leaderboard">
             <button id="submitScore">Submit</button>
             <button class="menubtn">Menu</button> 
             <button class="playGame">Play Again</button>
@@ -21,9 +21,10 @@ require_once('view/top.php');
     <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
     
     <div id="tableContainer">
-        <button class="menubtn">Menu</button>
+        <p id="title">Leaderboard</p>
         <div id="table">
         </div>    
+        <button class="menubtn">Menu</button>
     </div>    
 </div>
 
@@ -72,7 +73,7 @@ require_once('view/top.php');
         var imgBall = new Image();
         imgBall.src = "img/bite.png";
         
-        var paddleWidth = 100;
+        var paddleWidth = 100; 
         var paddleHeight = 10;
         var paddleX = (canvas.width-paddleWidth)/2; //starting point on x-axis
         
