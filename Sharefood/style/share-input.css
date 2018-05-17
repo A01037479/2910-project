@@ -232,9 +232,9 @@ text-align:left;
  }
 ::-moz-placeholder {
   font-size: 10px;
-  } 
+  }
 :-ms-input-placeholder {
-  font-size: 10px; } 
+  font-size: 10px; }
 input:-moz-placeholder {
   font-size: 10px;
 }
@@ -249,7 +249,7 @@ input:focus::-webkit-input-placeholder {
 input:focus::-moz-placeholder:focus {
   font-size: 10px;
   text-align: left;
-  } 
+  }
 input:focus:-ms-input-placeholder:focus {
   font-size: 10px;
   text-align: left;
