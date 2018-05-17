@@ -43,7 +43,7 @@ body {
 Tell us a bit more about your food (e.g. quantity, best before date)
        </textarea>
 
-      <input type="checkbox" name="location" value="burnaby" id="hellomom"/><label for="hellomom">&nbsp;Burnaby</label>
+      <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
       <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
 
        <br><br>
