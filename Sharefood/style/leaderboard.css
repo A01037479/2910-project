@@ -108,6 +108,10 @@ button:hover{
     color: white;
 }
 
+#submitScore{
+    margin-top: 20px;
+}
+
 /*///////////////////TEXT//////////////////////*/
 
 #menuTitle{

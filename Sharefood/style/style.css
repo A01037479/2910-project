@@ -147,8 +147,9 @@ progress[value]::-webkit-progress-bar {
   display: none;
 }
 #uploadbox {
-  width: 200px;
-  height: 100px;
+  box-sizing: border-box;
+  width: 220px;
+  height: 125px;
   padding: 10px;
   border: 2px dashed #1FB264;
   cursor: pointer;
@@ -261,9 +262,10 @@ footer p {
   box-sizing: border-box;
   overflow: hidden;
   transition: height 400ms linear;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   color: #646666;
+  text-align: justify;
 }
 .toggleDiv p {
   margin-bottom: 1em;
@@ -286,6 +288,28 @@ label .arrow-up { display: none; }
 #check_term {
   width: 18px;
   margin-right: 0.5em;
+}
+
+/* carrot checkbox */
+input[type='checkbox']:after{
+  line-height: 5em; /* doesn't do anything????? ????? */
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-top: -1.0px;
+  margin-left: -1.0px;
+  border: 0.5px solid grey;
+  border-radius: 0.25em;
+  background: white;
+}
+
+input[type='checkbox']:checked:after {
+  width: 15px;
+  height: 15px;
+  /* border: 1px solid black; */
+  /* content: url(./img/carrot.svg); */
+  background-image:  url('../img/carrot.svg'), linear-gradient(20deg, #B1B6BE 0%,#FFF 100%);
 }
 
 /***** Search bar styling *****/
@@ -549,6 +573,6 @@ label .arrow-up { display: none; }
 
 @media screen and (max-width: 400px){
   #toggle:checked ~ .fieldsetContainer {
-      height: 190px;
+      height: 170px;
   }
 }

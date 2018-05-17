@@ -15,7 +15,6 @@ require_once('view/top.php');
             <input type="text" name="username" placeholder="Enter Leaderboard">
             <button id="submitScore">Submit</button>
             <button class="menubtn">Menu</button> 
-            <button class="playGame">Play Again</button>
         </form>
     </div>
     <canvas id="myCanvas" width="320" height="400" style="border:1px solid black"></canvas>
