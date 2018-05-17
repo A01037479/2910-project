@@ -23,13 +23,13 @@ require_once('view/top.php');
           box-sizing: border-box;
         }
 
-        html {
+        /* html { */
           /*lol*/
-          background-image: url("img/darren.jpg");
+          /* background-image: url("img/darren.jpg");
           background-size: 100% auto;
           background-position: top center;
           background-attachment: fixed;
-        }
+        } */
 
         /* body {
           height: 100%;

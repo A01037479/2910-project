@@ -7,43 +7,54 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
 $methodType = $_SERVER['REQUEST_METHOD'];
 
-// If ($methodType === 'POST')
-if(isset($_POST['username'], $_POST['score'])){
+If ($methodType === 'POST'){
+    if(isset($_POST['username'], $_POST['score'])){
 
-    $tableName = $_POST['tableName'];
-    $username = $_POST['username'];
-    $score = $_POST['score'];
-    //$record = $_POST['record'];
+        $tableName = htmlspecialchars($_POST['tableName']);
+        $username = htmlspecialchars($_POST['username']);
+        $score = htmlspecialchars($_POST['score']);
 
-    $sql = "INSERT INTO $tableName (username, score, created) VALUES ('$username', '$score', CURDATE())";
-    mysqli_query($conn, $sql);
-        
+        $sql = "INSERT INTO $tableName (username, score, created) VALUES ('$username', '$score', CURDATE())";
+        mysqli_query($conn, $sql);
+            
+    }
 }
 
 if($methodType === 'GET'){
-    //$tableName = 'breakout';
+
     $tableName = $_GET['tableName'];
     //$sql = "SELECT * FROM 'breakout'";
     //$result = mysqli_query($conn, $sql);
     $result = $conn->query("SELECT * FROM $tableName ORDER BY score DESC LIMIT 10");
 
-    if(isset($_GET['output'])){
+    if(isset($_GET['output'])){    
 
         if($tableName == 'breakout'){
             echo "<table id='leaderTable'><tr><th>Username</th><th>Score</th><th>Date</th></tr>";
 
             while($row = mysqli_fetch_array($result)){
-                echo "<tr><td>" . $row['username'] . "</td><td>" . $row['score'] . "</td><td>" . $row['created'] . "</td></tr>";
+                
+                $escaped = array(
+                    'username' => htmlspecialchars($row['username']),
+                    'score' => htmlspecialchars($row['score']),
+                );
+
+                echo "<tr><td>" . $escaped['username'] . "</td><td>" . $escaped['score'] . "</td><td>" . $row['created'] . "</td></tr>";
             }
             echo "</table>";
         } else {
-            $temp = $_GET['temp'];
+            $temp = mysqli_real_escape_string($conn, $_GET['temp']);
             while($row = mysqli_fetch_array($result)){
-                // echo $row['username'] . "\t" . $row['score'] . "\t" . $row['created'] . "\n";
+
+                $escaped = array(
+                    'username' => htmlspecialchars($row['username']),
+                    'score' => htmlspecialchars($row['score']),
+                );
+                
                 if ($temp == "name"){
-                    echo $row['username'] . "\n";
+                    echo $escaped['username'] . "\n";
                 } else if ($temp == "score"){
-                    echo $row['score'] . "\n";
+                    echo $escaped['score'] . "\n";
                 } else if ($temp == "date"){
                     echo $row['created'] . "\n"; 
                 }

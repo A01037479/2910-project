@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:400,600');
+
+/*//////////////////////DIVS//////////////////////////*/
 #gameContainer{
+    font-family: 'Exo 2', sans-serif;
     position: relative;
     left: calc(50% - 160px); /*160px = width / 2 */ 
     width: 322px;
     height: 402px;
     margin-right: 0;
+    font-size: 35px;
 }
 
 #scoreDiv{
@@ -31,22 +36,6 @@
     position: absolute;
 }
 
-#scoreDiv input{
-    width: 150px;
-    background-color: transparent;
-    border-color: white;
-    color:white;
-    margin-top: 240px;
-    z-index: 1;
-}
-
-.gamebtn{
-    border-color: transparent;
-    background-color: transparent;
-    color: yellow;
-    cursor: pointer;
-}
-
 .lock-screen {
     height: 100%;
     overflow: hidden;
@@ -64,20 +53,69 @@
     display: none;
 }
 
+/*/////////////////TABLE////////////////////////////*/
 #table{
     color: white;
 }
 
 #leaderTable{
     border-collapse: collapse;
-    width: 270px;
-    margin-top: 20px;
+    width: 240px;
+    margin-top: 10px;
     border: 1px solid white;
     text-align: center;
-    margin-left: 25px;
+    margin-left: 40px;
+    font-size: 15px;
 }
 
 td, th{
     padding: 5px;
     border: 1px solid white;
+}
+
+/*/////////////////BUTTONS////////////////////////////*/
+button{
+    display:block;
+    margin: 0 auto;
+    font-family: 'Exo 2', sans-serif;
+    background-color:transparent;
+    border: none;
+    color:rgb(236, 79, 79);
+    padding: 6px 6px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#scoreDiv input{
+    height: 23px;
+    width: 190px;
+    background-color: transparent;
+    border-color: white;
+    color:white;
+    margin-top: 220px;
+    z-index: 1;
+    margin-left: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:active{
+    border-color: black;
+}
+
+button:hover{
+    color: white;
+}
+
+/*///////////////////TEXT//////////////////////*/
+
+#menuTitle{
+    margin-top: 70px;
+    font-size: 100%;
+}
+
+#title{
+    font-size: 20px;
+    margin-bottom: 0px;
 }
