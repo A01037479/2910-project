@@ -16,7 +16,7 @@ body {
 }
 
 .input1 {
-  font-size: 10pt !important;
+  font-size: 12pt !important;
 	padding: 10px 10px 10px 5px !important;
 	-webkit-appearance: none !important;
 	display: block !important;
@@ -226,21 +226,22 @@ input[type='password']:focus{
 text-align:left;
 }
 
+/*
 ::-webkit-input-placeholder {
    font-size: 10px; text-align: right;
  }
 ::-moz-placeholder {
   font-size: 10px;
-  } /* firefox 19+ */
+  } 
 :-ms-input-placeholder {
-  font-size: 10px; } /* ie */
+  font-size: 10px; } 
 input:-moz-placeholder {
   font-size: 10px;
 }
 
 
 /* on focus, float left */
-
+/*
 input:focus::-webkit-input-placeholder {
    font-size: 10px;
   text-align: left;
@@ -248,11 +249,12 @@ input:focus::-webkit-input-placeholder {
 input:focus::-moz-placeholder:focus {
   font-size: 10px;
   text-align: left;
-  } /* firefox 19+ */
+  } 
 input:focus:-ms-input-placeholder:focus {
   font-size: 10px;
   text-align: left;
 } /* ie */
+/*
 input:focus:-moz-placeholder {
   font-size: 10px;
   text-align: left;
@@ -260,7 +262,7 @@ input:focus:-moz-placeholder {
 
 
 input[type='checkbox']:after{
-  line-height: 5em; /* doesn't do anything????? ????? */
+  line-height: 5em;
   content: '';
   display: inline-block;
   width: 15px;
@@ -271,7 +273,7 @@ input[type='checkbox']:after{
   border-radius: 0.25em;
   background: white;
 }
-
+*/
 input[type='checkbox']:checked:after {
   width: 15px;
   height: 15px;
