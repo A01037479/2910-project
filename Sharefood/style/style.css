@@ -130,8 +130,8 @@ article {
 }
 
 /* post: upload photo section */
+
 progress[value] {
-  margin: 0 auto;
   /* Reset the default appearance */
   -webkit-appearance: none;
    appearance: none;
@@ -147,9 +147,10 @@ progress[value]::-webkit-progress-bar {
   display: none;
 }
 #uploadbox {
+  margin: 0 auto;
   box-sizing: border-box;
-  width: 220px;
-  height: 125px;
+  width: 260px;
+  height: 150px;
   padding: 10px;
   border: 2px dashed #1FB264;
   cursor: pointer;

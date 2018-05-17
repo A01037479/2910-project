@@ -35,17 +35,16 @@ body {
            Upload a photo<br>
            <img src="img/photo.png">
          </div>
-         <img src="" id="img">
+         <img src="" id="img"><br>
+         <progress></progress>
        </div>
-       <progress></progress>
-
-       <textarea name="description" class='autoExpand txtarea' rows="4" cols="25" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+        
+       <textarea style="padding: 40px 10px; width: 260px; max-width: 90%; box-sizing: border-box;" name="description" class='autoExpand txtarea' rows="4" cols="25" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 Tell us a bit more about your food (e.g. quantity, best before date)
        </textarea>
-
-      <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
-      <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
-
+  
+        <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
+        <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
        <br><br>
 
        <script type="text/javascript">
