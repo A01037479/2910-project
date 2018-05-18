@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto|Gaegu|Do+Hyeon');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Roboto|Gaegu|Do+Hyeon|Philosopher');
 html {
   overflow-x: hidden;
 }
@@ -24,6 +24,9 @@ a:hover {
   color: black;
   text-decoration: none;
 }
+.center {
+  text-align: center;
+}
 /* header */
 header {
   position: fixed;
@@ -41,13 +44,23 @@ nav {
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.3);
 }
 #nav-share-btn {
-  background-color: #048c36;
-  color: white;
-  border-radius: 5px;
+  background-color: green;
+  color:white;
+  border-radius: 3px;
+  float:right;
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
+#nav-share-btn:hover {
+  background-color: #c0e088;
+}
+
+
+.navBtn {
+  border-radius: 2px;
   padding: 10px 17px;
-  position: relative;
-  top: 7px;
-  left: -10px;
 }
 
 #logo {
@@ -56,7 +69,7 @@ nav {
   margin-right: 0.3em;
   position: absolute;
   left:15px;
-  top: 5px
+  top: 5px;
 }
 article {
   margin: 100px 0 0 0;
@@ -129,38 +142,6 @@ article {
   border: 2px solid white;
 }
 
-/* post: upload photo section */
-
-progress[value] {
-  /* Reset the default appearance */
-  -webkit-appearance: none;
-   appearance: none;
-   width: 220px;
-
-}
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-}
-#image {
-  display: none;
-}
-#uploadbox {
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 260px;
-  height: 150px;
-  padding: 10px;
-  border: 2px dashed #1FB264;
-  cursor: pointer;
-  text-align: center;
-}
-#uploadbox:hover {
-  border: 4px dashed #1FB264;
-  background-color: #cff7d0;
-}
-
 .uploadedImg {
   width: 350px;
   max-width: 100%;
@@ -191,28 +172,83 @@ progress[value]::-webkit-progress-bar {
   text-align: left;
 }
 
-/* this shouldn't be necessary if we don't share style sheets */
-form > p > input, form > p > textarea {
-  width: 100%;
+/* form styling */
+form {
+  padding: 0.5em;
+}
+.textinput {
   box-sizing: border-box;
+  font-size: 12pt;
+	padding: 5px;
+	-webkit-appearance: none;
+	display: block;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
 }
-form > p > input {
-  height: 25px;
-  margin: 0.3em 0;
+textarea {
+  color: #636363;
+  padding: 5px;
+  font-size: 12pt;
+  box-sizing: border-box;
+  width: 100%;
 }
+.msgbox {
+  text-align: left;
+  padding: 40px 10px; 
+  width: 260px; 
+  max-width: 90%; 
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.textinput:focus { outline: none; }
 
 #photoupload {
   width: 30px;
   display: block;
 }
+/* post: upload photo section */
+progress:not([value]) {
+  width: 220px;
+  max-width: 90%;
+  background-color: #e5e5e5;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   width: 220px;
+   max-width: 90%;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+#image {
+  display: none;
+}
+#uploadbox {
+  color: green;
+  margin: 1em auto;
+  box-sizing: border-box;
+  width: 260px;
+  max-width: 90%;
+  height: 150px;
+  padding: 10px;
+  border: 2px dashed #1FB264;
+  cursor: pointer;
+  text-align: center;
+}
+#uploadbox:hover {
+  border: 4px dashed #1FB264;
+  background-color: #cff7d0;
+}
 #location {
   margin: 2em 0;
-}
-input[type=radio] {
-  height: 15px;
-  width: 15px;
-  margin: 0.5em;
-  display: inline-block;
 }
 .button {
   font-size: 1.1em;
@@ -229,10 +265,47 @@ input[type=radio] {
   cursor:pointer;
   background-color: orange;
 }
-.desc {
-  color: #048c36;
-  font-size: 10pt;
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
 }
+
+.bar:before, .bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px ;
+	position: absolute ;
+	background: #4a89dc ;
+	transition: all 0.2s ease ;
+}
+
+.bar:before { left: 50% ; }
+
+.bar:after { right: 50% ; }
+
+
+/* active */
+
+.textinput:focus ~ .bar:before, .textinput:focus ~ .bar:after { width: 50% ; }
+
+
+/* Highlight */
+
+.highlight {
+	position: absolute ;
+	height: 60% ;
+	width: 100px ;
+	top: 25% ;
+	left: 0 ;
+	pointer-events: none ;
+	opacity: 0.5 ;
+}
+
+/* end of form styling*/
+
 #plusButton{
   display: none;
   outline: none;
@@ -267,6 +340,10 @@ footer p {
   margin: 0 auto;
   color: #646666;
   text-align: justify;
+}
+.toggleDiv {
+  margin: 1em auto;
+  text-align: left;
 }
 .toggleDiv p {
   margin-bottom: 1em;
@@ -323,7 +400,7 @@ input[type='checkbox']:checked:after {
   font-size: 20pt;
   box-sizing: border-box;
   border: 1px solid #595d63;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 5px 0px 0px 5px;
   width: 50%;
   height: 40px;
   margin: 0;
@@ -346,7 +423,7 @@ input[type='checkbox']:checked:after {
   cursor: pointer;
   background-color: green;
   color: #fff;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 5px 5px 0px;
   outline: none;
 }
 
@@ -431,19 +508,39 @@ input[type='checkbox']:checked:after {
 }
 
 .topMenu a {
-  float: right;
+  float: left;
   margin-top: 10px;
-  display: block;
-  color:black;
-  text-align: center;
+  display: block; 
+  text-align: left;
   padding: 17px 17px;
-  text-decoration: none;
   font-size: 15px;
 }
 
-.topMenu a:hover{
+#menu {
+  margin-left: 120px;
+}
+
+.active {
+  border-bottom: 7px solid green;
   color: green;
 }
+
+.navBtn:hover{
+  border-bottom: 7px solid rgba(0, 128, 0, 0.267);
+  color: green;  
+  -webkit-animation: mymove 1s ; /* Safari 4.0 - 8.0 */
+  animation: mymove 1s ;
+}
+@-webkit-keyframes mymove {
+  0% {border-bottom: 7px solid rgba(0, 128, 0, 0);}
+  100% {border-bottom: 7px solid rgba(0, 128, 0, 0.267);}
+}
+
+@keyframes mymove {
+  0% {border-bottom: 7px solid rgba(0, 128, 0, 0);}
+  100% {border-bottom: 7px solid rgba(0, 128, 0, 0.267);}
+}
+
 
 #icon {
   display: none;
@@ -532,10 +629,6 @@ input[type='checkbox']:checked:after {
     display: block;
     text-align: center;
   }
-  #nav-share-btn {
-    top: 0;
-    left: 0;
-  }
 
   nav{
     transition-property: height;
@@ -547,7 +640,17 @@ input[type='checkbox']:checked:after {
     left:8vw;
     z-index: 1;
   }
+
+  #menu{
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
+  #nav-share-btn {
+    float:none;
+  }
 }
+
 
 @media screen and (max-width: 600px){
   body {
@@ -568,6 +671,10 @@ input[type='checkbox']:checked:after {
   #subheader {
     font-size: 1em;
   }
+  #menu{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
 
 }
 
@@ -575,5 +682,12 @@ input[type='checkbox']:checked:after {
 @media screen and (max-width: 400px){
   #toggle:checked ~ .fieldsetContainer {
       height: 170px;
+  }
+  #menu{
+    margin-left: 28%;
+    margin-right: 28%;
+  }
+  .topMenu a{
+    padding: 15px;
   }
 }
