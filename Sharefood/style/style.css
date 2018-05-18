@@ -140,7 +140,10 @@ article {
 }
 
 /* post: upload photo section */
-
+progress:not([value]) {
+  width: 220px;
+  background-color: #e5e5e5;
+}
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;

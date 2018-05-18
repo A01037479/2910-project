@@ -8,11 +8,8 @@ require_once('view/top.php');
     <!-- <link rel="stylesheet" href="style/a4.css"> -->
     <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <!-- <link rel="stylesheet" href="style/chart.css">
-    <link rel="stylesheet" href="style/elevator.css"> -->
+    <link rel="stylesheet" href="style/elevator.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <!-- <script src="js/nicescroll.js"></script>
-    <script src="js/elevator.js"></script> -->
 
     <style media="screen">
 
@@ -52,10 +49,10 @@ require_once('view/top.php');
             padding-bottom:2vh;
         }
 
-        #donate_msg {
-            font-size: 14pt;
+        .donate_msg {
+            font-size: 12pt;
             font-weight: bold;
-            color: green;
+            color: #11522a;
         }
 
         hr {
@@ -65,15 +62,6 @@ require_once('view/top.php');
     </style>
   </head>
   <body>
-
-    <!-- <script type="text/javascript">
-    $("body").niceScroll({
-    cursorcolor:"aquamarine",
-    cursorwidth:"25px",
-    scrollspeed: 40
-    });
-    </script> -->
-
 
     <div class="container" style="background-color: #fff">
     <ol class="step-list">
@@ -138,7 +126,7 @@ require_once('view/top.php');
                 <div class="content">
                     <div class="body">
                         <h2>If you want to make a difference..</h2>
-                        <p>Start here, and share your food on our platform!</p>
+                        <p class="donate_msg">Start here, and share your food on our platform!</p>
                     </div>
 
                     <div class="icon">
@@ -150,22 +138,13 @@ require_once('view/top.php');
     </ol>
 
     <br/>
+    
     <br/>
-    <hr size=>
-    <br/>
-    <p id="donate_msg">Find food banks around campus and your home to donate excess food!</p>
+    <p class="donate_msg">You can also find food banks around you to donate excess food!</p>
     <br/>
     <div id="map"></div>
   </div>
 
-<script>
-    var infoBtn = document.getElementById("infoBtn");
-    infoBtn.classList.add("active");
-</script>
-
-
-
-   
    <script>
     var map;
     var infowindow; // places API search query infowindows
@@ -197,11 +176,12 @@ require_once('view/top.php');
             center: centerPoint,
             zoom: 10
         });
+    
 
         var request = {
             location: centerPoint,
-            radius: '500',
-            openNow: true,
+            // radius: '5000',
+            // openNow: true,
             query: '"food bank"'
         };
 
@@ -274,6 +254,10 @@ require_once('view/top.php');
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXNmgrTKjtbZz3d6CN0008e6FcJbZ8MU&callback=initMap&libraries=places">
     </script>
 
+<script>
+    var infoBtn = document.getElementById("infoBtn");
+    infoBtn.classList.add("active");
+</script>
 
 </body>
 <?php
