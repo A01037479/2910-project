@@ -93,7 +93,7 @@ require_once('view/top.php');
             <div class="step-list__item__inner">
                 <div class="content">
                     <div class="body">
-                        <h2>47 per cent of food waste</h2>
+                        <h2>47% of food waste</h2>
                         <p>happens in the home, according to the Value Chain Management International study.</p>
                     </div>
 
@@ -133,6 +133,11 @@ require_once('view/top.php');
         </li>
     </ol>
   </div>
+
+<script>
+    var infoBtn = document.getElementById("infoBtn");
+    infoBtn.classList.add("active");
+</script>
 
 <?php
 require_once('view/footer.php');

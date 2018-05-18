@@ -24,3 +24,7 @@ require_once('view/top.php');
 <?php
 require_once('view/footer.php');
 ?>
+<script>
+    var contactBtn = document.getElementById("contactBtn");
+    contactBtn.classList.add("active");
+</script>
