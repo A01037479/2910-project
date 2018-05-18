@@ -158,13 +158,11 @@ require_once('view/top.php');
     <div id="map"></div>
   </div>
 
-<<<<<<< HEAD
 <script>
     var infoBtn = document.getElementById("infoBtn");
     infoBtn.classList.add("active");
 </script>
 
-=======
 
 
    
@@ -278,7 +276,6 @@ require_once('view/top.php');
 
 
 </body>
->>>>>>> cca131e21803743325359edf377739dca401043c
 <?php
 require_once('view/footer.php');
 ?>
