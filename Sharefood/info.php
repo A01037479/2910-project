@@ -49,10 +49,10 @@ require_once('view/top.php');
             padding-bottom:2vh;
         }
 
-        #donate_msg {
-            font-size: 14pt;
+        .donate_msg {
+            font-size: 12pt;
             font-weight: bold;
-            color: green;
+            color: #11522a;
         }
 
         hr {
@@ -126,7 +126,7 @@ require_once('view/top.php');
                 <div class="content">
                     <div class="body">
                         <h2>If you want to make a difference..</h2>
-                        <p>Start here, and share your food on our platform!</p>
+                        <p class="donate_msg">Start here, and share your food on our platform!</p>
                     </div>
 
                     <div class="icon">
@@ -138,10 +138,9 @@ require_once('view/top.php');
     </ol>
 
     <br/>
+    
     <br/>
-    <hr size=>
-    <br/>
-    <p id="donate_msg">You can also find food banks around you to donate excess food!</p>
+    <p class="donate_msg">You can also find food banks around you to donate excess food!</p>
     <br/>
     <div id="map"></div>
   </div>
