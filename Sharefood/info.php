@@ -5,10 +5,7 @@ require_once('view/top.php');
   <head>
     <meta charset="utf-8">
     <title></title>
-    <!-- <link rel="stylesheet" href="style/a4.css"> -->
-    <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <link rel="stylesheet" href="style/elevator.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <style media="screen">
@@ -19,21 +16,6 @@ require_once('view/top.php');
           padding: 0;
           box-sizing: border-box;
         }
-
-        /* html { */
-          /*lol*/
-          /* background-image: url("img/darren.jpg");
-          background-size: 100% auto;
-          background-position: top center;
-          background-attachment: fixed;
-        } */
-
-        /* body {
-          height: 100%;
-          background-image: linear-gradient(hsl(10,90,66), transparent 100%);
-          background-size: 100% 100%;
-          mix-blend-mode: difference;
-        } */
 
         h2, p {
           font-family: sans-serif;
