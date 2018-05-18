@@ -24,6 +24,9 @@ a:hover {
   color: black;
   text-decoration: none;
 }
+.center {
+  text-align: center;
+}
 /* header */
 header {
   position: fixed;
@@ -140,38 +143,6 @@ article {
   border: 2px solid white;
 }
 
-/* post: upload photo section */
-
-progress[value] {
-  /* Reset the default appearance */
-  -webkit-appearance: none;
-   appearance: none;
-   width: 220px;
-
-}
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-}
-#image {
-  display: none;
-}
-#uploadbox {
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 260px;
-  height: 150px;
-  padding: 10px;
-  border: 2px dashed #1FB264;
-  cursor: pointer;
-  text-align: center;
-}
-#uploadbox:hover {
-  border: 4px dashed #1FB264;
-  background-color: #cff7d0;
-}
-
 .uploadedImg {
   width: 350px;
   max-width: 100%;
@@ -202,28 +173,83 @@ progress[value]::-webkit-progress-bar {
   text-align: left;
 }
 
-/* this shouldn't be necessary if we don't share style sheets */
-form > p > input, form > p > textarea {
-  width: 100%;
+/* form styling */
+form {
+  padding: 0.5em;
+}
+.textinput {
   box-sizing: border-box;
+  font-size: 12pt;
+	padding: 5px;
+	-webkit-appearance: none;
+	display: block;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
 }
-form > p > input {
-  height: 25px;
-  margin: 0.3em 0;
+textarea {
+  color: #636363;
+  padding: 5px;
+  font-size: 12pt;
+  box-sizing: border-box;
+  width: 100%;
 }
+.msgbox {
+  text-align: left;
+  padding: 40px 10px; 
+  width: 260px; 
+  max-width: 90%; 
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.textinput:focus { outline: none; }
 
 #photoupload {
   width: 30px;
   display: block;
 }
+/* post: upload photo section */
+progress:not([value]) {
+  width: 220px;
+  max-width: 90%;
+  background-color: #e5e5e5;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   width: 220px;
+   max-width: 90%;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+#image {
+  display: none;
+}
+#uploadbox {
+  color: green;
+  margin: 1em auto;
+  box-sizing: border-box;
+  width: 260px;
+  max-width: 90%;
+  height: 150px;
+  padding: 10px;
+  border: 2px dashed #1FB264;
+  cursor: pointer;
+  text-align: center;
+}
+#uploadbox:hover {
+  border: 4px dashed #1FB264;
+  background-color: #cff7d0;
+}
 #location {
   margin: 2em 0;
-}
-input[type=radio] {
-  height: 15px;
-  width: 15px;
-  margin: 0.5em;
-  display: inline-block;
 }
 .button {
   font-size: 1.1em;
@@ -240,10 +266,47 @@ input[type=radio] {
   cursor:pointer;
   background-color: orange;
 }
-.desc {
-  color: #048c36;
-  font-size: 10pt;
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
 }
+
+.bar:before, .bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px ;
+	position: absolute ;
+	background: #4a89dc ;
+	transition: all 0.2s ease ;
+}
+
+.bar:before { left: 50% ; }
+
+.bar:after { right: 50% ; }
+
+
+/* active */
+
+.textinput:focus ~ .bar:before, .textinput:focus ~ .bar:after { width: 50% ; }
+
+
+/* Highlight */
+
+.highlight {
+	position: absolute ;
+	height: 60% ;
+	width: 100px ;
+	top: 25% ;
+	left: 0 ;
+	pointer-events: none ;
+	opacity: 0.5 ;
+}
+
+/* end of form styling*/
+
 #plusButton{
   display: none;
   outline: none;
@@ -278,6 +341,10 @@ footer p {
   margin: 0 auto;
   color: #646666;
   text-align: justify;
+}
+.toggleDiv {
+  margin: 1em auto;
+  text-align: left;
 }
 .toggleDiv p {
   margin-bottom: 1em;
