@@ -8,11 +8,11 @@ require_once('view/top.php');
     <!-- <link rel="stylesheet" href="style/a4.css"> -->
     <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <link rel="stylesheet" href="style/chart.css">
-    <link rel="stylesheet" href="style/elevator.css">
+    <!-- <link rel="stylesheet" href="style/chart.css">
+    <link rel="stylesheet" href="style/elevator.css"> -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <script src="js/nicescroll.js"></script>
-    <script src="js/elevator.js"></script>
+    <!-- <script src="js/nicescroll.js"></script>
+    <script src="js/elevator.js"></script> -->
 
     <style media="screen">
 
@@ -42,21 +42,37 @@ require_once('view/top.php');
           font-family: sans-serif;
         }
 
+        /* style for the map */
+        #map {
+            width: 100%;
+            height: 300px;
+        }
 
+        .container {
+            padding-bottom:2vh;
+        }
 
+        #donate_msg {
+            font-size: 14pt;
+            font-weight: bold;
+            color: green;
+        }
 
+        hr {
+            size: 5px;
+        }
 
     </style>
   </head>
   <body>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     $("body").niceScroll({
     cursorcolor:"aquamarine",
     cursorwidth:"25px",
     scrollspeed: 40
     });
-    </script>
+    </script> -->
 
 
     <div class="container" style="background-color: #fff">
@@ -132,13 +148,137 @@ require_once('view/top.php');
             </div>
         </li>
     </ol>
+
+    <br/>
+    <br/>
+    <hr size=>
+    <br/>
+    <p id="donate_msg">Find food banks around campus and your home to donate excess food!</p>
+    <br/>
+    <div id="map"></div>
   </div>
 
+<<<<<<< HEAD
 <script>
     var infoBtn = document.getElementById("infoBtn");
     infoBtn.classList.add("active");
 </script>
 
+=======
+
+
+   
+   <script>
+    var map;
+    var infowindow; // places API search query infowindows
+    var prev_infowindow = false;
+    var custom_infoWindow; // custom BCIT marker infowindows
+
+    function initMap() {
+        var centerPoint = {lat: 49.2675789, lng: -122.9751096};
+
+        var bcit = {
+            url: "img/bcit.png", // url
+            scaledSize: new google.maps.Size(30, 30) // scaled size
+        };
+     
+        var markers = [
+            {
+            coords:{lat:49.25092799999999,lng:-123.0034159},
+            iconImage: bcit,
+            content:'<h4>BCIT Burnaby Campus</h4><p>3700 Willingdon Ave, Burnaby, BC V5G3H2, Canada</p>'
+            },
+            {
+            coords:{lat:49.283451,lng:-123.115255},
+            iconImage: bcit,
+            content:'<h4>BCIT Downtown Campus</h4><p>555 Seymour St, Vancouver, BC V6B3H6, Canada</p>'
+            }
+        ];
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: centerPoint,
+            zoom: 10
+        });
+
+        var request = {
+            location: centerPoint,
+            radius: '500',
+            openNow: true,
+            query: '"food bank"'
+        };
+
+
+       infowindow = new google.maps.InfoWindow();
+       var service = new google.maps.places.PlacesService(map);
+       service.textSearch(request, callback);
+
+
+       for(var i = 0;i < markers.length;i++){
+            // Add marker
+            addMarker(markers[i]);
+       }
+
+        // Add Marker Function
+        function addMarker(props){
+            var marker = new google.maps.Marker({
+                position:props.coords,
+                map:map
+                // icon:props.iconImage
+            });
+
+            // Check for customicon
+            if(props.iconImage){
+            // Set icon image
+            marker.setIcon(props.iconImage);
+            }
+
+            // Check content
+            if(props.content){
+                    custom_infoWindow = new google.maps.InfoWindow({
+                    content:props.content
+                });
+
+                marker.addListener('click', function(){
+                    if (prev_infowindow) {
+                        prev_infowindow.close();
+                        infowindow.close();
+                    }
+                    prev_infowindow = custom_infoWindow;
+                    custom_infoWindow.open(map, this);
+                });
+            }
+        }
+    }
+
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent('<b>' + place.name + '</b><br/>' + place.formatted_address);
+            infowindow.open(map, this);
+            custom_infoWindow.close();
+        });
+    }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXNmgrTKjtbZz3d6CN0008e6FcJbZ8MU&callback=initMap&libraries=places">
+    </script>
+
+
+</body>
+>>>>>>> cca131e21803743325359edf377739dca401043c
 <?php
 require_once('view/footer.php');
 ?>

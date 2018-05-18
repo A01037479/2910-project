@@ -13,19 +13,19 @@ if(count($_POST) == 0) {
 );
 
 
-  echo "<div class = 'list_item'>";
+  echo "<div class = 'detail_item'>";
   echo "<p class='list_title'>Please confirm</p><br>";
   echo "<p><b>Email: </b> " . $escaped['email'] . "</p>";
   echo "<p><b>Title: </b> " . $escaped['title'] . "</p>";
   echo "<img src='{$_POST['path']}' alt=\"photo\"  class='detailImg'>";
 
 
-  if($_POST['location'] == 'vancouver') {
-    echo "<p><b>Pick-up location:</b> ". "Vancouver Campus" . "</p>";
+  if($_POST['location'] == 'downtown') {
+    echo "<p><b>Pick-up location:</b> ". "Downtown Campus" . "</p>";
   } else if ($_POST['location'] == 'burnaby'){
     echo "<p><b>Pick-up location:</b> ". "Burnaby Campus" . "</p>";
   } else {
-    echo "<p><b>Bug 0014 occured. Please email </b> ". "admin@sharefood.today" . " and report this bug. Thank you.</p>";
+    echo "<p><b>Bug 0014 occured. Please email </b> ". "sharefoodbcit@gmail.com" . " and report this bug. Thank you.</p>";
   }
   // echo "<p><b>Pick-up location</b> ". $_POST["location"] . "</p>";
   echo "<p><b>Description: </b> " . $escaped['description'] . "</p>";

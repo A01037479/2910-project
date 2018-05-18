@@ -25,7 +25,7 @@ body {
        <input class="input1" type="text" name="title" placeholder="What would you like to share?">
        <span class="highlight"></span>
        <span class="bar"></span>
-       <label class="label1">title</label>
+       <!-- <label class="label1">title</label> -->
      </div>
 
      <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
@@ -35,17 +35,16 @@ body {
            Upload a photo<br>
            <img src="img/photo.png">
          </div>
-         <img src="" id="img">
+         <img src="" id="img"><br>
+         <progress></progress>
        </div>
-       <progress></progress>
-
-       <textarea name="description" class='autoExpand txtarea' rows="4" cols="25" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+        
+       <textarea style="padding: 40px 10px; width: 260px; max-width: 90%; box-sizing: border-box;" name="description" class='autoExpand txtarea' rows="4" cols="25" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 Tell us a bit more about your food (e.g. quantity, best before date)
        </textarea>
-
-      <input type="checkbox" name="location" value="burnaby" id="hellomom"/><label for="hellomom">&nbsp;Burnaby</label>
-      <input type="checkbox" name="location" value="vancouver" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
-
+  
+        <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
+        <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
        <br><br>
 
        <script type="text/javascript">
@@ -55,23 +54,23 @@ Tell us a bit more about your food (e.g. quantity, best before date)
        </script>
 
        <div class="group">
-         <input id="temp1" class="input1" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="to edit the post">
+         <input id="temp1" class="input1" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="password">
          <span class="highlight"></span>
          <span class="bar"></span>
-         <label class="label1">password</label>
+         <!-- <label class="label1">password</label> -->
        </div>
      <div class="group">
-       <input id="temp2" class="input1" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="confirming">
+       <input id="temp2" class="input1" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="password again">
        <span class="highlight"></span>
        <span class="bar"></span>
-       <label class="label1">password again</label>
+       <!-- <label class="label1">password again</label> -->
      </div>
 
      <div class="group">
-       <input class="input1" type="email" name="email" placeholder="used to receive a request">
+       <input class="input1" type="email" name="email" placeholder="email">
        <span class="highlight"></span>
        <span class="bar"></span>
-       <label class="label1">email</label>
+       <!-- <label class="label1">email</label> -->
      </div>
 
      <div class="toggleDiv">
