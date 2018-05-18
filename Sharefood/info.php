@@ -97,7 +97,7 @@ require_once('view/top.php');
             <div class="step-list__item__inner">
                 <div class="content">
                     <div class="body">
-                        <h2>47 per cent of food waste</h2>
+                        <h2>47% of food waste</h2>
                         <p>happens in the home, according to the Value Chain Management International study.</p>
                     </div>
 
@@ -148,7 +148,9 @@ require_once('view/top.php');
 
    <script>
     var map;
-    var infowindow;
+    var infowindow; // places API search query infowindows
+    var prev_infowindow = false;
+    var custom_infoWindow; // custom BCIT marker infowindows
 
     function initMap() {
         var centerPoint = {lat: 49.2675789, lng: -122.9751096};
@@ -200,7 +202,7 @@ require_once('view/top.php');
             var marker = new google.maps.Marker({
                 position:props.coords,
                 map:map
-                //icon:props.iconImage
+                // icon:props.iconImage
             });
 
             // Check for customicon
@@ -211,12 +213,17 @@ require_once('view/top.php');
 
             // Check content
             if(props.content){
-                var infoWindow = new google.maps.InfoWindow({
+                    custom_infoWindow = new google.maps.InfoWindow({
                     content:props.content
                 });
 
                 marker.addListener('click', function(){
-                    infoWindow.open(map, marker);
+                    if (prev_infowindow) {
+                        prev_infowindow.close();
+                        infowindow.close();
+                    }
+                    prev_infowindow = custom_infoWindow;
+                    custom_infoWindow.open(map, this);
                 });
             }
         }
@@ -240,6 +247,7 @@ require_once('view/top.php');
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent('<b>' + place.name + '</b><br/>' + place.formatted_address);
             infowindow.open(map, this);
+            custom_infoWindow.close();
         });
     }
     </script>
