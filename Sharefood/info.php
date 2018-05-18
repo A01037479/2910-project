@@ -8,11 +8,11 @@ require_once('view/top.php');
     <!-- <link rel="stylesheet" href="style/a4.css"> -->
     <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <link rel="stylesheet" href="style/chart.css">
-    <link rel="stylesheet" href="style/elevator.css">
+    <!-- <link rel="stylesheet" href="style/chart.css">
+    <link rel="stylesheet" href="style/elevator.css"> -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <script src="js/nicescroll.js"></script>
-    <script src="js/elevator.js"></script>
+    <!-- <script src="js/nicescroll.js"></script>
+    <script src="js/elevator.js"></script> -->
 
     <style media="screen">
 
@@ -66,13 +66,13 @@ require_once('view/top.php');
   </head>
   <body>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     $("body").niceScroll({
     cursorcolor:"aquamarine",
     cursorwidth:"25px",
     scrollspeed: 40
     });
-    </script>
+    </script> -->
 
 
     <div class="container" style="background-color: #fff">
@@ -163,7 +163,9 @@ require_once('view/top.php');
    
    <script>
     var map;
-    var infowindow;
+    var infowindow; // places API search query infowindows
+    var prev_infowindow = false;
+    var custom_infoWindow; // custom BCIT marker infowindows
 
     function initMap() {
         var centerPoint = {lat: 49.2675789, lng: -122.9751096};
@@ -214,7 +216,7 @@ require_once('view/top.php');
             var marker = new google.maps.Marker({
                 position:props.coords,
                 map:map
-                //icon:props.iconImage
+                // icon:props.iconImage
             });
 
             // Check for customicon
@@ -225,12 +227,17 @@ require_once('view/top.php');
 
             // Check content
             if(props.content){
-                var infoWindow = new google.maps.InfoWindow({
+                    custom_infoWindow = new google.maps.InfoWindow({
                     content:props.content
                 });
 
                 marker.addListener('click', function(){
-                    infoWindow.open(map, marker);
+                    if (prev_infowindow) {
+                        prev_infowindow.close();
+                        infowindow.close();
+                    }
+                    prev_infowindow = custom_infoWindow;
+                    custom_infoWindow.open(map, this);
                 });
             }
         }
@@ -254,6 +261,7 @@ require_once('view/top.php');
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent('<b>' + place.name + '</b><br/>' + place.formatted_address);
             infowindow.open(map, this);
+            custom_infoWindow.close();
         });
     }
     </script>
