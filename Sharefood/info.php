@@ -254,6 +254,10 @@ require_once('view/top.php');
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTXNmgrTKjtbZz3d6CN0008e6FcJbZ8MU&callback=initMap&libraries=places">
     </script>
 
+<script>
+    var infoBtn = document.getElementById("infoBtn");
+    infoBtn.classList.add("active");
+</script>
 
 </body>
 <?php
