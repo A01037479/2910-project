@@ -61,6 +61,10 @@ function check_input(){
   var test = validate_text();
   // input validation
   var theForm = document.posting;
+  var location1 = document.getElementById("hellomom");
+  var location2 = document.getElementById("hellodad");
+  //var checkbox1 = theForm.location1;
+  //var checkbox2 = theForm.location2;
 
   if (test == false) {
     return false;
@@ -75,7 +79,10 @@ function check_input(){
   } else if (!theForm.checkbox.checked){
       alert('You must agree to the terms first.');
       return false;
-  } else {
+  } else if(location1.checked == false && location2.checked == false){ 
+      alert("You must select a location");
+      return false;
+  }else {
 
     // image type validation
     var ext = $('#imgpath').val().split('.').pop().toLowerCase(); //file extension
