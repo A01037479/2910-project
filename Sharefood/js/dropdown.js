@@ -2,7 +2,8 @@ function menu_function(){
   var temp = document.getElementById("menu");
     if (temp.className === "topMenu"){
       temp.className += " responsive";
-      document.getElementById("nav").style.height = "250px";
+      document.getElementById("nav-share-btn").classList.remove("responsive");
+      document.getElementById("nav").style.height = "261px";
       document.getElementById("article").style.marginTop = "250px";
     } else {
       temp.className = "topMenu";

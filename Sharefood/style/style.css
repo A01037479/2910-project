@@ -45,9 +45,10 @@ nav {
   color:white;
   border-radius: 3px;
   float:right;
-  margin-right: 10px;
-  margin-left: 10px;
-
+  padding:17px;
+  margin-top: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 #nav-share-btn:hover {
@@ -62,11 +63,11 @@ nav {
 
 #logo {
   z-index: 100;
-  width: 80px;
+  width: 200px;
   margin-right: 0.3em;
   position: absolute;
   left:15px;
-  top: 5px;
+  top: -10px;
 }
 article {
   margin: 100px 0 0 0;
@@ -450,7 +451,7 @@ input[type='checkbox']:checked:after {
 }
 
 #menu {
-  margin-left: 120px;
+  margin-left: 220px;
 }
 
 .active {
@@ -527,8 +528,9 @@ input[type='checkbox']:checked:after {
   #icon{
     z-index: 100;
     position: absolute;
+    float:left;
     top: 20px;
-    right: 20px;
+    left: 20px;
     margin: 0;
     color: black;
     display: block;
@@ -575,12 +577,33 @@ input[type='checkbox']:checked:after {
   }
 
   #menu{
+    margin-top: 80px;
     margin-left: 35%;
     margin-right: 35%;
   }
 
+  #logo {
+    z-index: 100;
+    width: 170px;
+    margin: 0 auto;
+    position: absolute;
+    float: left;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -3px;
+  }
   #nav-share-btn {
-    float:none;
+    position: absolute;
+    right:-10px;
+    top:0px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:15px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -605,8 +628,22 @@ input[type='checkbox']:checked:after {
     font-size: 1em;
   }
   #menu{
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  #nav-share-btn {
+    position: absolute;
+    right:-15px;
+    top:7px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:12px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 10pt;
   }
 
 }
@@ -617,10 +654,26 @@ input[type='checkbox']:checked:after {
       height: 170px;
   }
   #menu{
-    margin-left: 28%;
-    margin-right: 28%;
+    margin-left: 22%;
+    margin-right: 22%;
   }
-  .topMenu a{
-    padding: 15px;
+  #logo{
+    top:10px;
+    width:120px;
   }
+  #nav-share-btn {
+    position: absolute;
+    font-size:8pt;
+    right:-25px;
+    top:14px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:8px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
 }
