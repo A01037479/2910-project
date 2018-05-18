@@ -61,6 +61,8 @@ function check_input(){
   var test = validate_text();
   // input validation
   var theForm = document.posting;
+  var location1 = document.getElementById("hellomom");
+  var location2 = document.getElementById("hellodad");
 
   if (test == false) {
     return false;
@@ -70,12 +72,15 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
-    alert("Please fill in all input values");
+    alert("Please fill in all input values.");
     return false;
   } else if (!theForm.checkbox.checked){
       alert('You must agree to the terms first.');
       return false;
-  } else {
+  } else if(location1.checked == false && location2.checked == false){ 
+      alert("You must select a location.");
+      return false;
+  }else {
 
     // image type validation
     var ext = $('#imgpath').val().split('.').pop().toLowerCase(); //file extension
