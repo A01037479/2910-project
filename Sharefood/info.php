@@ -8,11 +8,8 @@ require_once('view/top.php');
     <!-- <link rel="stylesheet" href="style/a4.css"> -->
     <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <link rel="stylesheet" href="style/chart.css">
     <link rel="stylesheet" href="style/elevator.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <script src="js/nicescroll.js"></script>
-    <script src="js/elevator.js"></script>
 
     <style media="screen">
 
@@ -65,15 +62,6 @@ require_once('view/top.php');
     </style>
   </head>
   <body>
-
-    <script type="text/javascript">
-    $("body").niceScroll({
-    cursorcolor:"aquamarine",
-    cursorwidth:"25px",
-    scrollspeed: 40
-    });
-    </script>
-
 
     <div class="container" style="background-color: #fff">
     <ol class="step-list">
@@ -153,14 +141,11 @@ require_once('view/top.php');
     <br/>
     <hr size=>
     <br/>
-    <p id="donate_msg">Find food banks around campus and your home to donate excess food!</p>
+    <p id="donate_msg">You can also find food banks around you to donate excess food!</p>
     <br/>
     <div id="map"></div>
   </div>
 
-
-
-   
    <script>
     var map;
     var infowindow;
@@ -190,11 +175,12 @@ require_once('view/top.php');
             center: centerPoint,
             zoom: 10
         });
+    
 
         var request = {
             location: centerPoint,
-            radius: '500',
-            openNow: true,
+            // radius: '5000',
+            // openNow: true,
             query: '"food bank"'
         };
 
