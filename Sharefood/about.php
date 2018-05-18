@@ -42,7 +42,10 @@ require_once('view/top.php');
 
 </div>
 
-
+<script>
+    var aboutBtn = document.getElementById("aboutBtn");
+    aboutBtn.classList.add("active");
+</script>
 
 
 

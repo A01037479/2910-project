@@ -74,7 +74,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     <a href="game_breakout.php"><p class="list_title">Break out</p>
     <img src="img/breakout.png" class="gameimg"></a><br>
     <a href="game_apple.php"><p class="list_title">Eat Apple Fast</p>
-    <img src="img/apple.png" class="gameimg"></a>
+    <img src="img/appleScreenshot.png" class="gameimg"></a>
   <br>
 </div>
 

@@ -13,7 +13,7 @@ if(count($_POST) == 0) {
 );
 
 
-  echo "<div class = 'list_item'>";
+  echo "<div class = 'detail_item'>";
   echo "<p class='list_title'>Please confirm</p><br>";
   echo "<p><b>Email: </b> " . $escaped['email'] . "</p>";
   echo "<p><b>Title: </b> " . $escaped['title'] . "</p>";
