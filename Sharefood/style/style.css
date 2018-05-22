@@ -744,29 +744,28 @@ input[type='checkbox']:checked:after {
 
   #editText{
     float:left;
-    font-size: 11pt;
+    font-size: 10pt;
     margin-top: 15px;
-    width:60%;
   }
   #editForm{
-    margin-left:0;
     margin-top: 7px;
-    float:left;
-    width:30%;
+    float:right;
+    width:100%;
+    height:auto;
   }
   #password{
     width:100%;
   }
   #edit_button{
     float:right;
-    margin-top: 12px;
+    margin-top: -7px;
   }
   #delete_button{
     float:right;
-    margin-top: 12px;
+    margin-top: -7px;
   }
   #toggle-check:checked ~ .checkContainer {
-    height: 100px;
+    height: 120px;
 }
 }
 
