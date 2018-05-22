@@ -48,7 +48,11 @@ if(!isset($_POST['id'])) {
     </p>
     <img src="<?=$escaped['image']?>" class='detailImg'><br>
     <input type="hidden" name="id" value="<?=$_POST['id']?>">
-    <p><input type="text" name="title" value="<?=$escaped['title']?>"></p>
+    <p>
+      <input class="textinput" type="text" name="title" value="<?=$escaped['title']?>">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
     <p><textarea name="description" rows="4" cols="20"><?=$escaped['description']?></textarea></p>
     <div id="location">
       Pick-up Location<br>
@@ -56,9 +60,21 @@ if(!isset($_POST['id'])) {
       <label><input type="radio" name="location" value="Downtown Campus" <?=$checked_Downtown?>>Downtown Campus</label><br>
     </div>
     <p id="pwdInvalid"></p>
-    <p><input type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
-    <br><input type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;"></p>
-    <p><input type="email" name="email" value="<?=$escaped['email']?>"></p>
+    <p>
+      <input class="textinput" type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
+    <p>
+      <input class="textinput" type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;"></p>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
+    <p>
+      <input class="textinput" type="email" name="email" value="<?=$escaped['email']?>">
+      <span class="highlight"></span>
+      <span class="bar"></span>  
+    </p>
 
     <div class="toggleDiv">
       <input type="checkbox" id="toggle"/>

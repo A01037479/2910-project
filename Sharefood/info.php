@@ -5,10 +5,7 @@ require_once('view/top.php');
   <head>
     <meta charset="utf-8">
     <title></title>
-    <!-- <link rel="stylesheet" href="style/a4.css"> -->
-    <link rel="stylesheet" href="style/stats.css">
     <link rel="stylesheet" href="style/information.css">
-    <link rel="stylesheet" href="style/elevator.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <style media="screen">
@@ -19,21 +16,6 @@ require_once('view/top.php');
           padding: 0;
           box-sizing: border-box;
         }
-
-        /* html { */
-          /*lol*/
-          /* background-image: url("img/darren.jpg");
-          background-size: 100% auto;
-          background-position: top center;
-          background-attachment: fixed;
-        } */
-
-        /* body {
-          height: 100%;
-          background-image: linear-gradient(hsl(10,90,66), transparent 100%);
-          background-size: 100% 100%;
-          mix-blend-mode: difference;
-        } */
 
         h2, p {
           font-family: sans-serif;
@@ -149,7 +131,6 @@ require_once('view/top.php');
     var map;
     var infowindow; // places API search query infowindows
     var prev_infowindow = false;
-    var custom_infoWindow; // custom BCIT marker infowindows
 
     function initMap() {
         var centerPoint = {lat: 49.2675789, lng: -122.9751096};
@@ -212,17 +193,22 @@ require_once('view/top.php');
 
             // Check content
             if(props.content){
-                    custom_infoWindow = new google.maps.InfoWindow({
+                //custom infowindows for BCIT markers
+                var custom_infoWindow = new google.maps.InfoWindow({
                     content:props.content
                 });
-
+                
                 marker.addListener('click', function(){
                     if (prev_infowindow) {
                         prev_infowindow.close();
                         infowindow.close();
                     }
                     prev_infowindow = custom_infoWindow;
-                    custom_infoWindow.open(map, this);
+                    custom_infoWindow.open(map, marker);
+                });
+
+                map.addListener('click', function(){
+                    custom_infoWindow.close();
                 });
             }
         }
@@ -246,7 +232,10 @@ require_once('view/top.php');
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent('<b>' + place.name + '</b><br/>' + place.formatted_address);
             infowindow.open(map, this);
-            custom_infoWindow.close();
+        });
+
+        google.maps.event.addListener(map, 'click', function() {
+            infowindow.close();
         });
     }
     </script>
