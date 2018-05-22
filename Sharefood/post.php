@@ -67,7 +67,8 @@ Tell us a bit more about your food (e.g. quantity, best before date)
      </div>
 
      <div class="group">
-       <input class="input1" type="email" name="email" placeholder="email">
+       
+       <input id="email" class="input1" type="email" name="email" placeholder="email">
        <span class="highlight"></span>
        <span class="bar"></span>
        <!-- <label class="label1">email</label> -->
@@ -95,12 +96,12 @@ Tell us a bit more about your food (e.g. quantity, best before date)
  </div>
 
 
-
+<script src="js/storeProcess.js"></script>
 <script src="js/ripple.js"></script>
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
 <script src="js/expnd-ta.js"></script>
-
+<script>loadStoredDetails('email')</script>
 
 
 

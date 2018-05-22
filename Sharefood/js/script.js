@@ -1,27 +1,17 @@
-console.log("hello");
-
-
 function pwd_validation(){
   var theForm = document.posting;
-  console.log("hey");
-  // var message = document.getElementById('pwdInvalid');
+
   if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
-  theForm.password.style.backgroundColor='#ddffdd';
-  theForm.password2.style.backgroundColor='#ddffdd';
-  console.log("hi");
-  // message.innerHTML = "Passwords match."
-  // message.style.color = "green";
+    theForm.password.style.backgroundColor='#ddffdd';
+    theForm.password2.style.backgroundColor='#ddffdd';
+
   return true;
   } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ffdddd';
-    theForm.password2.style.backgroundColor='#ffdddd';
-    console.log("bye");
-    // message.innerHTML = "Passwords do not match."
-    // message.style.color = "red";
-    return false;
+      theForm.password.style.backgroundColor='#ffdddd';
+      theForm.password2.style.backgroundColor='#ffdddd';
+      return false;
   } else {
-    return false;
-    console.log("wht up")
+      return false;
   }
 }
 
@@ -81,7 +71,6 @@ function check_input(){
       alert("You must select a location.");
       return false;
   }else {
-
     // image type validation
     var ext = $('#imgpath').val().split('.').pop().toLowerCase(); //file extension
 
@@ -90,6 +79,7 @@ function check_input(){
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
     } else {
+      saveData('email');
       return true;
     }
   }

@@ -21,9 +21,11 @@ if(count($_GET) == 0) {
 
 ?>
 
-<form action="email_process.php?id=<?=$_GET['id']?>" method="post">
-  <p><input type="email" name="email" placeholder="Your email address"></p>
+<form name="requestPost" action="email_process.php?id=<?=$_GET['id']?>" method="post">
+  <p><input id="emailRequest" type="email" name="email" placeholder="Your email address"></p>
   <p><textarea name="message" rows="5" cols="20" placeholder="Message"></textarea></p>
-  <p><input type="submit" name="send" value="Send" class="button"></p>
+  <p><input type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"></p>
 </form>
 </div>
+
+<script>loadStoredDetails('emailRequest');</script>
