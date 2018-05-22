@@ -3,7 +3,7 @@ require_once('view/top.php');
 ?>
 
 <div class="detail_item">
-  <form class="center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+  <form class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
 
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">

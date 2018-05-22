@@ -33,8 +33,8 @@ if(count($_POST) == 0) {
   <input type="hidden" name="image" value="<?= $_POST['path'] ?>">
   <input type="hidden" name="location" value="<?= $_POST['location'] ?>" >
 </form>
-  <button onclick="goBack()" class="confirm">edit</button>
-  <button onclick="confirm()" class="confirm" id="confirmBtn">confirm</button>
+  <button onclick="goBack()" class="emptybtn">edit</button>
+  <button onclick="confirm()" class="confirmbtn" id="confirmBtn">confirm</button>
 
 <script>
 // go back to the previous page

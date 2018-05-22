@@ -84,10 +84,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <br>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
 
-<button id="plusButton"><img src="img/plus1.png" alt="post">
-</button>
-
-
 <script>
 
   $("#plusButton").click(function(event){
