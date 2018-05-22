@@ -62,13 +62,8 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
-    swal("Hello world1!");
     return false;
-  } else if (!theForm.checkbox.checked){
-    swal("Hello world2!");
-      return false;
-  } else if(location1.checked == false && location2.checked == false){
-    swal("Hello world3!");
+   } else if(location1.checked == false && location2.checked == false){
       return false;
   }else {
     // image type validation
