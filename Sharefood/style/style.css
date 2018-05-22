@@ -81,7 +81,7 @@ article {
   box-sizing: border-box;
   padding-top: 70px;
   margin-bottom: 1em;
-  height: 400px;
+  height: 600px;
 }
 .banner p {
   opacity: 0;
@@ -131,18 +131,22 @@ article {
   padding: 15px;
   border-radius: 4px;
 }
-
+#list_container {
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  display: inline-block;
+}
 .list_item {
+  display: inline-block;
   max-width: 80%;
   text-align: left;
-  display: inline-block;
   background-color:white;
   margin: 1.5em 0.5em;
   padding: 1em;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
   border: 2px solid white;
 }
-
 .uploadedImg {
   width: 350px;
   max-width: 100%;
@@ -312,6 +316,7 @@ progress[value]::-webkit-progress-bar {
   outline: none;
 }
 #gamesection {
+  display: inline-block;
   margin-bottom: 100px;
 }
 .gameimg {
@@ -394,7 +399,9 @@ input[type='checkbox']:checked:after {
 /***** Search bar styling *****/
 #searchcontainer {
   margin-top: 2em;
+  margin-bottom: 2em;
   padding: 0;
+  overflow: hidden;
 }
 
 #searchbox {
@@ -549,9 +556,6 @@ input[type='checkbox']:checked:after {
 
 /*********************************************/
 @media screen and (min-width: 1280px) {
-  .banner {
-    height: calc(100vh - 140px);
-  }
   #searchcontainer {
     margin-top: 2em;
   }
