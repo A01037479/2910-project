@@ -180,6 +180,15 @@ article {
 /* form styling */
 form {
   padding: 0.5em;
+  color: #636363;;
+}
+form p {
+  padding: 0.5em 0;
+}
+.pickup p {
+  text-align: left;
+  padding: 0;
+  margin: 5px;
 }
 .textinput {
   box-sizing: border-box;
@@ -199,14 +208,6 @@ textarea {
   font-size: 12pt;
   box-sizing: border-box;
   width: 100%;
-}
-.msgbox {
-  text-align: left;
-  padding: 40px 10px; 
-  width: 260px; 
-  max-width: 90%; 
-  box-sizing: border-box;
-  overflow: hidden;
 }
 
 .textinput:focus { outline: none; }
@@ -268,7 +269,7 @@ progress[value]::-webkit-progress-bar {
 }
 .button:hover {
   cursor:pointer;
-  background-color: orange;
+  background-color: #c0e088;
 }
 
 .bar {
