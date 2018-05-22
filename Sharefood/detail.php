@@ -40,10 +40,11 @@ if(count($_GET) == 0) {
      <span id="editText">Enter your password</span>
      <form action="edit.php" id="editForm" method="POST" onkeypress="return event.keyCode != 13;">
        <input type="hidden" name="id" value="<?=$_GET['id']?>">
-       <input type="password" name="password" id="password"><br>
+       <input type="password" name="password" id="password" class="textinput"><br>
      </form>
-       <button id="delete_button">delete</button>
-       <button id="edit_button">edit</button>
+       <button id="delete_button" class="confirmbtn">delete</button>
+       <button id="edit_button" class="confirmbtn">edit</button>
+       <br>
        <p id="check_result"></p>
     </div>
   </div>

@@ -1,27 +1,17 @@
-console.log("hello");
-
-
 function pwd_validation(){
   var theForm = document.posting;
-  console.log("hey");
-  // var message = document.getElementById('pwdInvalid');
+
   if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
-  theForm.password.style.backgroundColor='#ddffdd';
-  theForm.password2.style.backgroundColor='#ddffdd';
-  console.log("hi");
-  // message.innerHTML = "Passwords match."
-  // message.style.color = "green";
+    theForm.password.style.backgroundColor='#ddffdd';
+    theForm.password2.style.backgroundColor='#ddffdd';
+
   return true;
   } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ffdddd';
-    theForm.password2.style.backgroundColor='#ffdddd';
-    console.log("bye");
-    // message.innerHTML = "Passwords do not match."
-    // message.style.color = "red";
-    return false;
+      theForm.password.style.backgroundColor='#ffdddd';
+      theForm.password2.style.backgroundColor='#ffdddd';
+      return false;
   } else {
-    return false;
-    console.log("wht up")
+      return false;
   }
 }
 
@@ -72,16 +62,15 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
-    alert("Please fill in all input values.");
+    swal("Hello world1!");
     return false;
   } else if (!theForm.checkbox.checked){
-      alert('You must agree to the terms first.');
+    swal("Hello world2!");
       return false;
-  } else if(location1.checked == false && location2.checked == false){ 
-      alert("You must select a location.");
+  } else if(location1.checked == false && location2.checked == false){
+    swal("Hello world3!");
       return false;
   }else {
-
     // image type validation
     var ext = $('#imgpath').val().split('.').pop().toLowerCase(); //file extension
 
@@ -90,7 +79,9 @@ function check_input(){
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
     } else {
+      saveData('email');
       return true;
     }
   }
+  return true;
 }

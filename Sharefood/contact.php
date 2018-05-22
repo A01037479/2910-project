@@ -13,7 +13,7 @@ require_once('view/top.php');
     <span class="highlight"></span>
     <span class="bar"></span>
     </p>
-    <p><input class="textinput" type="email" name="email" placeholder="Email"
+    <p><input id="contactEmail" class="textinput" type="email" name="email" placeholder="Email"
     required="required">
     <span class="highlight"></span>
     <span class="bar"></span></p>
@@ -22,7 +22,7 @@ require_once('view/top.php');
     <span class="bar"></span></p>
     <p><textarea placeholder="Message" name="message"
     rows="7" cols="20"></textarea></p>
-    <p><input type="submit" value="Send" class="button"></p>
+    <p><input type="submit" value="Send" class="button" onclick="saveData('contactEmail')"></p>
 
 </form>
 </div>
@@ -35,3 +35,5 @@ require_once('view/footer.php');
     var contactBtn = document.getElementById("contactBtn");
     contactBtn.classList.add("active");
 </script>
+
+<script>loadStoredDetails('contactEmail')</script>

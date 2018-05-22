@@ -21,13 +21,17 @@ if(count($_GET) == 0) {
 
 ?>
 
+
 <form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post">
-  <span id="senderEmail"><input class="textinput" type="email" name="email" placeholder="Your email address"><br></span>
+  <span id="senderEmail"><input id="emailRequest" class="textinput" type="email" name="email" placeholder="Your email address"><br>
+  <span class="highlight"></span>
+  <span class="bar"></span></span>
   <span id="senderMsg"><textarea name="message" rows="5" cols="20" placeholder="Message"></textarea><br><br></span>
-  <span id="senderBtn"><input type="submit" name="send" value="Send" class="button"><br></span>
+  <span id="senderBtn"><input type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"><br></span>
 </form>
 </div>
 
+<script>loadStoredDetails('emailRequest');</script>
 <?php
 require_once('view/footer.php');
 ?>

@@ -18,7 +18,7 @@ if(count($_POST) == 0) {
   if($q == "") {
       $sql = "SELECT * FROM list WHERE id < {$id} ORDER BY id DESC LIMIT {$count}";
     } else {
-      $sql = "SELECT * FROM list WHERE (title LIKE '%$q%' OR description LIKE '%$q%') AND id < {$id} ORDER BY id DESC LIMIT {$count}";
+      $sql = "SELECT * FROM list WHERE (title LIKE '%$q%' OR description LIKE '%$q%' OR location LIKE '%$q%') AND id < {$id} ORDER BY id DESC LIMIT {$count}";
     }
 
   $result = mysqli_query($conn, $sql);

@@ -3,12 +3,7 @@ require_once('view/top.php');
 ?>
 
 <div class="detail_item">
-  <form class="center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
-    <p>
-      <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
-      <span class="highlight"></span>
-      <span class="bar"></span>
-    </p>
+  <form class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
 
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
@@ -20,17 +15,21 @@ require_once('view/top.php');
       <img src="" id="img"><br>
       <progress></progress>
     </div>
-
     <p>
-      <textarea name="description" class='autoExpand msgbox' rows="3" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-    Tell us a bit more about your food (e.g. quantity, best before date)
-      </textarea>
+      <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
+    <p>
+      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date"></textarea>
     </p>
 
-    <p>
-      <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
-      <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
-    </p>
+    <div class="pickup">
+      <p>Pick-up campus</p>
+      <p>&nbsp;<input type="checkbox" name="location" value="Burnaby campus" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>&nbsp;
+      <input type="checkbox" name="location" value="Downtown campus" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
+      </p>
+    </div>
 
     <script type="text/javascript">
     $('input[type="checkbox"]').on('change', function() {
@@ -39,18 +38,18 @@ require_once('view/top.php');
     </script>
 
     <p>
-      <input id="temp1" class="textinput" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="password">
-      <span class="highlight"></span>
-      <span class="bar"></span>
-    </p>
-    <p>
-      <input id="temp2" class="textinput" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="password again">
+      <input id="email" class="textinput" type="email" name="email" placeholder="email">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
 
     <p>
-      <input class="textinput" type="email" name="email" placeholder="email">
+      <input id="temp1" class="textinput" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="password">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
+    <p>
+      <input id="temp2" class="textinput" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="confirming password">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
@@ -68,21 +67,22 @@ require_once('view/top.php');
       <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
       This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
     </div>
-    <p><label><input type="checkbox" name="checkbox" value="check" id="check_term" >I have read and agree to the Terms of Use.</label></p>
-
+  </div>
+  <br>
   <button class="button">Submit</button>
 
 
   </form>
-  </div>
 
 
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
 <script src="js/expnd-ta.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
+<script>loadStoredDetails('email')</script>
 
 
 <?php
