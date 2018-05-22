@@ -166,12 +166,17 @@ article {
   width: 100%;
   height: auto;
 }
+
 .list_title {
   font-size: 20pt;
   font-weight: bold;
   margin: 0.2em;
   text-align: left;
 }
+#request{
+  width:100%;
+}
+
 
 /* form styling */
 form {
@@ -486,9 +491,10 @@ input[type='checkbox']:checked:after {
   overflow: hidden;
   transition: height 400ms linear;
   margin-bottom: 1em;
+  text-align: left;
 }
 .checkContainer button, .confirm {
-  background-color: black;
+  background-color:green;
   border: none;
   color: white;
   height: 25px;
@@ -499,13 +505,29 @@ input[type='checkbox']:checked:after {
   cursor: pointer;
   background-color: gray;
 }
-
+#editText{
+  float:left;
+  margin-top: 15px;
+}
+#editForm{
+  margin-top: 7px;
+  float:left;
+  width:20%;
+}
+#edit_button{
+  float:right;
+  margin-top: 12px;
+}
+#delete_button{
+  float:right;
+  margin-top: 12px;
+}
 #toggle-check {
     display: none;
 }
 
 #toggle-check:checked ~ .checkContainer {
-    height: 165px;
+    height: 50px;
 }
 
 .topMenu a {
@@ -562,6 +584,53 @@ input[type='checkbox']:checked:after {
   #searchbtn {
     height: 70px;
     width: 100px;
+  }
+
+}
+
+@media (min-width:801px) {
+  .detail_item{
+    width: 1000px;
+    max-width: 80%;
+    text-align: left;
+    display: inline-block;
+    background-color: white;
+    margin: 2em 0.5em;
+    padding: 1em;
+  }
+  .detailImg{
+    width: 50%;
+    height: auto;
+  }
+  .details{
+    width:45%;
+    height: auto;
+    float:right;
+    position:absolute;
+  }
+  #detailDate{
+    margin-top: 30px;
+  }
+  #detailLocation{
+    margin-top: 60px;
+  }
+  #detailDesc{
+    margin-top: 90px;
+  }
+  #detailBtn{
+    margin-left: -10px;
+    margin-top:130px;
+  }
+  .list_title {
+    font-size: 20pt;
+    font-weight: bold;
+    margin: 0.2em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .requestInfo {
+    width:45%;
+    float:right;
   }
 
 }
@@ -672,6 +741,33 @@ input[type='checkbox']:checked:after {
     margin-right: 30px;
     margin-left: 30px;
   }
+
+  #editText{
+    float:left;
+    font-size: 11pt;
+    margin-top: 15px;
+    width:60%;
+  }
+  #editForm{
+    margin-left:0;
+    margin-top: 7px;
+    float:left;
+    width:30%;
+  }
+  #password{
+    width:100%;
+  }
+  #edit_button{
+    float:right;
+    margin-top: 12px;
+  }
+  #delete_button{
+    float:right;
+    margin-top: 12px;
+  }
+  #toggle-check:checked ~ .checkContainer {
+    height: 100px;
+}
 }
 
 
