@@ -19,6 +19,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   </div>
 </div>
 
+<div id="list_container">
+
 <?php
 
   //retriving list
@@ -29,8 +31,8 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
     $sql_last = "SELECT id FROM list LIMIT 1";
   } else {
     $q = mysqli_real_escape_string($conn, $_GET['search']); // prevent sql input by user
-    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
-    $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' LIMIT 1";
+    $sql = "SELECT * FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' OR location LIKE '%$q%' ORDER BY id DESC LIMIT {$count}";
+    $sql_last = "SELECT id FROM list WHERE title LIKE '%$q%' OR description LIKE '%$q%' OR location LIKE '%$q%' LIMIT 1";
   }
 
   // returns the last item's id
@@ -67,7 +69,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 ?>
 
 <!-- game section -->
-<br>
 <div id="gamesection"  class="list_item">
   <p><b>There's no result found. </b><br>Do you want to play a game instead?</p>
   <br>
@@ -78,13 +79,14 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   <br>
 </div>
 
-<!-- load more data -->
+</div> <!-- end of the div list_container -->
+
 <br>
-<div id="loaded"></div>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
 
 <button id="plusButton"><img src="img/plus1.png" alt="post">
 </button>
+
 
 <script>
 
@@ -115,7 +117,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
         type: "POST",
         data: {id: lastId, q: search},
         success: function(data){
-          $("#loaded").append(data);
+          $("#list_container").append(data);
           lastId = newid;
           if(lastId == result){
             $("#loadButton").css("display", "none");

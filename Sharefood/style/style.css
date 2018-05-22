@@ -24,6 +24,9 @@ a:hover {
   color: black;
   text-decoration: none;
 }
+.center {
+  text-align: center;
+}
 /* header */
 header {
   position: fixed;
@@ -45,9 +48,10 @@ nav {
   color:white;
   border-radius: 3px;
   float:right;
-  margin-right: 10px;
-  margin-left: 10px;
-
+  padding:17px;
+  margin-top: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 #nav-share-btn:hover {
@@ -62,11 +66,11 @@ nav {
 
 #logo {
   z-index: 100;
-  width: 80px;
+  width: 200px;
   margin-right: 0.3em;
   position: absolute;
   left:15px;
-  top: 5px;
+  top: -10px;
 }
 article {
   margin: 100px 0 0 0;
@@ -77,7 +81,7 @@ article {
   box-sizing: border-box;
   padding-top: 70px;
   margin-bottom: 1em;
-  height: 400px;
+  height: 600px;
 }
 .banner p {
   opacity: 0;
@@ -127,53 +131,22 @@ article {
   padding: 15px;
   border-radius: 4px;
 }
-
+#list_container {
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  display: inline-block;
+}
 .list_item {
+  display: inline-block;
   max-width: 80%;
   text-align: left;
-  display: inline-block;
   background-color:white;
   margin: 1.5em 0.5em;
   padding: 1em;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5);
   border: 2px solid white;
 }
-
-/* post: upload photo section */
-progress:not([value]) {
-  width: 220px;
-  background-color: #e5e5e5;
-}
-progress[value] {
-  /* Reset the default appearance */
-  -webkit-appearance: none;
-   appearance: none;
-   width: 220px;
-
-}
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-}
-#image {
-  display: none;
-}
-#uploadbox {
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 260px;
-  height: 150px;
-  padding: 10px;
-  border: 2px dashed #1FB264;
-  cursor: pointer;
-  text-align: center;
-}
-#uploadbox:hover {
-  border: 4px dashed #1FB264;
-  background-color: #cff7d0;
-}
-
 .uploadedImg {
   width: 350px;
   max-width: 100%;
@@ -204,28 +177,84 @@ progress[value]::-webkit-progress-bar {
   text-align: left;
 }
 
-/* this shouldn't be necessary if we don't share style sheets */
-form > p > input, form > p > textarea {
-  width: 100%;
+/* form styling */
+form {
+  padding: 0.5em;
+  color: #636363;;
+}
+form p {
+  padding: 0.5em 0;
+}
+.pickup p {
+  text-align: left;
+  padding: 0;
+  margin: 5px;
+}
+.textinput {
   box-sizing: border-box;
+  font-size: 12pt;
+	padding: 5px;
+	-webkit-appearance: none;
+	display: block;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
 }
-form > p > input {
-  height: 25px;
-  margin: 0.3em 0;
+textarea {
+  color: #636363;
+  padding: 5px;
+  font-size: 12pt;
+  box-sizing: border-box;
+  width: 100%;
 }
+
+.textinput:focus { outline: none; }
 
 #photoupload {
   width: 30px;
   display: block;
 }
+/* post: upload photo section */
+progress:not([value]) {
+  width: 220px;
+  max-width: 90%;
+  background-color: #e5e5e5;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   width: 220px;
+   max-width: 90%;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+#image {
+  display: none;
+}
+#uploadbox {
+  color: green;
+  margin: 1em auto;
+  box-sizing: border-box;
+  width: 260px;
+  max-width: 90%;
+  height: 150px;
+  padding: 10px;
+  border: 2px dashed #1FB264;
+  cursor: pointer;
+  text-align: center;
+}
+#uploadbox:hover {
+  border: 4px dashed #1FB264;
+  background-color: #cff7d0;
+}
 #location {
   margin: 2em 0;
-}
-input[type=radio] {
-  height: 15px;
-  width: 15px;
-  margin: 0.5em;
-  display: inline-block;
 }
 .button {
   font-size: 1.1em;
@@ -240,17 +269,55 @@ input[type=radio] {
 }
 .button:hover {
   cursor:pointer;
-  background-color: orange;
+  background-color: #c0e088;
 }
-.desc {
-  color: #048c36;
-  font-size: 10pt;
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
 }
+
+.bar:before, .bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px ;
+	position: absolute ;
+	background: #4a89dc ;
+	transition: all 0.2s ease ;
+}
+
+.bar:before { left: 50% ; }
+
+.bar:after { right: 50% ; }
+
+
+/* active */
+
+.textinput:focus ~ .bar:before, .textinput:focus ~ .bar:after { width: 50% ; }
+
+
+/* Highlight */
+
+.highlight {
+	position: absolute ;
+	height: 60% ;
+	width: 100px ;
+	top: 25% ;
+	left: 0 ;
+	pointer-events: none ;
+	opacity: 0.5 ;
+}
+
+/* end of form styling*/
+
 #plusButton{
   display: none;
   outline: none;
 }
 #gamesection {
+  display: inline-block;
   margin-bottom: 100px;
 }
 .gameimg {
@@ -280,6 +347,10 @@ footer p {
   margin: 0 auto;
   color: #646666;
   text-align: justify;
+}
+.toggleDiv {
+  margin: 1em auto;
+  text-align: left;
 }
 .toggleDiv p {
   margin-bottom: 1em;
@@ -329,7 +400,9 @@ input[type='checkbox']:checked:after {
 /***** Search bar styling *****/
 #searchcontainer {
   margin-top: 2em;
+  margin-bottom: 2em;
   padding: 0;
+  overflow: hidden;
 }
 
 #searchbox {
@@ -453,7 +526,7 @@ input[type='checkbox']:checked:after {
 }
 
 #menu {
-  margin-left: 120px;
+  margin-left: 220px;
 }
 
 .active {
@@ -484,9 +557,6 @@ input[type='checkbox']:checked:after {
 
 /*********************************************/
 @media screen and (min-width: 1280px) {
-  .banner {
-    height: calc(100vh - 140px);
-  }
   #searchcontainer {
     margin-top: 2em;
   }
@@ -530,8 +600,9 @@ input[type='checkbox']:checked:after {
   #icon{
     z-index: 100;
     position: absolute;
+    float:left;
     top: 20px;
-    right: 20px;
+    left: 20px;
     margin: 0;
     color: black;
     display: block;
@@ -578,12 +649,33 @@ input[type='checkbox']:checked:after {
   }
 
   #menu{
+    margin-top: 80px;
     margin-left: 35%;
     margin-right: 35%;
   }
 
+  #logo {
+    z-index: 100;
+    width: 170px;
+    margin: 0 auto;
+    position: absolute;
+    float: left;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -3px;
+  }
   #nav-share-btn {
-    float:none;
+    position: absolute;
+    right:-10px;
+    top:0px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:15px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -608,8 +700,22 @@ input[type='checkbox']:checked:after {
     font-size: 1em;
   }
   #menu{
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  #nav-share-btn {
+    position: absolute;
+    right:-15px;
+    top:7px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:12px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 10pt;
   }
 
 }
@@ -620,10 +726,26 @@ input[type='checkbox']:checked:after {
       height: 170px;
   }
   #menu{
-    margin-left: 28%;
-    margin-right: 28%;
+    margin-left: 22%;
+    margin-right: 22%;
   }
-  .topMenu a{
-    padding: 15px;
+  #logo{
+    top:10px;
+    width:120px;
   }
+  #nav-share-btn {
+    position: absolute;
+    font-size:8pt;
+    right:-25px;
+    top:14px;
+    display:block;
+    background-color: green;
+    color:white;
+    border-radius: 3px;
+    padding:8px;
+    float:right;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
 }
