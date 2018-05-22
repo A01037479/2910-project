@@ -72,13 +72,13 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
-    alert("Please fill in all input values.");
+    swal("Hello world1!");
     return false;
   } else if (!theForm.checkbox.checked){
-      alert('You must agree to the terms first.');
+    swal("Hello world2!");
       return false;
-  } else if(location1.checked == false && location2.checked == false){ 
-      alert("You must select a location.");
+  } else if(location1.checked == false && location2.checked == false){
+    swal("Hello world3!");
       return false;
   }else {
 
@@ -89,8 +89,7 @@ function check_input(){
       alert('Invalid image file');
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
-    } else {
-      return true;
     }
   }
+  return true;
 }
