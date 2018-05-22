@@ -2,6 +2,8 @@
 require_once('view/top.php');
 ?>
 
+
+
 <style media="screen">
 body {
   opacity: 1;
@@ -17,10 +19,13 @@ body {
 <link rel="stylesheet" href="./style/share-input.css">
 <link rel="stylesheet" href="./style/file-upload.css">
 <link rel="stylesheet" href="./style/btn.css">
-
+<script
+  src="https://code.jquery.com/jquery-3.3.0.js"
+  integrity="sha256-TFWSuDJt6kS+huV+vVlyV1jM3dwGdeNWqezhTxXB/X8="
+  crossorigin="anonymous"></script>
 
  <div class="detail_item">
-   <form class="form1" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+   <form class="form1" action="post_confirm.php" name="posting" onsubmit="return check_input();" method="post" enctype="multipart/form-data">
      <div class="group">
        <input class="input1" type="text" name="title" placeholder="What would you like to share?">
        <span class="highlight"></span>
@@ -38,11 +43,11 @@ body {
          <img src="" id="img"><br>
          <progress></progress>
        </div>
-        
+
        <textarea style="padding: 40px 10px; width: 260px; max-width: 90%; box-sizing: border-box;" name="description" class='autoExpand txtarea' rows="4" cols="25" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 Tell us a bit more about your food (e.g. quantity, best before date)
        </textarea>
-  
+
         <input type="checkbox" name="location" value="burnaby" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>
         <input type="checkbox" name="location" value="downtown" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
        <br><br>
@@ -100,6 +105,8 @@ Tell us a bit more about your food (e.g. quantity, best before date)
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
 <script src="js/expnd-ta.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 

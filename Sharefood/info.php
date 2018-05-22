@@ -138,7 +138,7 @@ require_once('view/top.php');
     </ol>
 
     <br/>
-    
+
     <br/>
     <p class="donate_msg">You can also find food banks around you to donate excess food!</p>
     <br/>
@@ -158,7 +158,7 @@ require_once('view/top.php');
             url: "img/bcit.png", // url
             scaledSize: new google.maps.Size(30, 30) // scaled size
         };
-     
+
         var markers = [
             {
             coords:{lat:49.25092799999999,lng:-123.0034159},
@@ -176,7 +176,7 @@ require_once('view/top.php');
             center: centerPoint,
             zoom: 10
         });
-    
+
 
         var request = {
             location: centerPoint,
