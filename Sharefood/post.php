@@ -22,8 +22,7 @@ require_once('view/top.php');
     </div>
 
     <p>
-      <textarea name="description" class='autoExpand msgbox' rows="3" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-    Tell us a bit more about your food (e.g. quantity, best before date)
+      <textarea name="description" class='autoExpand msgbox' rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date">
       </textarea>
     </p>
 
@@ -81,6 +80,8 @@ require_once('view/top.php');
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
 <script src="js/expnd-ta.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 

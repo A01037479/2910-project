@@ -22,7 +22,9 @@ if(count($_GET) == 0) {
 ?>
 
 <form action="email_process.php?id=<?=$_GET['id']?>" method="post">
-  <p><input class="textinput" type="email" name="email" placeholder="Your email address"></p>
+  <p><input class="textinput" type="email" name="email" placeholder="Your email address">
+  <span class="highlight"></span>
+  <span class="bar"></span></p>
   <p><textarea name="message" rows="5" cols="20" placeholder="Message"></textarea></p>
   <p><input type="submit" name="send" value="Send" class="button"></p>
 </form>
