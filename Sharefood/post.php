@@ -72,7 +72,7 @@ require_once('view/top.php');
     </div>
   </div>
   <br>
-  <button class="button">Submit</button>
+  <button id = "submitPost" class="button">Submit</button>
   </div>
 
   </form>

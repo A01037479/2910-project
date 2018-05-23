@@ -627,6 +627,15 @@ input[type='checkbox']:checked:after {
 }
 
 @media (min-width:801px) {
+  .fieldsetContainer{
+    position: absolute;
+    width:35vw;
+  }
+  #submitPost{
+    display:block;
+    float:right;
+    margin-top: 120px;
+  }
   .detail_item{
     width: 1000px;
     max-width: 80%;
@@ -634,7 +643,7 @@ input[type='checkbox']:checked:after {
   }
 
   .detailImg_fixSize{
-    height: 300px;
+    height: 22vw;
     width:auto;
     max-width: 400px;
     display:block;
