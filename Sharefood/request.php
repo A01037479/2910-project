@@ -22,7 +22,7 @@ if(count($_GET) == 0) {
 ?>
 
 
-<form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post">
+<form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post" onsubmit="return checkRequest()" name="requesting">
   <span id="senderEmail"><input id="emailRequest" class="textinput" type="email" name="email" placeholder="Your email address"><br>
   <span class="highlight"></span>
   <span class="bar"></span></span>
@@ -30,7 +30,7 @@ if(count($_GET) == 0) {
   <span ><input id="senderBtn" type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"><br></span>
 </form>
 </div>
-
+<script src="js/script.js?=v1"></script>
 <script>loadStoredDetails('emailRequest');</script>
 <?php
 require_once('view/footer.php');
