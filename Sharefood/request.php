@@ -22,7 +22,7 @@ if(count($_GET) == 0) {
 ?>
 
 
-<form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post" onsubmit="return checkRequest()" name="requesting"> 
+<form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post" onsubmit="return checkRequest()" name="requesting">
   <span id="senderEmail"><input id="emailRequest" class="textinput" type="email" name="email" placeholder="Your email address" required><br>
   <span class="highlight"></span>
   <span class="bar"></span></span></p>
@@ -32,6 +32,7 @@ if(count($_GET) == 0) {
 </div>
 <script src="js/script.js?=v1"></script>
 <script>loadStoredDetails('emailRequest');</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 require_once('view/footer.php');
 ?>
