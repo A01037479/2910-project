@@ -37,7 +37,7 @@ if(count($_GET) == 0) {
       <span class="fakelink">edit</span>
     </label>
     <div class="checkContainer">
-     <span id="editText">Enter your password</span>
+     <span id="editText">Enter your password&nbsp;</span>
      <form action="edit.php" id="editForm" method="POST" onkeypress="return event.keyCode != 13;">
        <input type="hidden" name="id" value="<?=$_GET['id']?>">
        <input type="password" name="password" id="password" class="textinput"><br>

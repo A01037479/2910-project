@@ -17,7 +17,7 @@ if(count($_GET) == 0) {
   $source = $_POST['job'];
 
   if ($_POST['input'] !== $row['password']){
-    echo "Wrong password";
+    echo "wrong password";
   } else {
     switch($source) {
       case "delete_button":

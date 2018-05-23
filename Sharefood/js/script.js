@@ -1,17 +1,32 @@
 function pwd_validation(){
   var theForm = document.posting;
 
-  if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ddffdd';
-    theForm.password2.style.backgroundColor='#ddffdd';
-
-  return true;
-  } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
-      theForm.password.style.backgroundColor='#ffdddd';
-      theForm.password2.style.backgroundColor='#ffdddd';
+  if (theForm.password.value.length == 0 && theForm.password2.value.length == 0){
+    theForm.password.style.backgroundColor='#ffffff';
+    theForm.password2.style.backgroundColor='#ffffff';
+  }
+  if (theForm.password.value.length > 0 && theForm.password2.value.length > 0){
+    if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''
+        &&theForm.password.value.length >= 4 && theForm.password2.value.length >= 4
+        &&theForm.password.value.length <= 20 && theForm.password2.value.length <= 20){
+        theForm.password.style.backgroundColor='#ddffdd';
+        theForm.password2.style.backgroundColor='#ddffdd';
+        return true;
+    } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
+        theForm.password.style.backgroundColor='#ffdddd';
+        theForm.password2.style.backgroundColor='#ffdddd';
+        return false;
+    } else if (theForm.password.value.length < 4 || theForm.password2.value.length < 4){
+        theForm.password.style.backgroundColor='#ffdddd';
+        theForm.password2.style.backgroundColor='#ffdddd';
+        return false;
+    } else {
       return false;
-  } else {
-      return false;
+    }
+  } else if (theForm.password.value.length == 0 || theForm.password2.value.length == 0){
+    theForm.password.style.backgroundColor='#ffffff';
+    theForm.password2.style.backgroundColor='#ffffff';
+    return false;
   }
 }
 

@@ -17,7 +17,7 @@ if(count($_POST) == 0) {
   echo "<p class='list_title'>Please confirm</p><br>";
   echo "<p><b>Email: </b> " . $escaped['email'] . "</p>";
   echo "<p><b>Title: </b> " . $escaped['title'] . "</p>";
-  echo "<img src='{$_POST['path']}' alt=\"photo\"  id='confirmImg' class='detailImg'>";
+  echo "<img src='{$_POST['path']}' alt=\"photo\" class='detailImg'>";
   echo "<p><b>Pick-up location</b> ". $_POST["location"] . "</p>";
   echo "<p><b>Description: </b> " . $escaped['description'] . "</p>";
 
