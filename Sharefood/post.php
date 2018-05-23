@@ -3,7 +3,7 @@ require_once('view/top.php');
 ?>
 
 <div class="detail_item">
-  <form class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+  <form id="form1" class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
     <div id = "post_left">
     <p>
       <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
@@ -76,6 +76,7 @@ require_once('view/top.php');
 
   </form>
 
+ 
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
