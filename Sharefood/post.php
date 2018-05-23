@@ -77,12 +77,10 @@ require_once('view/top.php');
   </form>
 
 
-
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
 <script src="js/expnd-ta.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 
 <script>loadStoredDetails('email')</script>
 
