@@ -7,7 +7,8 @@ require_once('view/top.php');
     <title></title>
     <link rel="stylesheet" href="style/information.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
+    <script src="https://cdn.jsdelivr.net/npm/typeit@VERSION_NUMBER/dist/typeit.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One' rel='stylesheet' type='text/css'>
     <style media="screen">
 
 
@@ -41,9 +42,115 @@ require_once('view/top.php');
             size: 5px;
         }
 
+        #myDiv {
+          width: 100%;
+          height: 200px;
+        }
+
+
+
+#container {
+  width: 300px;
+  margin: auto;
+}
+
+/*Neon*/
+.glowy {
+  text-align: center !important;
+  font-size: 7em !important;
+  margin: 20px 0 20px 0 !important;
+}
+
+.glowy2 {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+
+
+
+
+.glowy:nth-child(1) a {
+  color: #FFDD1B;
+  font-family: Pacifico;
+}
+
+.glowy:nth-child(1) a:hover {
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+
+.glowy a:hover {
+  color: #ffffff;
+}
+/*glow for webkit*/
+
+@-webkit-keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}
+
+/*glow for mozilla*/
+
+
+@-moz-keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}
+
+/*glow*/
+@keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}
+
+/*REEEEEEEEEEESPONSIVE*/
+@media (max-width: 650px) {
+  #myFatContainer {
+    width: 100%;
+  }
+  .glowy {
+    font-size: 3.5em;
+  }
+}
+
     </style>
+
+
+
   </head>
   <body>
+
+    <div id="myDiv">
+      <div id="myFatContainer">
+
+
+
+        <p class="glowy"><a class="glowy2" href="http://www3.cec.org/islandora/en/item/11772-characterization-and-management-food-loss-and-waste-in-north-america-en.pdf">
+          Sharing..
+        </a></p>
+
+      </div>
+    </div>
+
+
+
 
     <div class="container" style="background-color: #fff">
     <ol class="step-list">
@@ -197,7 +304,7 @@ require_once('view/top.php');
                 var custom_infoWindow = new google.maps.InfoWindow({
                     content:props.content
                 });
-                
+
                 marker.addListener('click', function(){
                     if (prev_infowindow) {
                         prev_infowindow.close();
@@ -248,7 +355,11 @@ require_once('view/top.php');
     infoBtn.classList.add("active");
 </script>
 
+
+
 </body>
+
+
 <?php
 require_once('view/footer.php');
 ?>

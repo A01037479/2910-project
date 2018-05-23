@@ -77,8 +77,20 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
+    swal({
+      title: "Wait a minute!",
+      text: "Something feels empty..",
+      icon: "warning",
+      button: "I'll fix it",
+    });
     return false;
    } else if(location1.checked == false && location2.checked == false){
+       swal({
+         title: "Wait a minute!",
+         text: "It's best to check a location..",
+         icon: "warning",
+         button: "I'll fix it",
+       });
       return false;
   }else {
     // image type validation
@@ -89,6 +101,13 @@ function check_input(){
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
     } else {
+      e.preventDefault();
+      swal({
+        title: "Good on you!",
+        text: "Let's confirm everything here..",
+        icon: "success",
+        button: "confirm",
+      });
       saveData('email');
       return true;
     }
