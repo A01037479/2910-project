@@ -86,13 +86,6 @@ function check_input(){
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
     } else {
-      e.preventDefault();
-      swal({
-        title: "Good on you!",
-        text: "Let's confirm everything here..",
-        icon: "success",
-        button: "confirm",
-      });
       saveData('email');
       return true;
     }

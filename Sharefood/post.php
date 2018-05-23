@@ -3,7 +3,7 @@ require_once('view/top.php');
 ?>
 
 <div class="detail_item">
-  <form id="form1" class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
+  <form id="form1" class="form center" action="post_confirm.php" name="posting" method="post" enctype="multipart/form-data">
     <div id = "post_left">
     <p>
       <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
@@ -71,15 +71,27 @@ require_once('view/top.php');
     </div>
   </div>
   <br>
-  <button class="button">Submit</button>
+  <button class="button" type="button" onclick="return check_input()">Submit</button>
   </div>
 
   </form>
-  <!-- <script>
-    document.querySelector('button').onclick = function(){
-  	swal("Oops...", "Something went wrong!", "error");
-    };
-  </script> -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("form").on('submit',function(e){
+    e.preventDefault();
+    swal({
+      title: "Good on you!",
+      text: "Let's confirm everything here..",
+      icon: "success",
+      button: "confirm",
+      closeModal: false,
+    });
+    $('form').unbind('submit').submit();
+    return true;
+  });
+});
+</script>
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
