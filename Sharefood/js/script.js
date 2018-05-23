@@ -62,13 +62,13 @@ function check_input(){
   || theForm.path.value == ""
   || theForm.description.value == ""
   || pwd_validation() == false){
-    swal("Hello world1!");
+    swal("You're missing some info!");
     return false;
   } else if (!theForm.checkbox.checked){
-    swal("Hello world2!");
+    swal("Check some boxes!");
       return false;
   } else if(location1.checked == false && location2.checked == false){
-    swal("Hello world3!");
+    swal("!");
       return false;
   }else {
     // image type validation
