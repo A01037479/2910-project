@@ -1,22 +1,37 @@
 function pwd_validation(){
   var theForm = document.posting;
 
-  if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''){
-    theForm.password.style.backgroundColor='#ddffdd';
-    theForm.password2.style.backgroundColor='#ddffdd';
-
-  return true;
-  } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
-      theForm.password.style.backgroundColor='#ffdddd';
-      theForm.password2.style.backgroundColor='#ffdddd';
+  if (theForm.password.value.length == 0 && theForm.password2.value.length == 0){
+    theForm.password.style.backgroundColor='#ffffff';
+    theForm.password2.style.backgroundColor='#ffffff';
+  }
+  if (theForm.password.value.length > 0 && theForm.password2.value.length > 0){
+    if (theForm.password.value == theForm.password2.value && theForm.password2.value != ''
+        &&theForm.password.value.length >= 4 && theForm.password2.value.length >= 4
+        &&theForm.password.value.length <= 20 && theForm.password2.value.length <= 20){
+        theForm.password.style.backgroundColor='#ddffdd';
+        theForm.password2.style.backgroundColor='#ddffdd';
+        return true;
+    } else if (theForm.password.value != theForm.password2.value && theForm.password2.value != ''){
+        theForm.password.style.backgroundColor='#ffdddd';
+        theForm.password2.style.backgroundColor='#ffdddd';
+        return false;
+    } else if (theForm.password.value.length < 4 || theForm.password2.value.length < 4){
+        theForm.password.style.backgroundColor='#ffdddd';
+        theForm.password2.style.backgroundColor='#ffdddd';
+        return false;
+    } else {
       return false;
-  } else {
-      return false;
+    }
+  } else if (theForm.password.value.length == 0 || theForm.password2.value.length == 0){
+    theForm.password.style.backgroundColor='#ffffff';
+    theForm.password2.style.backgroundColor='#ffffff';
+    return false;
   }
 }
 
 /* profanity filter */
-var swearWordsList = new Array("fuck","shit","eric", "boobies");
+var swearWordsList = new Array("fuck","shit","boobies");
 var swearAlertList = new Array;
 
 var swearCount = 0;
@@ -91,4 +106,34 @@ function check_input(){
     }
   }
   return true;
+}
+
+
+//check input for request page
+function checkRequest(){
+  var x = document.forms["requesting"]["email"].value;
+  var y = document.forms["requesting"]["message"].value;
+  if (x == '' || y.trim() == ''){
+    alert('Please fill out all fields');
+    return false;
+    theForm.email.style.backgroundColor='#ffdddd';
+  } else {
+    return true;
+  }
+}
+
+//check input for contact page
+function checkContact(){
+  var name = document.forms["contact"]["name"].value;
+  var email = document.forms["contact"]["email"].value;
+  var subject = document.forms["contact"]["subject"].value;
+  var msg = document.forms["contact"]["message"].value;
+
+  if (name.trim() == "" || email.trim() == "" || subject.trim() == "" || msg.trim() == ""){
+    alert('Please fill out all fields');
+    return false;
+
+  } else {
+    return true;
+  }
 }
