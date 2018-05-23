@@ -32,6 +32,7 @@ require_once('view/top.php');
 require_once('view/footer.php');
 ?>
 <script src="js/script.js?=v1"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     var contactBtn = document.getElementById("contactBtn");
     contactBtn.classList.add("active");

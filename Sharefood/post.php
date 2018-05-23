@@ -50,12 +50,11 @@ require_once('view/top.php');
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <p id="confirmPsw">
+    <p>
       <input id="temp2" class="textinput" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="confirming password">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <span id="pswcheck" class="pswcheck">*password should be 4 to 20 characters, numbers or symbols</span>
 
   <div class="toggleDiv">
     <input type="checkbox" id="toggle"/>
@@ -76,11 +75,8 @@ require_once('view/top.php');
   </div>
 
   </form>
-  <!-- <script>
-    document.querySelector('button').onclick = function(){
-  	swal("Oops...", "Something went wrong!", "error");
-    };
-  </script> -->
+
+ 
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>

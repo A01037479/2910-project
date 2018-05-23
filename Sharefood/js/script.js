@@ -101,13 +101,6 @@ function check_input(){
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
     } else {
-      e.preventDefault();
-      swal({
-        title: "Good on you!",
-        text: "Let's confirm everything here..",
-        icon: "success",
-        button: "confirm",
-      });
       saveData('email');
       return true;
     }
@@ -121,7 +114,12 @@ function checkRequest(){
   var x = document.forms["requesting"]["email"].value;
   var y = document.forms["requesting"]["message"].value;
   if (x == '' || y.trim() == ''){
-    alert('Please fill out all fields');
+    swal({
+      title: "Hold on!",
+      text: "You have to provide info!",
+      icon: "error",
+      button: "Yes boss.",
+    });
     return false;
     theForm.email.style.backgroundColor='#ffdddd';
   } else {
@@ -137,7 +135,12 @@ function checkContact(){
   var msg = document.forms["contact"]["message"].value;
 
   if (name.trim() == "" || email.trim() == "" || subject.trim() == "" || msg.trim() == ""){
-    alert('Please fill out all fields');
+    swal({
+      title: "Hold on!",
+      text: "You forgot to fill all the form out.",
+      icon: "error",
+      button: "I'll fix it!",
+    });
     return false;
 
   } else {
