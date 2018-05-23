@@ -40,33 +40,37 @@ if(!isset($_POST['id'])) {
 
 <div class = "detail_item">
   <p class="list_title"><?=$escaped['title']?></p>
-  <form action="edit_process.php" name ="posting" onsubmit="return check_input()" method="post">
-    <!-- status option -->
-    <p>
-      <label><input type="radio" name="status" value="Available" checked>Available</label><br>
+  <form class="form" action="edit_process.php" name ="posting" onsubmit="return check_input()" method="post">
+    <input type="hidden" name="id" value="<?=$_POST['id']?>">
+    
+  <div id="edit_left">
+    <p class="center">
+      <label><input type="radio" name="status" value="Available" checked>Available</label>&nbsp;
       <label><input type="radio" name="status" value="Taken">Taken</label>
     </p>
-    <img src="<?=$escaped['image']?>" class='detailImg'><br>
-    <input type="hidden" name="id" value="<?=$_POST['id']?>">
+    <img id='editImg' src="<?=$escaped['image']?>" class='detailImg detailImg_fixSize'>
+    
+  </div> 
+
+  <div id="edit_right">
     <p>
       <input class="textinput" type="text" name="title" value="<?=$escaped['title']?>">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <p><textarea name="description" rows="4" cols="20"><?=$escaped['description']?></textarea></p>
-    <div id="location">
-      Pick-up Location<br>
-      <label><input type="radio" name="location" value="Burnaby Campus" <?=$checked_Burnaby?>>Burnaby Campus</label><br>
-      <label><input type="radio" name="location" value="Downtown Campus" <?=$checked_Downtown?>>Downtown Campus</label><br>
+    <p><textarea name="description" rows="3" cols="20"><?=$escaped['description']?></textarea></p>
+    <div class="pickup">
+      <p>Pick-up campus</p>
+      <p><label><input type="radio" name="location" value="Burnaby Campus" <?=$checked_Burnaby?>>Burnaby</label>
+      <label><input type="radio" name="location" value="Downtown Campus" <?=$checked_Downtown?>>Downtown</label></p>
     </div>
-    <p id="pwdInvalid"></p>
     <p>
       <input class="textinput" type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
     <p>
-      <input class="textinput" type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;"></p>
+      <input class="textinput" type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
@@ -89,14 +93,15 @@ if(!isset($_POST['id'])) {
          <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
-      <p><label><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</label></p>
 
       <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
     </div>
 
+  </div>
+
   </form>
 
-</div>
+</div> <!-- detail item -->
 
 
 

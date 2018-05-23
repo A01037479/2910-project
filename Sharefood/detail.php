@@ -37,7 +37,7 @@ if(count($_GET) == 0) {
       <span class="fakelink">edit</span>
     </label>
     <div class="checkContainer">
-     <p>Enter your password</p>
+     <span id="editText">Enter your password&nbsp;</span>
      <form action="edit.php" id="editForm" method="POST" onkeypress="return event.keyCode != 13;">
        <input type="hidden" name="id" value="<?=$_GET['id']?>">
        <input type="password" name="password" id="password" class="textinput"><br>
@@ -53,15 +53,15 @@ if(count($_GET) == 0) {
 $created = substr($row['created'], 0, 10);
 
 echo "<p class='list_title'>{$escaped['title']}</p>";
-echo "<img src=\"{$escaped['image']}\" class='detailImg'>
-<p><b>Status:</b> {$escaped['status']}<br></p><p><b>Posted: </b>{$created}</p>
-<p><b>Pick-up Location: </b>{$escaped['location']}</p>
-<p><b>Description</b><br>{$escaped['description']}</p><br>
+echo "<div id='detail_left'><img src=\"{$escaped['image']}\" class='detailImg detailImg_fixSize'></div>
+<div class='requestInfo'><span id = 'detailStatus' class = 'details'><b>Status:</b> {$escaped['status']}<br><br></span><span id = 'detailDate' class = 'details'><b>Posted: </b>{$created}<br><br></span>
+<span id = 'detailLocation' class = 'details'><b>Pick-up Location: </b>{$escaped['location']}<br><br></span>
+<span id = 'detailDesc' class = 'details'><b>Description</b><br>{$escaped['description']}</span><br><br>
 <br>";
 ?>
-<form action="request.php?id=<?=$filtered_id?>" method="post">
-  <p><input type="submit" name="request" value="Request" class="button"></p>
-</form>
+<form id="detailBtn" action="request.php?id=<?=$filtered_id?>" method="post">
+  <span><input type="submit" name="request" value="Request" class="button"></span>
+</form></div>
 </div>
 
 <script>

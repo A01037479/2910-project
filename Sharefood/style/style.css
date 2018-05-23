@@ -73,6 +73,8 @@ nav {
   top: -10px;
 }
 article {
+  box-sizing: border-box;
+  min-height: calc(100vh - 156px);
   margin: 100px 0 0 0;
   padding: 0;
   transition: margin-top 0.5s;
@@ -161,20 +163,29 @@ article {
   width: 500px;
   max-width: 80%;
   text-align: left;
-  display: inline-block;
   background-color: white;
+  display: inline-block;
   margin: 2em 0.5em;
-  padding: 1em;
+  padding: 2em 1em;
+  box-shadow: 5px 5px #8888883f;
 }
 .detailImg{
   width: 100%;
   height: auto;
 }
+
 .list_title {
   font-size: 20pt;
   font-weight: bold;
   margin: 0.2em;
   text-align: left;
+}
+#request{
+  width:100%;
+}
+
+#contactPage, #confirmPage{
+  width:600px;
 }
 
 /* form styling */
@@ -183,6 +194,9 @@ article {
   color: #636363;;
 }
 .form p {
+  padding: 0.5em 0;
+}
+.pickup {
   padding: 0.5em 0;
 }
 .pickup p {
@@ -252,9 +266,6 @@ progress[value]::-webkit-progress-bar {
 #uploadbox:hover {
   border: 4px dashed #1FB264;
   background-color: #cff7d0;
-}
-#location {
-  margin: 2em 0;
 }
 .button {
   font-size: 1.1em;
@@ -328,7 +339,6 @@ progress[value]::-webkit-progress-bar {
 canvas {
   margin : 0 auto;
 }
-
 footer p {
   margin: 1em 0 0 0;
   background-color: #c7ccc8b4;
@@ -494,6 +504,7 @@ input[type='checkbox']:checked:after {
   overflow: hidden;
   transition: height 400ms linear;
   margin-bottom: 1em;
+  text-align: left;
 }
 #confirmForm {
   display: none;
@@ -519,13 +530,34 @@ input[type='checkbox']:checked:after {
   cursor: pointer;
   background-color: #c0e088;
 }
-
+#editText{
+  float:left;
+  margin-top: 15px;
+}
+#editForm{
+  margin-top: 8px;
+  float:left;
+  width:20%;
+  margin-left: 5px; 
+}
+#edit_button{
+  float:right;
+  margin-top: 12px;
+}
+#delete_button{
+  float:right;
+  margin-top: 12px;
+}
+#check_result{
+  margin-left: 10px;
+  margin-top: -5px;
+}
 #toggle-check {
     display: none;
 }
 
 #toggle-check:checked ~ .checkContainer {
-    height: 165px;
+    height: 50px;
 }
 
 .topMenu a {
@@ -581,6 +613,82 @@ input[type='checkbox']:checked:after {
     width: 100px;
   }
 
+}
+
+@media (min-width:801px) {
+  .detail_item{
+    width: 1000px;
+    max-width: 80%;
+    text-align: left;
+  }
+
+  .detailImg_fixSize{
+    height: 300px;
+    width:auto;
+    max-width: 400px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  .details{
+    width:45%;
+    height: auto;
+    float:right;
+    position:absolute;
+  }
+  #detail_left, #request_left{
+    float:left;
+    width:50%;
+  }
+  #detailDate{
+    margin-top: 30px;
+  }
+  #detailLocation{
+    margin-top: 60px;
+  }
+  #detailDesc{
+    margin-top: 90px;
+  }
+  #detailBtn{
+    margin-left: -10px;
+    margin-top:210px;
+  }
+  .list_title {
+    font-size: 20pt;
+    font-weight: bold;
+    margin: 0.2em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .requestInfo {
+    width:45%;
+    float:right;
+  }
+
+  #post_left{
+    width:45%;
+    float:left;
+  }
+  #post_right{
+    width:45%;
+    float:right;
+  }
+  #senderBtn{
+    margin-top: 100px;
+  }
+
+  #edit_left{
+    float:left;
+    width:50%;
+  }
+  #edit_right{
+    float:right;
+    width:45%;
+  }
+  #editImg{
+    margin-top: 15%;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -671,6 +779,36 @@ input[type='checkbox']:checked:after {
     margin-right: 30px;
     margin-left: 30px;
   }
+
+  #editText{
+    float:left;
+    font-size: 10pt;
+    margin-top: 15px;
+  }
+  #editForm{
+    margin-top: 7px;
+    float:right;
+    width:100%;
+    height:auto;
+  }
+  #check_result{
+    font-size: 9pt;
+    margin-top: 8px;
+  }
+  #password{
+    width:100%;
+  }
+  #edit_button{
+    float:right;
+    margin-top: -7px;
+  }
+  #delete_button{
+    float:right;
+    margin-top: -7px;
+  }
+  #toggle-check:checked ~ .checkContainer {
+    height: 120px;
+}
 }
 
 
