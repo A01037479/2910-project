@@ -163,10 +163,10 @@ article {
   width: 500px;
   max-width: 80%;
   text-align: left;
-  display: inline-block;
   background-color: white;
+  display: inline-block;
   margin: 2em 0.5em;
-  padding: 1em;
+  padding: 2em 1em;
   box-shadow: 5px 5px #8888883f;
 }
 .detailImg{
@@ -186,10 +186,6 @@ article {
 
 #contactPage, #confirmPage{
   width:600px;
-}
-
-#confirmImg{
-  width:100%;
 }
 
 /* form styling */
@@ -270,9 +266,6 @@ progress[value]::-webkit-progress-bar {
 #uploadbox:hover {
   border: 4px dashed #1FB264;
   background-color: #cff7d0;
-}
-#location {
-  margin: 2em 0;
 }
 .button {
   font-size: 1.1em;
@@ -627,15 +620,8 @@ input[type='checkbox']:checked:after {
     width: 1000px;
     max-width: 80%;
     text-align: left;
-    display: inline-block;
-    background-color: white;
-    margin: 2em 0.5em;
-    padding: 1em;
   }
-  .detailImg{
-    width: 50%;
-    height: auto;
-  }
+
   .detailImg_fixSize{
     height: 300px;
     width:auto;
