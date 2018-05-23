@@ -4,7 +4,15 @@ require_once('view/top.php');
 
 <div class="detail_item">
   <form class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
-
+    <div id = "post_left">
+    <p>
+      <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </p>
+    <p>
+      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date"></textarea>
+    </p>
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
     <div id="uploadbox">
@@ -15,14 +23,7 @@ require_once('view/top.php');
       <img src="" id="img"><br>
       <progress></progress>
     </div>
-    <p>
-      <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
-      <span class="highlight"></span>
-      <span class="bar"></span>
-    </p>
-    <p>
-      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date"></textarea>
-    </p>
+
 
     <div class="pickup">
       <p>Pick-up campus</p>
@@ -30,7 +31,8 @@ require_once('view/top.php');
       <input type="checkbox" name="location" value="Downtown campus" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
       </p>
     </div>
-
+  </div>
+  <div id="post_right">
     <script type="text/javascript">
     $('input[type="checkbox"]').on('change', function() {
       $('input[type="checkbox"]').not(this).prop('checked', false);
@@ -70,7 +72,7 @@ require_once('view/top.php');
   </div>
   <br>
   <button class="button">Submit</button>
-
+  </div>
 
   </form>
 

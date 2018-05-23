@@ -14,8 +14,8 @@ if(count($_GET) == 0) {
 
   $row = mysqli_fetch_array($result);
 
-  echo "<div class='detail_item'><p class='list_title'>{$row['title']}</p>";
-  echo "<img src=\"{$row['image']}\" class='detailImg'>";
+  echo "<div class='detail_item'><br><p class='list_title'>{$row['title']}</p>";
+  echo "<div id='request_left'><img src=\"{$row['image']}\" class='detailImg detailImg_fixSize'></div>";
 
 }
 
@@ -27,7 +27,7 @@ if(count($_GET) == 0) {
   <span class="highlight"></span>
   <span class="bar"></span></span>
   <span id="senderMsg"><textarea name="message" rows="5" cols="20" placeholder="Message"></textarea><br><br></span>
-  <span id="senderBtn"><input type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"><br></span>
+  <span ><input id="senderBtn" type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"><br></span>
 </form>
 </div>
 

@@ -42,12 +42,15 @@ if(!isset($_POST['id'])) {
   <p class="list_title"><?=$escaped['title']?></p>
   <form action="edit_process.php" name ="posting" onsubmit="return check_input()" method="post">
     <!-- status option -->
+    <div id="edit_left">
     <p>
       <label><input type="radio" name="status" value="Available" checked>Available</label><br>
       <label><input type="radio" name="status" value="Taken">Taken</label>
     </p>
-    <img src="<?=$escaped['image']?>" class='detailImg'><br>
+    <img id='editImg' src="<?=$escaped['image']?>" class='detailImg detailImg_fixSize'><br>
     <input type="hidden" name="id" value="<?=$_POST['id']?>">
+</div>
+<div id="edit_right">
     <p>
       <input class="textinput" type="text" name="title" value="<?=$escaped['title']?>">
       <span class="highlight"></span>
@@ -92,6 +95,7 @@ if(!isset($_POST['id'])) {
       <p><label><input type="checkbox" name="checkbox" value="check" id="check_term">I have read and agree to the Terms of Use.</label></p>
 
       <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+</div>
     </div>
 
   </form>
