@@ -14,7 +14,7 @@ if(count($_GET) == 0) {
 
   $row = mysqli_fetch_array($result);
 
-  echo "<div class='detail_item'><br><p class='list_title'>{$row['title']}</p>";
+  echo "<div class='detail_item'><br><p class='list_title center'>{$row['title']}</p>";
   echo "<div id='request_left'><img src=\"{$row['image']}\" class='detailImg detailImg_fixSize'></div>";
 
 }

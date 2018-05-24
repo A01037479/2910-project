@@ -112,11 +112,6 @@ article {
   width: 50%;
 }
 
-#gotop:hover {
-  opacity:100;
-  background-color: #555;
-  color: white;
-}
 #gotop{
   opacity: 0.8;
   display: none;
@@ -178,7 +173,6 @@ article {
   font-size: 20pt;
   font-weight: bold;
   margin: 0.2em;
-  text-align: left;
 }
 #request{
   width:100%;
@@ -205,6 +199,7 @@ article {
   margin: 5px;
 }
 .textinput {
+  font-family: 'Helvetica';
   box-sizing: border-box;
   font-size: 12pt;
 	padding: 5px;
@@ -214,12 +209,13 @@ article {
 	width: 100%;
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid #757575;
+	border-bottom: 1px solid #b0b0b2;
 }
 textarea {
   color: #636363;
   padding: 5px;
   font-size: 12pt;
+  font-family: serif;
   box-sizing: border-box;
   width: 100%;
 }
@@ -371,7 +367,7 @@ footer p {
 }
 
 #toggle:checked ~ .fieldsetContainer {
-    height: 130px;
+    height: 150px;
 }
 
 label .arrow-dn { display: inline-block; }
@@ -606,7 +602,7 @@ input[type='checkbox']:checked:after {
   text-align: left;
   margin-left: 0;
 }
-#confirmPsw {
+.confirmPsw {
   margin-bottom: 0;
 }
 
@@ -627,6 +623,30 @@ input[type='checkbox']:checked:after {
 }
 
 @media (min-width:801px) {
+  .arrowDown{
+    visibility: hidden;
+  }
+  .fieldsetContainer{
+    background-color: #ededef;
+    margin-top: 10px;
+    height:80px;
+    font-size: 9pt;
+    /* border: 1px dashed gray; */
+    border-radius: 2px;
+  }
+  #submitPost{
+    display:block;
+    float:right;
+    margin-top: 20px;
+  }
+  #saveEdit{
+    display:block;
+    float:right;
+    margin-top: 0;
+  }
+  .ToU {
+    margin-top: 0;
+  }
   .detail_item{
     width: 1000px;
     max-width: 80%;
@@ -634,7 +654,7 @@ input[type='checkbox']:checked:after {
   }
 
   .detailImg_fixSize{
-    height: 300px;
+    height: 22vw;
     width:auto;
     max-width: 400px;
     display:block;
@@ -666,11 +686,7 @@ input[type='checkbox']:checked:after {
     margin-top:210px;
   }
   .list_title {
-    font-size: 20pt;
-    font-weight: bold;
-    margin: 0.2em;
-    text-align: center;
-    margin-bottom: 20px;
+    padding-bottom: 30px;
   }
   .requestInfo {
     width:45%;
