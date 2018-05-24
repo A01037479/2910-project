@@ -333,8 +333,12 @@ progress[value]::-webkit-progress-bar {
   max-width: 95%;
   margin-bottom: 1em;
 }
-canvas {
-  margin : 0 auto;
+Canvas {
+  display:block;
+  position: absolute;
+  top:100px;
+  left:50%;
+  transform: translateX(-50%);
 }
 footer p {
   margin: 1em 0 0 0;
@@ -626,6 +630,14 @@ input[type='checkbox']:checked:after {
 }
 
 @media (min-width:801px) {
+  #breakout{
+    width:45%;
+    float:left;
+  }
+  #appleGame{
+    width:45%;
+    float:right;
+  }
   .arrowDown{
     display:none;
   }

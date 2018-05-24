@@ -6,6 +6,7 @@ require_once('view/top.php');
 <script src="js/node_modules/@orange-games/phaser-input/build/phaser-input.js"></script>
 
 <br>
+<body>
 <script>
     
     var game = new Phaser.Game(300, 400, Phaser.CANVAS, 'eatapplefast', { preload: preload, create: create, update: update, render: render });
@@ -668,4 +669,8 @@ require_once('view/top.php');
     }
 
     </script>
+    </body>
+    <?php
+    require_once('view/footer.php');
+    ?>
   

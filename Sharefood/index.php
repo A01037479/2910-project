@@ -77,11 +77,12 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 <!-- game section -->
 <div id="gamesection"  class="list_item">
   <p><b>There's no result found. </b><br>Do you want to play a game instead?</p>
-  <br>
+  <br><div id="breakout">
     <a href="game_breakout.php"><p class="list_title">Break out</p>
-    <img src="img/breakout.png" class="gameimg"></a><br>
+    <img src="img/breakout.png" class="gameimg"></a><br></div>
+    <div id="appleGame">
     <a href="game_apple.php"><p class="list_title">Eat Apple Fast</p>
-    <img src="img/appleScreenshot.png" class="gameimg"></a>
+    <img src="img/appleScreenshot.png" class="gameimg"></a></div>
   <br>
 </div>
 

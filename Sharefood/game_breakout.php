@@ -328,3 +328,6 @@ require_once('view/top.php');
 </script>
 
 </body>
+<?php
+    require_once('view/footer.php');
+    ?>
