@@ -178,7 +178,6 @@ article {
   font-size: 20pt;
   font-weight: bold;
   margin: 0.2em;
-  text-align: left;
 }
 #request{
   width:100%;
@@ -689,11 +688,7 @@ input[type='checkbox']:checked:after {
     margin-top:210px;
   }
   .list_title {
-    font-size: 20pt;
-    font-weight: bold;
-    margin: 0.2em;
-    text-align: center;
-    margin-bottom: 20px;
+    padding-bottom: 30px;
   }
   .requestInfo {
     width:45%;
