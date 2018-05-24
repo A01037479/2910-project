@@ -102,8 +102,13 @@ function check_input(){
       return false;
     }
   }
-  // when everything is ok
-  console.log('click');
+
+  return true;
+}
+
+// uploading msg
+$("#confirmBtn").click(function(e){
+  e.preventDefault();
   swal({
     icon: "success",
     title: 'Uploading your item...',
@@ -111,10 +116,9 @@ function check_input(){
     timer: 20000,
     onOpen: () => {
       swal.showLoading()
-    }
+      }
   });
-  return true;
-}
+});
 
 
 //check input for request page
