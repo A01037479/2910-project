@@ -39,7 +39,7 @@ if(!isset($_POST['id'])) {
 ?>
 
 <div class = "detail_item">
-  <p class="list_title"><?=$escaped['title']?></p>
+  <p class="list_title center"><?=$escaped['title']?></p>
   <form class="form" action="edit_process.php" name ="posting" onsubmit="return checkEdit()" method="post">
     <input type="hidden" name="id" value="<?=$_POST['id']?>">
     
