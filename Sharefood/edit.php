@@ -50,9 +50,6 @@ if(!isset($_POST['id'])) {
     </p>
     <img id='editImg' src="<?=$escaped['image']?>" class='detailImg detailImg_fixSize'>
     
-  </div> 
-
-  <div id="edit_right">
     <p>
       <input class="textinput" type="text" name="title" value="<?=$escaped['title']?>">
       <span class="highlight"></span>
@@ -64,16 +61,20 @@ if(!isset($_POST['id'])) {
       <p><label><input type="radio" name="location" value="Burnaby Campus" <?=$checked_Burnaby?>>Burnaby</label>
       <label><input type="radio" name="location" value="Downtown Campus" <?=$checked_Downtown?>>Downtown</label></p>
     </div>
+    </div> 
+
+  <div id="edit_right">
     <p>
       <input class="textinput" type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <p>
+    <p class="confirmPsw">
       <input class="textinput" type="password" name="password2" placeholder="Confirming password" onkeyup="pwd_validation(); return false;">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
+    <span class="pswcheck">*password length should be 4 to 20 characters, numbers or symbols.</span>
     <p>
       <input class="textinput" type="email" name="email" value="<?=$escaped['email']?>">
       <span class="highlight"></span>
@@ -90,11 +91,11 @@ if(!isset($_POST['id'])) {
           </span>
       </label>
       <div class="fieldsetContainer">
-         <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
+         <p class="ToU">By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
 
-      <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+      <p><input type="submit" id="saveEdit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
     </div>
 
   </div>

@@ -50,12 +50,12 @@ require_once('view/top.php');
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <p>
+    <p class="confirmPsw">
       <input id="temp2" class="textinput" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="confirming password">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-
+    <span class="pswcheck">*password length should be 4 to 20 characters, numbers or symbols.</span>
   <div class="toggleDiv">
     <input type="checkbox" id="toggle"/>
     <label for="toggle">
@@ -66,7 +66,7 @@ require_once('view/top.php');
         </span>
     </label>
     <div class="fieldsetContainer">
-      <p>By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
+      <p class="ToU">By uploading to this site, you, the user agree that the food item is not expired, nor has it been opened.
       This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
     </div>
   </div>
