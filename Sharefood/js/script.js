@@ -100,11 +100,19 @@ function check_input(){
       alert('Invalid image file');
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
-    } else {
-      saveData('email');
-      return true;
-    }
+    } 
   }
+  // when everything is ok
+  console.log('click');
+  swal({
+    icon: "success",
+    title: 'Uploading your item!',
+    text: 'it will be automatically closed',
+    timer: 2000,
+    onOpen: () => {
+      swal.showLoading()
+    }
+  });
   return true;
 }
 
