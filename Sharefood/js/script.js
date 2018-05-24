@@ -117,7 +117,7 @@ function checkRequest(){
     swal({
       title: "Hold on!",
       text: "You have to provide info!",
-      icon: "error",
+      icon: "warning",
       button: "Yes boss.",
     });
     return false;
@@ -138,7 +138,34 @@ function checkContact(){
     swal({
       title: "Hold on!",
       text: "You forgot to fill all the form out.",
-      icon: "error",
+      icon: "warning",
+      button: "I'll fix it!",
+    });
+    return false;
+
+  } else {
+    return true;
+  }
+}
+
+
+//check input for edit page
+function checkEdit(){
+
+  var title = document.posting.title.value;
+  var email = document.posting.email.value;
+  var msg = document.posting.description.value;
+  var password = document.posting.password.value;
+
+  if (title.trim() == "" 
+  || email.trim() == "" 
+  || msg.trim() == ""
+  || password.trim() == ""
+  || pwd_validation() == false){
+    swal({
+      title: "Hold on!",
+      text: "You forgot to fill all the form out.",
+      icon: "warning",
       button: "I'll fix it!",
     });
     return false;

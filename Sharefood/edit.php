@@ -40,7 +40,7 @@ if(!isset($_POST['id'])) {
 
 <div class = "detail_item">
   <p class="list_title"><?=$escaped['title']?></p>
-  <form class="form" action="edit_process.php" name ="posting" onsubmit="return check_input()" method="post">
+  <form class="form" action="edit_process.php" name ="posting" onsubmit="return checkEdit()" method="post">
     <input type="hidden" name="id" value="<?=$_POST['id']?>">
     
   <div id="edit_left">
@@ -94,7 +94,7 @@ if(!isset($_POST['id'])) {
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
 
-      <p><input type="submit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+      <p><input type="submit" name="submit" value="Save" class="button"></p>
     </div>
 
   </div>
@@ -107,7 +107,8 @@ if(!isset($_POST['id'])) {
 
 <br>
 
- <script src="js/script.js?v=1"></script>
+ <script src="js/script.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <?php
 require_once('view/footer.php');
