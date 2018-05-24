@@ -211,16 +211,13 @@ article {
 	border-bottom: 1px solid #b0b0b2;
 }
 textarea {
+  font-family: 'Roboto';
   color: #636363;
   padding: 5px;
   font-size: 12pt;
   box-sizing: border-box;
   width: 100%;
   border: 1px solid #b0b0b2;
-}
-
-.postTextArea {
-  border: 1px solid #bdbdbd;
   resize: none;
   outline: none;
 }
