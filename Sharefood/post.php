@@ -16,7 +16,7 @@ require_once('view/top.php');
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
     <div id="uploadbox">
-      <div id="tempdiv"><i class="fa fa-upload" style="font-size:18px;color:green"></i> 
+      <div id="tempdiv"><i class="fa fa-upload" style="font-size:18px;color:green"></i>
         Upload a photo<br>
         <img src="img/photo.png">
       </div>
@@ -55,7 +55,7 @@ require_once('view/top.php');
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <span class="pswcheck">*password length should be 4 to 20 characters, numbers or symbols.</span>
+    <span class="pswcheck">*password must be between 4 to 20 characters and can contain letters, numbers or symbols.</span>
   <div class="toggleDiv">
     <input type="checkbox" id="toggle"/>
     <label for="toggle">
@@ -75,7 +75,7 @@ require_once('view/top.php');
 
   </form>
 
- 
+
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>

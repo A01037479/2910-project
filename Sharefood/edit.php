@@ -74,7 +74,7 @@ if(!isset($_POST['id'])) {
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <span class="pswcheck">*password length should be 4 to 20 characters, numbers or symbols.</span>
+    <span class="pswcheck">*password must be between 4 to 20 characters and can contain letters, numbers or symbols.</span>
     <p>
       <input class="textinput" type="email" name="email" value="<?=$escaped['email']?>">
       <span class="highlight"></span>

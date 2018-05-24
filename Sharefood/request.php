@@ -23,11 +23,11 @@ if(count($_GET) == 0) {
 
 
 <form class="requestInfo" action="email_process.php?id=<?=$_GET['id']?>" method="post" onsubmit="return checkRequest()" name="requesting">
-  <span id="senderEmail"><input id="emailRequest" class="textinput" type="email" name="email" placeholder="Your email address" required><br>
+  <p><input id="emailRequest" class="textinput" type="email" name="email" placeholder="Your email address" required>
   <span class="highlight"></span>
-  <span class="bar"></span></span></p>
-  <p><textarea name="message" rows="5" cols="20" placeholder="Your message to the food owner" required></textarea></p>
-  <p><button id="senderBtn" type="submit" name="send" class="button" onclick="saveData('emailRequest')"><i class="fa fa-send-o" style="font-size:15px"></i> Send</button></p>
+  <span class="bar"></span></p>
+  <p><textarea name="message" rows="5" cols="20" placeholder="Message" required></textarea></p>
+  <p><button id="senderBtn" type="submit" name="send" class="button" onclick="saveData('emailRequest')">Send</button></p>
 </form>
 </div>
 <script src="js/script.js?=v1"></script>

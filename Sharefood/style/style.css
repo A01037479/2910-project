@@ -199,7 +199,6 @@ article {
   margin: 5px;
 }
 .textinput {
-  font-family: 'Roboto';
   box-sizing: border-box;
   font-size: 12pt;
 	padding: 5px;
@@ -212,13 +211,15 @@ article {
 	border-bottom: 1px solid #b0b0b2;
 }
 textarea {
+  font-family: 'Roboto';
   color: #636363;
   padding: 5px;
   font-size: 12pt;
-  font-family: Roboto;
   box-sizing: border-box;
   width: 100%;
   border: 1px solid #b0b0b2;
+  resize: none;
+  outline: none;
 }
 
 .textinput:focus { outline: none; }
@@ -436,6 +437,7 @@ input[type='checkbox']:checked:after {
   font-size: 20pt;
   position: relative;
   left: -6px;
+  top: -1.2px;
   width: 80px;
   box-sizing: border-box;
   border: 1px solid #595d63;
@@ -541,7 +543,7 @@ input[type='checkbox']:checked:after {
   margin-top: 8px;
   float:left;
   width:20%;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 #edit_button{
   float:right;
@@ -566,7 +568,7 @@ input[type='checkbox']:checked:after {
 .topMenu a {
   float: left;
   margin-top: 10px;
-  display: block; 
+  display: block;
   text-align: left;
   padding: 17px 17px;
   font-size: 15px;
@@ -583,7 +585,7 @@ input[type='checkbox']:checked:after {
 
 .navBtn:hover{
   border-bottom: 7px solid rgba(0, 128, 0, 0.267);
-  color: green;  
+  color: green;
   -webkit-animation: mymove 1s ; /* Safari 4.0 - 8.0 */
   animation: mymove 1s ;
 }
@@ -639,12 +641,18 @@ input[type='checkbox']:checked:after {
     float:right;
   }
   .arrowDown{
-    display:none;
+    visibility: hidden;
+  }
+  #toggle:checked ~ .fieldsetContainer {
+    height: 80px;
+  }
+  #toggle:checked ~ label .arrow-up {
+    display: none;
   }
   .fieldsetContainer{
     background-color: #ededef;
     margin-top: 10px;
-    height:100px;
+    height:80px;
     font-size: 9pt;
     /* border: 1px dashed gray; */
     border-radius: 2px;
@@ -652,7 +660,7 @@ input[type='checkbox']:checked:after {
   #submitPost{
     display:block;
     float:right;
-    margin-top: 0px;
+    margin-top: 20px;
   }
   #saveEdit{
     display:block;
@@ -661,10 +669,8 @@ input[type='checkbox']:checked:after {
   }
   .ToU {
     margin-top: 0;
-    font-size: 10pt;
   }
   .detail_item{
-    font-size: 12pt;
     width: 1000px;
     max-width: 80%;
     text-align: left;
@@ -677,7 +683,7 @@ input[type='checkbox']:checked:after {
     display:block;
     margin-left: auto;
     margin-right: auto;
-  
+
   }
   .details{
     width:45%;
