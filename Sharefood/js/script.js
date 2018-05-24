@@ -102,19 +102,23 @@ function check_input(){
       return false;
     } 
   }
-  // when everything is ok
-  console.log('click');
+  saveData('email');
+  return true;
+}
+
+// uploading msg
+$("#confirmBtn").click(function(e){
+  e.preventDefault();
   swal({
     icon: "success",
     title: 'Uploading your item...',
     text: 'it will be closed in 2 seconds',
-    timer: 1500,
+    timer: 20000,
     onOpen: () => {
       swal.showLoading()
-    }
+      }
   });
-  return true;
-}
+});
 
 
 //check input for request page

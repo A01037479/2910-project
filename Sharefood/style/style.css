@@ -199,7 +199,10 @@ article {
   margin: 5px;
 }
 .textinput {
+<<<<<<< HEAD
+=======
   font-family: 'Roboto';
+>>>>>>> 388c975499b20a1fa550d0433716c03874285ae9
   box-sizing: border-box;
   font-size: 12pt;
 	padding: 5px;
@@ -218,6 +221,7 @@ textarea {
   font-family: Roboto;
   box-sizing: border-box;
   width: 100%;
+  border: 1px solid #b0b0b2;
 }
 
 .textinput:focus { outline: none; }
@@ -355,6 +359,7 @@ footer p {
   text-align: justify;
 }
 .toggleDiv {
+  padding-top: 10px;
   margin: 1em auto;
   text-align: left;
 }
