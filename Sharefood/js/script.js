@@ -121,7 +121,6 @@ $("#confirmBtn").click(function(e){
   });
 });
 
-
 //check input for request page
 function checkRequest(){
   var x = document.forms["requesting"]["email"].value;
