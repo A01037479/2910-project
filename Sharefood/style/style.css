@@ -112,11 +112,6 @@ article {
   width: 50%;
 }
 
-#gotop:hover {
-  opacity:100;
-  background-color: #555;
-  color: white;
-}
 #gotop{
   opacity: 0.8;
   display: none;
