@@ -123,12 +123,12 @@ require_once('view/top.php');
             {
             coords:{lat:49.25092799999999,lng:-123.0034159},
             iconImage: bcit,
-            content:'<h4>BCIT Burnaby Campus</h4><p>3700 Willingdon Ave, Burnaby, BC V5G3H2, Canada</p>'
+            content:'<b>BCIT Burnaby Campus</b><br/>3700 Willingdon Ave, Burnaby, BC V5G3H2, Canada'
             },
             {
             coords:{lat:49.283451,lng:-123.115255},
             iconImage: bcit,
-            content:'<h4>BCIT Downtown Campus</h4><p>555 Seymour St, Vancouver, BC V6B3H6, Canada</p>'
+            content:'<b>BCIT Downtown Campus</b><br/>555 Seymour St, Vancouver, BC V6B3H6, Canada'
             }
         ];
 
