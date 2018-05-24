@@ -62,7 +62,7 @@ require_once('view/top.php');
         <span>
             Terms of Use&nbsp;
             <span class="changeArrow arrow-up"><img src="img/arrow-up.png" alt="up"></span>
-            <span class="changeArrow arrow-dn"><img src="img/arrow-down.png" alt="down"></span>
+            <span class="changeArrow arrow-dn"><img class="arrowDown" src="img/arrow-down.png" alt="down"></span>
         </span>
     </label>
     <div class="fieldsetContainer">

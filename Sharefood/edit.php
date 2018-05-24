@@ -49,7 +49,9 @@ if(!isset($_POST['id'])) {
       <label><input type="radio" name="status" value="Taken">Taken</label>
     </p>
     <img id='editImg' src="<?=$escaped['image']?>" class='detailImg detailImg_fixSize'>
-    
+    </div> 
+
+<div id="edit_right">
     <p>
       <input class="textinput" type="text" name="title" value="<?=$escaped['title']?>">
       <span class="highlight"></span>
@@ -61,9 +63,7 @@ if(!isset($_POST['id'])) {
       <p><label><input type="radio" name="location" value="Burnaby Campus" <?=$checked_Burnaby?>>Burnaby</label>
       <label><input type="radio" name="location" value="Downtown Campus" <?=$checked_Downtown?>>Downtown</label></p>
     </div>
-    </div> 
-
-  <div id="edit_right">
+  
     <p>
       <input class="textinput" type="password" name="password" placeholder="Password" onkeyup="pwd_validation(); return false;">
       <span class="highlight"></span>
@@ -87,7 +87,7 @@ if(!isset($_POST['id'])) {
           <span>
               Terms of Use&nbsp;
               <span class="changeArrow arrow-up"><img src="img/arrow-up.png" alt="up"></span>
-              <span class="changeArrow arrow-dn"><img src="img/arrow-down.png" alt="down"></span>
+              <span class="changeArrow arrow-dn"><img class="arrowDown"  src="img/arrow-down.png" alt="down"></span>
           </span>
       </label>
       <div class="fieldsetContainer">
