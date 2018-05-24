@@ -832,16 +832,23 @@ input[type='checkbox']:checked:after {
   }
   #check_result{
     font-size: 9pt;
-    margin-top: 8px;
+    margin-top: 0px;
+    float:left;
   }
   #password{
     width:100%;
   }
   #edit_button{
+    height:25px;
+    width:50px;
+    font-size: 8pt;
     float:right;
     margin-top: -7px;
   }
   #delete_button{
+    height:25px;
+    width:50px;
+    font-size: 8pt;
     float:right;
     margin-top: -7px;
   }
@@ -887,6 +894,20 @@ input[type='checkbox']:checked:after {
     margin-right: 30px;
     margin-left: 30px;
     font-size: 10pt;
+  }
+  #edit_button{
+    height:20px;
+    width:40px;
+    font-size: 8pt;
+    float:right;
+    margin-top: 0px;
+  }
+  #delete_button{
+    height:20px;
+    width:40px;
+    font-size: 8pt;
+    float:right;
+    margin-top: 0px;
   }
 
 }
