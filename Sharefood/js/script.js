@@ -106,8 +106,8 @@ function check_input(){
   console.log('click');
   swal({
     icon: "success",
-    title: 'Uploading your item!',
-    text: 'it will be automatically closed',
+    title: 'Uploading your item...',
+    text: 'it will be closed in 2 seconds',
     timer: 2000,
     onOpen: () => {
       swal.showLoading()
