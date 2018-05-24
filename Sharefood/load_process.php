@@ -51,7 +51,7 @@ if(count($_POST) == 0) {
           if($d2 == 0){
             echo"Posted: &nbsp;Today</p></div></a>";
           } else if($d2 == 1){
-            echo"Posted: &nbsp;$d2 day ago</p></div></a>";
+            echo"Posted: &nbsp;Yesterday</p></div></a>";
           } else if($d2<=7){
             echo"Posted: &nbsp;$d2 days ago</p></div></a>";
           } else {
