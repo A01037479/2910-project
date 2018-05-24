@@ -13,7 +13,7 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
   </div>
   <div id="searchcontainer">
   <form action="index.php" method="GET" name="searching">
-    <input id="searchbox" type="text" name="search" placeholder="Search for free food..." >
+    <input id="searchbox" type="text" name="search" placeholder="Search by food name, campus..." >
     <button id="searchbtn" type="submit">&nbsp;</button>
   </form>
   </div>
