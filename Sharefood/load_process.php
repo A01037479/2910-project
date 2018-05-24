@@ -42,12 +42,26 @@ if(count($_POST) == 0) {
           }else{
             $icon = "<i class='fa fa-times-circle' style='font-size:24px;color:grey'></i>";
           }
+          date_default_timezone_set("America/Los_Angeles");
+          $d1=strtotime($created);
+          $d2=ceil((time()-$d1)/60/60/24)-1;
           echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
           echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-          <p>Status:&nbsp; {$escaped['status']} $icon<br>Posted: &nbsp; {$created}</p>
-          </div></a>";
+          <p>Status:&nbsp; {$escaped['status']} $icon<br>";
+          if($d2 == 0){
+            echo"Posted: &nbsp;Today</p></div></a>";
+          } else if($d2 == 1){
+            echo"Posted: &nbsp;$d2 day ago</p></div></a>";
+          } else if($d2<=7){
+            echo"Posted: &nbsp;$d2 days ago</p></div></a>";
+          } else {
+            echo "Posted: &nbsp; $created</p></div></a>";
+          }
+      
+          $lastid = $row['id'];
+          }
           echo "<script>newid = {$row['id']};</script>";
       }
     } 
-  }
+  
  ?>
