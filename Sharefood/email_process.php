@@ -43,7 +43,11 @@ if(count($_POST) == 0) {
     /* Message Content - Choose simple text or HTML email */
 
     // Choose to send either a simple text email...
-    $mail->Body = "Sent from: $escaped_from \n\n" . $escaped_msg; // Set a plain text body.
+    $mail->Body = "<img src='http://sharefood.today/img/logoFull.png' width='250'><p>Sent from: $escaped_from</p>
+    <p>$escaped_msg</p>
+    <p><a href='http://sharefood.today/detail.php?id=$filtered_id' target='_blank'>Click to check the item</a></p>"; // Set a plain text body.
+    
+    $mail->IsHTML(true);
 
     if ($mail->send()) {
         echo "<script>alert ('Message has been sent successfully');
