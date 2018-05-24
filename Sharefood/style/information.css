@@ -112,7 +112,7 @@ body {
 /*Neon*/
 .glowy {
   text-align: center;
-  font-size: 12vw;
+  font-size: calc(20pt + 7vw);
   margin: 20px 0 20px 0;
 }
 
