@@ -52,7 +52,7 @@ if(count($_GET) == 0) {
 <?php
 $created = substr($row['created'], 0, 10);
 
-echo "<p class='list_title'>{$escaped['title']}</p>";
+echo "<p class='list_title center'>{$escaped['title']}</p>";
 echo "<div id='detail_left'><img src=\"{$escaped['image']}\" class='detailImg detailImg_fixSize'></div>
 <div class='requestInfo'><span id = 'detailStatus' class = 'details'><b>Status:</b> {$escaped['status']}<br><br></span><span id = 'detailDate' class = 'details'><b>Posted: </b>{$created}<br><br></span>
 <span id = 'detailLocation' class = 'details'><b>Pick-up Location: </b>{$escaped['location']}<br><br></span>
