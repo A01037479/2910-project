@@ -11,7 +11,7 @@ require_once('view/top.php');
       <span class="bar"></span>
     </p>
     <p>
-      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date"></textarea>
+      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date)"></textarea>
     </p>
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
@@ -62,7 +62,7 @@ require_once('view/top.php');
         <span>
             Terms of Use&nbsp;
             <span class="changeArrow arrow-up"><img src="img/arrow-up.png" alt="up"></span>
-            <span class="changeArrow arrow-dn"><img src="img/arrow-down.png" alt="down"></span>
+            <span class="changeArrow arrow-dn"><img class="arrowDown" src="img/arrow-down.png" alt="down"></span>
         </span>
     </label>
     <div class="fieldsetContainer">
