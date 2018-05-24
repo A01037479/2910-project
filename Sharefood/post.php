@@ -11,7 +11,7 @@ require_once('view/top.php');
       <span class="bar"></span>
     </p>
     <p>
-      <textarea name="description" class="autoExpand postTextArea" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date)"></textarea>
+      <textarea name="description" class="autoExpand" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date)"></textarea>
     </p>
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
