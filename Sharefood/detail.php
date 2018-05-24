@@ -60,7 +60,7 @@ echo "<div id='detail_left'><img src=\"{$escaped['image']}\" class='detailImg de
 <br>";
 ?>
 <form id="detailBtn" action="request.php?id=<?=$filtered_id?>" method="post">
-  <span><input type="submit" name="request" value="Request" class="button"></span>
+  <span><button type="submit" name="request" class="button">Request</button></span>
 </form></div>
 </div>
 

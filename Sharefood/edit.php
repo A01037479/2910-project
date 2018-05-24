@@ -95,7 +95,7 @@ if(!isset($_POST['id'])) {
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
 
-      <p><input type="submit" id="saveEdit" name="submit" value="Save" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"></p>
+      <p><button type="submit" id="saveEdit" name="submit" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}">Save</button></p>
     </div>
 
   </div>
