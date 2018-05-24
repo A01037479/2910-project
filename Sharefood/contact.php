@@ -20,7 +20,7 @@ require_once('view/top.php');
     <p><input class="textinput" type="text" name="subject" placeholder="Subject">
     <span class="highlight"></span>
     <span class="bar"></span></p>
-    <p><textarea placeholder="Your message and comments for Sharefood.today" name="message"
+    <p><textarea placeholder="What's on your mind?" name="message"
     rows="7" cols="20"></textarea></p>
     <p><button type="submit" class="button" onclick="saveData('contactEmail')">Send</button></p>
 
