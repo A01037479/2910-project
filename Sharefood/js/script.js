@@ -108,15 +108,15 @@ function check_input(){
 
 //uploading msg
 $("#confirmBtn").click(function(e){
-  e.preventDefault();
+  $("#confirmForm").submit();
   swal({
     icon: "success",
     title: "You're awesome!",
     text: "we're making your post now!",
-    timer: 20000,
+    timer: 15000,
     button: false,
   });
-  $("#confirmForm").submit();
+  
 });
 
 //check input for request page
