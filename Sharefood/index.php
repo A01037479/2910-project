@@ -138,7 +138,6 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 </script>
 
 <script src="js/typewriter.js?v=1"></script>
-<script src="js/checkStatus.js?v=1"></script>
 <?php
 require_once('view/footer.php');
  ?>
