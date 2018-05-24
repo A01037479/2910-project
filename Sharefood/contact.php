@@ -22,7 +22,7 @@ require_once('view/top.php');
     <span class="bar"></span></p>
     <p><textarea placeholder="What's on your mind?" name="message"
     rows="7" cols="20"></textarea></p>
-    <p><button type="submit" class="button" onclick="saveData('contactEmail')">Send</button></p>
+    <p><button type="submit" class="button" onclick="saveData('contactEmail')"><i class="fa fa-send-o" style="font-size:15px"></i> Send</button></p>
 
 </form>
 </div>
