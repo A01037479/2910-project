@@ -106,21 +106,18 @@ function check_input(){
   return true;
 }
 
-// uploading msg
-// $("#confirmBtn").click(function(e){
-//   e.preventDefault();
-//   swal({
-//     icon: "success",
-//     title: "You're awesome!",
-//     text: "we're making your post now!",
-//     timer: 20000,
-//     button: false,
-//     onOpen: () => {
-//       swal.showLoading()
-//       }
-//   });
-//   $("#confirmForm").submit();
-// });
+//uploading msg
+$("#confirmBtn").click(function(e){
+  e.preventDefault();
+  swal({
+    icon: "success",
+    title: "You're awesome!",
+    text: "we're making your post now!",
+    timer: 20000,
+    button: false,
+  });
+  $("#confirmForm").submit();
+});
 
 //check input for request page
 function checkRequest(){
