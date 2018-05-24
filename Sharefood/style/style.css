@@ -209,7 +209,7 @@ article {
 	width: 100%;
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid #757575;
+	border-bottom: 1px solid #b0b0b2;
 }
 textarea {
   color: #636363;
@@ -627,11 +627,12 @@ input[type='checkbox']:checked:after {
     visibility: hidden;
   }
   .fieldsetContainer{
+    background-color: #ededef;
+    margin-top: 10px;
     height:80px;
     font-size: 9pt;
-    border: 2px solid grey;
+    /* border: 1px dashed gray; */
     border-radius: 2px;
-    overflow-y: scroll;
   }
   #submitPost{
     display:block;
