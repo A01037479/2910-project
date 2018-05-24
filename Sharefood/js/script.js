@@ -100,7 +100,7 @@ function check_input(){
       alert('Invalid image file');
       $('#imgpath').val('');  // set up uploaded file as null
       return false;
-    } 
+    }
   }
   // when everything is ok
   console.log('click');
@@ -108,7 +108,7 @@ function check_input(){
     icon: "success",
     title: 'Uploading your item...',
     text: 'it will be closed in 2 seconds',
-    timer: 1500,
+    timer: 20000,
     onOpen: () => {
       swal.showLoading()
     }
@@ -165,8 +165,8 @@ function checkEdit(){
   var msg = document.posting.description.value;
   var password = document.posting.password.value;
 
-  if (title.trim() == "" 
-  || email.trim() == "" 
+  if (title.trim() == ""
+  || email.trim() == ""
   || msg.trim() == ""
   || password.trim() == ""
   || pwd_validation() == false){

@@ -11,12 +11,12 @@ require_once('view/top.php');
       <span class="bar"></span>
     </p>
     <p>
-      <textarea name="description" class="autoExpand fa" rows="3" placeholder="&#xf11c; Tell us a bit more about your food (e.g. quantity, best before date)"></textarea>
+      <textarea name="description" class="autoExpand fa postTextArea" rows="3" placeholder="&#xf11c; Tell us a bit more about your food (e.g.      quantity, best before date)"></textarea>
     </p>
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
     <div id="uploadbox">
-      <div id="tempdiv"><i class="fa fa-upload" style="font-size:18px;color:green"></i> 
+      <div id="tempdiv"><i class="fa fa-upload" style="font-size:18px;color:green"></i>
         Upload a photo<br>
         <img src="img/photo.png">
       </div>
@@ -76,7 +76,7 @@ require_once('view/top.php');
 
   </form>
 
- 
+
 
 <script src="js/fileupload.js"></script>
 <script src="js/script.js?=v1"></script>
