@@ -199,10 +199,7 @@ article {
   margin: 5px;
 }
 .textinput {
-<<<<<<< HEAD
-=======
   font-family: 'Roboto';
->>>>>>> 388c975499b20a1fa550d0433716c03874285ae9
   box-sizing: border-box;
   font-size: 12pt;
 	padding: 5px;
@@ -517,8 +514,9 @@ input[type='checkbox']:checked:after {
   display: none;
 }
 .emptybtn {
-  height: 25px;
-  width: 60px;
+  color:green;
+  height: 30px;
+  width: 80px;
   margin: 0em 0.5em;
   border: 1px solid green;
   background-color: white;
@@ -529,8 +527,8 @@ input[type='checkbox']:checked:after {
   border: 1px solid green;
   border: none;
   color: white;
-  height: 25px;
-  width: 60px;
+  height: 30px;
+  width: 80px;
   margin: 0 0 0 0.5em;
 }
 .emptybtn:hover, .confirmbtn:hover {

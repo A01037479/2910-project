@@ -45,8 +45,8 @@ if(!isset($_POST['id'])) {
     
   <div id="edit_left">
     <p class="center">
-      <label><input type="radio" name="status" value="Available" checked>Available</label>&nbsp;
-      <label><input type="radio" name="status" value="Taken">Taken</label>
+      <label><input type="radio" name="status" value="Available" checked>Available</label>&nbsp;<i class='fa fa-check-circle' style='font-size:24px;color:green'></i>
+      <label><input type="radio" name="status" value="Taken">Taken</label><i class='fa fa-times-circle' style='font-size:24px;color:grey'></i>
     </p>
     <img id='editImg' src="<?=$escaped['image']?>" class='detailImg detailImg_fixSize'>
     </div> 
@@ -95,7 +95,7 @@ if(!isset($_POST['id'])) {
          This site was made under the pretense that a faithful and caring community (BCIT) exists.</p>
       </div>
 
-      <p><button type="submit" id="saveEdit" name="submit" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}">Save</button></p>
+      <p><button type="submit" id="saveEdit" name="submit" class="button" onclick="if(!this.form.checkbox.checked){alert('You must agree to the terms of use.');return false}"><i class="fa fa-save" style="font-size:15px"></i> Save</button></p>
     </div>
 
   </div>

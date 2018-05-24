@@ -102,7 +102,7 @@ function check_input(){
       return false;
     }
   }
-
+  saveData('email');
   return true;
 }
 
