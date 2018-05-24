@@ -50,6 +50,7 @@ if(count($_GET) == 0) {
   </div>
 
 <?php
+
 $created = substr($row['created'], 0, 10);
 
 echo "<p class='list_title center'>{$escaped['title']}</p>";
@@ -60,10 +61,19 @@ echo "<div id='detail_left'><img src=\"{$escaped['image']}\" class='detailImg de
 <br>";
 ?>
 <form id="detailBtn" action="request.php?id=<?=$filtered_id?>" method="post">
-  <span><button type="submit" name="request" class="button"><i class="fa fa-send-o" style="font-size:15px"></i> Request</button></span>
+  <span><button type="submit" id="requestBtn" name="request" class="button"><i class="fa fa-send-o" style="font-size:15px"></i> Request</button></span>
 </form></div>
 </div>
 
+
+<?php
+//disable button if claimed
+if ($escaped['status'] != "Available") {
+  echo "<script>document.getElementById('requestBtn').disabled = true;</script>";
+  echo "<script>document.getElementById('requestBtn').style.cursor = 'default';</script>";
+  echo "<script>document.getElementById('requestBtn').style.backgroundColor = 'grey';</script>";
+}
+?>
 <script>
 
   $(".checkContainer button").click(function(event){
