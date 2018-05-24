@@ -633,6 +633,12 @@ input[type='checkbox']:checked:after {
   .arrowDown{
     visibility: hidden;
   }
+  #toggle:checked ~ .fieldsetContainer {
+    height: 80px;
+  }
+  #toggle:checked ~ label .arrow-up { 
+    display: none; 
+  }
   .fieldsetContainer{
     background-color: #ededef;
     margin-top: 10px;
