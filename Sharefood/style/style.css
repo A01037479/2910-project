@@ -433,6 +433,7 @@ input[type='checkbox']:checked:after {
   font-size: 20pt;
   position: relative;
   left: -6px;
+  top: -1.2px;
   width: 80px;
   box-sizing: border-box;
   border: 1px solid #595d63;
@@ -629,6 +630,12 @@ input[type='checkbox']:checked:after {
 @media (min-width:801px) {
   .arrowDown{
     visibility: hidden;
+  }
+  #toggle:checked ~ .fieldsetContainer {
+    height: 80px;
+  }
+  #toggle:checked ~ label .arrow-up {
+    display: none;
   }
   .fieldsetContainer{
     background-color: #ededef;

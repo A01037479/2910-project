@@ -122,7 +122,6 @@ function check_input(){
 //   $("#confirmForm").submit();
 // });
 
-
 //check input for request page
 function checkRequest(){
   var x = document.forms["requesting"]["email"].value;
