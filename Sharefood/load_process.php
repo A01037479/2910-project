@@ -57,10 +57,9 @@ if(count($_POST) == 0) {
           } else {
             echo "Posted: &nbsp; $created</p></div></a>";
           }
-      
-          $lastid = $row['id'];
-          }
+        
           echo "<script>newid = {$row['id']};</script>";
+        }
       }
     } 
   
