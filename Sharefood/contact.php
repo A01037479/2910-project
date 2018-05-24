@@ -22,7 +22,7 @@ require_once('view/top.php');
     <span class="bar"></span></p>
     <p><textarea placeholder="Your message and comments for Sharefood.today" name="message"
     rows="7" cols="20"></textarea></p>
-    <p><input type="submit" value="Send" class="button" onclick="saveData('contactEmail')"></p>
+    <p><button type="submit" class="button" onclick="saveData('contactEmail')">Send</button></p>
 
 </form>
 </div>

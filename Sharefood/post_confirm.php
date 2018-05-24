@@ -36,6 +36,9 @@ if(count($_POST) == 0) {
   <button onclick="goBack()" class="emptybtn">edit</button>
   <button onclick="confirm()" class="confirmbtn" id="confirmBtn">confirm</button>
 
+
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 // go back to the previous page
 function goBack() {
