@@ -34,7 +34,7 @@ if(count($_POST) == 0) {
   <input type="hidden" name="location" value="<?= $_POST['location'] ?>" >
 </form>
   <button onclick="goBack()" class="emptybtn"><i class="fas fa-edit" style="font-size:15px;color:green"></i> Edit</button>
-  <button onclick="confirm()" class="confirmbtn" id="confirmBtn"><i class="fas fa-check" style="font-size:15px"></i> Confirm</button>
+  <button class="confirmbtn" id="confirmBtn"><i class="fas fa-check" style="font-size:15px"></i> Confirm</button>
 
 
 <script src="js/script.js"></script>
@@ -45,9 +45,6 @@ function goBack() {
     window.history.back();
 }
 
-function confirm() {
-  $("#confirmForm").submit();
-}
 
 </script>
 
