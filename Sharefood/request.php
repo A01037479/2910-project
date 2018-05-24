@@ -27,7 +27,7 @@ if(count($_GET) == 0) {
   <span class="highlight"></span>
   <span class="bar"></span></span></p>
   <p><textarea name="message" rows="5" cols="20" placeholder="Message" required></textarea></p>
-  <p><input id="senderBtn" type="submit" name="send" value="Send" class="button" onclick="saveData('emailRequest')"></p>
+  <p><button id="senderBtn" type="submit" name="send" class="button" onclick="saveData('emailRequest')">Send</button></p>
 </form>
 </div>
 <script src="js/script.js?=v1"></script>

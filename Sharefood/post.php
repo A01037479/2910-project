@@ -6,12 +6,12 @@ require_once('view/top.php');
   <form id="form1" class="form center" action="post_confirm.php" name="posting" onsubmit="return check_input()" method="post" enctype="multipart/form-data">
     <div id = "post_left">
     <p>
-      <input class="textinput fa" type="text" name="title" placeholder="&#xf1e0; What would you like to share?">
+      <input class="textinput" type="text" name="title" placeholder="What would you like to share?">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
     <p>
-      <textarea name="description" class="autoExpand fa postTextArea" rows="3" placeholder="&#xf11c; Tell us a bit more about your food (e.g.      quantity, best before date)"></textarea>
+      <textarea name="description" class="autoExpand postTextArea" rows="3" placeholder="Tell us a bit more about your food (e.g. quantity, best before date)"></textarea>
     </p>
     <input type='file' accept="image/gif, image/jpeg, image/png, image/jpg" id="image">
     <input type='hidden' id="imgpath" name="path">
@@ -26,7 +26,7 @@ require_once('view/top.php');
 
 
     <div class="pickup">
-      <p><i class="fa fa-location-arrow" style="font-size:18px"></i> Pick-up campus</p>
+      <p>Pick-up campus</p>
       <p>&nbsp;<input type="checkbox" name="location" value="Burnaby campus" id="hellomom" checked/><label for="hellomom">&nbsp;Burnaby</label>&nbsp;
       <input type="checkbox" name="location" value="Downtown campus" id="hellodad"/><label for="hellodad">&nbsp;Downtown</label>
       </p>
@@ -40,18 +40,18 @@ require_once('view/top.php');
     </script>
 
     <p>
-      <input id="email" class="textinput fa" type="email" name="email" placeholder="&#xf0e0; email">
+      <input id="email" class="textinput" type="email" name="email" placeholder="Email">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
 
     <p>
-      <input id="temp1" class="textinput fa" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="&#xf023; password">
+      <input id="temp1" class="textinput" type="password" name="password" onkeyup="pwd_validation(); return false;" placeholder="Password">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
     <p class="confirmPsw">
-      <input id="temp2" class="textinput fa" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="&#xf023; confirming password">
+      <input id="temp2" class="textinput" type="password" name="password2" onkeyup="pwd_validation(); return false;" placeholder="Confirm password">
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
@@ -59,8 +59,7 @@ require_once('view/top.php');
   <div class="toggleDiv">
     <input type="checkbox" id="toggle"/>
     <label for="toggle">
-        <span>
-        <i class="fa fa-question" style="font-size:18px"></i> Terms of Use&nbsp;
+        <span>Terms of Use&nbsp;
             <span class="changeArrow arrow-up"><img src="img/arrow-up.png" alt="up"></span>
             <span class="changeArrow arrow-dn"><img class="arrowDown" src="img/arrow-down.png" alt="down"></span>
         </span>
