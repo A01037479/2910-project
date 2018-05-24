@@ -55,7 +55,7 @@ require_once('view/top.php');
       <span class="highlight"></span>
       <span class="bar"></span>
     </p>
-    <span class="pswcheck">*password length should be 4 to 20 characters, numbers or symbols.</span>
+    <span class="pswcheck">*password must be between 4 to 20 characters and can contain letters, numbers or symbols.</span>
   <div class="toggleDiv">
     <input type="checkbox" id="toggle"/>
     <label for="toggle">

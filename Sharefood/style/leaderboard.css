@@ -32,8 +32,12 @@
 }
 
 #myCanvas{
+    display:initial;
+    transform:initial;
     left: calc(50% - 160px);
     position: absolute;
+    top:initial;
+    
 }
 
 .lock-screen {
