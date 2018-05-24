@@ -204,6 +204,7 @@ article {
   margin: 5px;
 }
 .textinput {
+  font-family: 'Helvetica';
   box-sizing: border-box;
   font-size: 12pt;
 	padding: 5px;
@@ -219,6 +220,7 @@ textarea {
   color: #636363;
   padding: 5px;
   font-size: 12pt;
+  font-family: serif;
   box-sizing: border-box;
   width: 100%;
 }

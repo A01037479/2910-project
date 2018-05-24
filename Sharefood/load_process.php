@@ -37,9 +37,14 @@ if(count($_POST) == 0) {
           $created = substr($row['created'], 0, 10);
 
           // listing each post
+          if ($escaped['status']=="Available"){
+            $icon = "<i class='fa fa-check-circle' style='font-size:24px;color:green'></i>";
+          }else{
+            $icon = "<i class='fa fa-times-circle' style='font-size:24px;color:grey'></i>";
+          }
           echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
           echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
-          <p>Status:&nbsp; {$escaped['status']}<br>Posted: &nbsp; {$created}</p>
+          <p>Status:&nbsp; {$escaped['status']} $icon<br>Posted: &nbsp; {$created}</p>
           </div></a>";
           echo "<script>newid = {$row['id']};</script>";
       }
