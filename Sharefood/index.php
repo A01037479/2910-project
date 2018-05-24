@@ -83,7 +83,9 @@ $conn = db_init($config["host"], $config["dbuser"], $config["dbpw"], $config["db
 
 <br>
 <button id="loadButton">More results &nbsp; <img src="img/arrow-down.png"></button>
+<button onclick="topFunction()" id="gotop" title="Go to top">Top</button>
 
+<script src="js/gotopbutton.js"></script>
 <script>
 
   $("#plusButton").click(function(event){

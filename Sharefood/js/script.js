@@ -108,7 +108,7 @@ function check_input(){
     icon: "success",
     title: 'Uploading your item...',
     text: 'it will be closed in 2 seconds',
-    timer: 2000,
+    timer: 1500,
     onOpen: () => {
       swal.showLoading()
     }
