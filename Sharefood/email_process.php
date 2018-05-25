@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="style/style.css?v=1">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <?php
 
 if(count($_POST) == 0) {
@@ -50,8 +53,18 @@ if(count($_POST) == 0) {
     $mail->IsHTML(true);
 
     if ($mail->send()) {
-        echo "<script>alert ('Message has been sent successfully');
-        window.location.replace('index.php');</script>";
+        echo "<script>
+        $(document).ready(function(){
+            swal({
+                title: 'Sent',
+                text: 'Meesage has been successfully sent!',
+                icon: 'success',
+                button: 'ok',
+              });
+            window.location.replace('index.php');
+        });
+        
+        </script>";
     } else {
         echo "Sorry, there's problem in the mail server.<br>
         <a href='email_process.php?id={$filtered_id}'>Go back</a>";

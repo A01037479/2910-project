@@ -74,6 +74,7 @@ if ($escaped['status'] != "Available") {
   echo "<script>document.getElementById('requestBtn').style.backgroundColor = 'grey';</script>";
 }
 ?>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 
   $(".checkContainer button").click(function(event){
@@ -85,7 +86,13 @@ if ($escaped['status'] != "Available") {
       data: {input: inputVal, job: source},
       success: function(data){
         if (data == "deleted") {
-          alert ("Successfully deleted");
+          // alert ("Successfully deleted");
+          swal({
+            title: "Deleted!",
+            text: "Successfully deleted",
+            icon: "success",
+            button: "ok",
+          });
           window.location.replace("index.php");
         } else if(data == "edit"){
           $("#editForm").submit();
