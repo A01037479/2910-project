@@ -18,6 +18,8 @@ if(empty($_POST['title'])) {
     'description' => mysqli_real_escape_string($conn, $_POST['description']),
   );
 
+  date_default_timezone_set("America/Los_Angeles");
+  $time = date("Y/m/d/h/i/s");
 
   $sql = "
       INSERT INTO list
@@ -29,7 +31,7 @@ if(empty($_POST['title'])) {
         'Available',
         '{$_POST['image']}',
         '{$filtered['description']}',
-        NOW(),
+        '$time',
         '{$_POST['location']}'
         )
         ";

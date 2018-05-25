@@ -48,7 +48,7 @@ if(count($_POST) == 0) {
           echo "<a href=\"detail.php?id={$row['id']}\"><div class='list_item'><p class='list_title'>{$escaped['title']}</p>";
           echo "<img src=\"{$escaped['image']}\" class='uploadedImg'>
           <p>Status:&nbsp; {$escaped['status']} $icon<br>";
-          if($d2 == 0){
+          if($d2 <= 0){
             echo"Posted: &nbsp;Today</p></div></a>";
           } else if($d2 == 1){
             echo"Posted: &nbsp;Yesterday</p></div></a>";
