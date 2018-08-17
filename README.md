@@ -1,2 +1,3 @@
 # 2910-project
-Food waste.
+
+Share food. Reduce waste.
